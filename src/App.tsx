@@ -1,3 +1,5 @@
+// https://vkcom.github.io/icons
+
 import React from 'react'
 
 function App() {
