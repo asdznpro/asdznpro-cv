@@ -1,0 +1,300 @@
+@import './reset.scss', './media.scss';
+
+// fonts ==============================
+// font: rf-dewi
+
+@font-face {
+	font-display: swap;
+	font-family: 'RF Dewi Expanded';
+	src: url('../../public/fonts/rf-dewi/RFDewiExpanded-Black.woff2')
+			format('woff2'),
+		url('../../public/fonts/rf-dewi/RFDewiExpanded-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'RF Dewi Extended';
+	src: url('../../public/fonts/rf-dewi/RFDewiExtended-Black.woff2')
+			format('woff2'),
+		url('../../public/fonts/rf-dewi/RFDewiExtended-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'RF Dewi Extended';
+	src: url('../../public/fonts/rf-dewi/RFDewiExtended-Semibold.woff2')
+			format('woff2'),
+		url('../../public/fonts/rf-dewi/RFDewiExtended-Semibold.woff')
+			format('woff');
+	font-weight: 600;
+	font-style: normal;
+}
+
+// font: vk-sans
+
+@font-face {
+	font-display: swap;
+	font-family: 'VK Sans Display';
+	src: url('../../public/fonts/vk-sans/VKSansDisplay-Bold.woff2')
+			format('woff2'),
+		url('../../public/fonts/vk-sans/VKSansDisplay-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'VK Sans Display';
+	src: url('../../public/fonts/vk-sans/VKSansDisplay-DemiBold.woff2')
+			format('woff2'),
+		url('../../public/fonts/vk-sans/VKSansDisplay-DemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'VK Sans Display';
+	src: url('../../public/fonts/vk-sans/VKSansDisplay-Medium.woff2')
+			format('woff2'),
+		url('../../public/fonts/vk-sans/VKSansDisplay-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'VK Sans Display';
+	src: url('../../public/fonts/vk-sans/VKSansDisplay-Regular.woff2')
+			format('woff2'),
+		url('../../public/fonts/vk-sans/VKSansDisplay-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'VK Sans Display';
+	src: url('../../public/fonts/vk-sans/VKSansDisplay-Light.woff2')
+			format('woff2'),
+		url('../../public/fonts/vk-sans/VKSansDisplay-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+}
+
+// headers ==============================
+
+h1 {
+	font-family: 'RF Dewi Expanded';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 52px;
+	line-height: 64px;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-family: 'VK Sans Display';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 32px;
+	line-height: 42px;
+	text-transform: none;
+}
+
+h3 {
+	font-family: 'VK Sans Display';
+	font-style: normal;
+	font-weight: 100;
+	font-size: 24px;
+	line-height: 30px;
+}
+
+h4 {
+	font-family: 'VK Sans Display';
+	font-weight: 300;
+	font-style: normal;
+	font-size: 17px;
+	line-height: 24px;
+}
+
+h5 {
+	font-family: 'VK Sans Display';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+h6 {
+	font-family: 'VK Sans Display';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+// const ==============================
+
+$cubic-bezier: cubic-bezier(0.76, 0, 0.24, 1);
+
+$b-radius-8: 8px;
+$b-radius-12: 12px;
+$b-radius-16: 16px;
+$b-radius-24: 24px;
+$b-radius-32: 32px;
+$b-radius-44: 44px;
+
+// colors ==============================
+
+$red: #fa2047;
+$orange: #ff382c;
+$green: #00e376;
+$violet: #714fff;
+
+$alpha-red: rgba(250, 32, 71, 0.15);
+$alpha-orange: rgba(255, 56, 44, 0.15);
+$alpha-green: rgba(0, 227, 118, 0.15);
+$alpha-violet: rgba(113, 79, 255, 0.15);
+
+$alpha-gray: rgba(89, 103, 150, 0.11);
+
+$background: #12131f;
+$black: #0b0b13;
+$dark: #0e0f19;
+$dark-gray: #202230;
+
+$gray: #606780;
+$light-gray: #a4adcb;
+$white: #fff;
+
+$button-secondary: rgba(89, 103, 150, 0.24);
+
+// text-color ==============================
+
+.text-red {
+	color: $red !important;
+}
+
+.text-orange {
+	color: $orange !important;
+}
+
+.text-green {
+	color: $green !important;
+}
+
+.text-violet {
+	color: $violet !important;
+}
+
+.text-gray {
+	color: $gray !important;
+}
+
+.text-l-gray {
+	color: $light-gray !important;
+}
+
+// bg-alpha-color ==============================
+
+.bg-a-red {
+	background-color: $alpha-red;
+}
+
+.bg-a-orange {
+	background-color: $alpha-orange;
+}
+
+.bg-a-green {
+	background-color: $alpha-green;
+}
+
+.bg-a-violet {
+	background-color: $alpha-violet;
+}
+
+.bg-a-gray {
+	background-color: $alpha-gray;
+}
+
+// body ==============================
+
+body {
+	font-family: 'RF Dewi Expanded', 'VK Sans Display', sans-serif;
+	background-color: $background;
+	color: $white;
+	margin: 0;
+	overflow-x: hidden;
+
+	&.lock {
+		margin: 0;
+		overflow: hidden;
+		position: fixed;
+		width: 100%;
+	}
+}
+
+html {
+	box-sizing: border-box;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+}
+
+*::selection {
+	background-color: $orange;
+	color: $white;
+}
+
+// custom-scroll ==============================
+
+body,
+div,
+nav {
+	&::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+		background-color: none;
+	}
+
+	&::-webkit-scrollbar-track {
+		border-radius: 6px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: rgba(89, 103, 150, 0.25);
+		border-radius: 6px;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(89, 103, 150, 0.5);
+	}
+}
+
+// content ==============================
+
+.content {
+	padding: 214px 0 120px 0;
+	min-height: 100vh;
+}
+
+.container {
+	max-width: 1274px;
+	margin: 0 auto;
+}
+
+.container-content {
+	padding: 0 25px;
+}
+
+.container-title {
+	user-select: none;
+	margin-bottom: 56px;
+	h4 {
+		margin-top: 12px;
+	}
+}
