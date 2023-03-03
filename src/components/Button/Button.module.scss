@@ -8,6 +8,7 @@
 	padding: 0 20px;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	transition: 0.24s;
 	user-select: none;
 	overflow: hidden;
@@ -42,6 +43,10 @@
 
 	&:active {
 		transform: scale(0.96);
+	}
+
+	&:disabled {
+		pointer-events: none;
 	}
 }
 
@@ -84,4 +89,8 @@
 			color: $white;
 		}
 	}
+}
+
+.rounded {
+	border-radius: $b-radius-36;
 }

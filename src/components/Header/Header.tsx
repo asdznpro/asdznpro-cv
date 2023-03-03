@@ -128,10 +128,8 @@ function Header() {
 						<div className={styles.item}>
 							<nav className={styles.navigation}>
 								<div className={styles.navigationList}>
-									<Button text='Primary' className='primary' />
-									<Button text='Secondary' className='secondary' />
-									<Button text='Black' className='black' />
-									<Button text='White' className='white' />
+									<Button text='Меню' state='primary' />
+									<Button text='EN' state='white' />
 								</div>
 							</nav>
 						</div>

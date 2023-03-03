@@ -229,6 +229,62 @@ h6 {
 
 // text-chromatic-color ==============================
 
+.text-white {
+	color: $white !important;
+}
+
 .text-dark {
 	color: $text-dark !important;
+}
+
+// background-dynamic-color ==============================
+
+.bg-red {
+	background-color: $red !important;
+}
+
+.bg-orange {
+	background-color: $orange !important;
+}
+
+.bg-l-orange {
+	background-color: $light-orange !important;
+}
+
+.bg-yellow {
+	background-color: $yellow !important;
+}
+
+.bg-l-green {
+	background-color: $light-green !important;
+}
+
+.bg-green {
+	background-color: $green !important;
+}
+
+.bg-cyan {
+	background-color: $cyan !important;
+}
+
+.bg-blue {
+	background-color: $blue !important;
+}
+
+.bg-violet {
+	background-color: $violet !important;
+}
+
+.bg-purple {
+	background-color: $purple !important;
+}
+
+.bg-pink {
+	background-color: $pink !important;
+}
+
+// background-chromatic-color ==============================
+
+.bg-white {
+	background-color: $white !important;
 }

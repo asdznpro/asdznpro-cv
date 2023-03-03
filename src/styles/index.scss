@@ -75,32 +75,18 @@ nav {
 	margin: 0 auto;
 }
 
-// .container-content {
-// 	padding: 0 48px;
-// }
-
 // section ==============================
 
-.sectionStack-root {
+.sectionStack {
 	display: flex;
 	flex-direction: column;
 	gap: 104px;
 }
 
-.section-root {
-	width: 100%;
-	background-color: $white;
-	border-radius: $b-radius-36;
-}
+//
 
-.section-inner {
-	width: 100%;
-	padding: 16px;
-}
-
-.title-root {
+.button-wrapper {
 	display: flex;
-	flex-direction: column;
-	gap: 24px;
-	padding: 32px;
+	gap: 12px;
+	flex-wrap: wrap;
 }
