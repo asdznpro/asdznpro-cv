@@ -1,0 +1,234 @@
+// border-radius ==============================
+
+$b-radius-8: 8px;
+$b-radius-12: 12px;
+$b-radius-16: 16px;
+$b-radius-18: 18px;
+$b-radius-24: 24px;
+$b-radius-36: 36px;
+
+// colors ==============================
+
+// dynamic
+
+$red: #ff3b3b;
+$orange: #ff6d39;
+$light-orange: #ffab3b;
+$yellow: #ffd43b;
+$light-green: #aff70d;
+$green: #04ea89;
+$cyan: #00eaff;
+$blue: #3d3bff;
+$violet: #9d3bff;
+$purple: #dd0dff;
+$pink: #ff3beb;
+
+// transparent
+
+$alpha-red: rgba(255, 59, 59, 0.15);
+$alpha-orange: rgba(255, 109, 57, 0.15);
+$alpha-light-orange: rgba(255, 171, 59, 0.15);
+$alpha-yellow: rgba(255, 212, 59, 0.15);
+$alpha-light-green: rgba(175, 247, 13, 0.15);
+$alpha-green: rgba(4, 234, 137, 0.15);
+$alpha-cyan: rgba(0, 234, 255, 0.15);
+$alpha-blue: rgba(61, 59, 255, 0.15);
+$alpha-violet: rgba(157, 59, 255, 0.15);
+$alpha-purple: rgba(228, 59, 255, 0.15);
+$alpha-pink: rgba(255, 59, 212, 0.15);
+
+// general-chromatic
+
+$black: #000000;
+$white: #ffffff;
+$text-dark: #959ca4;
+
+// light-mode
+
+$background: #f1f2f2;
+$foreground: #fafbfb;
+$divider: #e5e5e5;
+
+$button-secondary: #f5f5f5;
+
+// dark-mode
+
+// $background: #141414;
+// $foreground: #202020;
+// $content: #272727;
+// $divider: #3e3e3e;
+
+// $text-secondary: #e0e2e4;
+// $text-primary: #f7f7f5;
+
+// $button-secondary: #333333;
+
+// fonts ==============================
+
+// font: rf-dewi
+
+@font-face {
+	font-display: swap;
+	font-family: 'RF Dewi Expanded';
+	src: url('../../public/fonts/rf-dewi/RFDewiExpanded-Black.woff2')
+			format('woff2'),
+		url('../../public/fonts/rf-dewi/RFDewiExpanded-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+}
+
+// font: vk-sans
+
+@font-face {
+	font-display: swap;
+	font-family: 'VK Sans Display';
+	src: url('../../public/fonts/vk-sans/VKSansDisplay-Bold.woff2')
+			format('woff2'),
+		url('../../public/fonts/vk-sans/VKSansDisplay-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'VK Sans Display';
+	src: url('../../public/fonts/vk-sans/VKSansDisplay-DemiBold.woff2')
+			format('woff2'),
+		url('../../public/fonts/vk-sans/VKSansDisplay-DemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'VK Sans Display';
+	src: url('../../public/fonts/vk-sans/VKSansDisplay-Medium.woff2')
+			format('woff2'),
+		url('../../public/fonts/vk-sans/VKSansDisplay-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'VK Sans Display';
+	src: url('../../public/fonts/vk-sans/VKSansDisplay-Regular.woff2')
+			format('woff2'),
+		url('../../public/fonts/vk-sans/VKSansDisplay-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'VK Sans Display';
+	src: url('../../public/fonts/vk-sans/VKSansDisplay-Light.woff2')
+			format('woff2'),
+		url('../../public/fonts/vk-sans/VKSansDisplay-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+}
+
+// headers ==============================
+
+h1 {
+	font-family: 'RF Dewi Expanded';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 40px;
+	line-height: 120%;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-family: 'VK Sans Display';
+	font-weight: 500;
+	font-style: normal;
+	font-size: 32px;
+	line-height: 42px;
+	text-transform: none;
+}
+
+h3 {
+	font-family: 'VK Sans Display';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 30px;
+}
+
+h4 {
+	font-family: 'VK Sans Display';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 17px;
+	line-height: 24px;
+}
+
+h5 {
+	font-family: 'VK Sans Display';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+h6 {
+	font-family: 'VK Sans Display';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+// text-dynamic-color ==============================
+
+.text-red {
+	color: $red !important;
+}
+
+.text-orange {
+	color: $orange !important;
+}
+
+.text-l-orange {
+	color: $light-orange !important;
+}
+
+.text-yellow {
+	color: $yellow !important;
+}
+
+.text-l-green {
+	color: $light-green !important;
+}
+
+.text-green {
+	color: $green !important;
+}
+
+.text-cyan {
+	color: $cyan !important;
+}
+
+.text-blue {
+	color: $blue !important;
+}
+
+.text-violet {
+	color: $violet !important;
+}
+
+.text-purple {
+	color: $purple !important;
+}
+
+.text-pink {
+	color: $pink !important;
+}
+
+// text-chromatic-color ==============================
+
+.text-dark {
+	color: $text-dark !important;
+}

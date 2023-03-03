@@ -1,0 +1,36 @@
+@import '/src/styles/variables';
+
+.root {
+	width: 100%;
+	z-index: 1002;
+}
+
+.wrapper {
+	background-color: $white;
+	border-radius: $b-radius-36;
+	padding: 0 48px;
+	margin-top: 32px;
+	height: 112px;
+	display: flex;
+	gap: 24px;
+	justify-content: space-between;
+}
+
+.logo {
+	display: block;
+}
+
+.item {
+	display: flex;
+	height: 100%;
+	align-items: center;
+}
+
+.navigation {
+	display: flex;
+}
+
+.navigationList {
+	display: flex;
+	gap: 6px;
+}
