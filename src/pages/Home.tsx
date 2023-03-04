@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 
 import { Header } from '../components/Header'
 import { Button } from '../components/Button'
+import { OverlayButton } from '../components/OverlayButton'
 import { Footer } from '../components/Footer'
 import { Section } from '../components/Section'
 import { Title } from '../components/Section/Title'
@@ -15,6 +16,7 @@ function Home() {
 		<>
 			<main className='pageTemplate-content'>
 				<Header />
+				<OverlayButton />
 
 				<div className='sectionStack'>
 					<Section backgroundColor='white'>

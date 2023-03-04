@@ -1,0 +1,25 @@
+@import '/src/styles/variables';
+
+.root {
+	position: fixed;
+	background-color: #e0e1e1;
+	border-radius: $b-radius-16;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	height: 54px;
+	right: 52px;
+	bottom: 52px;
+	transition: 0.18s;
+	z-index: 1002;
+	user-select: none;
+
+	&:hover {
+		transform: scale(1.1);
+		background-color: darken(#e0e1e1, 10%);
+	}
+
+	&:active {
+		transform: scale(0.96);
+	}
+}
