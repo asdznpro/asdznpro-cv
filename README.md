@@ -1,3 +1,3 @@
 # asdznpro-cv
-Andrew's Curriculum  Vitae
+Andrew's Curriculum Vitae
 
