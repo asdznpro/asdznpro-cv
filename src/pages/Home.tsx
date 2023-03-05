@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 import { Header } from '../components/Header'
 import { Button } from '../components/Button'
 import { OverlayButton } from '../components/OverlayButton'
 import { Footer } from '../components/Footer'
-import { Section } from '../components/Section'
-import { Title } from '../components/Section/Title'
+import { SectionStack } from '../components/SectionStack'
+import { Section } from '../components/SectionStack/Section'
+import { Title } from '../components/SectionStack/Section/Title'
 
 function Home() {
 	useEffect(() => {
@@ -18,13 +20,13 @@ function Home() {
 				<Header />
 				<OverlayButton />
 
-				<div className='sectionStack'>
+				<SectionStack>
 					<Section backgroundColor='white'>
 						<Title>
 							<h1>Buttons</h1>
 							<div className='button-wrapper'>
 								<Button text='Primary' state='primary' link='/portfolio' />
-								<Button text='Secondary' state='secondary' disabled />
+								<Button text='Secondary' state='secondary' />
 								<Button text='Black' state='black' />
 								<Button text='White' state='white' />
 							</div>
@@ -100,8 +102,26 @@ function Home() {
 						<Title>
 							<h1>Контакты</h1>
 						</Title>
+						<div className='contact-list'>
+							<Link to='#' className='contact-item ar-1-1'>
+								<div className='item-top'></div>
+								<div className='item-bottom'></div>
+							</Link>
+							<Link to='#' className='contact-item ar-1-1'>
+								<div className='item-top'></div>
+								<div className='item-bottom'></div>
+							</Link>
+							<Link to='#' className='contact-item g-column-6'>
+								<div className='item-top'></div>
+								<div className='item-bottom'></div>
+							</Link>
+							<Link to='#' className='contact-item ar-1-1'>
+								<div className='item-top'></div>
+								<div className='item-bottom'></div>
+							</Link>
+						</div>
 					</Section>
-				</div>
+				</SectionStack>
 
 				<Footer />
 			</main>

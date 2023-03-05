@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 
-import { Button } from '../Button'
 import styles from './OverlayButton.module.scss'
 
 // @ts-ignore
@@ -46,7 +45,7 @@ function OverlayButton() {
 						</clipPath>
 					</defs>
 				</svg>
-				<Button text='Резюме в PDF' state='' />
+				<h4>Резюме в PDF</h4>
 			</Link>
 		</>
 	)

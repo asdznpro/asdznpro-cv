@@ -8,15 +8,20 @@
 	display: flex;
 	align-items: center;
 	height: 54px;
-	right: 52px;
-	bottom: 52px;
+	right: 44px;
+	bottom: 44px;
 	transition: 0.18s;
 	z-index: 1002;
 	user-select: none;
 
+	h4 {
+		color: $black;
+		padding: 0 16px;
+	}
+
 	&:hover {
 		transform: scale(1.1);
-		background-color: darken(#e0e1e1, 10%);
+		background-color: darken(#e0e1e1, 5%);
 	}
 
 	&:active {

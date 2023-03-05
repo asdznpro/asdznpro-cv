@@ -24,6 +24,7 @@
 	.abs {
 		position: absolute;
 		transform: translateY(150%);
+		// transform: translateY(150%) skewY(-15deg);
 		pointer-events: none;
 		opacity: 0;
 		transition: 0.24s;
