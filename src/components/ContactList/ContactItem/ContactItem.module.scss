@@ -1,0 +1,68 @@
+@import '/src/styles/variables';
+
+.root {
+	display: flex;
+	flex-direction: column;
+	border-radius: $b-radius-32;
+	transition: 0.2s ease;
+	max-height: 240px;
+	overflow: hidden;
+	cursor: pointer;
+	color: $white;
+
+	svg {
+		transition: 0.2s ease;
+	}
+
+	&:hover {
+		transform: scale(0.94);
+	}
+
+	&:active {
+		transform: scale(0.9);
+	}
+}
+
+.itemTop {
+	display: flex;
+	padding: 24px 24px 0;
+	justify-content: flex-end;
+}
+
+.itemBottom {
+	display: flex;
+	height: 100%;
+	padding: 0 32px 32px;
+	align-items: flex-end;
+}
+
+.root:hover {
+	.itemTop {
+		svg {
+			transform: translate(120%, -120%);
+		}
+	}
+
+	.itemBottom {
+		svg {
+			width: 64px !important;
+			height: 64px !important;
+		}
+	}
+}
+
+.aspectRatio1 {
+	aspect-ratio: 1 / 1;
+}
+
+.aspectRatio2 {
+	aspect-ratio: 2.1 / 1;
+}
+
+.gridColumn3 {
+	grid-column: span 3;
+}
+
+.gridColumn6 {
+	grid-column: span 6;
+}
