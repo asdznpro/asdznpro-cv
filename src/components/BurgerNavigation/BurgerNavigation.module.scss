@@ -1,0 +1,62 @@
+@import '/src/styles/variables';
+
+.root {
+	position: fixed;
+	display: flex;
+	pointer-events: none;
+	visibility: hidden;
+	width: 100%;
+	height: 100vh;
+	z-index: 1000;
+	top: 0;
+	overflow: hidden;
+	transition: 0.44s ease;
+	align-items: flex-start;
+	justify-content: center;
+
+	&.active {
+		pointer-events: all;
+		visibility: visible;
+		background-color: rgba(20, 20, 20, 0.88);
+
+		.wrapper {
+			max-height: 70%;
+			margin: 170px 24px 80px;
+		}
+	}
+
+	.wrapper {
+		display: flex;
+		max-width: 1128px;
+		max-height: 112px;
+		width: 100%;
+		overflow: hidden;
+		border-radius: $b-radius-36;
+		background-color: $white;
+		margin: 32px 24px 80px;
+		transition: 0.44s ease;
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			padding: 48px;
+			gap: 24px;
+
+			.item {
+				display: flex;
+				align-items: center;
+
+				h3 {
+					color: $black;
+					transition: 0.24s ease;
+					font-weight: 500;
+				}
+
+				h3:hover {
+					color: $blue;
+				}
+			}
+		}
+	}
+}

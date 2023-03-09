@@ -1,0 +1,23 @@
+@import '/src/styles/variables';
+
+.root {
+	display: flex;
+	align-items: center;
+
+	.path {
+		transition: 0.24s ease;
+		fill: $blue;
+	}
+
+	&:hover {
+		.path {
+			fill: $black;
+		}
+	}
+
+	// &:active {
+	// 	.path {
+	// 		fill: $blue;
+	// 	}
+	// }
+}

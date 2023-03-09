@@ -2,12 +2,12 @@
 
 .root {
 	width: 100%;
-	border-radius: $b-radius-36;
 }
 
 .inner {
+	border-radius: $b-radius-36;
 	width: 100%;
-	padding: 16px;
+	padding: 12px;
 	display: flex;
 	flex-direction: column;
 	gap: 8px;

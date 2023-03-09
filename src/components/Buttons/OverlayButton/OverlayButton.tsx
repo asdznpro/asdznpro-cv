@@ -3,12 +3,16 @@ import { Link } from 'react-router-dom'
 import styles from './OverlayButton.module.scss'
 
 // @ts-ignore
-import CvPdf from '../../static/cv.pdf'
+import CvPdf from '../../../static/cv.pdf'
 
-function OverlayButton() {
+function OverlayButton(props: any) {
 	return (
 		<>
-			<Link to={CvPdf} target='_blank' className={styles.root}>
+			<Link
+				to={CvPdf}
+				target='_blank'
+				className={`${styles.root} ${props.className ? props.className : ''}`}
+			>
 				<svg
 					width='46'
 					height='54'

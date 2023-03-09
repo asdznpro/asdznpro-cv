@@ -3,10 +3,18 @@
 .root {
 	width: 100%;
 	z-index: 1002;
+	position: fixed;
+	top: 0px;
+	transition: 0.52s ease;
+
+	&.hidden {
+		transform: translateY(-100%);
+	}
 }
 
 .wrapper {
-	background-color: $white;
+	background: rgba(255, 255, 255, 0.7);
+	backdrop-filter: blur(30px);
 	border-radius: $b-radius-36;
 	padding: 0 48px;
 	margin-top: 32px;
@@ -14,6 +22,10 @@
 	display: flex;
 	gap: 24px;
 	justify-content: space-between;
+
+	&.active {
+		background-color: $white;
+	}
 }
 
 .logo {
@@ -32,5 +44,5 @@
 
 .navigationList {
 	display: flex;
-	gap: 6px;
+	gap: 8px;
 }

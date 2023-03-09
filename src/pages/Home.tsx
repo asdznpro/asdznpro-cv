@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 
 import { Header } from '../components/Header'
-import { Button } from '../components/Button'
-import { OverlayButton } from '../components/OverlayButton'
+import { Button } from '../components/Buttons/Button'
+import { OverlayButton } from '../components/Buttons/OverlayButton'
 import { Footer } from '../components/Footer'
 import { SectionStack } from '../components/SectionStack'
 import { Section } from '../components/SectionStack/Section'
@@ -39,37 +39,133 @@ function Home() {
 
 	return (
 		<>
-			<main className='pageTemplate-content'>
-				<Header />
-				<OverlayButton />
+			<Header />
+			<OverlayButton />
 
+			<main className='pageTemplate-content'>
 				<SectionStack>
 					<Section backgroundColor='white'>
 						<Title>
 							<h1>Buttons</h1>
-							<div className='button-wrapper'>
-								<Button text='Primary' state='primary' link='/portfolio' />
-								<Button text='Secondary' state='secondary' />
-								<Button text='Black' state='black' />
-								<Button text='White' state='white' />
-							</div>
-							<div className='button-wrapper'>
-								<Button text='Primary' state='primary' className='rounded' />
-								<Button
-									text='Secondary'
-									state='secondary'
-									className='rounded'
-									disabled
-								/>
-								<Button
-									text='Black'
-									state='black'
-									className='rounded'
-									disabled
-								/>
-								<Button text='White' state='white' className='rounded' />
-							</div>
 						</Title>
+						<div className='button-wrapper margin'>
+							<Button
+								text='More Size Primary'
+								moreSize
+								state='primary'
+								link='/portfolio'
+							/>
+							<Button text='More Size Secondary' moreSize state='secondary' />
+							<Button text='More Size Black' moreSize state='black' />
+							<Button text='More Size White' moreSize state='white' />
+						</div>
+						{/* <div className='button-wrapper margin'>
+							<Button
+								text='More Size Primary'
+								moreSize
+								state='primary'
+								className='rounded'
+								stretch
+							/>
+							<Button
+								text='More Size Secondary'
+								moreSize
+								state='secondary'
+								className='rounded'
+								disabled
+							/>
+							<Button
+								text='More Size Black'
+								moreSize
+								state='black'
+								className='rounded'
+								stretch
+								disabled
+							/>
+							<Button
+								text='More Size White'
+								moreSize
+								state='white'
+								className='rounded'
+							/>
+						</div> */}
+						<div className='button-wrapper margin'>
+							<Button
+								text='Default Size Primary'
+								state='primary'
+								link='/portfolio'
+							/>
+							<Button text='Default Size Secondary' state='secondary' />
+							<Button text='Default Size Black' state='black' />
+							<Button text='Default Size White' state='white' />
+						</div>
+						{/* <div className='button-wrapper margin'>
+							<Button
+								text='Default Size Primary'
+								state='primary'
+								className='rounded'
+								stretch
+							/>
+							<Button
+								text='Default Size Secondary'
+								state='secondary'
+								className='rounded'
+								disabled
+							/>
+							<Button
+								text='Default Size Black'
+								state='black'
+								className='rounded'
+								stretch
+								disabled
+							/>
+							<Button
+								text='Default Size White'
+								state='white'
+								className='rounded'
+							/>
+						</div> */}
+						<div className='button-wrapper'>
+							<Button
+								text='Less Size Primary'
+								lessSize
+								state='primary'
+								link='/portfolio'
+							/>
+							<Button text='Less Size Secondary' lessSize state='secondary' />
+							<Button text='Less Size Black' lessSize state='black' />
+							<Button text='Less Size White' lessSize state='white' />
+						</div>
+						{/* <div className='button-wrapper'>
+							<Button
+								text='Less Size Primary'
+								lessSize
+								state='primary'
+								className='rounded'
+								stretch
+							/>
+							<Button
+								text='Less Size Secondary'
+								lessSize
+								state='secondary'
+								className='rounded'
+								disabled
+							/>
+							<Button
+								text='Less Size Black'
+								lessSize
+								state='black'
+								className='rounded'
+								stretch
+								disabled
+							/>
+							<Button
+								text='Less Size White'
+								lessSize
+								state='white'
+								className='rounded'
+							/>
+						</div> */}
 					</Section>
 					<Section backgroundColor='white'>
 						<Title>
@@ -175,7 +271,6 @@ function Home() {
 						</ContactList>
 					</Section>
 				</SectionStack>
-
 				<Footer />
 			</main>
 		</>

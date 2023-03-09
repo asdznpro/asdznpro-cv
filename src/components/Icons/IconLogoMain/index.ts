@@ -1,0 +1,1 @@
+export { IconLogoMain } from './IconLogoMain'

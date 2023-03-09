@@ -5,11 +5,15 @@ function Section(props: any) {
 		<>
 			{props.children && (
 				<section
-					className={`${styles.root} ${
-						props.backgroundColor ? `bg-${props.backgroundColor}` : ''
-					} pageTemplate-container`}
+					className={`${styles.root}  pageTemplate-container pageTemplate-padding`}
 				>
-					<div className={`${styles.inner}`}>{props.children}</div>
+					<div
+						className={`${styles.inner} ${
+							props.backgroundColor ? `bg-${props.backgroundColor}` : ''
+						}`}
+					>
+						{props.children}
+					</div>
 				</section>
 			)}
 		</>
