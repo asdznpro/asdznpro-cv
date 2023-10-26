@@ -1,0 +1,54 @@
+@import 'Colors', 'Mixins';
+
+// Global ———————————————————————————————————————————————— //
+
+$ui-step: 4px;
+$ui-spacing: $ui-step * 5;
+$ui-column-width: 72px;
+
+// Fonts ———————————————————————————————————————————————— //
+
+// MTS
+
+$MTSWide: 'MTS Wide';
+$MTSExpanded: 'MTS Expanded';
+$MTSUltraExpanded: 'MTS UltraExpanded';
+
+// VK Sans Display
+
+$VkSans: 'VK Sans Display';
+
+// Border Radius ———————————————————————————————————————————————— //
+
+$ui-rounded--8: $ui-step * 2;
+$ui-rounded--12: $ui-step * 3;
+$ui-rounded--16: $ui-step * 4;
+$ui-rounded--20: $ui-step * 5;
+$ui-rounded--24: $ui-step * 6;
+$ui-rounded--36: $ui-step * 9;
+$ui-rounded--44: $ui-step * 11;
+$ui-rounded--56: $ui-step * 14;
+$ui-rounded--64: $ui-step * 16;
+
+// Z-index ———————————————————————————————————————————————— //
+
+$ui-index--1: 1; // for default elements
+$ui-index--2: 2; // for default elements
+$ui-index--4: 4; // for default elements
+$ui-index--8: 8; // for popouts
+$ui-index--12: 12; // for header
+$ui-index--16: 16; // for overlay
+$ui-index--20: 20; // for modals
+$ui-index--24: 24; // for emergencies
+
+// Container ———————————————————————————————————————————————— //
+
+$max-width--widescreen: 1084px; // 1084px
+$max-width--desktop: 992px; // 992px
+$max-width--tablet: 768px; // 768px
+$max-width--mobile: 576px; // 576px
+$max-width--small-mobile: 320px; // 320px
+
+// Media ———————————————————————————————————————————————— //
+
+$mouse-device: '(hover: hover) and (pointer: fine)';

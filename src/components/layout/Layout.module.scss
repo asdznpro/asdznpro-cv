@@ -1,0 +1,15 @@
+@import 'assets/styles/variables';
+
+.root {
+	@include ui-flex-container(flex, $flow: column);
+
+	min-height: 100dvh;
+	box-sizing: border-box;
+}
+
+.main {
+	@include ui-flex-container(flex, $flow: inherit);
+
+	padding: clamp(44px, 12dvh, 120px) 0;
+	gap: clamp(44px, 10dvh, 88px);
+}

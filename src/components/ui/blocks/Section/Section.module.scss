@@ -1,0 +1,26 @@
+@import 'assets/styles/variables';
+
+.root {
+	@include ui-size-control(100%);
+}
+
+@include ui-width-columns;
+
+.inner {
+	margin: 0 auto;
+	position: relative;
+}
+
+// .fill {
+// 	@include ui-flex-container(flex, $flow: column);
+
+// 	gap: $ui-spacing;
+// 	padding: $ui-step * 3;
+// 	background-color: $black;
+// 	border-radius: $ui-rounded--24;
+// 	overflow: hidden;
+// }
+
+.padding {
+	padding: 0 $ui-spacing;
+}

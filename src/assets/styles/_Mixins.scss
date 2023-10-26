@@ -1,0 +1,244 @@
+// Container ———————————————————————————————————————————————— //
+
+@mixin ui-max-width($count: 12, $padding: true) {
+	@if $padding == true {
+		max-width: calc(
+			$ui-column-width * $count + $ui-spacing * ($count - 1) + $ui-spacing * 2
+		);
+	}
+
+	@if $padding == false {
+		max-width: calc($ui-column-width * $count + $ui-spacing * ($count - 1));
+	}
+}
+
+@mixin ui-container($count: 12) {
+	@include ui-max-width($count);
+
+	width: 100%;
+	padding: 0 $ui-spacing;
+	margin: 0 auto;
+}
+
+@mixin ui-width-columns($padding: true) {
+	@for $i from 3 through 12 {
+		$width: $i;
+		$padding-option: if($padding, true, false);
+
+		.width-#{$width}-columns {
+			@include ui-max-width($width, $padding-option);
+		}
+	}
+}
+
+// Display Grid ———————————————————————————————————————————————— //
+
+@mixin ui-display-global-grid($count: 12) {
+	display: grid;
+	gap: $global-spacing;
+	grid-template-columns: repeat($count, 1fr);
+
+	@if $count >= 10 {
+		@media (max-width: $max-width--widescreen) {
+			grid-template-columns: repeat(10, 1fr);
+		}
+	}
+
+	@if $count >= 8 {
+		@media (max-width: $max-width--desktop) {
+			grid-template-columns: repeat(8, 1fr);
+		}
+	}
+
+	@if $count >= 6 {
+		@media (max-width: $max-width--tablet) {
+			grid-template-columns: repeat(6, 1fr);
+		}
+	}
+
+	@if $count >= 4 {
+		@media (max-width: $max-width--mobile) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	@if $count >= 2 {
+		@media (max-width: $max-width--small-mobile) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
+
+@mixin ui-display-grid($template) {
+	display: grid;
+	grid-template-columns: $template;
+}
+
+// Utilities ———————————————————————————————————————————————— //
+
+@mixin ui-flex-container(
+	$type: null,
+	$justify: null,
+	$align: null,
+	$basis: null,
+	$flow: null,
+	$grow: null,
+	$shrink: null
+) {
+	@if $type != null {
+		display: $type;
+	}
+
+	@if $justify != null {
+		justify-content: $justify;
+	}
+
+	@if $align != null {
+		align-items: $align;
+	}
+
+	@if $basis != null {
+		flex-basis: $basis;
+	}
+
+	@if $flow != null {
+		flex-flow: $flow;
+	}
+
+	@if $grow != null {
+		flex-grow: $grow;
+	}
+
+	@if $shrink != null {
+		flex-shrink: $shrink;
+	}
+}
+
+@mixin ui-absolute-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin ui-text-ellipsis($line-clamp: 1) {
+	overflow: hidden;
+
+	@if $line-clamp > 1 {
+		display: -webkit-box;
+		-webkit-line-clamp: $line-clamp;
+		-webkit-box-orient: vertical;
+	} @else if $line-clamp == 1 {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+}
+
+@mixin ui-size-control(
+	$width: null,
+	$height: null,
+	$maxW: null,
+	$maxH: null,
+	$minW: null,
+	$minH: null
+) {
+	@if $width != null {
+		width: $width;
+	}
+
+	@if $height != null {
+		height: $height;
+	}
+
+	@if $maxW != null {
+		max-width: $maxW;
+	}
+
+	@if $maxH != null {
+		max-height: $maxH;
+	}
+
+	@if $minW != null {
+		min-width: $minW;
+	}
+
+	@if $minH != null {
+		min-height: $minH;
+	}
+}
+
+@mixin ui-visually-hidden {
+	border: 0 !important;
+	-webkit-clip-path: inset(50%);
+	clip-path: inset(50%);
+	width: 1px !important;
+	height: 1px !important;
+	margin: -1px !important;
+	opacity: 0;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	white-space: nowrap !important;
+}
+
+// Styles Components ———————————————————————————————————————————————— //
+
+// Button
+
+@mixin primary-button-styles($color) {
+	background-color: #{$color};
+
+	&:hover {
+		background-color: darken($color, 4%);
+	}
+}
+
+@mixin secondary-button-styles($color) {
+	background: rgba($color, $alpha20);
+	backdrop-filter: blur(36px);
+
+	svg {
+		color: #{$color};
+		fill: #{$color};
+	}
+
+	&:hover {
+		background: rgba($color, $alpha32);
+	}
+
+	.textColor {
+		color: #{$color};
+	}
+}
+
+@mixin tertiary-button-styles($color) {
+	svg {
+		color: #{$color};
+		fill: #{$color};
+	}
+
+	&:hover {
+		background: rgba($color, $alpha20);
+	}
+
+	.textColor {
+		color: #{$color};
+	}
+}
+
+@mixin outline-button-styles($color) {
+	border: 1px solid #{$color};
+
+	svg {
+		color: #{$color};
+		fill: #{$color};
+	}
+
+	&:hover {
+		background: rgba($color, $alpha20);
+	}
+
+	.textColor {
+		color: #{$color};
+	}
+}
