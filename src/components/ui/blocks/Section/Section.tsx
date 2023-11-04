@@ -2,23 +2,25 @@ import styles from './Section.module.scss'
 import SectionProps from './Section.interface'
 
 const Section: React.FC<SectionProps> = props => {
-	const { children, style, fill, countColumns, withoutPadding } = props
-
-	const fillStyle = fill ? styles.fill : ''
-	const withoutPaddingStyle = withoutPadding ? '' : styles.padding
+	const { children, style, noField, countColumns } = props
 
 	return (
 		<section className={styles.root} style={style}>
 			<div
-				className={[
-					styles.inner,
-					styles[`width-${countColumns || 12}-columns`],
-					withoutPaddingStyle,
-				]
+				className={[styles.wrapper, noField ? '' : styles.field]
 					.join(' ')
 					.trim()}
 			>
-				{fill ? <div className={fillStyle}>{children}</div> : <>{children}</>}
+				<div
+					className={[
+						styles.inner,
+						styles[`width-${countColumns || 12}-columns`],
+					]
+						.join(' ')
+						.trim()}
+				>
+					{children}
+				</div>
 			</div>
 		</section>
 	)

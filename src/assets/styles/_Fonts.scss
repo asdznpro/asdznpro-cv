@@ -135,7 +135,7 @@
 // VK Sans Display ———————————————————————————————————————————————— //
 
 @font-face {
-	font-family: $VkSans;
+	font-family: $ui-font-secondary;
 	src: url('../fonts/vk-sans/woff2/VKSansDisplay-Light.woff2') format('woff2'),
 		url('../fonts/vk-sans/woff/VKSansDisplay-Light.woff') format('woff');
 	font-weight: 300;
@@ -144,7 +144,7 @@
 }
 
 @font-face {
-	font-family: $VkSans;
+	font-family: $ui-font-secondary;
 	src: url('../fonts/vk-sans/woff2/VKSansDisplay-Regular.woff2') format('woff2'),
 		url('../fonts/vk-sans/woff/VKSansDisplay-Regular.woff') format('woff');
 	font-weight: normal;
@@ -153,7 +153,7 @@
 }
 
 @font-face {
-	font-family: $VkSans;
+	font-family: $ui-font-secondary;
 	src: url('../fonts/vk-sans/woff2/VKSansDisplay-Medium.woff2') format('woff2'),
 		url('../fonts/vk-sans/woff/VKSansDisplay-Medium.woff') format('woff');
 	font-weight: 500;
@@ -162,7 +162,7 @@
 }
 
 @font-face {
-	font-family: $VkSans;
+	font-family: $ui-font-secondary;
 	src: url('../fonts/vk-sans/woff2/VKSansDisplay-DemiBold.woff2')
 			format('woff2'),
 		url('../fonts/vk-sans/woff/VKSansDisplay-DemiBold.woff') format('woff');
@@ -172,7 +172,7 @@
 }
 
 @font-face {
-	font-family: $VkSans;
+	font-family: $ui-font-secondary;
 	src: url('../fonts/vk-sans/woff2/VKSansDisplay-Bold.woff2') format('woff2'),
 		url('../fonts/vk-sans/woff/VKSansDisplay-Bold.woff') format('woff');
 	font-weight: bold;
@@ -187,7 +187,6 @@ h1 {
 	font-size: 64px;
 	font-style: normal;
 	font-weight: 900;
-	text-transform: uppercase;
 	line-height: 1.125em;
 }
 
@@ -195,8 +194,7 @@ h2 {
 	font-family: $MTSExpanded;
 	font-size: 40px;
 	font-style: normal;
-	font-weight: bold;
-	text-transform: uppercase;
+	font-weight: 900;
 	line-height: 1.2em;
 }
 
@@ -205,12 +203,11 @@ h3 {
 	font-size: 24px;
 	font-style: normal;
 	font-weight: bold;
-	text-transform: uppercase;
 	line-height: 1.333335em;
 }
 
 h4 {
-	font-family: $VkSans;
+	font-family: $ui-font-secondary;
 	font-size: 20px;
 	font-style: normal;
 	font-weight: normal;
@@ -218,7 +215,7 @@ h4 {
 }
 
 h5 {
-	font-family: $VkSans;
+	font-family: $ui-font-secondary;
 	font-size: 17px;
 	font-style: normal;
 	font-weight: normal;
@@ -226,7 +223,7 @@ h5 {
 }
 
 h6 {
-	font-family: $VkSans;
+	font-family: $ui-font-secondary;
 	font-size: 13px;
 	font-style: normal;
 	font-weight: 300;

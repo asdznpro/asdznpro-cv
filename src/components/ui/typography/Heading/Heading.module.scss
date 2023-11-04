@@ -1,0 +1,43 @@
+@import 'assets/styles/variables';
+
+// levels
+
+.level-1 {
+	font-size: 64px;
+	line-height: 1.125em;
+}
+
+.level-2 {
+	font-size: 40px;
+	line-height: 1.2em;
+}
+
+.level-3 {
+	font-size: 32px;
+	line-height: 1.125em;
+}
+
+.level-4 {
+	font-size: 24px;
+	line-height: 1.333334em;
+}
+
+// mode
+
+.wideLevel-1 {
+	font-family: $MTSUltraExpanded;
+}
+
+.wideLevel-2 {
+	font-family: $MTSExpanded;
+}
+
+.wideLevel-3 {
+	font-family: $MTSWide;
+}
+
+// caps
+
+.caps {
+	text-transform: uppercase;
+}

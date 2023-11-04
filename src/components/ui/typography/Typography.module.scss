@@ -1,0 +1,9 @@
+@import 'assets/styles/variables';
+
+.root {
+	@include ui-flex-container(block);
+}
+
+.caps {
+	text-transform: uppercase;
+}

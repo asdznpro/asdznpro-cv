@@ -1,0 +1,26 @@
+@import 'assets/styles/variables';
+
+.root {
+	@include ui-size-control(100%);
+
+	position: fixed;
+	z-index: $ui-index--12;
+	padding: $ui-step * 2;
+
+	.container {
+		@include ui-size-control(100%, 104px);
+		@include ui-flex-container(flex, space-between, center);
+
+		overflow: hidden;
+		border-radius: $ui-rounded--24;
+		background: $HeaderAlpha;
+		backdrop-filter: blur(32px);
+		outline: 1px solid $Separator;
+		padding: 0 $ui-step * 9;
+		gap: $ui-spacing;
+
+		.header-part {
+			@include ui-flex-container(flex, $items: center);
+		}
+	}
+}

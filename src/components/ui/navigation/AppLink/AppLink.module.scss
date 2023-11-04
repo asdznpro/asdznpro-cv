@@ -1,0 +1,25 @@
+@import 'assets/styles/variables';
+
+.root {
+	font-weight: bold;
+	transition: 0.08s ease-in;
+	cursor: pointer;
+	color: $AccentBlue;
+
+	text-decoration-line: underline !important;
+	text-decoration-color: $AccentBlue !important;
+
+	&:hover {
+		color: lighten($AccentBlue, 12%);
+		text-decoration-color: lighten($AccentBlue, 12%) !important;
+	}
+
+	&:visited {
+		color: $TextPrimary;
+		text-decoration-color: $TextPrimary !important;
+	}
+}
+
+.flex {
+	@include ui-flex-container(flex);
+}

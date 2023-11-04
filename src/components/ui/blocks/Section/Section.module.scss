@@ -1,26 +1,25 @@
 @import 'assets/styles/variables';
 
+@include ui-width-columns(false);
+
 .root {
-	@include ui-size-control(100%);
+	// @include ui-size-control(100%, $maxW: 1180px);
+
+	margin: 0 auto;
+	padding: 0 $ui-step * 2;
 }
 
-@include ui-width-columns;
+.field {
+	padding: $ui-step * 9 $ui-step * 12;
+	background-color: $FieldBackground;
+	border-radius: $ui-rounded--36;
+	outline: 1px solid $Separator;
+	overflow: hidden;
+}
 
 .inner {
-	margin: 0 auto;
-	position: relative;
-}
+	@include ui-size-control(100%);
+	@include ui-flex-container(flex, $flow: column);
 
-// .fill {
-// 	@include ui-flex-container(flex, $flow: column);
-
-// 	gap: $ui-spacing;
-// 	padding: $ui-step * 3;
-// 	background-color: $black;
-// 	border-radius: $ui-rounded--24;
-// 	overflow: hidden;
-// }
-
-.padding {
-	padding: 0 $ui-spacing;
+	gap: $ui-spacing;
 }

@@ -5,11 +5,10 @@ export { Spinner } from './blocks/Spinner'
 
 // navigation
 
-// export { AppLink } from './navigation/AppLink'
-// export { BottomMenu } from './navigation/BottomMenu'
-// export { NavigationMenu } from './navigation/NavigationMenu'
-// export { Pagination } from './navigation/Pagination'
+export { AppLink } from './navigation/AppLink'
 
-// popouts
+// typography
 
-// export { Dropdown } from './popouts/Dropdown'
+export { Heading } from './typography/Heading'
+export { Fontbody } from './typography/Fontbody'
+export { Footnote } from './typography/Footnote'

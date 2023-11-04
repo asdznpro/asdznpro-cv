@@ -1,4 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
+
 import { AppRouter } from 'components/router'
 
 import 'assets/styles/index.scss'

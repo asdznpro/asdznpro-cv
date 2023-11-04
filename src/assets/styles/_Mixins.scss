@@ -79,7 +79,8 @@
 @mixin ui-flex-container(
 	$type: null,
 	$justify: null,
-	$align: null,
+	$items: null,
+	$self: null,
 	$basis: null,
 	$flow: null,
 	$grow: null,
@@ -93,8 +94,12 @@
 		justify-content: $justify;
 	}
 
-	@if $align != null {
-		align-items: $align;
+	@if $items != null {
+		align-items: $items;
+	}
+
+	@if $self != null {
+		align-self: $self;
 	}
 
 	@if $basis != null {
@@ -135,19 +140,19 @@
 }
 
 @mixin ui-size-control(
-	$width: null,
-	$height: null,
+	$W: null,
+	$H: null,
 	$maxW: null,
 	$maxH: null,
 	$minW: null,
 	$minH: null
 ) {
-	@if $width != null {
-		width: $width;
+	@if $W != null {
+		width: $W;
 	}
 
-	@if $height != null {
-		height: $height;
+	@if $H != null {
+		height: $H;
 	}
 
 	@if $maxW != null {

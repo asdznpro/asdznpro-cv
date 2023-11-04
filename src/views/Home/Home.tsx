@@ -1,28 +1,61 @@
 import styles from './Home.module.scss'
 
 import { Layout } from 'components/layout'
-import { Section, Spinner } from 'components/ui'
+import { Heading, Fontbody, Footnote, Section, AppLink } from 'components/ui'
 
 const Home = () => {
 	return (
 		<Layout>
 			<Section>
-				<div
-					className={styles.root}
-					style={{ display: 'flex', flexDirection: 'column', gap: 32 }}
-				>
-					<Spinner width={44} height={44} style={{ margin: '0 auto' }} />
+				<Heading>Воистину радостный звук</Heading>
+				<Heading level={2}>
+					Воистину радостный звук: старческий скрип Амстердама
+				</Heading>
+				<Heading level={3}>
+					Воистину радостный звук: старческий скрип Амстердама
+				</Heading>
+				<Heading level={4} noCaps>
+					Воистину радостный звук: старческий скрип Амстердама
+				</Heading>
+			</Section>
 
-					<h1>Home Page Font Check</h1>
-					<h2>Home Page Font Check</h2>
-					<h3>Home Page Font Check</h3>
+			<Section>
+				<Fontbody>Home Page Font Check</Fontbody>
+				<Fontbody level={2}>
+					Сложно сказать, почему представители современных социальных резервов
+					освещают чрезвычайно интересные особенности картины в целом, однако
+					конкретные выводы, разумеется, превращены в посмешище, хотя само их
+					существование приносит несомненную пользу обществу. Идейные
+					соображения высшего порядка, а{' '}
+					<AppLink>также консультация с широким активом</AppLink> играет
+					определяющее значение для форм воздействия. Господа, разбавленное
+					изрядной долей эмпатии, рациональное мышление, а также свежий взгляд
+					на привычные вещи — безусловно открывает новые горизонты для вывода
+					текущих активов.
+				</Fontbody>
+				<Fontbody level={2} caps>
+					Home Page Font Check
+				</Fontbody>
+				<Fontbody level={3}>Home Page Font Check</Fontbody>
+			</Section>
 
-					<Spinner width={44} height={44} style={{ margin: '0 auto' }} />
+			<Section>
+				<Footnote>Home Page Font Check</Footnote>
+				<Footnote level={2}>Home Page Font Check</Footnote>
+				<Footnote level={3}>Home Page Font Check</Footnote>
 
-					<h4>Home Page Font Check</h4>
-					<h5>Home Page Font Check</h5>
-					<h6>Home Page Font Check</h6>
-				</div>
+				<Footnote level={3} caps>
+					Сложно сказать, почему представители{' '}
+					<AppLink to='/'>современных социальных резервов</AppLink> освещают
+					чрезвычайно интересные особенности картины в целом, однако конкретные
+					выводы, разумеется, превращены в посмешище, хотя само их существование
+					приносит несомненную пользу обществу.{' '}
+					<AppLink>Идейные соображения высшего порядка</AppLink>, а также
+					консультация с широким активом играет определяющее значение для форм
+					воздействия. Господа, разбавленное изрядной долей эмпатии,
+					рациональное мышление, а также свежий взгляд на привычные вещи —
+					безусловно открывает новые горизонты для вывода текущих активов.
+				</Footnote>
 			</Section>
 		</Layout>
 	)

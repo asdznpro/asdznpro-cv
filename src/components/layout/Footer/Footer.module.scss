@@ -1,0 +1,14 @@
+@import 'assets/styles/variables';
+
+.root {
+	margin-top: auto;
+	padding: 48px 0;
+	color: $TextSecondary;
+
+	.wrapper {
+		@include ui-container;
+		@include ui-display-grid(1fr auto auto);
+
+		gap: $ui-spacing;
+	}
+}
