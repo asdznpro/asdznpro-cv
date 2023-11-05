@@ -1,1 +1,8 @@
+export { About } from './About'
+export { Contacts } from './Contacts'
+export { Education } from './Education'
+export { Experience } from './Experience'
+export { HardSkills } from './HardSkills'
 export { Home } from './Home'
+// export { NotFound } from './NotFound'
+export { Portfolio } from './Portfolio'
