@@ -1,11 +1,22 @@
 import styles from './Home.module.scss'
 
 import { Layout } from 'components/layout'
-import { Heading, Fontbody, Footnote, Section, AppLink } from 'components/ui'
+import {
+	Heading,
+	Fontbody,
+	Footnote,
+	Section,
+	AppLink,
+	PageTitle,
+} from 'components/ui'
 
 const Home = () => {
 	return (
 		<Layout>
+			<Section noField>
+				<PageTitle />
+			</Section>
+
 			<Section>
 				<Heading>Воистину радостный звук</Heading>
 				<Heading level={2}>
@@ -42,9 +53,11 @@ const Home = () => {
 			<Section>
 				<Footnote>Home Page Font Check</Footnote>
 				<Footnote level={2}>Home Page Font Check</Footnote>
-				<Footnote level={3}>Home Page Font Check</Footnote>
-
 				<Footnote level={3} caps>
+					Home Page Font Check
+				</Footnote>
+
+				<Footnote level={3}>
 					Сложно сказать, почему представители{' '}
 					<AppLink to='/'>современных социальных резервов</AppLink> освещают
 					чрезвычайно интересные особенности картины в целом, однако конкретные

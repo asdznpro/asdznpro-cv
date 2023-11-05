@@ -6,15 +6,17 @@
 	// @include ui-size-control(100%, $maxW: 1180px);
 
 	margin: 0 auto;
-	padding: 0 $ui-step * 2;
 }
 
 .field {
-	padding: $ui-step * 9 $ui-step * 12;
+	padding: clamp($ui-step * 3, 3vmax, $ui-step * 9)
+		clamp($ui-step * 5, 3vmax, $ui-step * 12);
 	background-color: $FieldBackground;
-	border-radius: $ui-rounded--36;
+	border-radius: clamp($ui-rounded--24, 3vmax, $ui-rounded--36);
 	outline: 1px solid $Separator;
 	overflow: hidden;
+
+	margin: 0 $ui-step * 2;
 }
 
 .inner {
@@ -22,4 +24,8 @@
 	@include ui-flex-container(flex, $flow: column);
 
 	gap: $ui-spacing;
+}
+
+.padding {
+	padding: 0 $ui-spacing;
 }

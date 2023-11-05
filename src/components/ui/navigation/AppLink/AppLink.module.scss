@@ -4,9 +4,12 @@
 	font-weight: bold;
 	transition: 0.08s ease-in;
 	cursor: pointer;
-	color: $AccentBlue;
 
 	text-decoration-line: underline !important;
+}
+
+.color {
+	color: $AccentBlue;
 	text-decoration-color: $AccentBlue !important;
 
 	&:hover {

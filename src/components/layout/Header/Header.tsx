@@ -1,20 +1,31 @@
+import { useDynamicAlignment } from 'hooks'
+
 import styles from './Header.module.scss'
 
-import { CvLogo } from 'assets/images/svg'
-import { AppLink } from 'components/ui'
+import { AppLink, CvLogo, CvLogoAbbreviated, CvLogoIcon } from 'components/ui'
 
 const Header: React.FC = () => {
+	const { screenWidth } = useDynamicAlignment()
+
 	return (
 		<div className={styles.root}>
 			<div className={styles.container}>
 				<div className={styles['header-part']}>
 					<AppLink to='/' flex>
-						<CvLogo />
+						{/* {screenWidth >= 880 ? (
+							<CvLogo />
+						) : screenWidth >= 528 ? (
+							<CvLogoAbbreviated />
+						) : (
+							<CvLogoIcon />
+						)} */}
+
+						{screenWidth >= 880 ? <CvLogo /> : <CvLogoAbbreviated />}
 					</AppLink>
 				</div>
 
 				<div className={styles['header-part']}>
-					<h3>Header Navigation</h3>
+					<h4>Navigation</h4>
 				</div>
 			</div>
 		</div>

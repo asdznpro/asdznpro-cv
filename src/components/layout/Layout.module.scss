@@ -10,7 +10,7 @@
 .main {
 	@include ui-flex-container(flex, $flow: inherit);
 
-	padding-top: $ui-step * 50;
+	padding-top: clamp($ui-step * 27, 12vmax, $ui-step * 50);
 	padding-bottom: $ui-step * 18;
-	gap: $ui-step * 18;
+	gap: clamp($ui-step * 2, 1.2vmax, $ui-spacing);
 }

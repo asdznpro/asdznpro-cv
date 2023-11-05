@@ -1,7 +1,12 @@
 // blocks
 
+export { PageTitle } from './blocks/PageTitle'
 export { Section } from './blocks/Section'
 export { Spinner } from './blocks/Spinner'
+
+// icons
+
+export { CvLogo, CvLogoAbbreviated, CvLogoIcon } from './icons'
 
 // navigation
 

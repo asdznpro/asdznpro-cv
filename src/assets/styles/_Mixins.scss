@@ -186,6 +186,24 @@
 	white-space: nowrap !important;
 }
 
+// Animation ———————————————————————————————————————————————— //
+
+@mixin anim-spinner($time: 0.72s) {
+	animation: spinner;
+	animation-duration: $time;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+
+	@keyframes spinner {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+}
+
 // Styles Components ———————————————————————————————————————————————— //
 
 // Button

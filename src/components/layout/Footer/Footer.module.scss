@@ -1,14 +1,28 @@
 @import 'assets/styles/variables';
 
 .root {
+	@include ui-size-control($minH: 160px);
+
 	margin-top: auto;
 	padding: 48px 0;
 	color: $TextSecondary;
 
 	.wrapper {
 		@include ui-container;
+		@include ui-flex-container(flex, $items: center);
 		@include ui-display-grid(1fr auto auto);
 
 		gap: $ui-spacing;
+	}
+
+	.spinner {
+		@include ui-flex-container(flex);
+		@include anim-spinner(5.6s);
+
+		transition: 0.16s ease-in;
+
+		&:hover {
+			scale: 1.08;
+		}
 	}
 }
