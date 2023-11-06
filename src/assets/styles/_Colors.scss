@@ -10,17 +10,16 @@ $Yandex: hsl(9 97% 55%);
 
 // Palette ———————————————————————————————————————————————— //
 
-$AccentRed: hsl(0 100% 62%);
-$AccentOrange: hsl(16 100% 62%);
-$AccentLightOrange: hsl(34 100% 62%);
-$AccentYellow: hsl(48 100% 62%);
-$AccentLightGreen: hsl(78 94% 51%);
-$AccentGreen: hsl(155 97% 47%);
-$AccentCyan: hsl(185 100% 50%);
+$DeepCoral: hsl(0 100% 62%);
+$NeonCarrot: hsl(28 100% 62%);
+$Gold: hsl(48 100% 62%);
+$Pistachio: hsl(86 70% 58%);
+$Lime: hsl(132 70% 52%);
+$Cyan: hsl(185 100% 50%);
 $AccentBlue: hsl(241 100% 62%);
-$AccentViolet: hsl(270 100% 62%);
-$AccentPurple: hsl(292 100% 53%);
-$AccentPink: hsl(306 100% 62%);
+$Lilac: hsl(270 100% 62%);
+$Fuchsia: hsl(300 100% 62%);
+$Magenta: hsl(337 100% 62%);
 
 // Light ———————————————————————————————————————————————— //
 
@@ -57,7 +56,11 @@ $TextContrastThemed: hsl(0 0% 100%);
 
 // Alpha ———————————————————————————————————————————————— //
 
+$Alpha4: 4%;
 $Alpha8: 8%;
+$Alpha12: 12%;
+$Alpha16: 16%;
+$Alpha20: 20%;
 $Alpha24: 24%;
 $Alpha32: 32%;
 $Alpha64: 64%;

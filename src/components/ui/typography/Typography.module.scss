@@ -7,3 +7,7 @@
 .caps {
 	text-transform: uppercase;
 }
+
+.ellipsis {
+	@include ui-text-ellipsis;
+}

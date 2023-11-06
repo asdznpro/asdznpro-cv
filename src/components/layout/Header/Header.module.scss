@@ -15,7 +15,7 @@
 		border-radius: $ui-rounded--24;
 		background: $HeaderAlpha;
 		backdrop-filter: blur(32px);
-		outline: 1px solid $Separator;
+		box-shadow: inset 0 0 0 1px $Separator;
 		padding: 0 clamp($ui-step * 5, 3vmax, $ui-step * 9);
 		gap: $ui-spacing;
 

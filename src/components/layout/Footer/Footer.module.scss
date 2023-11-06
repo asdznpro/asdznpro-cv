@@ -1,10 +1,10 @@
 @import 'assets/styles/variables';
 
 .root {
-	@include ui-size-control($minH: 160px);
+	@include ui-flex-container(flex, $items: center);
 
 	margin-top: auto;
-	padding: 48px 0;
+	padding: $ui-step * 12;
 	color: $TextSecondary;
 
 	.wrapper {

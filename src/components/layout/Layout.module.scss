@@ -5,12 +5,14 @@
 
 	min-height: 100dvh;
 	box-sizing: border-box;
+
+	gap: $ui-step * 12;
 }
 
 .main {
 	@include ui-flex-container(flex, $flow: inherit);
 
 	padding-top: clamp($ui-step * 27, 12vmax, $ui-step * 50);
-	padding-bottom: $ui-step * 18;
-	gap: clamp($ui-step * 2, 1.2vmax, $ui-spacing);
+	gap: inherit;
+	// gap: clamp($ui-step * 2, 3.2vmax, $ui-step * 12);
 }

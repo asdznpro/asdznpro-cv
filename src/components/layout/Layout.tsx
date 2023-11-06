@@ -8,18 +8,18 @@ interface LayoutProps {
 	style?: React.CSSProperties
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, style }) => {
+const Layout: React.FC<LayoutProps> = props => {
+	const { children, style } = props
+
 	return (
 		<div className={styles.root}>
 			<Header />
-            
+
 			<main className={styles.main} style={style}>
 				{children}
 			</main>
-            
-			<Footer />
 
-			<div id='portal'></div>
+			<Footer />
 		</div>
 	)
 }

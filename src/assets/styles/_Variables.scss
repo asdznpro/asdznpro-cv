@@ -6,6 +6,8 @@ $ui-step: 4px;
 $ui-spacing: $ui-step * 5;
 $ui-column-width: 72px;
 
+$ui-outer-padding: clamp($ui-step * 2, 1.32vmax, $ui-spacing);
+
 // Fonts ———————————————————————————————————————————————— //
 
 // MTS

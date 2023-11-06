@@ -1,0 +1,240 @@
+@import 'assets/styles/variables';
+
+.root {
+	@include ui-size-control(fit-content);
+
+	transition: 0.12s ease-in;
+	overflow: hidden;
+	outline: 0px solid rgba($ButtonContrast, $Alpha4);
+	filter: blur(0px);
+
+	.in {
+		@include ui-size-control(100%, 100%);
+		@include ui-flex-container(flex, center, center);
+
+		user-select: none;
+		transition: inherit;
+
+		.before,
+		.after {
+			@include ui-flex-container(flex, $shrink: 0);
+		}
+
+		.content {
+			padding: 0 $ui-step;
+			box-sizing: border-box;
+		}
+	}
+
+	&:active {
+		scale: 0.992;
+	}
+
+	&:focus-within {
+		outline: 4px solid rgba($ButtonContrast, $Alpha4);
+	}
+}
+
+// mode
+
+// primary
+
+@mixin ui-primary-appearance-button($color, $background) {
+	color: $color;
+	background: $background;
+	outline-color: rgba($background, $Alpha4);
+
+	&:hover {
+		background: lighten($background, $Alpha4);
+	}
+}
+
+.mode-primary.accent {
+	@include ui-primary-appearance-button($TextContrast, $AccentBlue);
+}
+
+.mode-primary.positive {
+	@include ui-primary-appearance-button($TextContrast, $Lime);
+}
+
+.mode-primary.negative {
+	@include ui-primary-appearance-button($TextContrast, $DeepCoral);
+}
+
+.mode-primary.neutral {
+	@include ui-primary-appearance-button($TextContrast, $ButtonContrast);
+}
+
+// secondary
+
+@mixin ui-secondary-appearance-button($color) {
+	color: $color;
+	background: rgba($color, $Alpha12);
+	outline-color: rgba($color, $Alpha4);
+
+	&:hover {
+		background: rgba($color, $Alpha20);
+	}
+
+	&:focus-within {
+		box-shadow: inset 0 0 0 1px rgba($color, $Alpha24);
+	}
+}
+
+.mode-secondary.accent {
+	@include ui-secondary-appearance-button($AccentBlue);
+}
+
+.mode-secondary.positive {
+	@include ui-secondary-appearance-button($Lime);
+}
+
+.mode-secondary.negative {
+	@include ui-secondary-appearance-button($DeepCoral);
+}
+
+.mode-secondary.neutral {
+	color: $TextPrimary;
+	background: $ButtonSecondary;
+
+	&:hover {
+		background: rgba($ButtonContrast, $Alpha8);
+	}
+
+	&:focus-within {
+		box-shadow: inset 0 0 0 1px $SeparatorAlpha;
+	}
+}
+
+// tertiary
+
+@mixin ui-tertiary-appearance-button($color) {
+	color: $color;
+	outline-color: rgba($color, $Alpha4);
+
+	&:hover {
+		background: rgba($color, 8%);
+	}
+
+	&:focus-within {
+		box-shadow: inset 0 0 0 1px rgba($color, $Alpha24);
+	}
+}
+
+.mode-tertiary.accent {
+	@include ui-tertiary-appearance-button($AccentBlue);
+}
+
+.mode-tertiary.positive {
+	@include ui-tertiary-appearance-button($Lime);
+}
+
+.mode-tertiary.negative {
+	@include ui-tertiary-appearance-button($DeepCoral);
+}
+
+.mode-tertiary.neutral {
+	color: $TextPrimary;
+
+	&:hover {
+		background: $ButtonSecondary;
+	}
+
+	&:focus-within {
+		box-shadow: inset 0 0 0 1px $SeparatorAlpha;
+	}
+}
+
+// outline
+
+@mixin ui-outline-appearance-button($color) {
+	color: $color;
+	box-shadow: inset 0 0 0 1px $color;
+	outline-color: rgba($color, $Alpha4);
+
+	&:hover {
+		background: rgba($color, 8%);
+	}
+}
+
+.mode-outline.accent {
+	@include ui-outline-appearance-button($AccentBlue);
+}
+
+.mode-outline.positive {
+	@include ui-outline-appearance-button($Lime);
+}
+
+.mode-outline.negative {
+	@include ui-outline-appearance-button($DeepCoral);
+}
+
+.mode-outline.neutral {
+	color: $TextPrimary;
+	box-shadow: inset 0 0 0 1px $SeparatorAlpha;
+
+	&:hover {
+		background: $ButtonSecondary;
+	}
+}
+
+// size
+
+@mixin ui-size-button($height, $padding, $rounded, $gap) {
+	@include ui-size-control($H: $ui-step * $height);
+
+	border-radius: $rounded;
+
+	.in {
+		padding: 0 $ui-step * $padding;
+		gap: $ui-step * $gap;
+	}
+}
+
+.size-xsm {
+	@include ui-size-button(7, 2, $ui-rounded--8, 0.5);
+}
+
+.size-sm {
+	@include ui-size-button(11, 3, $ui-rounded--12, 1);
+}
+
+.size-md {
+	@include ui-size-button(14, 4, $ui-rounded--16, 1.5);
+}
+
+.size-lg {
+	@include ui-size-button(16, 5, $ui-rounded--16, 2);
+}
+
+.size-xlg {
+	@include ui-size-button(18, 6, $ui-rounded--20, 3);
+}
+
+// corners
+
+.corners-pill {
+	border-radius: $ui-rounded--64;
+}
+
+// stretched
+
+.stretched {
+	@include ui-size-control(100%);
+}
+
+// disabled
+
+.root {
+	&:disabled {
+		opacity: $Alpha64;
+		pointer-events: none;
+		filter: blur(2px);
+	}
+}
+
+.none-action {
+	opacity: $Alpha64;
+	pointer-events: none;
+	filter: blur(2px);
+}

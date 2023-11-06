@@ -13,10 +13,10 @@
 		clamp($ui-step * 5, 3vmax, $ui-step * 12);
 	background-color: $FieldBackground;
 	border-radius: clamp($ui-rounded--24, 3vmax, $ui-rounded--36);
-	outline: 1px solid $Separator;
+	box-shadow: inset 0 0 0 1px $Separator;
 	overflow: hidden;
 
-	margin: 0 $ui-step * 2;
+	margin: 0 $ui-outer-padding;
 }
 
 .inner {

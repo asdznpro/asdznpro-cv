@@ -12,7 +12,7 @@ type HeadingProps = Omit<TypographyProps, 'level' | 'caps'> &
 	TypographyExtendedProps
 
 const Heading: React.FC<HeadingProps> = props => {
-	const { level, wideLevel, children, noCaps, style } = props
+	const { level, wideLevel, children, noCaps, ellipsis, style } = props
 
 	const Tag = `h${Math.min(
 		level ? level : 1,
@@ -26,6 +26,7 @@ const Heading: React.FC<HeadingProps> = props => {
 				styles['level-' + (level ? level : 1)],
 				styles['wideLevel-' + (wideLevel ? wideLevel : 1)],
 				noCaps ? '' : typographyStyles.caps,
+				ellipsis ? typographyStyles.ellipsis : '',
 			]
 				.join(' ')
 				.trim()}
