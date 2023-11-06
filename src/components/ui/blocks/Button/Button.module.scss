@@ -42,7 +42,7 @@
 @mixin ui-primary-appearance-button($color, $background) {
 	color: $color;
 	background: $background;
-	outline-color: rgba($background, $Alpha4);
+	outline-color: rgba($background, $Alpha8);
 
 	&:hover {
 		background: lighten($background, $Alpha4);
@@ -70,14 +70,14 @@
 @mixin ui-secondary-appearance-button($color) {
 	color: $color;
 	background: rgba($color, $Alpha12);
-	outline-color: rgba($color, $Alpha4);
+	outline-color: rgba($color, $Alpha8);
 
 	&:hover {
 		background: rgba($color, $Alpha20);
 	}
 
 	&:focus-within {
-		box-shadow: inset 0 0 0 1px rgba($color, $Alpha24);
+		box-shadow: inset 0 0 0 1px rgba($color, $Alpha32);
 	}
 }
 
@@ -110,14 +110,14 @@
 
 @mixin ui-tertiary-appearance-button($color) {
 	color: $color;
-	outline-color: rgba($color, $Alpha4);
+	outline-color: rgba($color, $Alpha8);
 
 	&:hover {
-		background: rgba($color, 8%);
+		background: rgba($color, $Alpha12);
 	}
 
 	&:focus-within {
-		box-shadow: inset 0 0 0 1px rgba($color, $Alpha24);
+		box-shadow: inset 0 0 0 1px rgba($color, $Alpha32);
 	}
 }
 
@@ -150,10 +150,10 @@
 @mixin ui-outline-appearance-button($color) {
 	color: $color;
 	box-shadow: inset 0 0 0 1px $color;
-	outline-color: rgba($color, $Alpha4);
+	outline-color: rgba($color, $Alpha8);
 
 	&:hover {
-		background: rgba($color, 8%);
+		background: rgba($color, $Alpha8);
 	}
 }
 
