@@ -1,4 +1,4 @@
-import { setTheme, selectTheme } from 'store/themeSlice'
+import { setTheme, selectTheme } from 'store/ThemeSlice'
 import { useAppSelector, useAppDispatch } from 'hooks'
 
 import styles from './Home.module.scss'

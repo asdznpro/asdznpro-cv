@@ -1,4 +1,4 @@
-import { setTheme, selectTheme } from 'store/themeSlice'
+import { setTheme, selectTheme } from 'store/ThemeSlice'
 import { useAppSelector, useAppDispatch, useDynamicAlignment } from 'hooks'
 
 import styles from './Header.module.scss'
@@ -9,7 +9,6 @@ import {
 	CvLogo,
 	CvLogoAbbreviated,
 	CvLogoIcon,
-	Fontbody,
 	Footnote,
 } from 'components/ui'
 

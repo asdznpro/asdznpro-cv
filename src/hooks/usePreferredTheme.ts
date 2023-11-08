@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useAppDispatch } from 'hooks'
-import { setTheme } from 'store/themeSlice'
+import { setTheme } from 'store/ThemeSlice'
 
 const usePreferredTheme = () => {
 	const dispatch = useAppDispatch()
