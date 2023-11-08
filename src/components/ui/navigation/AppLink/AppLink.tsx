@@ -4,36 +4,35 @@ import styles from './AppLink.module.scss'
 import AppLinkProps from './AppLink.interface'
 
 const AppLink: React.FC<AppLinkProps> = props => {
-	const { to, target, children, onClick, flex, colorless } = props
+	const { to, href, target, children, onClick, flex, colorless } = props
 
-	if (to) {
-		return (
-			<Link
-				to={to}
-				target={`_${target || 'self'}`}
-				className={[
-					styles.root,
-					flex ? styles.flex : '',
-					colorless ? '' : styles.color,
-				].join(' ')}
-			>
-				{children}
-			</Link>
-		)
+	let Component: React.ElementType = 'span' as React.ElementType
+	let additionalProps = {}
+
+	if (href) {
+		Component = 'a'
+		additionalProps = { href, target, ...additionalProps }
+	} else if (to) {
+		Component = Link
+		additionalProps = { to, target, ...additionalProps }
 	} else {
-		return (
-			<span
-				onClick={onClick}
-				className={[
-					styles.root,
-					flex ? styles.flex : '',
-					colorless ? '' : styles.color,
-				].join(' ')}
-			>
-				{children}
-			</span>
-		)
+		Component = 'span'
+		additionalProps = { onClick, ...additionalProps }
 	}
+
+	return (
+		<Component
+			onClick={onClick}
+			className={[
+				styles.root,
+				flex ? styles.flex : '',
+				colorless ? '' : styles.color,
+			].join(' ')}
+			{...additionalProps}
+		>
+			{children}
+		</Component>
+	)
 }
 
 export { AppLink }

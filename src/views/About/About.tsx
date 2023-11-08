@@ -7,7 +7,7 @@ const About = () => {
 	return (
 		<Layout>
 			<Section noField>
-				<PageTitle />
+				<PageTitle>Обо мне</PageTitle>
 			</Section>
 
 			<Section>

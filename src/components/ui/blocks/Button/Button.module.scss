@@ -3,9 +3,11 @@
 .root {
 	@include ui-size-control(fit-content);
 
-	transition: 0.12s ease-in;
+	position: relative;
 	overflow: hidden;
-	outline: 0px solid rgba($ButtonContrast, $Alpha4);
+	transition: 0.12s ease-in;
+	outline: 0px solid var(--button-secondary);
+
 	filter: blur(0px);
 
 	.in {
@@ -13,7 +15,6 @@
 		@include ui-flex-container(flex, center, center);
 
 		user-select: none;
-		transition: inherit;
 
 		.before,
 		.after {
@@ -31,7 +32,7 @@
 	}
 
 	&:focus-within {
-		outline: 4px solid rgba($ButtonContrast, $Alpha4);
+		outline: 4px solid var(--button-secondary);
 	}
 }
 
@@ -42,7 +43,7 @@
 @mixin ui-primary-appearance-button($color, $background) {
 	color: $color;
 	background: $background;
-	outline-color: rgba($background, $Alpha8);
+	outline-color: rgba($background, $Alpha12);
 
 	&:hover {
 		background: lighten($background, $Alpha4);
@@ -50,19 +51,24 @@
 }
 
 .mode-primary.accent {
-	@include ui-primary-appearance-button($TextContrast, $AccentBlue);
+	@include ui-primary-appearance-button(var(--text-contrast), $AccentBlue);
 }
 
 .mode-primary.positive {
-	@include ui-primary-appearance-button($TextContrast, $Lime);
+	@include ui-primary-appearance-button(var(--text-contrast), $Lime);
 }
 
 .mode-primary.negative {
-	@include ui-primary-appearance-button($TextContrast, $DeepCoral);
+	@include ui-primary-appearance-button(var(--text-contrast), $DeepCoral);
 }
 
 .mode-primary.neutral {
-	@include ui-primary-appearance-button($TextContrast, $ButtonContrast);
+	color: var(--text-contrast-themed);
+	background: var(--button-contrast);
+
+	&:hover {
+		background: var(--button-contrast-hover);
+	}
 }
 
 // secondary
@@ -94,15 +100,15 @@
 }
 
 .mode-secondary.neutral {
-	color: $TextPrimary;
-	background: $ButtonSecondary;
+	color: var(--text-primary);
+	background: var(--button-secondary);
 
 	&:hover {
-		background: rgba($ButtonContrast, $Alpha8);
+		background: var(--button-secondary-hover);
 	}
 
 	&:focus-within {
-		box-shadow: inset 0 0 0 1px $SeparatorAlpha;
+		box-shadow: inset 0 0 0 1px var(--separator-alpha);
 	}
 }
 
@@ -134,14 +140,14 @@
 }
 
 .mode-tertiary.neutral {
-	color: $TextPrimary;
+	color: var(--text-primary);
 
 	&:hover {
-		background: $ButtonSecondary;
+		background: var(--button-secondary);
 	}
 
 	&:focus-within {
-		box-shadow: inset 0 0 0 1px $SeparatorAlpha;
+		box-shadow: inset 0 0 0 1px var(--separator-alpha);
 	}
 }
 
@@ -170,11 +176,11 @@
 }
 
 .mode-outline.neutral {
-	color: $TextPrimary;
-	box-shadow: inset 0 0 0 1px $SeparatorAlpha;
+	color: var(--text-primary);
+	box-shadow: inset 0 0 0 1px var(--separator-alpha);
 
 	&:hover {
-		background: $ButtonSecondary;
+		background: var(--button-secondary);
 	}
 }
 

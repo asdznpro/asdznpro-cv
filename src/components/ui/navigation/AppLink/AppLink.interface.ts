@@ -1,8 +1,12 @@
 export default interface AppLinkProps {
-	to?: string
-	target?: 'self' | 'blank' | 'parent' | 'top'
 	children: React.ReactNode
+
+	to?: string | undefined
+	href?: string | undefined
+	target?: 'self' | 'blank' | 'parent' | 'top' | undefined
+
+	onClick?: React.MouseEventHandler<HTMLSpanElement>
+
 	flex?: boolean | undefined
 	colorless?: boolean | undefined
-	onClick?: React.MouseEventHandler<HTMLSpanElement>
 }

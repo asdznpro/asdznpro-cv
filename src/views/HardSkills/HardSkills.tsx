@@ -7,7 +7,7 @@ const HardSkills = () => {
 	return (
 		<Layout>
 			<Section noField>
-				<PageTitle />
+				<PageTitle>Проф. навыки</PageTitle>
 			</Section>
 
 			<Section>

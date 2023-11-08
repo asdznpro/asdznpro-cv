@@ -18,8 +18,8 @@
 	}
 
 	&:visited {
-		color: $TextPrimary;
-		text-decoration-color: $TextPrimary !important;
+		color: var(--text-primary);
+		text-decoration-color: var(--text-primary) !important;
 	}
 }
 

@@ -7,7 +7,7 @@ const Portfolio = () => {
 	return (
 		<Layout>
 			<Section noField>
-				<PageTitle />
+				<PageTitle>Портфолио</PageTitle>
 			</Section>
 
 			<Section>

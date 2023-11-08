@@ -7,7 +7,7 @@ const Education = () => {
 	return (
 		<Layout>
 			<Section noField>
-				<PageTitle />
+				<PageTitle>Образование</PageTitle>
 			</Section>
 
 			<Section>

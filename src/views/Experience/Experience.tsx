@@ -7,7 +7,7 @@ const Experience = () => {
 	return (
 		<Layout>
 			<Section noField>
-				<PageTitle />
+				<PageTitle>Опыт работы</PageTitle>
 			</Section>
 
 			<Section>

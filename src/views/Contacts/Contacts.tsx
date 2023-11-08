@@ -7,7 +7,7 @@ const Contacts = () => {
 	return (
 		<Layout>
 			<Section noField>
-				<PageTitle />
+				<PageTitle>Контакты</PageTitle>
 			</Section>
 
 			<Section>

@@ -11,9 +11,9 @@
 .field {
 	padding: clamp($ui-step * 3, 3vmax, $ui-step * 9)
 		clamp($ui-step * 5, 3vmax, $ui-step * 12);
-	background-color: $FieldBackground;
+	background-color: var(--field-background);
 	border-radius: clamp($ui-rounded--24, 3vmax, $ui-rounded--36);
-	box-shadow: inset 0 0 0 1px $Separator;
+	box-shadow: inset 0 0 0 1px var(--separator);
 	overflow: hidden;
 
 	margin: 0 $ui-outer-padding;

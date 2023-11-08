@@ -28,24 +28,28 @@ const Header: React.FC = () => {
 					className={styles['header-part']}
 					style={{ display: 'flex', gap: 12 }}
 				>
-					<AppLink to='/about'>
-						<h5>#обо_мне</h5>
-					</AppLink>
-					<AppLink to='/experience'>
-						<h5>#опыт_работы</h5>
-					</AppLink>
-					<AppLink to='/portfolio'>
-						<h5>#портфолио</h5>
-					</AppLink>
-					<AppLink to='/hard-skills'>
-						<h5>#проф_навыки</h5>
-					</AppLink>
-					<AppLink to='/education'>
-						<h5>#образование</h5>
-					</AppLink>
-					<AppLink to='/contacts'>
-						<h5>#контакты</h5>
-					</AppLink>
+					{screenWidth >= 1200 && (
+						<>
+							<AppLink to='/about'>
+								<h5>#обо_мне</h5>
+							</AppLink>
+							<AppLink to='/experience'>
+								<h5>#опыт_работы</h5>
+							</AppLink>
+							<AppLink to='/portfolio'>
+								<h5>#портфолио</h5>
+							</AppLink>
+							<AppLink to='/hard-skills'>
+								<h5>#проф_навыки</h5>
+							</AppLink>
+							<AppLink to='/education'>
+								<h5>#образование</h5>
+							</AppLink>
+							<AppLink to='/contacts'>
+								<h5>#контакты</h5>
+							</AppLink>
+						</>
+					)}
 				</div>
 			</div>
 		</div>

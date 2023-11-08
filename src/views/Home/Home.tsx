@@ -1,3 +1,6 @@
+import { setTheme, selectTheme } from 'store/themeSlice'
+import { useAppSelector, useAppDispatch } from 'hooks'
+
 import styles from './Home.module.scss'
 
 import { Layout } from 'components/layout'
@@ -11,13 +14,29 @@ import {
 	Button,
 } from 'components/ui'
 
-import { Icon28AddOutline, Icon28ChevronRightCircle } from '@vkontakte/icons'
+import {
+	Icon28AddOutline,
+	Icon28ChevronRightCircle,
+	Icon28MoonOutline,
+	Icon28SunOutline,
+} from '@vkontakte/icons'
 
 const Home = () => {
+	const dispatch = useAppDispatch()
+	const theme = useAppSelector(selectTheme)
+
+	const handleToggleTheme = () => {
+		const newTheme = theme === 'light' ? 'dark' : 'light'
+
+		dispatch(setTheme(newTheme))
+
+		localStorage.setItem('theme', newTheme)
+	}
+
 	return (
 		<Layout>
 			<Section noField>
-				<PageTitle />
+				<PageTitle>Главная</PageTitle>
 			</Section>
 
 			<SectionGroup gap='sm'>
@@ -26,8 +45,23 @@ const Home = () => {
 						style={{
 							display: 'flex',
 							gap: 12,
+							flexWrap: 'wrap',
 						}}
 					>
+						<Button
+							onClick={handleToggleTheme}
+							appearance={theme === 'light' ? 'neutral' : 'accent'}
+							before={
+								theme === 'light' ? <Icon28MoonOutline /> : <Icon28SunOutline />
+							}
+						>
+							<Fontbody level={3}>
+								{theme === 'light'
+									? 'Switch to Dark Mode'
+									: 'Switch to Light Mode'}
+							</Fontbody>
+						</Button>
+
 						<Button to='/about' after={<Icon28ChevronRightCircle />}>
 							<Fontbody level={3}>Go link</Fontbody>
 						</Button>
@@ -47,6 +81,7 @@ const Home = () => {
 						style={{
 							display: 'flex',
 							gap: 12,
+							flexWrap: 'wrap',
 						}}
 					>
 						<div
@@ -273,11 +308,13 @@ const Home = () => {
 
 					<Fontbody level={2}>
 						Идейные соображения высшего порядка, а{' '}
-						<AppLink>также консультация с широким активом</AppLink> играет
-						определяющее значение для форм воздействия. Господа, разбавленное
-						изрядной долей эмпатии, рациональное мышление, а также свежий взгляд
-						на привычные вещи — безусловно открывает новые горизонты для вывода
-						текущих активов.
+						<AppLink href='https://vk.com/asdznpro' target='blank'>
+							также консультация с широким активом
+						</AppLink>{' '}
+						играет определяющее значение для форм воздействия. Господа,
+						разбавленное изрядной долей эмпатии, рациональное мышление, а также
+						свежий взгляд на привычные вещи — безусловно открывает новые
+						горизонты для вывода текущих активов.
 					</Fontbody>
 				</Section>
 
@@ -288,11 +325,13 @@ const Home = () => {
 						конкретные выводы, разумеется, превращены в посмешище, хотя само их
 						существование приносит несомненную пользу обществу. Идейные
 						соображения высшего порядка, а{' '}
-						<AppLink>также консультация с широким активом</AppLink> играет
-						определяющее значение для форм воздействия. Господа, разбавленное
-						изрядной долей эмпатии, рациональное мышление, а также свежий взгляд
-						на привычные вещи — безусловно открывает новые горизонты для вывода
-						текущих активов.
+						<AppLink to='/education'>
+							также консультация с широким активом
+						</AppLink>{' '}
+						играет определяющее значение для форм воздействия. Господа,
+						разбавленное изрядной долей эмпатии, рациональное мышление, а также
+						свежий взгляд на привычные вещи — безусловно открывает новые
+						горизонты для вывода текущих активов.
 					</Fontbody>
 				</Section>
 
