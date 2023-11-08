@@ -1,11 +1,33 @@
-import { useDynamicAlignment } from 'hooks'
+import { setTheme, selectTheme } from 'store/themeSlice'
+import { useAppSelector, useAppDispatch, useDynamicAlignment } from 'hooks'
 
 import styles from './Header.module.scss'
 
-import { AppLink, CvLogo, CvLogoAbbreviated, CvLogoIcon } from 'components/ui'
+import {
+	AppLink,
+	Button,
+	CvLogo,
+	CvLogoAbbreviated,
+	CvLogoIcon,
+	Fontbody,
+	Footnote,
+} from 'components/ui'
+
+import { Icon28MoonOutline, Icon28SunOutline } from '@vkontakte/icons'
 
 const Header: React.FC = () => {
 	const { screenWidth } = useDynamicAlignment()
+
+	const dispatch = useAppDispatch()
+	const theme = useAppSelector(selectTheme)
+
+	const handleToggleTheme = () => {
+		const newTheme = theme === 'light' ? 'dark' : 'light'
+
+		dispatch(setTheme(newTheme))
+
+		localStorage.setItem('theme', newTheme)
+	}
 
 	return (
 		<div className={styles.root}>
@@ -28,28 +50,44 @@ const Header: React.FC = () => {
 					className={styles['header-part']}
 					style={{ display: 'flex', gap: 12 }}
 				>
-					{screenWidth >= 1200 && (
+					{screenWidth >= 200 && (
 						<>
-							<AppLink to='/about'>
-								<h5>#обо_мне</h5>
-							</AppLink>
-							<AppLink to='/experience'>
-								<h5>#опыт_работы</h5>
-							</AppLink>
-							<AppLink to='/portfolio'>
-								<h5>#портфолио</h5>
-							</AppLink>
-							<AppLink to='/hard-skills'>
-								<h5>#проф_навыки</h5>
-							</AppLink>
-							<AppLink to='/education'>
-								<h5>#образование</h5>
-							</AppLink>
-							<AppLink to='/contacts'>
-								<h5>#контакты</h5>
-							</AppLink>
+							<Footnote
+								ellipsis
+								style={{
+									display: 'flex',
+									gap: 12,
+									width: 'min-content',
+									maxWidth: 320,
+									flexWrap: 'nowrap',
+									overflowX: 'auto',
+									paddingBottom: 4,
+								}}
+							>
+								<AppLink to='/about'>#обо_мне</AppLink>
+								<AppLink to='/experience'>#опыт_работы</AppLink>
+								<AppLink to='/portfolio'>#портфолио</AppLink>
+								<AppLink to='/hard-skills'>#проф_навыки</AppLink>
+								<AppLink to='/education'>#образование</AppLink>
+								<AppLink to='/contacts'>#контакты</AppLink>
+							</Footnote>
 						</>
 					)}
+
+					<Button
+						onClick={handleToggleTheme}
+						size='sm'
+						appearance={theme === 'light' ? 'neutral' : 'accent'}
+						before={
+							theme === 'light' ? (
+								<Icon28MoonOutline width={24} height={24} />
+							) : (
+								<Icon28SunOutline width={24} height={24} />
+							)
+						}
+					>
+						<Footnote>{theme === 'light' ? 'Dark' : 'Light'}</Footnote>
+					</Button>
 				</div>
 			</div>
 		</div>

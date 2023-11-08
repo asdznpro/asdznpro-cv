@@ -4,22 +4,31 @@
 	font-weight: bold;
 	transition: 0.08s ease-in;
 	cursor: pointer;
-
+	border-radius: 4px;
 	text-decoration-line: underline !important;
 }
 
 .color {
 	color: $AccentBlue;
 	text-decoration-color: $AccentBlue !important;
+	// background: rgba($AccentBlue, $Alpha8);
 
 	&:hover {
-		color: lighten($AccentBlue, 12%);
-		text-decoration-color: lighten($AccentBlue, 12%) !important;
+		color: lighten($AccentBlue, $Alpha8);
+		text-decoration-color: lighten($AccentBlue, $Alpha8) !important;
+		// background: rgba($AccentBlue, $Alpha12);
 	}
 
 	&:visited {
 		color: var(--text-primary);
 		text-decoration-color: var(--text-primary) !important;
+		// background: var(--button-secondary);
+
+		&:hover {
+			color: var(--button-contrast-hover);
+			text-decoration-color: var(--button-contrast-hover) !important;
+			// background: var(--button-secondary-hover);
+		}
 	}
 }
 
