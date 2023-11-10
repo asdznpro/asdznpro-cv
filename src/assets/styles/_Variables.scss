@@ -7,7 +7,8 @@ $ui-spacing: $ui-step * 5;
 $ui-column-width: 72px;
 
 $ui-inner-padding: clamp($ui-step * 5, 3vmax, $ui-step * 12);
-$ui-outer-margin: clamp($ui-step * 2, 1.22vmax, $ui-spacing); // походу придется писать media
+$ui-sm-gap: clamp($ui-step * 2, 1.22vmax, $ui-spacing);
+$ui-outer-margin: $ui-step * 2;
 
 // Fonts ———————————————————————————————————————————————— //
 

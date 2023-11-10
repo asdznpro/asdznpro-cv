@@ -11,27 +11,23 @@
 .color {
 	color: $AccentBlue;
 	text-decoration-color: $AccentBlue !important;
-	// background: rgba($AccentBlue, $Alpha8);
 
 	&:hover {
 		color: lighten($AccentBlue, $Alpha8);
 		text-decoration-color: lighten($AccentBlue, $Alpha8) !important;
-		// background: rgba($AccentBlue, $Alpha12);
 	}
 
 	&:visited {
 		color: var(--text-primary);
 		text-decoration-color: var(--text-primary) !important;
-		// background: var(--button-secondary);
 
 		&:hover {
 			color: var(--button-contrast-hover);
 			text-decoration-color: var(--button-contrast-hover) !important;
-			// background: var(--button-secondary-hover);
 		}
 	}
 }
 
 .flex {
-	@include ui-flex-container(flex);
+	@include ui-flex-container(flex, $shrink: 0);
 }
