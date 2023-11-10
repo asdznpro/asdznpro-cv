@@ -52,9 +52,9 @@ const Button: React.FC<ButtonProps> = props => {
 			{...additionalProps}
 		>
 			<span className={styles.in}>
-				<span className={styles.before}>{before}</span>
+				{before && <span className={styles.before}>{before}</span>}
 				<span className={styles.content}>{children}</span>
-				<span className={styles.after}>{after}</span>
+				{after && <span className={styles.after}>{after}</span>}
 			</span>
 		</Component>
 	)

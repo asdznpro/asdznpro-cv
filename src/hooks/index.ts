@@ -1,5 +1,6 @@
 export { useAppDispatch, useAppSelector } from './redux'
 export { useDocumentScrollThrottled } from './useDocumentScrollThrottled'
+export { useDocumentTitle } from './useDocumentTitle'
 export { useDynamicAlignment } from './useDynamicAlignment'
 export { useGoBack } from './useGoBack'
 export { usePreferredTheme } from './usePreferredTheme'

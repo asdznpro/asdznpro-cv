@@ -4,7 +4,8 @@
 	@include ui-flex-container(flex, $items: center);
 
 	margin-top: auto;
-	margin: 0 $ui-outer-margin;
+	margin-left: $ui-outer-margin;
+	margin-right: $ui-outer-margin;
 	padding: $ui-step * 12 0;
 
 	color: var(--text-secondary);
@@ -19,7 +20,7 @@
 
 	.spinner {
 		@include ui-flex-container(flex);
-		@include anim-spinner(6s);
+		@include anim-spinner(6.4s);
 
 		transition: 0.16s ease-in;
 

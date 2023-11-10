@@ -1,16 +1,20 @@
+import { useDocumentTitle } from 'hooks'
+
 import styles from './Experience.module.scss'
 
 import { Layout } from 'components/layout'
 import { Fontbody, Section, PageTitle } from 'components/ui'
 
 const Experience = () => {
+	useDocumentTitle('Опыт работы — Андрей Сухушин // Curriculum Vitae')
+
 	return (
 		<Layout>
-			<Section noField>
+			<Section countColumns={10}>
 				<PageTitle>Опыт работы</PageTitle>
 			</Section>
 
-			<Section>
+			<Section countColumns={10} field>
 				<Fontbody level={2}>
 					Сложно сказать, почему представители современных социальных резервов
 					освещают чрезвычайно интересные особенности картины в целом, однако

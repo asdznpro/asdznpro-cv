@@ -1,16 +1,20 @@
+import { useDocumentTitle } from 'hooks'
+
 import styles from './About.module.scss'
 
 import { Layout } from 'components/layout'
 import { Fontbody, Section, PageTitle } from 'components/ui'
 
 const About = () => {
+	useDocumentTitle('Обо мне — Андрей Сухушин // Curriculum Vitae')
+
 	return (
 		<Layout>
-			<Section noField>
+			<Section countColumns={10}>
 				<PageTitle>Обо мне</PageTitle>
 			</Section>
 
-			<Section>
+			<Section countColumns={10} field>
 				<Fontbody level={2}>
 					Сложно сказать, почему представители современных социальных резервов
 					освещают чрезвычайно интересные особенности картины в целом, однако

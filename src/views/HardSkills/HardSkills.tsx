@@ -1,16 +1,20 @@
+import { useDocumentTitle } from 'hooks'
+
 import styles from './HardSkills.module.scss'
 
 import { Layout } from 'components/layout'
 import { Fontbody, Section, PageTitle } from 'components/ui'
 
 const HardSkills = () => {
+	useDocumentTitle('Проф. навыки — Андрей Сухушин // Curriculum Vitae')
+
 	return (
 		<Layout>
-			<Section noField>
+			<Section countColumns={8}>
 				<PageTitle>Проф. навыки</PageTitle>
 			</Section>
 
-			<Section>
+			<Section countColumns={8} field>
 				<Fontbody level={2}>
 					Сложно сказать, почему представители современных социальных резервов
 					освещают чрезвычайно интересные особенности картины в целом, однако

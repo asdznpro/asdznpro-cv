@@ -1,5 +1,5 @@
 import { setTheme, selectTheme } from 'store/ThemeSlice'
-import { useAppSelector, useAppDispatch } from 'hooks'
+import { useAppSelector, useAppDispatch, useDocumentTitle } from 'hooks'
 
 import styles from './Home.module.scss'
 
@@ -10,7 +10,6 @@ import {
 	Section,
 	SectionGroup,
 	AppLink,
-	PageTitle,
 	Button,
 	ButtonIcon,
 } from 'components/ui'
@@ -23,6 +22,8 @@ import {
 } from '@vkontakte/icons'
 
 const Home = () => {
+	useDocumentTitle('Андрей Сухушин // Curriculum Vitae')
+
 	const dispatch = useAppDispatch()
 	const theme = useAppSelector(selectTheme)
 
@@ -36,10 +37,6 @@ const Home = () => {
 
 	return (
 		<Layout>
-			<Section>
-				<PageTitle>Главная</PageTitle>
-			</Section>
-
 			<SectionGroup gap='sm'>
 				<Section field>
 					<div
