@@ -1,32 +1,27 @@
 // Container ———————————————————————————————————————————————— //
 
-@mixin ui-max-width($count: 12, $padding: true) {
-	@if $padding == true {
-		max-width: calc(
-			$ui-column-width * $count + $ui-spacing * ($count - 1) + $ui-spacing * 2
-		);
-	}
+@mixin ui-max-width($count: 12) {
+	max-width: calc(
+		$ui-column-width * $count + $ui-spacing * ($count - 1) + $ui-inner-padding *
+			2
+	);
 
-	@if $padding == false {
-		max-width: calc($ui-column-width * $count + $ui-spacing * ($count - 1));
-	}
+	padding: 0 $ui-inner-padding;
 }
 
 @mixin ui-container($count: 12) {
 	@include ui-max-width($count);
 
 	width: 100%;
-	padding: 0 $ui-spacing;
 	margin: 0 auto;
 }
 
-@mixin ui-width-columns($padding: true) {
+@mixin ui-width-columns {
 	@for $i from 3 through 12 {
 		$width: $i;
-		$padding-option: if($padding, true, false);
 
 		.width-#{$width}-columns {
-			@include ui-max-width($width, $padding-option);
+			@include ui-max-width($width);
 		}
 	}
 }

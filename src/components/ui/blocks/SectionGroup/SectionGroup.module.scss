@@ -1,7 +1,5 @@
 @import 'assets/styles/variables';
 
-@include ui-width-columns(false);
-
 .root {
 	@include ui-flex-container(flex, $flow: column);
 }
@@ -9,7 +7,7 @@
 // gap
 
 .gap-sm {
-	gap: $ui-outer-padding;
+	gap: $ui-outer-margin;
 }
 
 .gap-md {

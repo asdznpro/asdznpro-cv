@@ -49,7 +49,7 @@ const Header: React.FC = () => {
 					className={styles['header-part']}
 					style={{ display: 'flex', gap: 12 }}
 				>
-					{screenWidth >= 200 && (
+					{/* {screenWidth >= 200 && (
 						<>
 							<Footnote
 								ellipsis
@@ -71,7 +71,7 @@ const Header: React.FC = () => {
 								<AppLink to='/contacts'>#контакты</AppLink>
 							</Footnote>
 						</>
-					)}
+					)} */}
 
 					<Button
 						onClick={handleToggleTheme}

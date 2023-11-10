@@ -35,12 +35,12 @@ const Home = () => {
 
 	return (
 		<Layout>
-			<Section noField>
+			<Section>
 				<PageTitle>Главная</PageTitle>
 			</Section>
 
 			<SectionGroup gap='sm'>
-				<Section>
+				<Section field>
 					<div
 						style={{
 							display: 'flex',
@@ -298,7 +298,7 @@ const Home = () => {
 					</div>
 				</Section>
 
-				<Section>
+				<Section field>
 					<Fontbody level={2}>
 						Сложно сказать, почему представители современных социальных резервов
 						освещают чрезвычайно интересные особенности картины в целом, однако
@@ -318,7 +318,7 @@ const Home = () => {
 					</Fontbody>
 				</Section>
 
-				<Section>
+				<Section field>
 					<Fontbody level={2}>
 						Сложно сказать, почему представители современных социальных резервов
 						освещают чрезвычайно интересные особенности картины в целом, однако
@@ -335,7 +335,7 @@ const Home = () => {
 					</Fontbody>
 				</Section>
 
-				<Section>
+				<Section field>
 					<Fontbody level={2}>
 						Сложно сказать, почему представители современных социальных резервов
 						освещают чрезвычайно интересные особенности картины в целом, однако

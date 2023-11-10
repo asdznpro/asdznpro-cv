@@ -6,7 +6,8 @@ $ui-step: 4px;
 $ui-spacing: $ui-step * 5;
 $ui-column-width: 72px;
 
-$ui-outer-padding: clamp($ui-step * 2, 1.32vmax, $ui-spacing);
+$ui-inner-padding: clamp($ui-step * 5, 3vmax, $ui-step * 12);
+$ui-outer-margin: clamp($ui-step * 2, 1.22vmax, $ui-spacing); // походу придется писать media
 
 // Fonts ———————————————————————————————————————————————— //
 
@@ -18,7 +19,7 @@ $MTSUltraExpanded: 'MTS UltraExpanded';
 
 // VK Sans Display
 
-$ui-font-secondary: 'VK Sans Display'; // ui-font-secondary
+$ui-font-secondary: 'VK Sans Display';
 
 // Border Radius ———————————————————————————————————————————————— //
 

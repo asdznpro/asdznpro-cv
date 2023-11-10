@@ -4,20 +4,22 @@
 	@include ui-flex-container(flex, $items: center);
 
 	margin-top: auto;
-	padding: $ui-step * 12;
+	margin: 0 $ui-outer-margin;
+	padding: $ui-step * 12 0;
+
 	color: var(--text-secondary);
+}
 
-	.wrapper {
-		@include ui-container;
-		@include ui-flex-container(flex, $items: center);
-		@include ui-display-grid(1fr auto auto);
+.wrapper {
+	@include ui-container;
+	@include ui-flex-container($items: center);
+	@include ui-display-grid(1fr auto auto);
 
-		gap: $ui-spacing;
-	}
+	gap: $ui-spacing;
 
 	.spinner {
 		@include ui-flex-container(flex);
-		@include anim-spinner(5.6s);
+		@include anim-spinner(6s);
 
 		transition: 0.16s ease-in;
 
