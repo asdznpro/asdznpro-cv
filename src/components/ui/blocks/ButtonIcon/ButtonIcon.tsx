@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 
-import styles from './Button.module.scss'
-import ButtonProps from './Button.interface'
+import styles from './ButtonIcon.module.scss'
+import ButtonIconProps from './ButtonIcon.interface'
 
-const Button: React.FC<ButtonProps> = props => {
+const ButtonIcon: React.FC<ButtonIconProps> = props => {
 	const {
 		children,
 		mode,
@@ -11,9 +11,6 @@ const Button: React.FC<ButtonProps> = props => {
 		size,
 		cornersPill,
 		disabled,
-		stretched,
-		before,
-		after,
 		to,
 		href,
 		target,
@@ -39,7 +36,6 @@ const Button: React.FC<ButtonProps> = props => {
 		<Component
 			className={[
 				styles.root,
-				stretched ? styles.stretched : '',
 				styles[`mode-${mode ? mode : 'primary'}`],
 				styles[`${appearance ? appearance : 'accent'}`],
 				styles[`size-${size ? size : 'md'}`],
@@ -51,13 +47,9 @@ const Button: React.FC<ButtonProps> = props => {
 			style={style}
 			{...additionalProps}
 		>
-			<span className={styles.in}>
-				<span className={styles.before}>{before}</span>
-				<span className={styles.content}>{children}</span>
-				<span className={styles.after}>{after}</span>
-			</span>
+			<span className={styles.in}>{children}</span>
 		</Component>
 	)
 }
 
-export { Button }
+export { ButtonIcon }

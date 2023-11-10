@@ -12,6 +12,7 @@ import {
 	AppLink,
 	PageTitle,
 	Button,
+	ButtonIcon,
 } from 'components/ui'
 
 import {
@@ -48,6 +49,14 @@ const Home = () => {
 							flexWrap: 'wrap',
 						}}
 					>
+						<ButtonIcon
+							onClick={handleToggleTheme}
+							appearance={theme === 'light' ? 'neutral' : 'accent'}
+							cornersPill
+						>
+							{theme === 'light' ? <Icon28MoonOutline /> : <Icon28SunOutline />}
+						</ButtonIcon>
+
 						<Button
 							onClick={handleToggleTheme}
 							appearance={theme === 'light' ? 'neutral' : 'accent'}
@@ -62,7 +71,12 @@ const Home = () => {
 							</Fontbody>
 						</Button>
 
-						<Button to='/about' after={<Icon28ChevronRightCircle />}>
+						<Button
+							to='/about'
+							mode='secondary'
+							appearance='negative'
+							after={<Icon28ChevronRightCircle />}
+						>
 							<Fontbody level={3}>Go link</Fontbody>
 						</Button>
 

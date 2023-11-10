@@ -3,15 +3,9 @@ import { useAppSelector, useAppDispatch, useDynamicAlignment } from 'hooks'
 
 import styles from './Header.module.scss'
 
-import {
-	AppLink,
-	Button,
-	CvLogo,
-	CvLogoAbbreviated,
-	CvLogoIcon,
-	Footnote,
-} from 'components/ui'
+import { AppLink, Button, ButtonIcon, Footnote } from 'components/ui'
 
+import { CvLogo, CvLogoAbbreviated } from 'components/ui'
 import { Icon28MoonOutline, Icon28SunOutline } from '@vkontakte/icons'
 
 const Header: React.FC = () => {
@@ -33,14 +27,6 @@ const Header: React.FC = () => {
 			<div className={styles.container}>
 				<div className={styles['header-part']}>
 					<AppLink to='/' flex>
-						{/* {screenWidth >= 880 ? (
-							<CvLogo />
-						) : screenWidth >= 528 ? (
-							<CvLogoAbbreviated />
-						) : (
-							<CvLogoIcon />
-						)} */}
-
 						{screenWidth >= 880 ? <CvLogo /> : <CvLogoAbbreviated />}
 					</AppLink>
 				</div>
@@ -87,6 +73,19 @@ const Header: React.FC = () => {
 					>
 						<Footnote>{theme === 'light' ? 'Dark' : 'Light'}</Footnote>
 					</Button>
+
+					<ButtonIcon
+						onClick={handleToggleTheme}
+						size='sm'
+						appearance={theme === 'light' ? 'neutral' : 'accent'}
+						cornersPill
+					>
+						{theme === 'light' ? (
+							<Icon28MoonOutline width={24} height={24} />
+						) : (
+							<Icon28SunOutline width={24} height={24} />
+						)}
+					</ButtonIcon>
 				</div>
 			</div>
 		</div>

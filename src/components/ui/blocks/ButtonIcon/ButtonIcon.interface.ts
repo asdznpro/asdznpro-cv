@@ -1,4 +1,4 @@
-export default interface ButtonProps {
+export default interface ButtonIconProps {
 	children: React.ReactNode
 
 	mode?: 'primary' | 'secondary' | 'tertiary' | 'outline' | undefined

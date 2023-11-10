@@ -1,6 +1,7 @@
 // blocks
 
 export { Button } from './blocks/Button'
+export { ButtonIcon } from './blocks/ButtonIcon'
 export { PageTitle } from './blocks/PageTitle'
 export { Section } from './blocks/Section'
 export { SectionGroup } from './blocks/SectionGroup'
