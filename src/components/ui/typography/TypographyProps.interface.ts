@@ -3,5 +3,6 @@ export default interface TypographyProps {
 	children: React.ReactNode
 	caps?: boolean | undefined
 	ellipsis?: boolean | undefined
+	className?: string | undefined
 	style?: React.CSSProperties
 }

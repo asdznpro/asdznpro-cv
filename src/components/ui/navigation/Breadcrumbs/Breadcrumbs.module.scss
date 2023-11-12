@@ -1,0 +1,31 @@
+@import 'assets/styles/variables';
+
+.root {
+	@include ui-flex-container(flex, $wrap: wrap);
+
+	gap: $ui-step * 3;
+	row-gap: $ui-step;
+
+	.link {
+		position: relative;
+
+		&::after {
+			content: '';
+
+			@include ui-absolute-center;
+			@include ui-size-control(
+				calc(100% + $ui-step * 4),
+				calc(100% + $ui-step)
+			);
+
+			transition: 0.08s ease-in;
+			border-radius: $ui-rounded--8;
+		}
+
+		&:hover {
+			&::after {
+				background: var(--button-secondary);
+			}
+		}
+	}
+}

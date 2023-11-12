@@ -35,73 +35,63 @@ const Header: React.FC = () => {
 					className={styles['header-part']}
 					style={{ display: 'flex', gap: 6 }}
 				>
-					{/* {screenWidth >= 200 && (
+					{screenWidth >= 1344 && (
 						<>
-							<Footnote
-								ellipsis
-								style={{
-									display: 'flex',
-									gap: 12,
-									width: 'min-content',
-									maxWidth: 320,
-									flexWrap: 'nowrap',
-									overflowX: 'auto',
-									paddingBottom: 4,
-								}}
+							<Button
+								to='/about'
+								size='sm'
+								mode='tertiary'
+								appearance='neutral'
 							>
-								<AppLink to='/about'>#обо_мне</AppLink>
-								<AppLink to='/experience'>#опыт_работы</AppLink>
-								<AppLink to='/portfolio'>#портфолио</AppLink>
-								<AppLink to='/hard-skills'>#проф_навыки</AppLink>
-								<AppLink to='/education'>#образование</AppLink>
-								<AppLink to='/contacts'>#контакты</AppLink>
-							</Footnote>
+								<Footnote>#обо_мне</Footnote>
+							</Button>
+
+							<Button
+								to='/experience'
+								size='sm'
+								mode='tertiary'
+								appearance='neutral'
+							>
+								<Footnote>#опыт_работы</Footnote>
+							</Button>
+
+							<Button
+								to='/portfolio'
+								size='sm'
+								mode='tertiary'
+								appearance='neutral'
+							>
+								<Footnote>#портфолио</Footnote>
+							</Button>
+
+							<Button
+								to='/hard-skills'
+								size='sm'
+								mode='tertiary'
+								appearance='neutral'
+							>
+								<Footnote>#проф_навыки</Footnote>
+							</Button>
+
+							<Button
+								to='/education'
+								size='sm'
+								mode='tertiary'
+								appearance='neutral'
+							>
+								<Footnote>#образование</Footnote>
+							</Button>
+
+							<Button
+								to='/contacts'
+								size='sm'
+								mode='tertiary'
+								appearance='neutral'
+							>
+								<Footnote>#контакты</Footnote>
+							</Button>
 						</>
-					)} */}
-
-					<Button to='/about' size='sm' mode='tertiary' appearance='neutral'>
-						<Footnote>#обо_мне</Footnote>
-					</Button>
-
-					<Button
-						to='/experience'
-						size='sm'
-						mode='tertiary'
-						appearance='neutral'
-					>
-						<Footnote>#опыт_работы</Footnote>
-					</Button>
-
-					<Button
-						to='/portfolio'
-						size='sm'
-						mode='tertiary'
-						appearance='neutral'
-					>
-						<Footnote>#портфолио</Footnote>
-					</Button>
-
-					<Button
-						to='/hard-skills'
-						size='sm'
-						mode='tertiary'
-						appearance='neutral'
-					>
-						<Footnote>#проф_навыки</Footnote>
-					</Button>
-
-					<Button
-						to='/education'
-						size='sm'
-						mode='tertiary'
-						appearance='neutral'
-					>
-						<Footnote>#образование</Footnote>
-					</Button>
-
-					<Button to='/contacts' size='sm' mode='tertiary' appearance='neutral'>
-						<Footnote>#контакты</Footnote>
-					</Button>
+					)}
 
 					<ButtonIcon
 						onClick={handleToggleTheme}

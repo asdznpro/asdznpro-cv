@@ -12,9 +12,11 @@ const Footer: React.FC = () => {
 	return (
 		<footer className={styles.root}>
 			<div className={styles.wrapper}>
-				<Fontbody>&copy; Андрей Сухушин, 2023</Fontbody>
+				<Fontbody secondary>&copy; Андрей Сухушин, 2023</Fontbody>
 
-				{screenWidth >= 818 && <Fontbody>Сайт создан с помощью React</Fontbody>}
+				{screenWidth >= 818 && (
+					<Fontbody secondary>Сайт создан с помощью React</Fontbody>
+				)}
 
 				{screenWidth >= 456 && (
 					<AppLink to='https://reactjs.org/' target='blank' flex>

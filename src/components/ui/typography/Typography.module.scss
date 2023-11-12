@@ -8,6 +8,10 @@
 	text-transform: uppercase;
 }
 
+.secondary {
+	color: var(--text-secondary);
+}
+
 .ellipsis {
 	@include ui-text-ellipsis;
 }

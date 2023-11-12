@@ -12,6 +12,13 @@
 .main {
 	@include ui-flex-container(flex, $flow: inherit);
 
-	padding-top: clamp($ui-step * 27, 12vmax, $ui-step * 50);
 	gap: inherit;
+}
+
+.padding-top-sm {
+	padding-top: clamp($ui-step * 27, 11.56vmax, $ui-step * 50);
+}
+
+.padding-top-lg {
+	padding-top: clamp($ui-step * 36, 11.56vmax, $ui-step * 50);
 }

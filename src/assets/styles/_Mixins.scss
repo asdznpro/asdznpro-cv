@@ -79,7 +79,8 @@
 	$basis: null,
 	$flow: null,
 	$grow: null,
-	$shrink: null
+	$shrink: null,
+	$wrap: null
 ) {
 	@if $type != null {
 		display: $type;
@@ -111,6 +112,10 @@
 
 	@if $shrink != null {
 		flex-shrink: $shrink;
+	}
+
+	@if $wrap != null {
+		flex-wrap: $wrap;
 	}
 }
 
