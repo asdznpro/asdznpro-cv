@@ -5,7 +5,13 @@ import { useDocumentTitle } from 'hooks'
 import styles from './Portfolio.module.scss'
 
 import { Layout } from 'components/layout'
-import { Fontbody, Section, PageTitle, Button } from 'components/ui'
+import {
+	Fontbody,
+	Section,
+	PageTitle,
+	Button,
+	Breadcrumbs,
+} from 'components/ui'
 
 import { Icon28ChevronRightCircle } from '@vkontakte/icons'
 
@@ -14,13 +20,17 @@ const Portfolio = () => {
 
 	return (
 		<Layout>
+			<Section>
+				<Breadcrumbs customLabels={['Портфолио']} />
+			</Section>
+
 			<Routes>
 				<Route
 					path=''
 					element={
 						<>
 							<Section>
-								<PageTitle>Портфолио</PageTitle>
+								<PageTitle title='Портфолио' />
 							</Section>
 
 							<Section field>
@@ -45,7 +55,7 @@ const Portfolio = () => {
 					element={
 						<>
 							<Section countColumns={10}>
-								<PageTitle>UpBalance — пополнение баланса Steam</PageTitle>
+								<PageTitle title='UpBalance' />
 							</Section>
 
 							<Section countColumns={10} field>

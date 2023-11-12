@@ -9,6 +9,7 @@ import {
 	PageTitle,
 	Heading,
 	SectionGroup,
+	Breadcrumbs,
 } from 'components/ui'
 
 const HardSkills = () => {
@@ -17,7 +18,8 @@ const HardSkills = () => {
 	return (
 		<Layout>
 			<Section countColumns={8}>
-				<PageTitle>Проф. навыки</PageTitle>
+				<Breadcrumbs customLabels={['Проф. навыки']} />
+				<PageTitle title='Проф. навыки' />
 			</Section>
 
 			<SectionGroup gap='sm'>
@@ -37,9 +39,8 @@ const HardSkills = () => {
 					<Heading level={3}>Фронтенд</Heading>
 
 					<Fontbody level={2}>
-						Господа,
-						разбавленное изрядной долей эмпатии, рациональное мышление, а также
-						свежий взгляд на привычные вещи — безусловно открывает новые
+						Господа, разбавленное изрядной долей эмпатии, рациональное мышление,
+						а также свежий взгляд на привычные вещи — безусловно открывает новые
 						горизонты для вывода текущих активов.
 					</Fontbody>
 				</Section>

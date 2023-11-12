@@ -3,7 +3,7 @@ import { useDocumentTitle } from 'hooks'
 import styles from './Education.module.scss'
 
 import { Layout } from 'components/layout'
-import { Fontbody, Section, PageTitle } from 'components/ui'
+import { Fontbody, Section, PageTitle, Breadcrumbs } from 'components/ui'
 
 const Education = () => {
 	useDocumentTitle('Образование — Андрей Сухушин // Curriculum Vitae')
@@ -11,7 +11,8 @@ const Education = () => {
 	return (
 		<Layout>
 			<Section>
-				<PageTitle>Образование</PageTitle>
+				<Breadcrumbs customLabels={['Образование']} />
+				<PageTitle title='Образование' />
 			</Section>
 
 			<Section field>

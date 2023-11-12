@@ -3,7 +3,7 @@ import { useDocumentTitle } from 'hooks'
 import styles from './Contacts.module.scss'
 
 import { Layout } from 'components/layout'
-import { Fontbody, Section, PageTitle } from 'components/ui'
+import { Fontbody, Section, PageTitle, Breadcrumbs } from 'components/ui'
 
 const Contacts = () => {
 	useDocumentTitle('Контакты — Андрей Сухушин // Curriculum Vitae')
@@ -11,7 +11,8 @@ const Contacts = () => {
 	return (
 		<Layout>
 			<Section>
-				<PageTitle>Контакты</PageTitle>
+				<Breadcrumbs customLabels={['Контакты']} />
+				<PageTitle title='Контакты' />
 			</Section>
 
 			<Section field>

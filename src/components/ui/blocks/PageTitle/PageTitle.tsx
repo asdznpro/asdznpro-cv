@@ -1,16 +1,14 @@
 import styles from './PageTitle.module.scss'
 import PageTitleProps from './PageTitle.interface'
 
-import { Breadcrumbs, Fontbody, Heading } from 'components/ui'
+import { Fontbody, Heading } from 'components/ui'
 
 const PageTitle: React.FC<PageTitleProps> = props => {
-	const { children, describe } = props
+	const { title, describe } = props
 
 	return (
 		<div className={styles.root}>
-			<Breadcrumbs />
-
-			<Heading>{children}</Heading>
+			{title && <Heading>{title}</Heading>}
 			{describe && <Fontbody>{describe}</Fontbody>}
 		</div>
 	)

@@ -3,7 +3,7 @@ import { useDocumentTitle } from 'hooks'
 import styles from './About.module.scss'
 
 import { Layout } from 'components/layout'
-import { Fontbody, Section, PageTitle } from 'components/ui'
+import { Fontbody, Section, PageTitle, Breadcrumbs } from 'components/ui'
 
 const About = () => {
 	useDocumentTitle('Обо мне — Андрей Сухушин // Curriculum Vitae')
@@ -11,7 +11,8 @@ const About = () => {
 	return (
 		<Layout>
 			<Section countColumns={10}>
-				<PageTitle>Обо мне</PageTitle>
+				<Breadcrumbs customLabels={['Обо мне']} />
+				<PageTitle title='Обо мне' />
 			</Section>
 
 			<Section countColumns={10} field>

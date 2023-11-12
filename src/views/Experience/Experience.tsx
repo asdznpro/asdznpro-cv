@@ -5,7 +5,14 @@ import { useDocumentTitle } from 'hooks'
 import styles from './Experience.module.scss'
 
 import { Layout } from 'components/layout'
-import { Fontbody, Section, PageTitle, Button } from 'components/ui'
+import {
+	Fontbody,
+	Section,
+	PageTitle,
+	Button,
+	Breadcrumbs,
+	SectionGroup,
+} from 'components/ui'
 
 import { Icon28ChevronRightCircle } from '@vkontakte/icons'
 
@@ -14,13 +21,22 @@ const Experience = () => {
 
 	return (
 		<Layout>
+			<Section countColumns={10}>
+				<Breadcrumbs customLabels={['Опыт работы', 'Warface', 'Feedback']} />
+			</Section>
+
 			<Routes>
 				<Route
 					path=''
 					element={
 						<>
 							<Section countColumns={10}>
-								<PageTitle>Опыт работы</PageTitle>
+								<PageTitle
+									title='Опыт работы'
+									describe='Идейные соображения высшего порядка, а также консультация с
+									широким активом играет определяющее значение для форм
+									воздействия.'
+								/>
 							</Section>
 
 							<Section countColumns={10} field>
@@ -40,15 +56,20 @@ const Experience = () => {
 						</>
 					}
 				/>
+
 				<Route
 					path='warface'
 					element={
 						<>
 							<Section countColumns={10}>
-								<PageTitle>Warface</PageTitle>
+								<PageTitle title='Warface' />
 							</Section>
 
 							<Section countColumns={10} field>
+								<Button to='feedback' after={<Icon28ChevronRightCircle />}>
+									<Fontbody level={3}>Go link</Fontbody>
+								</Button>
+
 								<Fontbody level={2}>
 									Сложно сказать, почему представители современных социальных
 									резервов освещают чрезвычайно интересные особенности картины в
@@ -57,6 +78,35 @@ const Experience = () => {
 									пользу обществу.
 								</Fontbody>
 							</Section>
+						</>
+					}
+				/>
+
+				<Route
+					path='warface/feedback'
+					element={
+						<>
+							<Section countColumns={10}>
+								<PageTitle title='feedback' />
+							</Section>
+
+							<SectionGroup gap='sm'>
+								<Section countColumns={10} field>
+									<Fontbody level={2}>
+										Сложно сказать, почему представители современных социальных
+										резервов освещают чрезвычайно интересные особенности картины
+										в целом.
+									</Fontbody>
+								</Section>
+
+								<Section countColumns={10} field>
+									<Fontbody level={2}>
+										Однако конкретные выводы, разумеется, превращены в
+										посмешище, хотя само их существование приносит несомненную
+										пользу обществу.
+									</Fontbody>
+								</Section>
+							</SectionGroup>
 						</>
 					}
 				/>

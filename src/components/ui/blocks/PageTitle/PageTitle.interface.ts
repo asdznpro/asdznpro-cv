@@ -1,4 +1,4 @@
 export default interface PageTitleProps {
-	children: string
-	describe?: string
+	title: string | undefined
+	describe?: string | undefined
 }

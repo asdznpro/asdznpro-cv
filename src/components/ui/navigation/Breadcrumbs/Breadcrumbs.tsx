@@ -8,16 +8,19 @@ import BreadcrumbsProps from './Breadcrumbs.interface'
 import { Fontbody } from 'components/ui'
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
-	const { children } = props
+	const { customLabels } = props
 
 	const location = useLocation()
 	const pathnames = location.pathname.split('/').filter(x => x)
 
 	const breadcrumbPaths = [{ path: '/', name: 'Резюме' }]
 
-	pathnames.forEach((pathname, index) => {
+	pathnames.forEach((_, index) => {
 		const path = `/${pathnames.slice(0, index + 1).join('/')}`
-		const name = pathname
+		const name =
+			customLabels && customLabels.length > index
+				? customLabels[index]
+				: pathnames[index]
 
 		if (path !== '/') {
 			breadcrumbPaths.push({ path, name })
@@ -31,7 +34,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
 				return (
 					<React.Fragment key={index}>
 						{index > 0 && (
-							<Fontbody level={2} secondary>
+							<Fontbody className={styles.separator} level={2} secondary>
 								/
 							</Fontbody>
 						)}
