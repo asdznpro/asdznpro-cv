@@ -5,7 +5,7 @@ export default interface ButtonProps {
 	appearance?: 'accent' | 'positive' | 'negative' | 'neutral' | undefined
 	size?: 'xlg' | 'lg' | 'md' | 'sm' | 'xsm' | undefined
 
-	cornersPill?: boolean | undefined
+	rounded?: boolean | undefined
 	disabled?: boolean | undefined
 	stretched?: boolean | undefined
 

@@ -9,7 +9,7 @@ const Section: React.FC<SectionProps> = props => {
 			<div
 				className={[
 					styles.inner,
-					field ? styles.field : '',
+					field && styles.field,
 					styles[`width-${countColumns || 12}-columns`],
 				]
 					.join(' ')

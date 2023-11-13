@@ -9,7 +9,7 @@ const ButtonIcon: React.FC<ButtonIconProps> = props => {
 		mode,
 		appearance,
 		size,
-		cornersPill,
+		rounded,
 		disabled,
 		to,
 		href,
@@ -39,8 +39,8 @@ const ButtonIcon: React.FC<ButtonIconProps> = props => {
 				styles[`mode-${mode ? mode : 'primary'}`],
 				styles[`${appearance ? appearance : 'accent'}`],
 				styles[`size-${size ? size : 'md'}`],
-				(to || href) && disabled ? styles['none-action'] : '',
-				cornersPill ? styles['corners-pill'] : '',
+				rounded && styles['rounded'],
+				(to || href) && disabled && styles['none-action'],
 			]
 				.join(' ')
 				.trim()}

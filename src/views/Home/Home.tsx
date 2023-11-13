@@ -49,7 +49,7 @@ const Home = () => {
 						<ButtonIcon
 							onClick={handleToggleTheme}
 							appearance={theme === 'light' ? 'neutral' : 'accent'}
-							cornersPill
+							rounded
 						>
 							{theme === 'light' ? <Icon28MoonOutline /> : <Icon28SunOutline />}
 						</ButtonIcon>
@@ -73,6 +73,7 @@ const Home = () => {
 							mode='secondary'
 							appearance='negative'
 							after={<Icon28ChevronRightCircle />}
+							rounded
 						>
 							<Fontbody level={3}>Go link</Fontbody>
 						</Button>
@@ -153,6 +154,33 @@ const Home = () => {
 								flexDirection: 'column',
 							}}
 						>
+							<Footnote secondary>Icon</Footnote>
+
+							<ButtonIcon>
+								<Icon28AddOutline />
+							</ButtonIcon>
+
+							<ButtonIcon mode='secondary'>
+								<Icon28AddOutline />
+							</ButtonIcon>
+
+							<ButtonIcon mode='tertiary'>
+								<Icon28AddOutline />
+							</ButtonIcon>
+
+							<ButtonIcon mode='outline'>
+								<Icon28AddOutline />
+							</ButtonIcon>
+						</div>
+
+						<div
+							style={{
+								display: 'flex',
+								flexWrap: 'wrap',
+								gap: 12,
+								flexDirection: 'column',
+							}}
+						>
 							<Footnote>Positive</Footnote>
 
 							<Button
@@ -197,6 +225,33 @@ const Home = () => {
 									Button
 								</Fontbody>
 							</Button>
+						</div>
+
+						<div
+							style={{
+								display: 'flex',
+								flexWrap: 'wrap',
+								gap: 12,
+								flexDirection: 'column',
+							}}
+						>
+							<Footnote secondary>Icon</Footnote>
+
+							<ButtonIcon appearance='positive'>
+								<Icon28AddOutline />
+							</ButtonIcon>
+
+							<ButtonIcon appearance='positive' mode='secondary'>
+								<Icon28AddOutline />
+							</ButtonIcon>
+
+							<ButtonIcon appearance='positive' mode='tertiary'>
+								<Icon28AddOutline />
+							</ButtonIcon>
+
+							<ButtonIcon appearance='positive' mode='outline'>
+								<Icon28AddOutline />
+							</ButtonIcon>
 						</div>
 
 						<div
@@ -261,6 +316,33 @@ const Home = () => {
 								flexDirection: 'column',
 							}}
 						>
+							<Footnote secondary>Icon</Footnote>
+
+							<ButtonIcon appearance='negative'>
+								<Icon28AddOutline />
+							</ButtonIcon>
+
+							<ButtonIcon appearance='negative' mode='secondary'>
+								<Icon28AddOutline />
+							</ButtonIcon>
+
+							<ButtonIcon appearance='negative' mode='tertiary'>
+								<Icon28AddOutline />
+							</ButtonIcon>
+
+							<ButtonIcon appearance='negative' mode='outline'>
+								<Icon28AddOutline />
+							</ButtonIcon>
+						</div>
+
+						<div
+							style={{
+								display: 'flex',
+								flexWrap: 'wrap',
+								gap: 12,
+								flexDirection: 'column',
+							}}
+						>
 							<Footnote>Neutral</Footnote>
 
 							<Button
@@ -305,6 +387,33 @@ const Home = () => {
 									Button
 								</Fontbody>
 							</Button>
+						</div>
+
+						<div
+							style={{
+								display: 'flex',
+								flexWrap: 'wrap',
+								gap: 12,
+								flexDirection: 'column',
+							}}
+						>
+							<Footnote secondary>Icon</Footnote>
+
+							<ButtonIcon appearance='neutral'>
+								<Icon28AddOutline />
+							</ButtonIcon>
+
+							<ButtonIcon appearance='neutral' mode='secondary'>
+								<Icon28AddOutline />
+							</ButtonIcon>
+
+							<ButtonIcon appearance='neutral' mode='tertiary'>
+								<Icon28AddOutline />
+							</ButtonIcon>
+
+							<ButtonIcon appearance='neutral' mode='outline'>
+								<Icon28AddOutline />
+							</ButtonIcon>
 						</div>
 					</div>
 				</Section>

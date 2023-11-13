@@ -9,7 +9,7 @@ const Button: React.FC<ButtonProps> = props => {
 		mode,
 		appearance,
 		size,
-		cornersPill,
+		rounded,
 		disabled,
 		stretched,
 		before,
@@ -39,12 +39,12 @@ const Button: React.FC<ButtonProps> = props => {
 		<Component
 			className={[
 				styles.root,
-				stretched ? styles.stretched : '',
 				styles[`mode-${mode ? mode : 'primary'}`],
 				styles[`${appearance ? appearance : 'accent'}`],
 				styles[`size-${size ? size : 'md'}`],
-				(to || href) && disabled ? styles['none-action'] : '',
-				cornersPill ? styles['corners-pill'] : '',
+				rounded && styles['rounded'],
+				(to || href) && disabled && styles['none-action'],
+				stretched && styles.stretched,
 			]
 				.join(' ')
 				.trim()}

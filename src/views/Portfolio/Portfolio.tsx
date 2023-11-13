@@ -20,17 +20,37 @@ const Portfolio = () => {
 
 	return (
 		<Layout>
-			<Section>
-				<Breadcrumbs customLabels={['Портфолио']} />
-			</Section>
-
 			<Routes>
 				<Route
 					path=''
 					element={
 						<>
 							<Section>
-								<PageTitle title='Портфолио' />
+								<Breadcrumbs customLabels={['Портфолио', 'UpBalance']} />
+								<PageTitle
+									title='Портфолио'
+									describe='Но глубокий уровень погружения требует определения и уточнения системы массового участия. Однозначно, некоторые особенности внутренней политики объединены в целые кластеры себе подобных.'
+								/>
+							</Section>
+
+							<Section>
+								<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+									<Button rounded>
+										<Fontbody level={3}>Все работы</Fontbody>
+									</Button>
+									<Button mode='secondary' appearance='neutral'>
+										<Fontbody level={3}>Новое</Fontbody>
+									</Button>
+									<Button mode='secondary' appearance='neutral'>
+										<Fontbody level={3}>Графический дизайн</Fontbody>
+									</Button>
+									<Button mode='outline' appearance='neutral'>
+										<Fontbody level={3}>UI/UX</Fontbody>
+									</Button>
+									<Button mode='outline' appearance='neutral'>
+										<Fontbody level={3}>Фронтенд</Fontbody>
+									</Button>
+								</div>
 							</Section>
 
 							<Section field>
@@ -38,7 +58,7 @@ const Portfolio = () => {
 									<Fontbody level={3}>Go link</Fontbody>
 								</Button>
 
-								<Fontbody level={2}>
+								<Fontbody level={2} role='paragraph'>
 									Сложно сказать, почему представители современных социальных
 									резервов освещают чрезвычайно интересные особенности картины в
 									целом, однако конкретные выводы, разумеется, превращены в
@@ -55,11 +75,12 @@ const Portfolio = () => {
 					element={
 						<>
 							<Section countColumns={10}>
+								<Breadcrumbs customLabels={['Портфолио', 'UpBalance']} />
 								<PageTitle title='UpBalance' />
 							</Section>
 
 							<Section countColumns={10} field>
-								<Fontbody level={2}>
+								<Fontbody level={2} role='paragraph'>
 									Сложно сказать, почему представители современных социальных
 									резервов освещают чрезвычайно интересные особенности картины в
 									целом, однако конкретные выводы, разумеется, превращены в

@@ -25,8 +25,8 @@ const AppLink: React.FC<AppLinkProps> = props => {
 			onClick={onClick}
 			className={[
 				styles.root,
-				flex ? styles.flex : '',
 				colorless ? '' : styles.color,
+				flex && styles.flex,
 			].join(' ')}
 			{...additionalProps}
 		>

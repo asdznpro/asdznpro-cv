@@ -23,9 +23,9 @@ const Footnote: React.FC<TypographyExtendedProps> = props => {
 			className={[
 				typographyStyles.root,
 				styles['level-' + (level ? level : 1)],
-				caps ? typographyStyles.caps : '',
-				ellipsis ? typographyStyles.ellipsis : '',
-				secondary ? typographyStyles.secondary : '',
+				caps && typographyStyles.caps,
+				ellipsis && typographyStyles.ellipsis,
+				secondary && typographyStyles.secondary,
 				className,
 			]
 				.join(' ')

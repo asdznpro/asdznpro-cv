@@ -22,8 +22,8 @@
 		scale: 0.992;
 	}
 
-	&:focus-within {
-		outline: 4px solid var(--button-secondary);
+	&:focus-visible {
+		outline: 3px solid var(--button-secondary);
 	}
 }
 
@@ -209,7 +209,7 @@
 
 // corners
 
-.corners-pill {
+.rounded {
 	border-radius: $ui-rounded--64;
 }
 
