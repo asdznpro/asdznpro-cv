@@ -1,0 +1,24 @@
+@import 'assets/styles/variables';
+
+.root {
+	@include ui-flex-container(flex);
+
+	gap: $ui-spacing;
+
+	.logo {
+		@include ui-size-control(120px, 120px);
+		@include ui-flex-container(flex, center, center, $shrink: 0);
+
+		padding: $ui-step * 3;
+		overflow: hidden;
+		background: var(--button-secondary);
+		border-radius: $ui-rounded--16;
+	}
+
+	.info {
+		@include ui-size-control($minH: 100%);
+		@include ui-flex-container(flex, center, $flow: column);
+
+		gap: inherit;
+	}
+}

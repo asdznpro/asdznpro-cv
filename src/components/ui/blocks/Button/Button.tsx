@@ -11,6 +11,7 @@ const Button: React.FC<ButtonProps> = props => {
 		size,
 		rounded,
 		disabled,
+		noneAction,
 		stretched,
 		before,
 		after,
@@ -43,7 +44,8 @@ const Button: React.FC<ButtonProps> = props => {
 				styles[`${appearance ? appearance : 'accent'}`],
 				styles[`size-${size ? size : 'md'}`],
 				rounded && styles['rounded'],
-				(to || href) && disabled && styles['none-action'],
+				(to || href) && disabled && styles['disabled-link'],
+				noneAction && styles['none-action'],
 				stretched && styles.stretched,
 			]
 				.join(' ')

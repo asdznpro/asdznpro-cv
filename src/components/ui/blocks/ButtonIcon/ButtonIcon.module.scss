@@ -223,8 +223,12 @@
 	}
 }
 
-.none-action {
+.disabled-link {
 	opacity: $Alpha64;
 	pointer-events: none;
 	filter: blur(2px);
+}
+
+.none-action {
+	pointer-events: none;
 }

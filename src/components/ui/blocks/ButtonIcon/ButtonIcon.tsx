@@ -11,6 +11,7 @@ const ButtonIcon: React.FC<ButtonIconProps> = props => {
 		size,
 		rounded,
 		disabled,
+		noneAction,
 		to,
 		href,
 		target,
@@ -40,7 +41,8 @@ const ButtonIcon: React.FC<ButtonIconProps> = props => {
 				styles[`${appearance ? appearance : 'accent'}`],
 				styles[`size-${size ? size : 'md'}`],
 				rounded && styles['rounded'],
-				(to || href) && disabled && styles['none-action'],
+				(to || href) && disabled && styles['disabled-link'],
+				noneAction && styles['none-action'],
 			]
 				.join(' ')
 				.trim()}

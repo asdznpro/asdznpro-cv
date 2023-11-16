@@ -7,6 +7,7 @@ export default interface ButtonIconProps {
 
 	rounded?: boolean | undefined
 	disabled?: boolean | undefined
+	noneAction?: boolean | undefined
 	stretched?: boolean | undefined
 
 	before?: React.ReactNode
