@@ -61,11 +61,9 @@ const Home = () => {
 								theme === 'light' ? <Icon28MoonOutline /> : <Icon28SunOutline />
 							}
 						>
-							<Fontbody level={3}>
-								{theme === 'light'
-									? 'Switch to Dark Mode'
-									: 'Switch to Light Mode'}
-							</Fontbody>
+							{theme === 'light'
+								? 'Switch to Dark Mode'
+								: 'Switch to Light Mode'}
 						</Button>
 
 						<Button
@@ -75,7 +73,7 @@ const Home = () => {
 							after={<Icon28ChevronRightCircle />}
 							rounded
 						>
-							<Fontbody level={3}>Go link</Fontbody>
+							Go link
 						</Button>
 
 						<Button
@@ -85,7 +83,9 @@ const Home = () => {
 							after={<Icon28ChevronRightCircle />}
 							disabled
 						>
-							<Fontbody level={3}>Go link</Fontbody>
+							{theme === 'light'
+								? 'Switch to Dark Mode'
+								: 'Switch to Light Mode'}
 						</Button>
 					</div>
 
@@ -110,9 +110,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 
 							<Button
@@ -120,9 +118,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 
 							<Button
@@ -130,9 +126,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 
 							<Button
@@ -140,9 +134,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 						</div>
 
@@ -188,9 +180,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 
 							<Button
@@ -199,9 +189,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 
 							<Button
@@ -210,9 +198,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 
 							<Button
@@ -221,9 +207,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 						</div>
 
@@ -269,9 +253,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 
 							<Button
@@ -280,9 +262,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 
 							<Button
@@ -291,9 +271,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 
 							<Button
@@ -302,9 +280,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 						</div>
 
@@ -350,9 +326,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 
 							<Button
@@ -361,9 +335,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 
 							<Button
@@ -372,9 +344,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 
 							<Button
@@ -383,9 +353,7 @@ const Home = () => {
 								before={<Icon28AddOutline />}
 								after={<Icon28ChevronRightCircle />}
 							>
-								<Fontbody level={3} ellipsis>
-									Button
-								</Fontbody>
+								Button
 							</Button>
 						</div>
 

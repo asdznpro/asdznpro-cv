@@ -75,7 +75,7 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 							}
 							noneAction
 						>
-							<Footnote>{label}</Footnote>
+							{label}
 						</Button>
 					))}
 				</div>

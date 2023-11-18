@@ -22,14 +22,13 @@ const Portfolio = () => {
 	useDocumentTitle('Портфолио — Андрей Сухушин // Curriculum Vitae')
 
 	const dispatch = useAppDispatch()
+
 	const { data: portfolioData } = useGetPortfolioQuery()
 	const storePortfolioData = useAppSelector(state => state.common.portfolio)
 
 	useEffect(() => {
 		if (portfolioData) {
 			dispatch(setPortfolioData(portfolioData))
-
-			console.log(storePortfolioData)
 		}
 	}, [portfolioData, dispatch])
 
@@ -54,27 +53,25 @@ const Portfolio = () => {
 
 							<Section>
 								<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-									<Button rounded>
-										<Fontbody level={3}>Все работы</Fontbody>
+									<Button rounded>Все работы</Button>
+									<Button mode='secondary' appearance='neutral'>
+										Новое
 									</Button>
 									<Button mode='secondary' appearance='neutral'>
-										<Fontbody level={3}>Новое</Fontbody>
-									</Button>
-									<Button mode='secondary' appearance='neutral'>
-										<Fontbody level={3}>Графический дизайн</Fontbody>
+										Графический дизайн
 									</Button>
 									<Button mode='outline' appearance='neutral'>
-										<Fontbody level={3}>UI/UX</Fontbody>
+										UI/UX
 									</Button>
 									<Button mode='outline' appearance='neutral'>
-										<Fontbody level={3}>Фронтенд</Fontbody>
+										Фронтенд
 									</Button>
 								</div>
 							</Section>
 
 							<Section field>
 								<Button to='upbalance' after={<Icon28ChevronRightCircle />}>
-									<Fontbody level={3}>Go link</Fontbody>
+									Go link
 								</Button>
 
 								<Fontbody level={2} role='paragraph'>

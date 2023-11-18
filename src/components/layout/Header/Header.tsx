@@ -43,7 +43,7 @@ const Header: React.FC = () => {
 								mode='tertiary'
 								appearance='neutral'
 							>
-								<Footnote>#обо_мне</Footnote>
+								#обо_мне
 							</Button>
 
 							<Button
@@ -52,7 +52,7 @@ const Header: React.FC = () => {
 								mode='tertiary'
 								appearance='neutral'
 							>
-								<Footnote>#опыт_работы</Footnote>
+								#опыт_работы
 							</Button>
 
 							<Button
@@ -61,7 +61,7 @@ const Header: React.FC = () => {
 								mode='tertiary'
 								appearance='neutral'
 							>
-								<Footnote>#портфолио</Footnote>
+								#портфолио
 							</Button>
 
 							<Button
@@ -70,7 +70,7 @@ const Header: React.FC = () => {
 								mode='tertiary'
 								appearance='neutral'
 							>
-								<Footnote>#проф_навыки</Footnote>
+								#проф_навыки
 							</Button>
 
 							<Button
@@ -79,7 +79,7 @@ const Header: React.FC = () => {
 								mode='tertiary'
 								appearance='neutral'
 							>
-								<Footnote>#образование</Footnote>
+								#образование
 							</Button>
 
 							<Button
@@ -88,7 +88,7 @@ const Header: React.FC = () => {
 								mode='tertiary'
 								appearance='neutral'
 							>
-								<Footnote>#контакты</Footnote>
+								#контакты
 							</Button>
 						</>
 					)}

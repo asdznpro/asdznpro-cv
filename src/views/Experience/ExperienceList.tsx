@@ -6,15 +6,12 @@ import ExperienceModel from 'models/Experience.interface'
 
 import { ExperienceItem } from 'components/shared'
 import {
-	Fontbody,
 	Section,
 	PageTitle,
 	Button,
 	Breadcrumbs,
 	SectionGroup,
-	Footnote,
 	Spinner,
-	Heading,
 	ButtonIcon,
 } from 'components/ui'
 
@@ -79,7 +76,7 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 										}
 										noneAction
 									>
-										<Footnote>{label}</Footnote>
+										{label}
 									</Button>
 								))}
 							</div>
