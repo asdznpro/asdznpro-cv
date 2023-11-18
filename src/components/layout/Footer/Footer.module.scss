@@ -15,6 +15,7 @@
 	@include ui-display-grid(1fr auto auto);
 
 	gap: $ui-spacing;
+	padding: 0 calc($ui-inner-padding + $ui-outer-padding);
 
 	.spinner {
 		@include ui-flex-container(flex);

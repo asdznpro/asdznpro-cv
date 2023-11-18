@@ -1,0 +1,10 @@
+@import 'assets/styles/variables';
+
+.preview {
+	@include ui-size-control(100%);
+	@include ui-flex-container(flex, center, center);
+
+	img {
+		@include ui-size-control(100%, $minW: 532px);
+	}
+}

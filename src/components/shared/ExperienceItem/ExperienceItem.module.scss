@@ -23,10 +23,23 @@
 		@include ui-size-control($minH: 100%);
 		@include ui-flex-container(flex, center, $flow: column);
 
-		gap: $ui-step * 4;
+		gap: clamp($ui-step * 3, 3vw, $ui-step * 4);
 
 		.describe {
 			@include ui-text-ellipsis(2);
 		}
+	}
+}
+
+.preview {
+	@include ui-size-control(100%);
+	@include ui-flex-container(flex, center, center);
+
+	overflow: hidden;
+	border-radius: clamp($ui-rounded--16, 2.4vmax, $ui-rounded--24);
+	// box-shadow: inset 0 0 0 1px var(--separator);
+
+	img {
+		@include ui-size-control(100%, $minW: 532px);
 	}
 }

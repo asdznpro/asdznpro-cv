@@ -11,7 +11,7 @@ interface Experience {
 	employerLogo: string
 	employerLogoLight?: string
 	employerWebsite?: string
-	employerPreview: string
+	employerPreview?: string
 	shortDescription: string
 	fullDescription?: string
 	pathname: string

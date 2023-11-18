@@ -12,14 +12,9 @@ import {
 	Breadcrumbs,
 	SectionGroup,
 	Spinner,
-	ButtonIcon,
 } from 'components/ui'
 
-import {
-	Icon28CalendarCheckOutline,
-	Icon28LockOutline,
-	Icon28LinkOutline,
-} from '@vkontakte/icons'
+import { Icon28LockOutline } from '@vkontakte/icons'
 
 interface ExperienceListProps {
 	storeExperienceData: ExperienceModel | null
@@ -45,6 +40,8 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 							key={item.id}
 							title={item.employerName}
 							describe={item.shortDescription}
+							preview={item.employerPreview}
+							to={item.pathname}
 							// logoPath={
 							// 	theme === 'dark' && item.employerLogoLight
 							// 		? item.employerLogoLight
@@ -52,10 +49,6 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 							// }
 						>
 							<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-								<ButtonIcon size='sm' to={item.pathname} rounded>
-									<Icon28LinkOutline width={24} height={24} />
-								</ButtonIcon>
-
 								{item.labels.map((label, index) => (
 									<Button
 										key={item.id + '-' + index}
@@ -64,11 +57,7 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 											label.includes('закрыт') ? 'negative' : 'neutral'
 										}
 										before={
-											label.includes('год') ||
-											label.includes('месяца') ||
-											label.includes('мая') ? (
-												<Icon28CalendarCheckOutline width={24} height={24} />
-											) : label.includes('закрыт') ? (
+											label.includes('закрыт') ? (
 												<Icon28LockOutline width={24} height={24} />
 											) : (
 												''

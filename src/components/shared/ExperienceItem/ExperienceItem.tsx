@@ -6,12 +6,36 @@ import ExperienceItemProps from './ExperienceItem.interface'
 import { Fontbody, Heading, Section, Spinner } from 'components/ui'
 
 const ExperienceItem: React.FC<ExperienceItemProps> = props => {
-	const { title, describe, logoPath, children, style } = props
+	const {
+		title,
+		describe,
+		logoPath,
+		preview,
+		children,
+		style,
+		to,
+		href,
+		target,
+	} = props
 
 	const { screenWidth } = useDynamicAlignment()
 
 	return (
-		<Section countColumns={10} field>
+		<Section
+			top={
+				preview &&
+				screenWidth <= 768 && (
+					<div className={styles.preview}>
+						<img src={preview} alt={title} />
+					</div>
+				)
+			}
+			countColumns={10}
+			field
+			to={to}
+			href={href}
+			target={target}
+		>
 			<div className={styles.root} style={style}>
 				{screenWidth >= 768 && (
 					<div className={styles.logo}>
