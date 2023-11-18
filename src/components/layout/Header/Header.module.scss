@@ -5,7 +5,7 @@
 
 	position: fixed;
 	z-index: $ui-index--12;
-	padding: $ui-step * 2;
+	padding: $ui-outer-margin;
 
 	.container {
 		@include ui-size-control(100%, clamp(92px, 8vmax, 104px));

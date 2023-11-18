@@ -1,6 +1,8 @@
 import { createApi } from '@reduxjs/toolkit/query/react'
 import axiosBaseQuery from './BaseQuery'
 
+import ExperienceModel from 'models/Experience.interface'
+
 export const commonApi = createApi({
 	reducerPath: 'commonApi',
 	baseQuery: axiosBaseQuery(),
@@ -12,7 +14,7 @@ export const commonApi = createApi({
 			}),
 		}),
 
-		getExperience: builder.query<any, void>({
+		getExperience: builder.query<ExperienceModel, void>({
 			query: () => ({
 				url: 'e2318210-d473-4be8-8529-a4b3bc2f870d',
 				method: 'GET',

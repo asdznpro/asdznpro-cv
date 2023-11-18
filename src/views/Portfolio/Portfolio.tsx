@@ -1,6 +1,9 @@
+import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import { useDocumentTitle } from 'hooks'
+import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
+import { useGetPortfolioQuery } from 'services/CommonApi'
+import { setPortfolioData } from 'store/СommonSlice'
 
 import styles from './Portfolio.module.scss'
 
@@ -17,6 +20,22 @@ import { Icon28ChevronRightCircle } from '@vkontakte/icons'
 
 const Portfolio = () => {
 	useDocumentTitle('Портфолио — Андрей Сухушин // Curriculum Vitae')
+
+	const dispatch = useAppDispatch()
+	const { data: portfolioData } = useGetPortfolioQuery()
+	const storePortfolioData = useAppSelector(state => state.common.portfolio)
+
+	useEffect(() => {
+		if (portfolioData) {
+			dispatch(setPortfolioData(portfolioData))
+
+			console.log(storePortfolioData)
+		}
+	}, [portfolioData, dispatch])
+
+	useEffect(() => {
+		console.log(storePortfolioData)
+	}, [storePortfolioData])
 
 	return (
 		<Layout>

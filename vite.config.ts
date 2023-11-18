@@ -19,6 +19,7 @@ export default (args: ViteConfigInput) => {
 				assets: '/src/assets',
 				components: '/src/components',
 				hooks: '/src/hooks',
+				models: '/src/models',
 				services: '/src/services',
 				store: '/src/store',
 				views: '/src/views',

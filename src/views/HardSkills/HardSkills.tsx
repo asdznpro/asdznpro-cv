@@ -1,4 +1,8 @@
-import { useDocumentTitle } from 'hooks'
+import { useEffect } from 'react'
+
+import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
+import { useGetHardSkillsQuery } from 'services/CommonApi'
+import { setHardSkillsData } from 'store/СommonSlice'
 
 import styles from './HardSkills.module.scss'
 
@@ -14,6 +18,22 @@ import {
 
 const HardSkills = () => {
 	useDocumentTitle('Проф. навыки — Андрей Сухушин // Curriculum Vitae')
+
+	const dispatch = useAppDispatch()
+	const { data: hardSkillsData } = useGetHardSkillsQuery()
+	const storeHardSkillsData = useAppSelector(state => state.common.hardSkills)
+
+	useEffect(() => {
+		if (hardSkillsData) {
+			dispatch(setHardSkillsData(hardSkillsData))
+
+			console.log(storeHardSkillsData)
+		}
+	}, [hardSkillsData, dispatch])
+
+	useEffect(() => {
+		console.log(storeHardSkillsData)
+	}, [storeHardSkillsData])
 
 	return (
 		<Layout>

@@ -26,6 +26,7 @@
 			"assets/*": ["assets/*"],
 			"components/*": ["components/*"],
 			"hooks/*": ["hooks/*"],
+			"models/*": ["models/*"],
 			"services/*": ["services/*"],
 			"store/*": ["store/*"],
 			"views/*": ["views/*"]

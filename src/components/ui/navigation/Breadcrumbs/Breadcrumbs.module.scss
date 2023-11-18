@@ -14,7 +14,7 @@
 
 			@include ui-absolute-center;
 			@include ui-size-control(
-				calc(100% + $ui-step * 3),
+				calc(100% + $ui-step * 4),
 				calc(100% + $ui-step)
 			);
 

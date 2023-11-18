@@ -1,4 +1,8 @@
-import { useDocumentTitle } from 'hooks'
+import { useEffect } from 'react'
+
+import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
+import { useGetEducationQuery } from 'services/CommonApi'
+import { setEducationData } from 'store/СommonSlice'
 
 import styles from './Education.module.scss'
 
@@ -7,6 +11,22 @@ import { Fontbody, Section, PageTitle, Breadcrumbs } from 'components/ui'
 
 const Education = () => {
 	useDocumentTitle('Образование — Андрей Сухушин // Curriculum Vitae')
+
+	const dispatch = useAppDispatch()
+	const { data: educationData } = useGetEducationQuery()
+	const storeEducationData = useAppSelector(state => state.common.education)
+
+	useEffect(() => {
+		if (educationData) {
+			dispatch(setEducationData(educationData))
+
+			console.log(storeEducationData)
+		}
+	}, [educationData, dispatch])
+
+	useEffect(() => {
+		console.log(storeEducationData)
+	}, [storeEducationData])
 
 	return (
 		<Layout>

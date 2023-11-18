@@ -11,14 +11,26 @@
 
 		padding: $ui-step * 3;
 		overflow: hidden;
-		background: var(--button-secondary);
+		background: var(--background);
 		border-radius: $ui-rounded--16;
+
+		img {
+			@include ui-size-control(100%, 100%);
+		}
 	}
 
 	.info {
 		@include ui-size-control($minH: 100%);
 		@include ui-flex-container(flex, center, $flow: column);
 
-		gap: inherit;
+		gap: $ui-step * 4;
+
+		.describe {
+			@include ui-text-ellipsis(2);
+		}
+	}
+
+	@media (max-width: $max-width--mobile) {
+		@include ui-flex-container($flow: column);
 	}
 }

@@ -19,8 +19,8 @@
 }
 
 .field {
-	padding-top: clamp($ui-step * 3, 3vmax, $ui-step * 9);
-	padding-bottom: clamp($ui-step * 3, 3vmax, $ui-step * 9);
+	padding-top: clamp($ui-step * 5, 3vmax, $ui-step * 9);
+	padding-bottom: clamp($ui-step * 5, 3vmax, $ui-step * 9);
 
 	background-color: var(--field-background);
 	border-radius: clamp($ui-rounded--24, 3vmax, $ui-rounded--36);

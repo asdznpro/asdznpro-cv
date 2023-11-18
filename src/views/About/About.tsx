@@ -1,4 +1,8 @@
-import { useDocumentTitle } from 'hooks'
+import { useEffect } from 'react'
+
+import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
+import { useGetPersonalQuery } from 'services/CommonApi'
+import { setPersonalData } from 'store/СommonSlice'
 
 import styles from './About.module.scss'
 
@@ -7,6 +11,22 @@ import { Fontbody, Section, PageTitle, Breadcrumbs } from 'components/ui'
 
 const About = () => {
 	useDocumentTitle('Обо мне — Андрей Сухушин // Curriculum Vitae')
+
+	const dispatch = useAppDispatch()
+	const { data: personalData } = useGetPersonalQuery()
+	const storePersonalData = useAppSelector(state => state.common.personal)
+
+	useEffect(() => {
+		if (personalData) {
+			dispatch(setPersonalData(personalData))
+
+			console.log(storePersonalData)
+		}
+	}, [personalData, dispatch])
+
+	useEffect(() => {
+		console.log(storePersonalData)
+	}, [storePersonalData])
 
 	return (
 		<Layout>
