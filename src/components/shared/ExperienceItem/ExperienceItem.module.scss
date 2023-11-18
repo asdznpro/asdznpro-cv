@@ -29,8 +29,4 @@
 			@include ui-text-ellipsis(2);
 		}
 	}
-
-	@media (max-width: $max-width--mobile) {
-		@include ui-flex-container($flow: column);
-	}
 }
