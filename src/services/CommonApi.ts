@@ -2,6 +2,7 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 import axiosBaseQuery from './BaseQuery'
 
 import ExperienceModel from 'models/Experience.interface'
+import HardSkillsModel from 'models/HardSkills.interface'
 import EducationModel from 'models/Education.interface'
 
 export const commonApi = createApi({
@@ -29,7 +30,7 @@ export const commonApi = createApi({
 			}),
 		}),
 
-		getHardSkills: builder.query<any, void>({
+		getHardSkills: builder.query<HardSkillsModel, void>({
 			query: () => ({
 				url: '68182709-2efb-4672-9551-4c4c40148ff2',
 				method: 'GET',

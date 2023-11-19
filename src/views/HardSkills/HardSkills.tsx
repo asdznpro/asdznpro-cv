@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
 import { useGetHardSkillsQuery } from 'services/CommonApi'
@@ -44,40 +44,25 @@ const HardSkills = () => {
 
 			<SectionGroup gap='sm'>
 				{storeHardSkillsData ? (
-					<>
-						<Section countColumns={8} field>
-							<Heading level={3}>Графический & UI/UX дизайн</Heading>
+					storeHardSkillsData.data.map(item => (
+						<Section key={item.id} countColumns={8} field>
+							<Heading level={3}>{item.jobTitle}</Heading>
 
-							<Fontbody level={2}>
-								Идейные соображения высшего порядка, а также консультация с
-								широким активом играет определяющее значение для форм
-								воздействия. Господа, разбавленное изрядной долей эмпатии,
-								рациональное мышление, а также свежий взгляд на привычные вещи —
-								безусловно открывает новые горизонты для вывода текущих активов.
-							</Fontbody>
+							<div
+								style={{
+									display: 'grid',
+									gap: 20,
+									gridTemplateColumns: '1fr 1fr',
+								}}
+							>
+								{item.stack.map((skill, index) => (
+									<React.Fragment key={item.id + '-' + index}>
+										<Fontbody>{skill.name}</Fontbody>
+									</React.Fragment>
+								))}
+							</div>
 						</Section>
-
-						<Section countColumns={8} field>
-							<Heading level={3}>Фронтенд</Heading>
-
-							<Fontbody level={2}>
-								Господа, разбавленное изрядной долей эмпатии, рациональное
-								мышление, а также свежий взгляд на привычные вещи — безусловно
-								открывает новые горизонты для вывода текущих активов.
-							</Fontbody>
-						</Section>
-
-						<Section countColumns={8} field>
-							<Heading level={3}>Бэкенд</Heading>
-
-							<Fontbody level={2}>
-								Идейные соображения высшего порядка, а также консультация с
-								широким активом играет определяющее значение для форм
-								воздействия. Господа, разбавленное изрядной долей эмпатии,
-								рациональное мышление.
-							</Fontbody>
-						</Section>
-					</>
+					))
 				) : (
 					<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 				)}
