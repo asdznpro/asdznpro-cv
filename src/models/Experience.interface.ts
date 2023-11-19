@@ -1,3 +1,5 @@
+import CommonInfo from './Common.interface'
+
 export default interface ExperienceModel {
 	data: Experience[]
 	displayName?: string
@@ -16,7 +18,7 @@ interface Experience {
 	fullDescription?: string
 	pathname: string
 	labels: string[]
-	info: ExperienceInfo[]
+	info: CommonInfo[]
 	execute: string[]
 	examples: string[]
 	feedback: Feedback[]

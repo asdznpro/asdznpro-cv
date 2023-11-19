@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
 import { useGetEducationQuery } from 'services/CommonApi'
@@ -14,6 +14,7 @@ import {
 	Breadcrumbs,
 	Spinner,
 	SectionGroup,
+	AppLink,
 } from 'components/ui'
 
 const Education = () => {
@@ -43,27 +44,33 @@ const Education = () => {
 
 			<SectionGroup gap='sm'>
 				{storeEducationData ? (
-					<>
-						<Section field>
-							<Fontbody level={2}>
-								Сложно сказать, почему представители современных социальных
-								резервов освещают чрезвычайно интересные особенности картины в
-								целом, однако конкретные выводы, разумеется, превращены в
-								посмешище, хотя само их существование приносит несомненную
-								пользу обществу.
-							</Fontbody>
+					storeEducationData.data.map(item => (
+						<Section key={item.id} field>
+							{item.info.map((info, index) => (
+								<Fontbody key={item.id + '-' + index}>
+									<span style={{ color: '#9A9AAC' }}>{info.title}</span>
+									&nbsp;&nbsp;&nbsp;&nbsp;
+									{info.icon && (
+										<>
+											<img
+												src={info.icon}
+												alt={info.title}
+												style={{ width: 32, padding: 2 }}
+											/>
+											&nbsp;&nbsp;
+										</>
+									)}
+									{info.value}
+									&nbsp;&nbsp;
+									{info.href && (
+										<AppLink href={info.href} target='blank'>
+											#
+										</AppLink>
+									)}
+								</Fontbody>
+							))}
 						</Section>
-
-						<Section field>
-							<Fontbody level={2}>
-								Идейные соображения высшего порядка, а также консультация с
-								широким активом играет определяющее значение для форм
-								воздействия. Господа, разбавленное изрядной долей эмпатии,
-								рациональное мышление, а также свежий взгляд на привычные вещи —
-								безусловно открывает новые горизонты для вывода текущих активов.
-							</Fontbody>
-						</Section>
-					</>
+					))
 				) : (
 					<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 				)}

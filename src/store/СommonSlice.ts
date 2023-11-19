@@ -1,17 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import Personal from 'models/Personal.interface'
+import PersonalModel from 'models/Personal.interface'
 import ExperienceModel from 'models/Experience.interface'
-import Portfolio from 'models/Portfolio.interface'
-import HardSkills from 'models/HardSkills.interface'
-import Education from 'models/Education.interface'
+import PortfolioModel from 'models/Portfolio.interface'
+import HardSkillsModel from 'models/HardSkills.interface'
+import EducationModel from 'models/Education.interface'
 
 interface CommonState {
 	personal: any
 	experience: ExperienceModel | null
 	portfolio: any
 	hardSkills: any
-	education: any
+	education: EducationModel | null
 }
 
 const initialState: CommonState = {
@@ -41,7 +41,7 @@ const commonSlice = createSlice({
 		setHardSkillsData: (state, action: PayloadAction<any>) => {
 			state.hardSkills = action.payload
 		},
-		setEducationData: (state, action: PayloadAction<any>) => {
+		setEducationData: (state, action: PayloadAction<EducationModel | null>) => {
 			state.education = action.payload
 		},
 	},

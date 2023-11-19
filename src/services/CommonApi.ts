@@ -2,6 +2,7 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 import axiosBaseQuery from './BaseQuery'
 
 import ExperienceModel from 'models/Experience.interface'
+import EducationModel from 'models/Education.interface'
 
 export const commonApi = createApi({
 	reducerPath: 'commonApi',
@@ -35,7 +36,7 @@ export const commonApi = createApi({
 			}),
 		}),
 
-		getEducation: builder.query<any, void>({
+		getEducation: builder.query<EducationModel, void>({
 			query: () => ({
 				url: 'c8331cb0-61ce-4ee2-9454-363e31cc2a7c',
 				method: 'GET',
