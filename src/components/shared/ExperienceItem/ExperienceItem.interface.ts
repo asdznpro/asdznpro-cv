@@ -6,6 +6,8 @@ export default interface ExperienceItemProps {
 	children?: React.ReactNode
 	style?: React.CSSProperties
 
+	ellipsis?: boolean | undefined
+
 	to?: string | undefined
 	href?: string | undefined
 	target?: 'self' | 'blank' | 'parent' | 'top' | undefined

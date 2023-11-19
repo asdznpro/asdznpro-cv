@@ -5,6 +5,6 @@
 	@include ui-flex-container(flex, center, center);
 
 	img {
-		@include ui-size-control(100%, $minW: 532px);
+		@include ui-size-control(100%, $minW: 640px);
 	}
 }

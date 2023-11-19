@@ -13,6 +13,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = props => {
 		preview,
 		children,
 		style,
+		ellipsis,
 		to,
 		href,
 		target,
@@ -50,7 +51,11 @@ const ExperienceItem: React.FC<ExperienceItemProps> = props => {
 				<div className={styles.info}>
 					<Heading level={3}>{title}</Heading>
 
-					<Fontbody level={3} className={styles.describe} secondary>
+					<Fontbody
+						level={3}
+						className={ellipsis ? styles['describe-ellipsis'] : ''}
+						secondary
+					>
 						{describe}
 					</Fontbody>
 

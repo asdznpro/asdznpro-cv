@@ -42,6 +42,7 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 							describe={item.shortDescription}
 							preview={item.employerPreview}
 							to={item.pathname}
+							ellipsis
 							// logoPath={
 							// 	theme === 'dark' && item.employerLogoLight
 							// 		? item.employerLogoLight

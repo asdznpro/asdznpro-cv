@@ -25,7 +25,7 @@
 
 		gap: clamp($ui-step * 3, 3vw, $ui-step * 4);
 
-		.describe {
+		.describe-ellipsis {
 			@include ui-text-ellipsis(2);
 		}
 	}
