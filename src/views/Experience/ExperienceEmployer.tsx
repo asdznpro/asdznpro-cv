@@ -13,7 +13,6 @@ import {
 	Button,
 	Breadcrumbs,
 	SectionGroup,
-	Footnote,
 	Heading,
 } from 'components/ui'
 
@@ -57,7 +56,7 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 								target='blank'
 								after={<Icon28LinkOutline width={24} height={24} />}
 							>
-								<Footnote>{item.employerWebsite.split('https://')}</Footnote>
+								{item.employerWebsite.split('https://')}
 							</Button>
 						)}
 

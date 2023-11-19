@@ -2,6 +2,7 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 import axiosBaseQuery from './BaseQuery'
 
 import ExperienceModel from 'models/Experience.interface'
+import PortfolioModel from 'models/Portfolio.interface'
 import HardSkillsModel from 'models/HardSkills.interface'
 import EducationModel from 'models/Education.interface'
 
@@ -23,7 +24,7 @@ export const commonApi = createApi({
 			}),
 		}),
 
-		getPortfolio: builder.query<any, void>({
+		getPortfolio: builder.query<PortfolioModel, void>({
 			query: () => ({
 				url: '14198bd7-eaa7-4840-8516-7a6cb6bbf44a',
 				method: 'GET',

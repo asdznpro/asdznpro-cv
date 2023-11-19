@@ -9,7 +9,7 @@ import EducationModel from 'models/Education.interface'
 interface CommonState {
 	personal: any
 	experience: ExperienceModel | null
-	portfolio: any
+	portfolio: PortfolioModel | null
 	hardSkills: HardSkillsModel | null
 	education: EducationModel | null
 }
@@ -35,7 +35,7 @@ const commonSlice = createSlice({
 		) => {
 			state.experience = action.payload
 		},
-		setPortfolioData: (state, action: PayloadAction<any>) => {
+		setPortfolioData: (state, action: PayloadAction<PortfolioModel | null>) => {
 			state.portfolio = action.payload
 		},
 		setHardSkillsData: (
