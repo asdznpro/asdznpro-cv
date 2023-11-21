@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useDocumentTitle } from 'hooks'
+import { useDynamicAlignment, useDocumentTitle } from 'hooks'
 
 import ExperienceModel from 'models/Experience.interface'
 
@@ -24,6 +24,7 @@ interface ExperienceListProps {
 const ExperienceList: React.FC<ExperienceListProps> = props => {
 	useDocumentTitle('Опыт работы — Андрей Сухушин // Curriculum Vitae')
 
+	const { screenWidth } = useDynamicAlignment()
 	const { storeExperienceData, theme } = props
 
 	return (
@@ -40,7 +41,7 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 							key={item.id}
 							title={item.employerName}
 							describe={item.shortDescription}
-							preview={item.employerPreview}
+							preview={screenWidth <= 768 ? item.employerPreview : ''}
 							to={item.pathname}
 							ellipsis
 							// logoPath={

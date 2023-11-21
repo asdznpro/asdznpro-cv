@@ -28,7 +28,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 
 	return (
 		<>
-			<Section countColumns={10}>
+			<Section>
 				<Breadcrumbs customLabels={['Портфолио']} />
 				<PageTitle title='Портфолио' />
 			</Section>
@@ -36,7 +36,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 			{storePortfolioData ? (
 				<SectionGroup gap='sm'>
 					{storePortfolioData.data.map(item => (
-						<Section key={item.id} to={item.pathname} countColumns={10} field>
+						<Section key={item.id} to={item.pathname} field>
 							<Fontbody level={3} secondary>
 								{item.tags
 									.map(tag => tag.name)
@@ -50,11 +50,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 
 							<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
 								{item.client.map((client, index) => (
-									<Button
-										key={item.id + '-' + index}
-										size='sm'
-										noneAction
-									>
+									<Button key={item.id + '-' + index} size='sm' noneAction>
 										{client}
 									</Button>
 								))}

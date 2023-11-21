@@ -24,8 +24,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = props => {
 	return (
 		<Section
 			top={
-				preview &&
-				screenWidth <= 768 && (
+				preview && (
 					<div className={styles.preview}>
 						<img src={preview} alt={title} />
 					</div>

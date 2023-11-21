@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useDocumentTitle } from 'hooks'
+import { useDynamicAlignment, useDocumentTitle } from 'hooks'
 
 import ExperienceModel from 'models/Experience.interface'
 
@@ -47,6 +47,7 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 					key={item.id}
 					title={item.employerName}
 					describe={item.fullDescription}
+					preview={item.employerPreview}
 				>
 					<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
 						{item.employerWebsite && (
