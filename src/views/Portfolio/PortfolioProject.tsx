@@ -1,16 +1,11 @@
+import { useEffect } from 'react'
 import { useDocumentTitle } from 'hooks'
 
 import PortfolioModel from 'models/Portfolio.interface'
 
 import styles from './Portfolio.module.scss'
 
-import {
-	Fontbody,
-	Section,
-	PageTitle,
-	Breadcrumbs,
-	Heading,
-} from 'components/ui'
+import { Fontbody, Section, Breadcrumbs, Heading } from 'components/ui'
 
 interface PortfolioProjectProps {
 	item: PortfolioModel['data'][number]
@@ -23,6 +18,10 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 	useDocumentTitle(
 		item.projectShortName + ' — Андрей Сухушин // Curriculum Vitae'
 	)
+
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
 
 	return (
 		<>

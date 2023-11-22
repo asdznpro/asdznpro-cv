@@ -1,0 +1,45 @@
+@import 'assets/styles/variables';
+
+.root {
+	@include ui-flex-container(flex);
+
+	gap: $ui-spacing;
+
+	.logo {
+		@include ui-size-control(120px, 120px);
+		@include ui-flex-container(flex, center, center, $shrink: 0);
+
+		padding: $ui-step * 3;
+		overflow: hidden;
+		background: var(--background);
+		border-radius: $ui-rounded--16;
+
+		img {
+			@include ui-size-control(100%, 100%);
+		}
+	}
+
+	.info {
+		@include ui-size-control($minH: 100%);
+		@include ui-flex-container(flex, center, $flow: column);
+
+		gap: clamp($ui-step * 3, 3vw, $ui-step * 4);
+
+		.describe-ellipsis {
+			@include ui-text-ellipsis(2);
+		}
+	}
+}
+
+.preview {
+	@include ui-size-control(100%);
+	@include ui-flex-container(flex, center, center);
+
+	overflow: hidden;
+	border-radius: clamp($ui-rounded--16, 2.4vmax, $ui-rounded--24);
+	// box-shadow: inset 0 0 0 1px var(--separator);
+
+	img {
+		@include ui-size-control(100%, $minW: 532px);
+	}
+}

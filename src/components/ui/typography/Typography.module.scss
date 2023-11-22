@@ -1,7 +1,9 @@
 @import 'assets/styles/variables';
 
 .root {
-	@include ui-flex-container(block);
+	@include ui-flex-container(inline);
+
+	color: var(--text-primary);
 }
 
 .caps {

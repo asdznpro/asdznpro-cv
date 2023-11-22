@@ -5,8 +5,6 @@
 		$ui-column-width * $count + $ui-spacing * ($count - 1) + $ui-inner-padding *
 			2 + $ui-outer-padding * 2
 	);
-
-	// padding: 0 $ui-inner-padding;
 }
 
 @mixin ui-container($count: 12) {
@@ -128,6 +126,10 @@
 
 @mixin ui-text-ellipsis($line-clamp: 1) {
 	overflow: hidden;
+
+	// display: -webkit-box;
+	// -webkit-line-clamp: $line-clamp;
+	// -webkit-box-orient: vertical;
 
 	@if $line-clamp > 1 {
 		display: -webkit-box;

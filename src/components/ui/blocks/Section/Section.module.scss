@@ -3,8 +3,6 @@
 @include ui-width-columns;
 
 .root {
-	margin: 0 $ui-outer-margin;
-
 	.inner {
 		@include ui-size-control(100%);
 		@include ui-flex-container(flex, $flow: column);
@@ -15,7 +13,7 @@
 		.content {
 			@include ui-flex-container(flex, $flow: column);
 
-			gap: $ui-spacing;
+			gap: $ui-sm-gap;
 			color: var(--text-primary);
 		}
 	}
@@ -53,7 +51,7 @@
 		@include ui-absolute-center;
 
 		box-shadow: inset 0 0 0 1px var(--separator);
-		border-radius: clamp($ui-rounded--24, 3vmax, $ui-rounded--36);
+		border-radius: inherit;
 		pointer-events: none;
 	}
 }

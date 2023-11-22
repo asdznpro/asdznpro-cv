@@ -1,0 +1,7 @@
+@import 'assets/styles/variables';
+
+.list {
+	@include ui-display-grid(1fr 1fr);
+
+	gap: inherit;
+}

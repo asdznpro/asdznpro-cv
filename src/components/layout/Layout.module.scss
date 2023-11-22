@@ -13,6 +13,7 @@
 	@include ui-flex-container(flex, $flow: inherit);
 
 	gap: inherit;
+	margin: 0 $ui-outer-margin;
 }
 
 .padding-top-sm {

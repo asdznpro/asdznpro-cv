@@ -97,6 +97,7 @@ const Header: React.FC = () => {
 						onClick={handleToggleTheme}
 						size='sm'
 						appearance={theme === 'light' ? 'neutral' : 'accent'}
+						rounded
 					>
 						{theme === 'light' ? (
 							<Icon28MoonOutline width={24} height={24} />
