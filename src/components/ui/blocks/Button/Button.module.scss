@@ -23,6 +23,8 @@
 		}
 
 		.content {
+			@include ui-text-ellipsis;
+
 			padding: 0 $ui-step;
 			box-sizing: border-box;
 

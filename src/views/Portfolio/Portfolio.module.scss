@@ -3,5 +3,5 @@
 .list {
 	@include ui-display-grid(1fr 1fr);
 
-	gap: inherit;
+	gap: $ui-sm-gap;
 }

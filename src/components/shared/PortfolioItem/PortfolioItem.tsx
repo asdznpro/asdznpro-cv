@@ -12,10 +12,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = props => {
 
 	return (
 		<Link to={to} className={styles.root} style={style}>
-			<div
-				className={styles.preview}
-				style={{ aspectRatio: screenWidth <= 576 ? '133 / 87' : '133 / 64' }}
-			>
+			<div className={styles.preview}>
 				<div className={styles.image}>
 					{/* <img src={preview} alt={projectName} /> */}
 					<Spinner width={36} height={36} />

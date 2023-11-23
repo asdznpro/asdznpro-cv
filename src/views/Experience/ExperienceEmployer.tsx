@@ -48,6 +48,11 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 					title={item.employerName}
 					describe={item.fullDescription}
 					preview={item.employerPreview}
+					logoPath={
+						theme === 'dark' && item.employerLogoLight
+							? item.employerLogoLight
+							: item.employerLogo
+					}
 				>
 					<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
 						{item.employerWebsite && (

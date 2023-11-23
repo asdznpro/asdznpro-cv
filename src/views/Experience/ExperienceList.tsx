@@ -44,11 +44,11 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 							preview={screenWidth <= 768 ? item.employerPreview : ''}
 							to={item.pathname}
 							ellipsis
-							// logoPath={
-							// 	theme === 'dark' && item.employerLogoLight
-							// 		? item.employerLogoLight
-							// 		: item.employerLogo
-							// }
+							logoPath={
+								theme === 'dark' && item.employerLogoLight
+									? item.employerLogoLight
+									: item.employerLogo
+							}
 						>
 							<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
 								{item.labels.map((label, index) => (

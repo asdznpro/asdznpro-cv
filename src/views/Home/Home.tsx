@@ -42,6 +42,40 @@ const Home = () => {
 					<div
 						style={{
 							display: 'flex',
+							gap: 6,
+							flexWrap: 'wrap',
+						}}
+					>
+						<Button to='/about' mode='secondary' appearance='neutral'>
+							#обо_мне
+						</Button>
+
+						<Button to='/experience' mode='secondary' appearance='neutral'>
+							#опыт_работы
+						</Button>
+
+						<Button to='/portfolio' mode='secondary' appearance='neutral'>
+							#портфолио
+						</Button>
+
+						<Button to='/hard-skills' mode='secondary' appearance='neutral'>
+							#проф_навыки
+						</Button>
+
+						<Button to='/education' mode='secondary' appearance='neutral'>
+							#образование
+						</Button>
+
+						<Button to='/contacts' mode='secondary' appearance='neutral'>
+							#контакты
+						</Button>
+					</div>
+				</Section>
+
+				<Section field>
+					<div
+						style={{
+							display: 'flex',
 							gap: 12,
 							flexWrap: 'wrap',
 						}}

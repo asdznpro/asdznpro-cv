@@ -1,3 +1,5 @@
+export { EducationItem } from './EducationItem'
 export { ExperienceItem } from './ExperienceItem'
 export { FeedbackItem } from './FeedbackItem'
+export { HardSkillItem } from './HardSkillItem'
 export { PortfolioItem } from './PortfolioItem'

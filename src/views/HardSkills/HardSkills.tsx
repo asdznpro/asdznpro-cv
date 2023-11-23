@@ -16,6 +16,7 @@ import {
 	Breadcrumbs,
 	Spinner,
 } from 'components/ui'
+import { HardSkillItem } from 'components/shared'
 
 const HardSkills = () => {
 	useDocumentTitle('Проф. навыки — Андрей Сухушин // Curriculum Vitae')
@@ -48,17 +49,13 @@ const HardSkills = () => {
 						<Section key={item.id} countColumns={8} field>
 							<Heading level={3}>{item.jobTitle}</Heading>
 
-							<div
-								style={{
-									display: 'grid',
-									gap: 20,
-									gridTemplateColumns: '1fr 1fr',
-								}}
-							>
+							<div className={styles.list}>
 								{item.stack.map((skill, index) => (
-									<React.Fragment key={item.id + '-' + index}>
-										<Fontbody>{skill.name}</Fontbody>
-									</React.Fragment>
+									<HardSkillItem
+										key={item.id + '-' + index}
+										image={skill.image}
+										name={skill.name}
+									/>
 								))}
 							</div>
 						</Section>
