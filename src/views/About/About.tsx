@@ -14,6 +14,7 @@ import {
 	Breadcrumbs,
 	SectionGroup,
 	Spinner,
+	PageNavigation,
 } from 'components/ui'
 
 const About = () => {
@@ -28,10 +29,6 @@ const About = () => {
 			dispatch(setPersonalData(personalData))
 		}
 	}, [personalData, dispatch])
-
-	useEffect(() => {
-		console.log(storePersonalData)
-	}, [storePersonalData])
 
 	return (
 		<Layout>
@@ -59,6 +56,10 @@ const About = () => {
 								рациональное мышление, а также свежий взгляд на привычные вещи —
 								безусловно открывает новые горизонты для вывода текущих активов.
 							</Fontbody>
+						</Section>
+
+						<Section countColumns={10} field>
+							<PageNavigation>PageNavigation</PageNavigation>
 						</Section>
 					</>
 				) : (

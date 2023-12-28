@@ -47,6 +47,7 @@ const Button: React.FC<ButtonProps> = props => {
 				(to || href) && disabled && styles['disabled-link'],
 				noneAction && styles['none-action'],
 				stretched && styles.stretched,
+				!children && (!before || !after) && styles['button-icon'],
 			]
 				.join(' ')
 				.trim()}
@@ -55,7 +56,7 @@ const Button: React.FC<ButtonProps> = props => {
 		>
 			<span className={styles.in}>
 				{before && <span className={styles.before}>{before}</span>}
-				<span className={styles.content}>{children}</span>
+				{children && <span className={styles.content}>{children}</span>}
 				{after && <span className={styles.after}>{after}</span>}
 			</span>
 		</Component>

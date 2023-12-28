@@ -12,6 +12,7 @@ import {
 	Button,
 	Spinner,
 	SectionGroup,
+	PageNavigation,
 } from 'components/ui'
 import { PortfolioItem } from 'components/shared'
 
@@ -34,7 +35,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 
 			<Section>
 				<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-					<Button disabled={!storePortfolioData}>Все работы</Button>
+					<Button disabled={!storePortfolioData}>Все работы (12)</Button>
 					<Button
 						mode='outline'
 						appearance='neutral'
@@ -54,14 +55,14 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 						appearance='neutral'
 						disabled={!storePortfolioData}
 					>
-						UI/UX (4)
+						UI/UX (1)
 					</Button>
 					<Button
 						mode='outline'
 						appearance='neutral'
 						disabled={!storePortfolioData}
 					>
-						Фронтенд (4)
+						Фронтенд (3)
 					</Button>
 				</div>
 			</Section>
@@ -86,6 +87,10 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 								/>
 							))}
 						</div>
+					</Section>
+
+					<Section field>
+						<PageNavigation>PageNavigation</PageNavigation>
 					</Section>
 				</SectionGroup>
 			) : (

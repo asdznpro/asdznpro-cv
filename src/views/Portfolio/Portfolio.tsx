@@ -28,10 +28,6 @@ const Portfolio = () => {
 		}
 	}, [portfolioData, dispatch])
 
-	useEffect(() => {
-		console.log(storePortfolioData)
-	}, [storePortfolioData])
-
 	return (
 		<Layout>
 			<Routes>

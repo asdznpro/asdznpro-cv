@@ -42,6 +42,12 @@
 	}
 }
 
+.button-icon {
+	.in {
+		padding: $ui-step !important;
+	}
+}
+
 // mode
 
 // primary
@@ -200,7 +206,9 @@
 	$font-size,
 	$line-height
 ) {
-	@include ui-size-control($H: $ui-step * $height);
+	$calc: $ui-step * $height;
+
+	@include ui-size-control($H: $calc, $minW: $calc, $minH: $calc);
 
 	border-radius: $rounded;
 

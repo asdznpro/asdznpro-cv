@@ -5,7 +5,13 @@ import PortfolioModel from 'models/Portfolio.interface'
 
 import styles from './Portfolio.module.scss'
 
-import { Fontbody, Section, Breadcrumbs, Heading } from 'components/ui'
+import {
+	Fontbody,
+	Section,
+	Breadcrumbs,
+	Heading,
+	PageNavigation,
+} from 'components/ui'
 
 interface PortfolioProjectProps {
 	item: PortfolioModel['data'][number]
@@ -38,6 +44,10 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 					конкретные выводы, разумеется, превращены в посмешище, хотя само их
 					существование приносит несомненную пользу обществу.
 				</Fontbody>
+			</Section>
+
+			<Section countColumns={10} field>
+				<PageNavigation>PageNavigation</PageNavigation>
 			</Section>
 		</>
 	)

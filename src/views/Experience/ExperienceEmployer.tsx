@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-import { useDynamicAlignment, useDocumentTitle } from 'hooks'
+import { useDocumentTitle } from 'hooks'
 
 import ExperienceModel from 'models/Experience.interface'
 
@@ -14,9 +14,14 @@ import {
 	Breadcrumbs,
 	SectionGroup,
 	Heading,
+	PageNavigation,
 } from 'components/ui'
 
-import { Icon28LockOutline, Icon28LinkOutline } from '@vkontakte/icons'
+import {
+	Icon28LockOutline,
+	Icon28LinkOutline,
+	Icon28PictureOutline,
+} from '@vkontakte/icons'
 
 interface ExperienceEmployerProps {
 	item: ExperienceModel['data'][number]
@@ -25,6 +30,11 @@ interface ExperienceEmployerProps {
 
 const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 	const { item, theme } = props
+	const [hasError, setHasError] = useState(false)
+
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
 
 	useDocumentTitle(item.employerName + ' — Андрей Сухушин // Curriculum Vitae')
 
@@ -38,7 +48,15 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 				{item.employerPreview && (
 					<Section countColumns={10} field withoutAllPadding>
 						<div className={styles.preview}>
-							<img src={item.employerPreview} alt={item.employerName} />
+							{!hasError ? (
+								<img
+									src={item.employerPreview}
+									alt={item.employerName}
+									onError={() => setHasError(true)}
+								/>
+							) : (
+								<Icon28PictureOutline width={40} height={40} />
+							)}
 						</div>
 					</Section>
 				)}
@@ -47,7 +65,6 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 					key={item.id}
 					title={item.employerName}
 					describe={item.fullDescription}
-					preview={item.employerPreview}
 					logoPath={
 						theme === 'dark' && item.employerLogoLight
 							? item.employerLogoLight
@@ -95,6 +112,10 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 					<Fontbody level={2}>{item.fullDescription}</Fontbody>
 				</Section>
 			</SectionGroup>
+
+			<Section countColumns={10} field>
+				<PageNavigation>PageNavigation</PageNavigation>
+			</Section>
 		</>
 	)
 }

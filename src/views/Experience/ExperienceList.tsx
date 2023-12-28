@@ -12,6 +12,7 @@ import {
 	Breadcrumbs,
 	SectionGroup,
 	Spinner,
+	PageNavigation,
 } from 'components/ui'
 
 import { Icon28LockOutline } from '@vkontakte/icons'
@@ -73,6 +74,10 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 							</div>
 						</ExperienceItem>
 					))}
+
+					<Section countColumns={10} field>
+						<PageNavigation>PageNavigation</PageNavigation>
+					</Section>
 				</SectionGroup>
 			) : (
 				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />

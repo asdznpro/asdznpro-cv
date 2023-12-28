@@ -1,5 +1,5 @@
 export default interface ButtonProps {
-	children: React.ReactNode
+	children?: React.ReactNode
 
 	mode?: 'primary' | 'secondary' | 'tertiary' | 'outline' | undefined
 	appearance?: 'accent' | 'positive' | 'negative' | 'neutral' | undefined

@@ -21,6 +21,8 @@
 
 		.header-part {
 			@include ui-flex-container(flex, $items: center);
+
+			gap: $ui-step * 1.5;
 		}
 	}
 }

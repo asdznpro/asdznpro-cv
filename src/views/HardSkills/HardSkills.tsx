@@ -8,13 +8,13 @@ import styles from './HardSkills.module.scss'
 
 import { Layout } from 'components/layout'
 import {
-	Fontbody,
 	Section,
 	PageTitle,
 	Heading,
 	SectionGroup,
 	Breadcrumbs,
 	Spinner,
+	PageNavigation,
 } from 'components/ui'
 import { HardSkillItem } from 'components/shared'
 
@@ -32,10 +32,6 @@ const HardSkills = () => {
 		}
 	}, [hardSkillsData, dispatch])
 
-	useEffect(() => {
-		console.log(storeHardSkillsData)
-	}, [storeHardSkillsData])
-
 	return (
 		<Layout>
 			<Section countColumns={8}>
@@ -45,21 +41,27 @@ const HardSkills = () => {
 
 			<SectionGroup gap='sm'>
 				{storeHardSkillsData ? (
-					storeHardSkillsData.data.map(item => (
-						<Section key={item.id} countColumns={8} field>
-							<Heading level={3}>{item.jobTitle}</Heading>
+					<>
+						{storeHardSkillsData.data.map(item => (
+							<Section key={item.id} countColumns={8} field>
+								<Heading level={3}>{item.jobTitle}</Heading>
 
-							<div className={styles.list}>
-								{item.stack.map((skill, index) => (
-									<HardSkillItem
-										key={item.id + '-' + index}
-										image={skill.image}
-										name={skill.name}
-									/>
-								))}
-							</div>
+								<div className={styles.list}>
+									{item.stack.map((skill, index) => (
+										<HardSkillItem
+											key={item.id + '-' + index}
+											image={skill.image}
+											name={skill.name}
+										/>
+									))}
+								</div>
+							</Section>
+						))}
+
+						<Section countColumns={8} field>
+							<PageNavigation>PageNavigation</PageNavigation>
 						</Section>
-					))
+					</>
 				) : (
 					<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 				)}

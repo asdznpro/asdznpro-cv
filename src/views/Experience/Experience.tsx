@@ -28,10 +28,6 @@ const Experience = () => {
 		}
 	}, [experienceData, dispatch])
 
-	useEffect(() => {
-		console.log(storeExperienceData)
-	}, [storeExperienceData])
-
 	return (
 		<Layout>
 			<Routes>

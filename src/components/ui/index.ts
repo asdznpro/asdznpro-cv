@@ -15,6 +15,7 @@ export { CvLogo, CvLogoAbbreviated, CvLogoIcon } from './icons'
 
 export { AppLink } from './navigation/AppLink'
 export { Breadcrumbs } from './navigation/Breadcrumbs'
+export { PageNavigation } from './navigation/PageNavigation'
 
 // typography
 
