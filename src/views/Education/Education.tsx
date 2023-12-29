@@ -17,6 +17,8 @@ import {
 	SectionGroup,
 	AppLink,
 	PageNavigation,
+	Box,
+	Tile,
 } from 'components/ui'
 
 const Education = () => {
@@ -38,46 +40,52 @@ const Education = () => {
 	return (
 		<Layout>
 			<Section>
-				<Breadcrumbs customLabels={['Образование']} />
-				<PageTitle title='Образование' />
+				<Box>
+					<Breadcrumbs customLabels={['Образование']} />
+					<PageTitle title='Образование' />
+				</Box>
 			</Section>
 
 			<SectionGroup gap='sm'>
 				{storeEducationData ? (
 					<>
 						{storeEducationData.data.map(item => (
-							<Section key={item.id} field>
-								{item.info.map((info, index) => (
-									<Fontbody key={item.id + '-' + index}>
-										<span style={{ color: '#9A9AAC' }}>{info.title}</span>
-										&nbsp;&nbsp;
-										{info.icon && (
-											<>
-												<img
-													src={
-														theme === 'dark' && info.icon
-															? info.iconLight
-															: info.icon
-													}
-													alt={info.title}
-													style={{ width: 32 }}
-												/>
+							<Section key={item.id}>
+								<Tile>
+									<Box YPadding>
+										{item.info.map((info, index) => (
+											<Fontbody key={item.id + '-' + index}>
+												<span style={{ color: '#9A9AAC' }}>{info.title}</span>
 												&nbsp;&nbsp;
-											</>
-										)}
-										{info.value}
-										&nbsp;&nbsp;
-										{info.href && (
-											<AppLink href={info.href} target='blank'>
-												#
-											</AppLink>
-										)}
-									</Fontbody>
-								))}
+												{info.icon && (
+													<>
+														<img
+															src={
+																theme === 'dark' && info.icon
+																	? info.iconLight
+																	: info.icon
+															}
+															alt={info.title}
+															style={{ width: 32 }}
+														/>
+														&nbsp;&nbsp;
+													</>
+												)}
+												{info.value}
+												&nbsp;&nbsp;
+												{info.href && (
+													<AppLink href={info.href} target='blank'>
+														#
+													</AppLink>
+												)}
+											</Fontbody>
+										))}
+									</Box>
+								</Tile>
 							</Section>
 						))}
 
-						<Section field>
+						<Section>
 							<PageNavigation>PageNavigation</PageNavigation>
 						</Section>
 					</>

@@ -6,8 +6,9 @@ $ui-step: 4px;
 $ui-spacing: $ui-step * 5;
 $ui-column-width: 72px;
 
-$ui-inner-padding: clamp($ui-step * 4, 5.2vw, $ui-step * 9);
-$ui-outer-padding: clamp($ui-step * 2, 1.2vw, $ui-step * 3);
+$ui-inner-padding: clamp($ui-step * 4, 3vmax, $ui-step * 9);
+$ui-outer-padding: clamp($ui-step * 2, 1.2vmax, $ui-step * 3);
+
 $ui-sm-gap: clamp($ui-step * 2, 1.2vw, $ui-spacing);
 $ui-outer-margin: $ui-step * 2;
 

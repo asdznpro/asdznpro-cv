@@ -15,6 +15,8 @@ import {
 	Breadcrumbs,
 	Spinner,
 	PageNavigation,
+	Box,
+	Tile,
 } from 'components/ui'
 import { HardSkillItem } from 'components/shared'
 
@@ -35,30 +37,36 @@ const HardSkills = () => {
 	return (
 		<Layout>
 			<Section countColumns={8}>
-				<Breadcrumbs customLabels={['Проф. навыки']} />
-				<PageTitle title='Проф. навыки' />
+				<Box>
+					<Breadcrumbs customLabels={['Проф. навыки']} />
+					<PageTitle title='Проф. навыки' />
+				</Box>
 			</Section>
 
 			<SectionGroup gap='sm'>
 				{storeHardSkillsData ? (
 					<>
 						{storeHardSkillsData.data.map(item => (
-							<Section key={item.id} countColumns={8} field>
-								<Heading level={3}>{item.jobTitle}</Heading>
+							<Section key={item.id} countColumns={8}>
+								<Tile>
+									<Box YPadding>
+										<Heading level={3}>{item.jobTitle}</Heading>
 
-								<div className={styles.list}>
-									{item.stack.map((skill, index) => (
-										<HardSkillItem
-											key={item.id + '-' + index}
-											image={skill.image}
-											name={skill.name}
-										/>
-									))}
-								</div>
+										<div className={styles.list}>
+											{item.stack.map((skill, index) => (
+												<HardSkillItem
+													key={item.id + '-' + index}
+													image={skill.image}
+													name={skill.name}
+												/>
+											))}
+										</div>
+									</Box>
+								</Tile>
 							</Section>
 						))}
 
-						<Section countColumns={8} field>
+						<Section countColumns={8}>
 							<PageNavigation>PageNavigation</PageNavigation>
 						</Section>
 					</>

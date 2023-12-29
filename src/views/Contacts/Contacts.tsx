@@ -10,6 +10,8 @@ import {
 	Breadcrumbs,
 	PageNavigation,
 	SectionGroup,
+	Box,
+	Tile,
 } from 'components/ui'
 
 const Contacts = () => {
@@ -18,21 +20,28 @@ const Contacts = () => {
 	return (
 		<Layout>
 			<Section>
-				<Breadcrumbs customLabels={['Контакты']} />
-				<PageTitle title='Контакты' />
+				<Box>
+					<Breadcrumbs customLabels={['Контакты']} />
+					<PageTitle title='Контакты' />
+				</Box>
 			</Section>
 
 			<SectionGroup gap='sm'>
-				<Section field>
-					<Fontbody level={2}>
-						Сложно сказать, почему представители современных социальных резервов
-						освещают чрезвычайно интересные особенности картины в целом, однако
-						конкретные выводы, разумеется, превращены в посмешище, хотя само их
-						существование приносит несомненную пользу обществу.
-					</Fontbody>
+				<Section>
+					<Tile>
+						<Box YPadding>
+							<Fontbody level={2}>
+								Сложно сказать, почему представители современных социальных
+								резервов освещают чрезвычайно интересные особенности картины в
+								целом, однако конкретные выводы, разумеется, превращены в
+								посмешище, хотя само их существование приносит несомненную
+								пользу обществу.
+							</Fontbody>
+						</Box>
+					</Tile>
 				</Section>
 
-				<Section field>
+				<Section>
 					<PageNavigation>PageNavigation</PageNavigation>
 				</Section>
 			</SectionGroup>

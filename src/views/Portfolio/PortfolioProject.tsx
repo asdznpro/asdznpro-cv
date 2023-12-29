@@ -11,6 +11,8 @@ import {
 	Breadcrumbs,
 	Heading,
 	PageNavigation,
+	Box,
+	Tile,
 } from 'components/ui'
 
 interface PortfolioProjectProps {
@@ -32,21 +34,28 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 	return (
 		<>
 			<Section countColumns={10}>
-				<Breadcrumbs customLabels={['Портфолио', item.projectShortName]} />
+				<Box>
+					<Breadcrumbs customLabels={['Портфолио', item.projectShortName]} />
+				</Box>
 			</Section>
 
-			<Section countColumns={10} field>
-				<Heading level={3}>{item.projectName}</Heading>
+			<Section countColumns={10}>
+				<Tile>
+					<Box YPadding>
+						<Heading level={3}>{item.projectName}</Heading>
 
-				<Fontbody level={2} role='paragraph'>
-					Сложно сказать, почему представители современных социальных резервов
-					освещают чрезвычайно интересные особенности картины в целом, однако
-					конкретные выводы, разумеется, превращены в посмешище, хотя само их
-					существование приносит несомненную пользу обществу.
-				</Fontbody>
+						<Fontbody level={2} role='paragraph'>
+							Сложно сказать, почему представители современных социальных
+							резервов освещают чрезвычайно интересные особенности картины в
+							целом, однако конкретные выводы, разумеется, превращены в
+							посмешище, хотя само их существование приносит несомненную пользу
+							обществу.
+						</Fontbody>
+					</Box>
+				</Tile>
 			</Section>
 
-			<Section countColumns={10} field>
+			<Section countColumns={10}>
 				<PageNavigation>PageNavigation</PageNavigation>
 			</Section>
 		</>

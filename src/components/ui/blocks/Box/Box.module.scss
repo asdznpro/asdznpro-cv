@@ -1,0 +1,40 @@
+@import 'assets/styles/variables';
+
+.root {
+	@include ui-size-control(100%);
+	@include ui-flex-container(flex, $flow: column);
+
+	gap: $ui-spacing;
+	border-radius: inherit;
+
+	padding-left: calc($ui-outer-padding + $ui-inner-padding);
+	padding-right: calc($ui-outer-padding + $ui-inner-padding);
+}
+
+// .x-padding-sm {
+// 	padding-left: clamp($ui-step * 3, 1.86vw, $ui-step * 6);
+// 	padding-right: clamp($ui-step * 3, 1.86vw, $ui-step * 6);
+// }
+
+// .x-padding-lg {
+// 	padding-left: $ui-inner-padding;
+// 	padding-right: $ui-inner-padding;
+// }
+
+// .y-padding-sm {
+// 	padding-top: clamp($ui-step * 2, 1.2vmax, $ui-step * 6);
+// 	padding-bottom: clamp($ui-step * 2, 1.2vmax, $ui-step * 6);
+// }
+
+.y-padding {
+	padding-top: clamp(
+		calc($ui-step * 2 + $ui-outer-padding),
+		3vmax,
+		calc($ui-step * 6 + $ui-outer-padding)
+	);
+	padding-bottom: clamp(
+		calc($ui-step * 2 + $ui-outer-padding),
+		3vmax,
+		calc($ui-step * 6 + $ui-outer-padding)
+	);
+}

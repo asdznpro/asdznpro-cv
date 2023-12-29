@@ -2,10 +2,12 @@
 
 export { Button } from './blocks/Button'
 export { ButtonIcon } from './blocks/ButtonIcon'
+export { Box } from './blocks/Box'
 export { PageTitle } from './blocks/PageTitle'
 export { Section } from './blocks/Section'
 export { SectionGroup } from './blocks/SectionGroup'
 export { Spinner } from './blocks/Spinner'
+export { Tile } from './blocks/Tile'
 
 // icons
 

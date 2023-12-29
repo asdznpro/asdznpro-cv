@@ -5,14 +5,14 @@ const SectionGroup: React.FC<SectionGroupProps> = props => {
 	const { children, style, gap } = props
 
 	return (
-		<div
+		<section
 			className={[styles.root, styles[`gap-${gap ? gap : 'md'}`]]
 				.join(' ')
 				.trim()}
 			style={style}
 		>
 			{children}
-		</div>
+		</section>
 	)
 }
 

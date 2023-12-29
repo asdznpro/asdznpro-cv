@@ -13,6 +13,7 @@ import {
 	SectionGroup,
 	Spinner,
 	PageNavigation,
+	Box,
 } from 'components/ui'
 
 import { Icon28LockOutline } from '@vkontakte/icons'
@@ -31,8 +32,10 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 	return (
 		<>
 			<Section countColumns={10}>
-				<Breadcrumbs customLabels={['Опыт работы']} />
-				<PageTitle title='Опыт работы' />
+				<Box>
+					<Breadcrumbs customLabels={['Опыт работы']} />
+					<PageTitle title='Опыт работы' />
+				</Box>
 			</Section>
 
 			{storeExperienceData ? (
@@ -75,7 +78,7 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 						</ExperienceItem>
 					))}
 
-					<Section countColumns={10} field>
+					<Section countColumns={10}>
 						<PageNavigation>PageNavigation</PageNavigation>
 					</Section>
 				</SectionGroup>

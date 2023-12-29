@@ -13,6 +13,7 @@ import {
 	Spinner,
 	SectionGroup,
 	PageNavigation,
+	Box,
 } from 'components/ui'
 import { PortfolioItem } from 'components/shared'
 
@@ -29,67 +30,74 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 	return (
 		<>
 			<Section>
-				<Breadcrumbs customLabels={['Портфолио']} />
-				<PageTitle title='Портфолио' />
+				<Box>
+					<Breadcrumbs customLabels={['Портфолио']} />
+					<PageTitle title='Портфолио' />
+				</Box>
 			</Section>
 
 			<Section>
-				<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-					<Button disabled={!storePortfolioData}>Все работы (12)</Button>
-					<Button
-						mode='outline'
-						appearance='neutral'
-						disabled={!storePortfolioData}
-					>
-						Новое (4)
-					</Button>
-					<Button
-						mode='outline'
-						appearance='neutral'
-						disabled={!storePortfolioData}
-					>
-						Графический дизайн (4)
-					</Button>
-					<Button
-						mode='outline'
-						appearance='neutral'
-						disabled={!storePortfolioData}
-					>
-						UI/UX (1)
-					</Button>
-					<Button
-						mode='outline'
-						appearance='neutral'
-						disabled={!storePortfolioData}
-					>
-						Фронтенд (3)
-					</Button>
-				</div>
+				<Box>
+					<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+						<Button disabled={!storePortfolioData}>Все работы (12)</Button>
+						<Button
+							mode='outline'
+							appearance='neutral'
+							disabled={!storePortfolioData}
+						>
+							Новое (4)
+						</Button>
+						<Button
+							mode='outline'
+							appearance='neutral'
+							disabled={!storePortfolioData}
+						>
+							Графический дизайн (4)
+						</Button>
+						<Button
+							mode='outline'
+							appearance='neutral'
+							disabled={!storePortfolioData}
+						>
+							UI/UX (1)
+						</Button>
+						<Button
+							mode='outline'
+							appearance='neutral'
+							disabled={!storePortfolioData}
+						>
+							Фронтенд (3)
+						</Button>
+					</div>
+				</Box>
 			</Section>
 
 			{storePortfolioData ? (
 				<SectionGroup gap='sm'>
-					<Section withoutXPadding={screenWidth <= 768}>
-						<div
-							className={styles.list}
-							style={{ gridTemplateColumns: screenWidth <= 768 ? '1fr' : '' }}
-						>
-							{storePortfolioData.data.map(item => (
-								<PortfolioItem
-									key={item.id}
-									to={item.pathname}
-									projectName={item.projectName}
-									tags={item.tags
-										.map(tag => tag.name)
-										.filter(name => name)
-										.join(', ')}
-									date={'\u00A0• от\u00A0' + item.projectDate}
-								/>
-							))}
-						</div>
+					{/* <Section withoutXPadding={screenWidth <= 768}> */}
+					<Section>
+						<Box>
+							<div
+								className={styles.list}
+								style={{ gridTemplateColumns: screenWidth <= 768 ? '1fr' : '' }}
+							>
+								{storePortfolioData.data.map(item => (
+									<PortfolioItem
+										key={item.id}
+										to={item.pathname}
+										projectName={item.projectName}
+										tags={item.tags
+											.map(tag => tag.name)
+											.filter(name => name)
+											.join(', ')}
+										date={'\u00A0• от\u00A0' + item.projectDate}
+									/>
+								))}
+							</div>
+						</Box>
 					</Section>
 
-					<Section field>
+					<Section>
 						<PageNavigation>PageNavigation</PageNavigation>
 					</Section>
 				</SectionGroup>

@@ -15,6 +15,8 @@ import {
 	SectionGroup,
 	Heading,
 	PageNavigation,
+	Box,
+	Tile,
 } from 'components/ui'
 
 import {
@@ -41,23 +43,27 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 	return (
 		<>
 			<Section countColumns={10}>
-				<Breadcrumbs customLabels={['Опыт работы', item.employerName]} />
+				<Box>
+					<Breadcrumbs customLabels={['Опыт работы', item.employerName]} />
+				</Box>
 			</Section>
 
 			<SectionGroup gap='sm'>
 				{item.employerPreview && (
-					<Section countColumns={10} field withoutAllPadding>
-						<div className={styles.preview}>
-							{!hasError ? (
-								<img
-									src={item.employerPreview}
-									alt={item.employerName}
-									onError={() => setHasError(true)}
-								/>
-							) : (
-								<Icon28PictureOutline width={40} height={40} />
-							)}
-						</div>
+					<Section countColumns={10}>
+						<Tile>
+							<div className={styles.preview}>
+								{!hasError ? (
+									<img
+										src={item.employerPreview}
+										alt={item.employerName}
+										onError={() => setHasError(true)}
+									/>
+								) : (
+									<Icon28PictureOutline width={40} height={40} />
+								)}
+							</div>
+						</Tile>
 					</Section>
 				)}
 
@@ -106,14 +112,19 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 
 			<SectionGroup gap='sm'>
 				<Section countColumns={10}>
-					<Heading level={2}>Чем я занимался?</Heading>
-				</Section>
-				<Section countColumns={10} field>
-					<Fontbody level={2}>{item.fullDescription}</Fontbody>
+					<Box>
+						<Heading level={2}>Чем я занимался?</Heading>
+					</Box>
+
+					<Tile>
+						<Box YPadding>
+							<Fontbody level={2}>{item.fullDescription}</Fontbody>
+						</Box>
+					</Tile>
 				</Section>
 			</SectionGroup>
 
-			<Section countColumns={10} field>
+			<Section countColumns={10}>
 				<PageNavigation>PageNavigation</PageNavigation>
 			</Section>
 		</>

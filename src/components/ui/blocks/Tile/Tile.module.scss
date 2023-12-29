@@ -1,0 +1,27 @@
+@import 'assets/styles/variables';
+
+.root {
+	@include ui-size-control(100%);
+	@include ui-flex-container(flex, $flow: column);
+
+	background-color: var(--field-background);
+	border-radius: clamp($ui-rounded--24, 3vmax, $ui-rounded--36);
+	overflow: hidden;
+	position: relative;
+
+	&::after {
+		content: '';
+
+		@include ui-size-control(100%, 100%);
+		@include ui-absolute-center;
+
+		box-shadow: inset 0 0 0 1px var(--separator);
+		border-radius: inherit;
+		pointer-events: none;
+	}
+}
+
+.padding {
+	padding: $ui-outer-padding;
+	gap: $ui-outer-padding;
+}
