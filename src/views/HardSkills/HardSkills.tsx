@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 
 import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
 import { useGetHardSkillsQuery } from 'services/CommonApi'
@@ -38,8 +38,10 @@ const HardSkills = () => {
 		<Layout>
 			<Section countColumns={8}>
 				<Box>
-					<Breadcrumbs customLabels={['Проф. навыки']} />
-					<PageTitle title='Проф. навыки' />
+					<PageTitle
+						title='Проф. навыки'
+						breadcrumbs={<Breadcrumbs customLabels={['Проф. навыки']} />}
+					/>
 				</Box>
 			</Section>
 

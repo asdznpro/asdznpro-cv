@@ -41,8 +41,10 @@ const Education = () => {
 		<Layout>
 			<Section>
 				<Box>
-					<Breadcrumbs customLabels={['Образование']} />
-					<PageTitle title='Образование' />
+					<PageTitle
+						title='Образование'
+						breadcrumbs={<Breadcrumbs customLabels={['Образование']} />}
+					/>
 				</Box>
 			</Section>
 

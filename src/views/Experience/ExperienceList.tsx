@@ -33,8 +33,10 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 		<>
 			<Section countColumns={10}>
 				<Box>
-					<Breadcrumbs customLabels={['Опыт работы']} />
-					<PageTitle title='Опыт работы' />
+					<PageTitle
+						title='Опыт работы'
+						breadcrumbs={<Breadcrumbs customLabels={['Опыт работы']} />}
+					/>
 				</Box>
 			</Section>
 

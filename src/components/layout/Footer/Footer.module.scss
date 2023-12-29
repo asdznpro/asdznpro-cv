@@ -6,7 +6,7 @@
 	margin-top: auto;
 	margin-left: $ui-outer-margin;
 	margin-right: $ui-outer-margin;
-	padding: $ui-step * 12 0;
+	padding: clamp($ui-step * 4, 2.72vmax, $ui-step * 12) 0 $ui-step * 12;
 }
 
 .wrapper {
@@ -16,6 +16,8 @@
 
 	gap: $ui-spacing;
 	padding: 0 calc($ui-outer-padding + $ui-inner-padding);
+
+	// clamp($ui-step * 8, 2.72vmax, $ui-step * 12)
 
 	.spinner {
 		@include ui-flex-container(flex);

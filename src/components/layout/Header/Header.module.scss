@@ -16,7 +16,7 @@
 		background: var(--header-alpha);
 		backdrop-filter: blur(32px);
 		box-shadow: inset 0 0 0 1px var(--separator);
-		padding: 0 clamp($ui-step * 5, 3vmax, $ui-step * 9);
+		padding: 0 min($ui-step * 9, calc($ui-outer-padding + $ui-inner-padding));
 		gap: $ui-spacing;
 
 		.header-part {

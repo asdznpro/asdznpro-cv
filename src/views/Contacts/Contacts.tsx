@@ -21,8 +21,10 @@ const Contacts = () => {
 		<Layout>
 			<Section>
 				<Box>
-					<Breadcrumbs customLabels={['Контакты']} />
-					<PageTitle title='Контакты' />
+					<PageTitle
+						title='Контакты'
+						breadcrumbs={<Breadcrumbs customLabels={['Контакты']} />}
+					/>
 				</Box>
 			</Section>
 

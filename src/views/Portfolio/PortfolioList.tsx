@@ -31,8 +31,10 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 		<>
 			<Section>
 				<Box>
-					<Breadcrumbs customLabels={['Портфолио']} />
-					<PageTitle title='Портфолио' />
+					<PageTitle
+						title='Портфолио'
+						breadcrumbs={<Breadcrumbs customLabels={['Портфолио']} />}
+					/>
 				</Box>
 			</Section>
 

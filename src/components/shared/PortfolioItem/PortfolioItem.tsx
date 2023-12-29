@@ -19,9 +19,8 @@ const PortfolioItem: React.FC<PortfolioItemProps> = props => {
 				</div>
 			</div>
 			<div
-				className={[styles.info, screenWidth <= 768 && styles['x-padding']]
-					.join(' ')
-					.trim()}
+				// className={[styles.info, screenWidth <= 768 && styles['x-padding']]
+				className={[styles.info].join(' ').trim()}
 			>
 				<span className={styles.caption}>
 					<Fontbody level={3} ellipsis secondary>

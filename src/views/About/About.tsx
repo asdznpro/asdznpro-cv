@@ -36,8 +36,10 @@ const About = () => {
 		<Layout>
 			<Section countColumns={10}>
 				<Box>
-					<Breadcrumbs customLabels={['Обо мне']} />
-					<PageTitle title='Обо мне' />
+					<PageTitle
+						title='Обо мне'
+						breadcrumbs={<Breadcrumbs customLabels={['Обо мне']} />}
+					/>
 				</Box>
 			</Section>
 

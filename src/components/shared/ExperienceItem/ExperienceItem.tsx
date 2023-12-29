@@ -36,6 +36,12 @@ const ExperienceItem: React.FC<ExperienceItemProps> = props => {
 			countColumns={10}
 		>
 			<Tile to={to} href={href} target={target}>
+				{!hasError && preview && (
+					<div className={styles.preview}>
+						<img src={preview} alt={title} onError={() => setHasError(true)} />
+					</div>
+				)}
+
 				<Box YPadding>
 					<div className={styles.root} style={style}>
 						{screenWidth >= 768 && (

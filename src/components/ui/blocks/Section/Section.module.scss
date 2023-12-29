@@ -7,12 +7,11 @@
 	@include ui-flex-container(flex, $flow: column);
 
 	margin: 0 auto;
-	gap: $ui-outer-padding;
 
 	.content {
 		@include ui-flex-container(flex, $flow: column);
 
-		gap: calc($ui-sm-gap + $ui-step);
+		gap: $ui-sm-gap;
 		color: var(--text-primary);
 	}
 }

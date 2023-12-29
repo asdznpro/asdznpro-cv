@@ -32,12 +32,11 @@
 }
 
 .preview {
-	@include ui-size-control(100%);
 	@include ui-flex-container(flex, center, center);
 
 	overflow: hidden;
 	border-radius: clamp($ui-rounded--16, 2.4vmax, $ui-rounded--24);
-	// box-shadow: inset 0 0 0 1px var(--separator);
+	margin: $ui-outer-padding $ui-outer-padding 0;
 
 	img {
 		@include ui-size-control(100%, $minW: 532px);

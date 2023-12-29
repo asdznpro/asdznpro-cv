@@ -6,7 +6,7 @@
 	min-height: 100dvh;
 	box-sizing: border-box;
 
-	gap: clamp($ui-step * 6, 3vmax, $ui-step * 12);
+	gap: clamp($ui-step * 8, 3vmax, $ui-step * 12);
 }
 
 .main {
