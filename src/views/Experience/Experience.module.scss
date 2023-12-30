@@ -1,4 +1,4 @@
-@import 'assets/styles/variables';
+@import 'assets/styles/Variables';
 
 .preview {
 	@include ui-size-control(100%, $minH: 200px);
