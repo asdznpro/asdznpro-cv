@@ -4,7 +4,7 @@
 	@include ui-size-control(100%);
 	@include ui-flex-container(flex, $flow: column);
 
-	gap: $ui-spacing;
+	gap: $ui-sm-gap;
 	border-radius: inherit;
 
 	padding-left: calc($ui-outer-padding + $ui-inner-padding);

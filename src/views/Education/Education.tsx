@@ -67,7 +67,7 @@ const Education = () => {
 																	? info.iconLight
 																	: info.icon
 															}
-															alt={info.title}
+															alt={info.value}
 															style={{ width: 32 }}
 														/>
 														&nbsp;&nbsp;

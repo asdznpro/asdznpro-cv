@@ -18,7 +18,6 @@ const PageNavigation: React.FC<PageNavigationProps> = props => {
 					<Button
 						size='lg'
 						before={<Icon28ArrowLeftOutline width={36} height={36} />}
-						disabled
 						stretched
 					/>
 
@@ -26,6 +25,7 @@ const PageNavigation: React.FC<PageNavigationProps> = props => {
 						<Footnote ellipsis secondary>
 							Предыдущий раздел
 						</Footnote>
+
 						<Fontbody ellipsis>previous-page-title</Fontbody>
 					</div>
 
@@ -33,10 +33,13 @@ const PageNavigation: React.FC<PageNavigationProps> = props => {
 						<Footnote ellipsis secondary>
 							Следующий раздел
 						</Footnote>
+
 						<Fontbody ellipsis>next-page-title</Fontbody>
 					</div>
 
 					<Button
+						mode='secondary'
+						appearance='neutral'
 						size='lg'
 						before={<Icon28ArrowRightOutline width={36} height={36} />}
 						disabled

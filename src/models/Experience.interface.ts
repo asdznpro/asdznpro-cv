@@ -9,13 +9,7 @@ export default interface ExperienceModel {
 
 interface Experience {
 	id: number
-	employerName: string
-	employerLogo: string
-	employerLogoLight?: string
-	employerWebsite?: string
-	employerPreview?: string
-	shortDescription: string
-	fullDescription?: string
+	employerInfo: EmployerInfo
 	pathname: string
 	labels: string[]
 	info: CommonInfo[]
@@ -24,15 +18,24 @@ interface Experience {
 	feedback: Feedback[]
 }
 
-interface ExperienceInfo {
-	title: string
-	value: string
+interface EmployerInfo {
+	name: string
+	logo: string
+	logoLight?: string
+	website?: string
+	preview?: string
+	shortDescription: string
+	fullDescription?: string
 }
 
 interface Feedback {
-	fullName: string
+	id: number
 	avatar: string
+	fullName: string
 	jobTitle: string
-	socialNetworks: string[]
 	value: string
+	socialNetworks: {
+		icon: string
+		href: string
+	}[]
 }

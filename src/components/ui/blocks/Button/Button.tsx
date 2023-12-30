@@ -25,12 +25,14 @@ const Button: React.FC<ButtonProps> = props => {
 	let Component: React.ElementType = 'button' as React.ElementType
 	let additionalProps = {}
 
+	const modifiedTarget = target && `_${target}`
+
 	if (href) {
 		Component = 'a'
-		additionalProps = { href, target, ...additionalProps }
+		additionalProps = { href, target: modifiedTarget, ...additionalProps }
 	} else if (to) {
 		Component = Link
-		additionalProps = { to, target, ...additionalProps }
+		additionalProps = { to, target: modifiedTarget, ...additionalProps }
 	} else {
 		Component = 'button'
 		additionalProps = { onClick, disabled, ...additionalProps }
@@ -47,7 +49,7 @@ const Button: React.FC<ButtonProps> = props => {
 				(to || href) && disabled && styles['disabled-link'],
 				noneAction && styles['none-action'],
 				stretched && styles.stretched,
-				!children && (!before || !after) && styles['button-icon'],
+				!children && (!before || !after) ? styles['button-icon'] : '',
 			]
 				.join(' ')
 				.trim()}

@@ -3,6 +3,7 @@ export default interface ExperienceItemProps {
 	describe: string | undefined
 	logoPath?: string | undefined
 	preview?: string | undefined
+	
 	children?: React.ReactNode
 	style?: React.CSSProperties
 

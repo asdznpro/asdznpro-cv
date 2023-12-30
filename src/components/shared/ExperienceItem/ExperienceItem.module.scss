@@ -13,6 +13,7 @@
 		overflow: hidden;
 		background: var(--background);
 		border-radius: $ui-rounded--16;
+		color: var(--text-secondary);
 
 		img {
 			@include ui-size-control(100%, 100%);

@@ -41,19 +41,19 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 			</Section>
 
 			{storeExperienceData ? (
-				<SectionGroup gap='sm'>
+				<Section countColumns={10}>
 					{storeExperienceData.data.map(item => (
 						<ExperienceItem
 							key={item.id}
-							title={item.employerName}
-							describe={item.shortDescription}
-							preview={screenWidth <= 768 ? item.employerPreview : ''}
+							title={item.employerInfo.name}
+							describe={item.employerInfo.shortDescription}
+							preview={screenWidth <= 768 ? item.employerInfo.preview : ''}
 							to={item.pathname}
 							ellipsis
 							logoPath={
-								theme === 'dark' && item.employerLogoLight
-									? item.employerLogoLight
-									: item.employerLogo
+								theme === 'dark' && item.employerInfo.logoLight
+									? item.employerInfo.logoLight
+									: item.employerInfo.logo
 							}
 						>
 							<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
@@ -80,10 +80,8 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 						</ExperienceItem>
 					))}
 
-					<Section countColumns={10}>
-						<PageNavigation>PageNavigation</PageNavigation>
-					</Section>
-				</SectionGroup>
+					<PageNavigation>PageNavigation</PageNavigation>
+				</Section>
 			) : (
 				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 			)}

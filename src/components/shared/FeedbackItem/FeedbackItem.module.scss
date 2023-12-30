@@ -1,5 +1,28 @@
 @import 'assets/styles/variables';
 
-.root {
-	cursor: default;
+.person {
+	@include ui-flex-container(flex);
+
+	gap: $ui-sm-gap;
+
+	.avatar {
+		@include ui-size-control(72px, 72px);
+		@include ui-flex-container(flex, center, center, $shrink: 0);
+
+		border-radius: 50%;
+		background: var(--background);
+		color: var(--text-secondary);
+		overflow: hidden;
+
+		img {
+			@include ui-size-control(100%, auto, $minW: 100%, $minH: 100%);
+		}
+	}
+
+	.info {
+		@include ui-size-control($minW: 0, $minH: 100%);
+		@include ui-flex-container(flex, center, $flow: column);
+
+		gap: clamp($ui-step, 0.56vmax, $ui-step * 2);
+	}
 }

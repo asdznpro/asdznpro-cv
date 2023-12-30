@@ -6,13 +6,12 @@ import ExperienceModel from 'models/Experience.interface'
 
 import styles from './Experience.module.scss'
 
-import { ExperienceItem } from 'components/shared'
+import { ExperienceItem, FeedbackItem } from 'components/shared'
 import {
 	Fontbody,
 	Section,
 	Button,
 	Breadcrumbs,
-	SectionGroup,
 	Heading,
 	PageNavigation,
 	Box,
@@ -23,6 +22,7 @@ import {
 	Icon28LockOutline,
 	Icon28LinkOutline,
 	Icon28PictureOutline,
+	Icon28LogoVkColor,
 } from '@vkontakte/icons'
 
 interface ExperienceEmployerProps {
@@ -38,54 +38,54 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 		window.scrollTo(0, 0)
 	}, [])
 
-	useDocumentTitle(item.employerName + ' — Андрей Сухушин // Curriculum Vitae')
+	useDocumentTitle(
+		item.employerInfo.name + ' — Андрей Сухушин // Curriculum Vitae'
+	)
 
 	return (
 		<>
 			<Section countColumns={10}>
 				<Box>
-					<Breadcrumbs customLabels={['Опыт работы', item.employerName]} />
+					<Breadcrumbs customLabels={['Опыт работы', item.employerInfo.name]} />
 				</Box>
 			</Section>
 
-			<SectionGroup gap='sm'>
-				{item.employerPreview && (
-					<Section countColumns={10}>
-						<Tile>
-							<div className={styles.preview}>
-								{!hasError ? (
-									<img
-										src={item.employerPreview}
-										alt={item.employerName}
-										onError={() => setHasError(true)}
-									/>
-								) : (
-									<Icon28PictureOutline width={40} height={40} />
-								)}
-							</div>
-						</Tile>
-					</Section>
+			<Section countColumns={10}>
+				{item.employerInfo.preview && (
+					<Tile>
+						<div className={styles.preview}>
+							{!hasError ? (
+								<img
+									src={item.employerInfo.preview}
+									alt={item.employerInfo.name}
+									onError={() => setHasError(true)}
+								/>
+							) : (
+								<Icon28PictureOutline width={40} height={40} />
+							)}
+						</div>
+					</Tile>
 				)}
 
 				<ExperienceItem
 					key={item.id}
-					title={item.employerName}
-					describe={item.fullDescription}
+					title={item.employerInfo.name}
+					describe={item.employerInfo.shortDescription}
 					logoPath={
-						theme === 'dark' && item.employerLogoLight
-							? item.employerLogoLight
-							: item.employerLogo
+						theme === 'dark' && item.employerInfo.logoLight
+							? item.employerInfo.logoLight
+							: item.employerInfo.logo
 					}
 				>
 					<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-						{item.employerWebsite && (
+						{item.employerInfo.website && (
 							<Button
 								size='sm'
-								href={item.employerWebsite}
+								href={item.employerInfo.website}
 								target='blank'
 								after={<Icon28LinkOutline width={24} height={24} />}
 							>
-								{item.employerWebsite.split('https://')}
+								{item.employerInfo.website.split('https://')}
 							</Button>
 						)}
 
@@ -108,21 +108,57 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 						))}
 					</div>
 				</ExperienceItem>
-			</SectionGroup>
+			</Section>
 
-			<SectionGroup gap='sm'>
-				<Section countColumns={10}>
-					<Box>
-						<Heading level={2}>Чем я занимался?</Heading>
+			<Section countColumns={10}>
+				<Box>
+					<Heading level={2}>Чем я занимался?</Heading>
+				</Box>
+
+				<Tile>
+					<Box YPadding>
+						<Fontbody level={2}>{item.employerInfo.fullDescription}</Fontbody>
 					</Box>
+				</Tile>
+			</Section>
 
-					<Tile>
-						<Box YPadding>
-							<Fontbody level={2}>{item.fullDescription}</Fontbody>
-						</Box>
-					</Tile>
-				</Section>
-			</SectionGroup>
+			<Section countColumns={10}>
+				<Box>
+					<Heading level={2}>Отзывы о работе</Heading>
+				</Box>
+
+				{item.feedback.map(item => (
+					<FeedbackItem
+						key={item.id}
+						avatar={item.avatar}
+						fullName={item.fullName}
+						jobTitle={item.jobTitle}
+						value={item.value}
+					>
+						<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+							{item.socialNetworks.map((network, index) => (
+								<Button
+									key={item.id + '-' + index}
+									href={network.href}
+									size='sm'
+									target='blank'
+									appearance='neutral'
+									before={
+										<img
+											src={network.icon}
+											alt={
+												'@' + network.href.replace(/^\//, '').split('/').pop()
+											}
+										/>
+									}
+								>
+									{'@' + network.href.replace(/^\//, '').split('/').pop()}
+								</Button>
+							))}
+						</div>
+					</FeedbackItem>
+				))}
+			</Section>
 
 			<Section countColumns={10}>
 				<PageNavigation>PageNavigation</PageNavigation>

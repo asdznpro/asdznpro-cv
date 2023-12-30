@@ -11,4 +11,12 @@
 
 		gap: $ui-step;
 	}
+
+	@media (max-width: $max-width--mobile) {
+		@include ui-display-grid($ui-column-width 1fr $ui-column-width);
+
+		.route {
+			grid-column: span 2;
+		}
+	}
 }

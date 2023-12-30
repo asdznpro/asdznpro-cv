@@ -14,10 +14,8 @@
 	@include ui-flex-container($items: center);
 	@include ui-display-grid(1fr auto auto);
 
-	gap: $ui-spacing;
+	gap: $ui-sm-gap;
 	padding: 0 calc($ui-outer-padding + $ui-inner-padding);
-
-	// clamp($ui-step * 8, 2.72vmax, $ui-step * 12)
 
 	.spinner {
 		@include ui-flex-container(flex);
