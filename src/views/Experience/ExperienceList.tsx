@@ -10,7 +10,6 @@ import {
 	PageTitle,
 	Button,
 	Breadcrumbs,
-	SectionGroup,
 	Spinner,
 	PageNavigation,
 	Box,

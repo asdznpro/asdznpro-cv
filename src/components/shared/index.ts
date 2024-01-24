@@ -1,3 +1,4 @@
+export { CvLinkItem } from './CvLinkItem'
 export { EducationItem } from './EducationItem'
 export { ExperienceItem } from './ExperienceItem'
 export { FeedbackItem } from './FeedbackItem'

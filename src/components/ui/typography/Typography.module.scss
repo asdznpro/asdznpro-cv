@@ -3,7 +3,8 @@
 .root {
 	@include ui-flex-container(inline);
 
-	color: var(--text-primary);
+	color: inherit;
+	white-space: pre-wrap;
 }
 
 .caps {

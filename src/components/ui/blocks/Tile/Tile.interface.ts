@@ -3,8 +3,5 @@ export default interface TileProps {
 	style?: React.CSSProperties
 
 	padding?: boolean | undefined
-
-	to?: string | undefined
-	href?: string | undefined
-	target?: 'self' | 'blank' | 'parent' | 'top' | undefined
+	className?: string | undefined
 }

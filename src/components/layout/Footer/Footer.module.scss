@@ -17,6 +17,10 @@
 	gap: $ui-sm-gap;
 	padding: 0 calc($ui-outer-padding + $ui-inner-padding);
 
+	.grid-span {
+		grid-area: 1/3;
+	}
+
 	.spinner {
 		@include ui-flex-container(flex);
 		@include anim-spinner(6.4s);

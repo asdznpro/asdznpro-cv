@@ -1,5 +1,5 @@
 export default interface Award {
-	img: string
+	image: string
 	href: string
 	name: string
 	description: string

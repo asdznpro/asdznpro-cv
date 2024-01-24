@@ -4,29 +4,21 @@ import { useDynamicAlignment } from 'hooks'
 import styles from './ExperienceItem.module.scss'
 import ExperienceItemProps from './ExperienceItem.interface'
 
-import { Fontbody, Heading, Box, Tile } from 'components/ui'
+import { Fontbody, Heading, Box, Tile, RouterLink } from 'components/ui'
 
 import { Icon28PictureOutline } from '@vkontakte/icons'
 
 const ExperienceItem: React.FC<ExperienceItemProps> = props => {
-	const {
-		title,
-		describe,
-		logoPath,
-		preview,
-		children,
-		style,
-		ellipsis,
-		to,
-		href,
-		target,
-	} = props
+	const { title, describe, logoPath, preview, children, style, ellipsis, to } =
+		props
 
 	const { screenWidth } = useDynamicAlignment()
 	const [hasError, setHasError] = useState(false)
 
 	return (
-		<Tile to={to} href={href} target={target}>
+		<Tile>
+			{to && <RouterLink to={to} className={styles.link} />}
+
 			{!hasError && preview && (
 				<div className={styles.preview}>
 					<img src={preview} alt={title} onError={() => setHasError(true)} />

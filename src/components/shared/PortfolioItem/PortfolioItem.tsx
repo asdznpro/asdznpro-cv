@@ -1,23 +1,25 @@
-import { Link } from 'react-router-dom'
 import { useDynamicAlignment } from 'hooks'
 
 import styles from './PortfolioItem.module.scss'
 import PortfolioItemProps from './PortfolioItem.interface'
 
-import { Fontbody, Heading, Spinner } from 'components/ui'
+import { Fontbody, Heading, RouterLink, Spinner } from 'components/ui'
 
 const PortfolioItem: React.FC<PortfolioItemProps> = props => {
 	const { projectName, to, tags, date, preview, style } = props
 	const { screenWidth } = useDynamicAlignment()
 
 	return (
-		<Link to={to} className={styles.root} style={style}>
+		<div className={styles.root} style={style}>
+			<RouterLink to={to} className={styles.link} />
+
 			<div className={styles.preview}>
 				<div className={styles.image}>
 					{/* <img src={preview} alt={projectName} /> */}
 					<Spinner width={36} height={36} />
 				</div>
 			</div>
+
 			<div
 				// className={[styles.info, screenWidth <= 768 && styles['x-padding']]
 				className={[styles.info].join(' ').trim()}
@@ -36,7 +38,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = props => {
 					{projectName}
 				</Heading>
 			</div>
-		</Link>
+		</div>
 	)
 }
 

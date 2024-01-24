@@ -59,9 +59,15 @@
 	background: var(--background);
 	color: var(--text-primary);
 
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	word-break: break-word;
+
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;

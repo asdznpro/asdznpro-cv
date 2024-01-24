@@ -1,0 +1,68 @@
+@import 'assets/styles/Variables';
+
+.root {
+	@include ui-flex-container(flex, flex-end);
+	@include ui-size-control($minH: 220px);
+
+	background-color: $AccentBlue;
+	user-select: none;
+	transition: 0.2s ease-in;
+	color: var(--text-contrast);
+
+	.link {
+		@include ui-absolute-center;
+		@include ui-size-control(100%, 100%);
+
+		border-radius: inherit;
+	}
+
+	svg {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		transition: inherit;
+		translate: -24px 24px;
+	}
+
+	&::after {
+		@include ui-flex-container(none);
+	}
+
+	&:hover {
+		scale: 0.96;
+		border-radius: $ui-rounded--44;
+
+		svg {
+			translate: 100% -100%;
+		}
+	}
+}
+
+.vk {
+	background-color: $Vk;
+}
+
+.telegram {
+	background-color: $Telegram;
+}
+
+.vk-mail {
+	background-color: $VkMail;
+}
+
+.yandex {
+	background-color: $Yandex;
+}
+
+.github {
+	background-color: $GitHub;
+}
+
+.gitlab {
+	background-color: $GitLab;
+}
+
+.headhunter {
+	background-color: $HeadHunter;
+}

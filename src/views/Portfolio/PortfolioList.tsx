@@ -41,42 +41,65 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 			<Section>
 				<Box>
 					<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-						<Button disabled={!storePortfolioData}>Все работы (12)</Button>
-						<Button
-							mode='outline'
-							appearance='neutral'
-							disabled={!storePortfolioData}
-						>
-							Новое (4)
-						</Button>
-						<Button
-							mode='outline'
-							appearance='neutral'
-							disabled={!storePortfolioData}
-						>
-							Графический дизайн (4)
-						</Button>
-						<Button
-							mode='outline'
-							appearance='neutral'
-							disabled={!storePortfolioData}
-						>
-							UI/UX (1)
-						</Button>
-						<Button
-							mode='outline'
-							appearance='neutral'
-							disabled={!storePortfolioData}
-						>
-							Фронтенд (3)
-						</Button>
+						{storePortfolioData ? (
+							<>
+								<Button disabled={!storePortfolioData}>Все работы (12)</Button>
+								<Button
+									mode='outline'
+									appearance='neutral'
+									disabled={!storePortfolioData}
+								>
+									Новое (4)
+								</Button>
+								<Button
+									mode='outline'
+									appearance='neutral'
+									disabled={!storePortfolioData}
+								>
+									Графический дизайн (4)
+								</Button>
+								<Button
+									mode='outline'
+									appearance='neutral'
+									disabled={!storePortfolioData}
+								>
+									UI/UX (1)
+								</Button>
+								<Button
+									mode='outline'
+									appearance='neutral'
+									disabled={!storePortfolioData}
+								>
+									Фронтенд (3)
+								</Button>
+							</>
+						) : (
+							<>
+								<Button noneAction={!storePortfolioData}>
+									<Spinner color='inherit' style={{ padding: '0 36px' }} />
+								</Button>
+								<Button
+									mode='outline'
+									appearance='neutral'
+									noneAction={!storePortfolioData}
+								>
+									<Spinner color='inherit' style={{ padding: '0 24px' }} />
+								</Button>
+								<Button
+									mode='outline'
+									appearance='neutral'
+									noneAction={!storePortfolioData}
+								>
+									<Spinner color='inherit' style={{ padding: '0 64px' }} />
+								</Button>
+							</>
+						)}
 					</div>
 				</Box>
 			</Section>
 
 			{storePortfolioData ? (
 				<SectionGroup gap='sm'>
-					{/* <Section withoutXPadding={screenWidth <= 768}> */}
 					<Section>
 						<Box>
 							<div

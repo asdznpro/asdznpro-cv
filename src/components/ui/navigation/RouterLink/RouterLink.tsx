@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom'
 
-import styles from './AppLink.module.scss'
-import AppLinkProps from './AppLink.interface'
+import styles from './RouterLink.module.scss'
+import RouterLinkProps from './RouterLink.interface'
 
-const AppLink: React.FC<AppLinkProps> = props => {
-	const { to, href, target, children, onClick, flex, colorless, className } =
-		props
+const RouterLink: React.FC<RouterLinkProps> = props => {
+	const { to, href, target, children, onClick, className } = props
 
 	let Component: React.ElementType = 'span' as React.ElementType
 	let additionalProps = {}
@@ -24,14 +23,7 @@ const AppLink: React.FC<AppLinkProps> = props => {
 	return (
 		<Component
 			onClick={onClick}
-			className={[
-				styles.root,
-				colorless ? '' : styles.color,
-				flex && styles.flex,
-				className,
-			]
-				.join(' ')
-				.trim()}
+			className={[styles.root, className].join(' ').trim()}
 			{...additionalProps}
 		>
 			{children}
@@ -39,4 +31,4 @@ const AppLink: React.FC<AppLinkProps> = props => {
 	)
 }
 
-export { AppLink }
+export { RouterLink }

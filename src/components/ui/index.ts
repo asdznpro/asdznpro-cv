@@ -1,7 +1,6 @@
 // blocks
 
 export { Button } from './blocks/Button'
-export { ButtonIcon } from './blocks/ButtonIcon'
 export { Box } from './blocks/Box'
 export { PageTitle } from './blocks/PageTitle'
 export { Section } from './blocks/Section'
@@ -18,6 +17,7 @@ export { CvLogo, CvLogoAbbreviated, CvLogoIcon } from './icons'
 export { AppLink } from './navigation/AppLink'
 export { Breadcrumbs } from './navigation/Breadcrumbs'
 export { PageNavigation } from './navigation/PageNavigation'
+export { RouterLink } from './navigation/RouterLink'
 
 // typography
 

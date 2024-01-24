@@ -5,7 +5,7 @@ import styles from './Header.module.scss'
 
 import { AppLink, Button } from 'components/ui'
 
-import { CvLogo, CvLogoAbbreviated } from 'components/ui'
+import { CvLogoIcon, CvLogo, CvLogoAbbreviated } from 'components/ui'
 import { Icon28MoonOutline, Icon28SunOutline } from '@vkontakte/icons'
 
 const Header: React.FC = () => {
@@ -28,9 +28,11 @@ const Header: React.FC = () => {
 				<div className={styles['header-part']}>
 					<AppLink to='/' flex>
 						{screenWidth > 880 ? (
-							<CvLogo />
+							<CvLogo width={369.42} height={44} />
+						) : screenWidth > 360 ? (
+							<CvLogoAbbreviated width={125.58} height={44} />
 						) : (
-							<CvLogoAbbreviated width={126} height={44} />
+							<CvLogoIcon width={44} height={44} />
 						)}
 					</AppLink>
 				</div>

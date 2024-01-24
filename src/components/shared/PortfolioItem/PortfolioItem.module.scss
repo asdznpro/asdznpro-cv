@@ -3,6 +3,7 @@
 .root {
 	@include ui-flex-container(flex, $flow: column);
 
+	position: relative;
 	border-radius: $ui-rounded--24;
 
 	.preview {
@@ -47,4 +48,12 @@
 		padding-right: calc($ui-inner-padding + $ui-outer-padding);
 		padding-left: calc($ui-inner-padding + $ui-outer-padding);
 	}
+}
+
+.link {
+	@include ui-absolute-center;
+	@include ui-size-control(100%, 100%);
+
+	border-radius: inherit;
+	z-index: $ui-index--2;
 }

@@ -12,14 +12,21 @@ const Footer: React.FC = () => {
 	return (
 		<footer className={styles.root}>
 			<div className={styles.wrapper}>
-				<Fontbody secondary>&copy; Андрей Сухушин, 2023</Fontbody>
+				<Fontbody secondary>
+					&copy; Андрей Сухушин, {new Date().getFullYear()}
+				</Fontbody>
 
 				{screenWidth >= 818 && (
 					<Fontbody secondary>Сайт создан с помощью React</Fontbody>
 				)}
 
-				{screenWidth >= 456 && (
-					<AppLink to='https://reactjs.org/' target='blank' flex>
+				{screenWidth >= 412 && (
+					<AppLink
+						className={styles['grid-span']}
+						href='https://reactjs.org/'
+						target='blank'
+						flex
+					>
 						<div className={styles.spinner}>
 							<IconLogoReact28 width={48} height={48} />
 						</div>

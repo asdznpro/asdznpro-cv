@@ -17,9 +17,9 @@
 }
 
 .padding-top-sm {
-	padding-top: clamp($ui-step * 27, 11.56vmax, $ui-step * 50);
+	padding-top: clamp($ui-step * 27, calc(8vmax + 6vmin), $ui-step * 50);
 }
 
 .padding-top-lg {
-	padding-top: clamp($ui-step * 36, 11.56vmax, $ui-step * 50);
+	padding-top: clamp($ui-step * 36, calc(8vmax + 6vmin), $ui-step * 50);
 }

@@ -1,5 +1,5 @@
-export default interface AppLinkProps {
-	children: React.ReactNode
+export default interface RouterLinkProps {
+	children?: React.ReactNode
 
 	to?: string | undefined
 	href?: string | undefined
@@ -7,7 +7,5 @@ export default interface AppLinkProps {
 
 	onClick?: React.MouseEventHandler<HTMLSpanElement>
 
-	flex?: boolean | undefined
-	colorless?: boolean | undefined
 	className?: string | undefined
 }

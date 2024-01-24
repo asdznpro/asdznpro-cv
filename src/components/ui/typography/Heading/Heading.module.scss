@@ -3,24 +3,22 @@
 // levels
 
 .level-1 {
-	font-size: 64px;
+	font-size: clamp($ui-step * 10, 7.4vmin, $ui-step * 16);
 	line-height: 1.125em;
-
-	// clamp($ui-step * 5, 4vmax, $ui-step * 16);
 }
 
 .level-2 {
-	font-size: 40px;
+	font-size: clamp($ui-step * 8, 6.4vmin, $ui-step * 10);
 	line-height: 1.2em;
 }
 
 .level-3 {
-	font-size: 32px;
+	font-size: clamp($ui-step * 6, 5.6vmin, $ui-step * 8);
 	line-height: 1.125em;
 }
 
 .level-4 {
-	font-size: 24px;
+	font-size: clamp($ui-step * 4, 4.4vmin, $ui-step * 6);
 	line-height: 1.333334em;
 }
 
