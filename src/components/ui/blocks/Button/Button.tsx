@@ -15,6 +15,7 @@ const Button: React.FC<ButtonProps> = props => {
 		stretched,
 		before,
 		after,
+		className,
 		to,
 		href,
 		target,
@@ -50,6 +51,7 @@ const Button: React.FC<ButtonProps> = props => {
 				noneAction && styles['none-action'],
 				stretched && styles.stretched,
 				!children && (!before || !after) ? styles['button-icon'] : '',
+				className,
 			]
 				.join(' ')
 				.trim()}

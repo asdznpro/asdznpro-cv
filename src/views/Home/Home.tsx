@@ -3,16 +3,8 @@ import { useDocumentTitle } from 'hooks'
 import styles from './Home.module.scss'
 
 import { Layout } from 'components/layout'
-import {
-	Fontbody,
-	Section,
-	SectionGroup,
-	Button,
-	Heading,
-	Box,
-	Tile,
-} from 'components/ui'
 import { CvLinkItem } from 'components/shared'
+import { Section, Heading, Box, Tile } from 'components/ui'
 
 const Home = () => {
 	useDocumentTitle('Андрей Сухушин // Curriculum Vitae')
@@ -48,52 +40,50 @@ const Home = () => {
 				</div>
 			</Section>
 
-			<SectionGroup gap='sm'>
-				<Section>
-					<Box>
-						<Heading level={2}>Резюме</Heading>
-					</Box>
+			<Section>
+				<Box>
+					<Heading level={2}>Резюме</Heading>
+				</Box>
 
-					<div
-						style={{
-							display: 'grid',
-							gridTemplateColumns: '1fr 1fr',
-							gap: 'clamp(8px, 1.2vw, 20px)',
-						}}
-					>
-						<CvLinkItem to='/about'>
-							<Heading level={3} wideLevel={2}>
-								обо мне
-							</Heading>
-						</CvLinkItem>
-						<CvLinkItem to='/experience'>
-							<Heading level={3} wideLevel={2}>
-								опыт работы
-							</Heading>
-						</CvLinkItem>
-						<CvLinkItem to='/portfolio'>
-							<Heading level={3} wideLevel={2}>
-								портфолио
-							</Heading>
-						</CvLinkItem>
-						<CvLinkItem to='/hard-skills'>
-							<Heading level={3} wideLevel={2}>
-								проф. навыки
-							</Heading>
-						</CvLinkItem>
-						<CvLinkItem to='/education'>
-							<Heading level={3} wideLevel={2}>
-								образование
-							</Heading>
-						</CvLinkItem>
-						<CvLinkItem to='/contacts'>
-							<Heading level={3} wideLevel={2}>
-								Контакты
-							</Heading>
-						</CvLinkItem>
-					</div>
-				</Section>
-			</SectionGroup>
+				<div
+					style={{
+						display: 'grid',
+						gridTemplateColumns: '1fr 1fr',
+						gap: 'clamp(8px, 1.2vw, 20px)',
+					}}
+				>
+					<CvLinkItem to='/about'>
+						<Heading level={3} wideLevel={2}>
+							Обо мне
+						</Heading>
+					</CvLinkItem>
+					<CvLinkItem to='/experience'>
+						<Heading level={3} wideLevel={2}>
+							Опыт работы
+						</Heading>
+					</CvLinkItem>
+					<CvLinkItem to='/portfolio'>
+						<Heading level={3} wideLevel={2}>
+							Портфолио
+						</Heading>
+					</CvLinkItem>
+					<CvLinkItem to='/hard-skills'>
+						<Heading level={3} wideLevel={2}>
+							Проф. навыки
+						</Heading>
+					</CvLinkItem>
+					<CvLinkItem to='/education'>
+						<Heading level={3} wideLevel={2}>
+							Образование
+						</Heading>
+					</CvLinkItem>
+					<CvLinkItem to='/contacts'>
+						<Heading level={3} wideLevel={2}>
+							Контакты
+						</Heading>
+					</CvLinkItem>
+				</div>
+			</Section>
 		</Layout>
 	)
 }

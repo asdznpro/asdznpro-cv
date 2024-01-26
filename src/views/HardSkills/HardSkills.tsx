@@ -11,7 +11,6 @@ import {
 	Section,
 	PageTitle,
 	Heading,
-	SectionGroup,
 	Breadcrumbs,
 	Spinner,
 	PageNavigation,
@@ -45,37 +44,35 @@ const HardSkills = () => {
 				</Box>
 			</Section>
 
-			<SectionGroup gap='sm'>
-				{storeHardSkillsData ? (
-					<>
-						{storeHardSkillsData.data.map(item => (
-							<Section key={item.id} countColumns={8}>
-								<Tile>
-									<Box YPadding>
-										<Heading level={3}>{item.jobTitle}</Heading>
+			{storeHardSkillsData ? (
+				<>
+					{storeHardSkillsData.data.map(item => (
+						<Section key={item.id} countColumns={8}>
+							<Tile>
+								<Box YPadding>
+									<Heading level={3}>{item.jobTitle}</Heading>
 
-										<div className={styles.list}>
-											{item.stack.map((skill, index) => (
-												<HardSkillItem
-													key={item.id + '-' + index}
-													image={skill.image}
-													name={skill.name}
-												/>
-											))}
-										</div>
-									</Box>
-								</Tile>
-							</Section>
-						))}
-
-						<Section countColumns={8}>
-							<PageNavigation>PageNavigation</PageNavigation>
+									<div className={styles.list}>
+										{item.stack.map((skill, index) => (
+											<HardSkillItem
+												key={item.id + '-' + index}
+												image={skill.image}
+												name={skill.name}
+											/>
+										))}
+									</div>
+								</Box>
+							</Tile>
 						</Section>
-					</>
-				) : (
-					<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
-				)}
-			</SectionGroup>
+					))}
+
+					<Section countColumns={8}>
+						<PageNavigation>PageNavigation</PageNavigation>
+					</Section>
+				</>
+			) : (
+				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
+			)}
 		</Layout>
 	)
 }

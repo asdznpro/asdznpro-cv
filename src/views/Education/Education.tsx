@@ -14,7 +14,6 @@ import {
 	PageTitle,
 	Breadcrumbs,
 	Spinner,
-	SectionGroup,
 	AppLink,
 	PageNavigation,
 	Box,
@@ -48,53 +47,51 @@ const Education = () => {
 				</Box>
 			</Section>
 
-			<SectionGroup gap='sm'>
-				{storeEducationData ? (
-					<>
-						{storeEducationData.data.map(item => (
-							<Section key={item.id}>
-								<Tile>
-									<Box YPadding>
-										{item.info.map((info, index) => (
-											<Fontbody key={item.id + '-' + index}>
-												<span style={{ color: '#9A9AAC' }}>{info.title}</span>
-												&nbsp;&nbsp;
-												{info.icon && (
-													<>
-														<img
-															src={
-																theme === 'dark' && info.icon
-																	? info.iconLight
-																	: info.icon
-															}
-															alt={info.value}
-															style={{ width: 32 }}
-														/>
-														&nbsp;&nbsp;
-													</>
-												)}
-												{info.value}
-												&nbsp;&nbsp;
-												{info.href && (
-													<AppLink href={info.href} target='blank'>
-														#
-													</AppLink>
-												)}
-											</Fontbody>
-										))}
-									</Box>
-								</Tile>
-							</Section>
-						))}
-
-						<Section>
-							<PageNavigation>PageNavigation</PageNavigation>
+			{storeEducationData ? (
+				<>
+					{storeEducationData.data.map(item => (
+						<Section key={item.id}>
+							<Tile>
+								<Box YPadding>
+									{item.info.map((info, index) => (
+										<Fontbody key={item.id + '-' + index}>
+											<span style={{ color: '#9A9AAC' }}>{info.title}</span>
+											&nbsp;&nbsp;
+											{info.icon && (
+												<>
+													<img
+														src={
+															theme === 'dark' && info.icon
+																? info.iconLight
+																: info.icon
+														}
+														alt={info.value}
+														style={{ width: 32 }}
+													/>
+													&nbsp;&nbsp;
+												</>
+											)}
+											{info.value}
+											&nbsp;&nbsp;
+											{info.href && (
+												<AppLink href={info.href} target='blank'>
+													#
+												</AppLink>
+											)}
+										</Fontbody>
+									))}
+								</Box>
+							</Tile>
 						</Section>
-					</>
-				) : (
-					<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
-				)}
-			</SectionGroup>
+					))}
+
+					<Section>
+						<PageNavigation>PageNavigation</PageNavigation>
+					</Section>
+				</>
+			) : (
+				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
+			)}
 		</Layout>
 	)
 }

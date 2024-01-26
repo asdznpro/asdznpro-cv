@@ -25,6 +25,10 @@
 		translate: -24px 24px;
 	}
 
+	img {
+		transition: 0.2s ease-in;
+	}
+
 	&::after {
 		@include ui-flex-container(none);
 	}
@@ -35,6 +39,10 @@
 
 		svg {
 			translate: 100% -100%;
+		}
+
+		img {
+			scale: 1.24;
 		}
 	}
 }

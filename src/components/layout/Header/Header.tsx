@@ -3,7 +3,7 @@ import { useAppSelector, useAppDispatch, useDynamicAlignment } from 'hooks'
 
 import styles from './Header.module.scss'
 
-import { AppLink, Button } from 'components/ui'
+import { AppLink, Button, Counter } from 'components/ui'
 
 import { CvLogoIcon, CvLogo, CvLogoAbbreviated } from 'components/ui'
 import { Icon28MoonOutline, Icon28SunOutline } from '@vkontakte/icons'
@@ -63,6 +63,11 @@ const Header: React.FC = () => {
 								size='sm'
 								mode='tertiary'
 								appearance='neutral'
+								after={
+									<Counter size='sm' appearance='neutral'>
+										8
+									</Counter>
+								}
 							>
 								#портфолио
 							</Button>

@@ -13,6 +13,8 @@ export default interface ButtonProps {
 	before?: React.ReactNode
 	after?: React.ReactNode
 
+	className?: string | undefined
+
 	to?: string | undefined
 	href?: string | undefined
 	target?: 'self' | 'blank' | 'parent' | 'top' | undefined

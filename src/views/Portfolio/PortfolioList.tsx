@@ -11,9 +11,9 @@ import {
 	Breadcrumbs,
 	Button,
 	Spinner,
-	SectionGroup,
 	PageNavigation,
 	Box,
+	Counter,
 } from 'components/ui'
 import { PortfolioItem } from 'components/shared'
 
@@ -43,34 +43,43 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 					<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
 						{storePortfolioData ? (
 							<>
-								<Button disabled={!storePortfolioData}>Все работы (12)</Button>
 								<Button
-									mode='outline'
-									appearance='neutral'
+									after={<Counter appearance='neutral'>12</Counter>}
 									disabled={!storePortfolioData}
 								>
-									Новое (4)
+									Все работы
 								</Button>
 								<Button
 									mode='outline'
 									appearance='neutral'
+									after={<Counter appearance='neutral'>4</Counter>}
 									disabled={!storePortfolioData}
 								>
-									Графический дизайн (4)
+									Новое
 								</Button>
 								<Button
 									mode='outline'
 									appearance='neutral'
+									after={<Counter appearance='neutral'>5</Counter>}
 									disabled={!storePortfolioData}
 								>
-									UI/UX (1)
+									Графический дизайн
 								</Button>
 								<Button
 									mode='outline'
 									appearance='neutral'
+									after={<Counter appearance='neutral'>1</Counter>}
 									disabled={!storePortfolioData}
 								>
-									Фронтенд (3)
+									UI/UX
+								</Button>
+								<Button
+									mode='outline'
+									appearance='neutral'
+									after={<Counter appearance='neutral'>3</Counter>}
+									disabled={!storePortfolioData}
+								>
+									Фронтенд
 								</Button>
 							</>
 						) : (
@@ -99,7 +108,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 			</Section>
 
 			{storePortfolioData ? (
-				<SectionGroup gap='sm'>
+				<>
 					<Section>
 						<Box>
 							<div
@@ -125,7 +134,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 					<Section>
 						<PageNavigation>PageNavigation</PageNavigation>
 					</Section>
-				</SectionGroup>
+				</>
 			) : (
 				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 			)}

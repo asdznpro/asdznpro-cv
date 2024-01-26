@@ -1,0 +1,71 @@
+@import 'assets/styles/Variables';
+
+.root {
+	@include ui-flex-container(flex, center, center);
+
+	box-sizing: border-box;
+	text-align: center;
+	overflow: hidden;
+
+	border-radius: $ui-rounded--36;
+}
+
+// appearance
+
+@mixin ui-appearance-counter($color, $background) {
+	color: $color;
+	background: $background;
+}
+
+.accent {
+	@include ui-appearance-counter(var(--text-contrast), $AccentBlue);
+}
+
+.positive {
+	@include ui-appearance-counter(var(--text-contrast), $Lime);
+}
+
+.negative {
+	@include ui-appearance-counter(var(--text-contrast), $DeepCoral);
+}
+
+.neutral {
+	color: var(--text-contrast-themed);
+	background: var(--button-contrast);
+}
+
+.contrast {
+	color: var(--button-contrast);
+	background: var(--text-contrast-themed);
+}
+
+// size
+
+@mixin ui-size-counter($height, $padding, $font-size) {
+	$calc: $ui-step * $height;
+
+	@include ui-size-control($H: $calc, $minW: $calc, $minH: $calc);
+
+	padding: 0 $ui-step * $padding;
+	font-size: $font-size;
+}
+
+.size-xsm {
+	@include ui-size-counter(4.5, 1, 11px);
+}
+
+.size-sm {
+	@include ui-size-counter(6, 1.5, 15px);
+}
+
+.size-md {
+	@include ui-size-counter(7, 1.5, 17px);
+}
+
+.size-lg {
+	@include ui-size-counter(8, 2, 20px);
+}
+
+.size-xlg {
+	@include ui-size-counter(9, 2, 24px);
+}

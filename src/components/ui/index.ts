@@ -1,10 +1,10 @@
 // blocks
 
 export { Button } from './blocks/Button'
+export { Counter } from './blocks/Counter'
 export { Box } from './blocks/Box'
 export { PageTitle } from './blocks/PageTitle'
 export { Section } from './blocks/Section'
-export { SectionGroup } from './blocks/SectionGroup'
 export { Spinner } from './blocks/Spinner'
 export { Tile } from './blocks/Tile'
 
