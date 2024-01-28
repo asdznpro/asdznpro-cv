@@ -1,9 +1,14 @@
+import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+
 import { setTheme, selectTheme } from 'store/ThemeSlice'
 import { useAppSelector, useAppDispatch, useDynamicAlignment } from 'hooks'
+import { useGetCvMapQuery } from 'services/CommonApi'
+import { setCvMapData } from 'store/СommonSlice'
 
 import styles from './Header.module.scss'
 
-import { AppLink, Button, Counter } from 'components/ui'
+import { AppLink, Button, Counter, Spinner } from 'components/ui'
 
 import { CvLogoIcon, CvLogo, CvLogoAbbreviated } from 'components/ui'
 import { Icon28MoonOutline, Icon28SunOutline } from '@vkontakte/icons'
@@ -11,8 +16,11 @@ import { Icon28MoonOutline, Icon28SunOutline } from '@vkontakte/icons'
 const Header: React.FC = () => {
 	const { screenWidth } = useDynamicAlignment()
 
+	const location = useLocation()
+
 	const dispatch = useAppDispatch()
 	const theme = useAppSelector(selectTheme)
+	const storeCvMapData = useAppSelector(state => state.common.cvMap)
 
 	const handleToggleTheme = () => {
 		const newTheme = theme === 'light' ? 'dark' : 'light'
@@ -21,6 +29,14 @@ const Header: React.FC = () => {
 
 		localStorage.setItem('theme', newTheme)
 	}
+
+	const { data: cvMapData } = useGetCvMapQuery()
+
+	useEffect(() => {
+		if (cvMapData) {
+			dispatch(setCvMapData(cvMapData))
+		}
+	}, [cvMapData, dispatch])
 
 	return (
 		<div className={styles.root}>
@@ -38,68 +54,45 @@ const Header: React.FC = () => {
 				</div>
 
 				<div className={styles['header-part']}>
-					{screenWidth > 1440 && (
-						<>
-							<Button
-								to='/about'
-								size='sm'
-								mode='tertiary'
-								appearance='neutral'
-							>
-								#обо_мне
-							</Button>
-
-							<Button
-								to='/experience'
-								size='sm'
-								mode='tertiary'
-								appearance='neutral'
-							>
-								#опыт_работы
-							</Button>
-
-							<Button
-								to='/portfolio'
-								size='sm'
-								mode='tertiary'
-								appearance='neutral'
-								after={
-									<Counter size='sm' appearance='neutral'>
-										8
-									</Counter>
-								}
-							>
-								#портфолио
-							</Button>
-
-							<Button
-								to='/hard-skills'
-								size='sm'
-								mode='tertiary'
-								appearance='neutral'
-							>
-								#проф_навыки
-							</Button>
-
-							<Button
-								to='/education'
-								size='sm'
-								mode='tertiary'
-								appearance='neutral'
-							>
-								#образование
-							</Button>
-
-							<Button
-								to='/contacts'
-								size='sm'
-								mode='tertiary'
-								appearance='neutral'
-							>
-								#контакты
-							</Button>
-						</>
-					)}
+					{screenWidth > 1440 &&
+						(storeCvMapData
+							? storeCvMapData.data.map((item, index) => (
+									<Button
+										key={index}
+										to={'/' + item.pathname}
+										size='sm'
+										mode={
+											location.pathname.startsWith('/' + item.pathname)
+												? 'outline'
+												: 'tertiary'
+										}
+										appearance='neutral'
+										after={
+											item.name === 'Портфолио' && (
+												<Counter size='sm' appearance='neutral'>
+													1
+												</Counter>
+											)
+										}
+									>
+										{'#' +
+											item.name
+												.toLowerCase()
+												.replace(/\s/g, '_')
+												.replace(/\./g, '')}
+									</Button>
+							  ))
+							: [...Array(3)].map((_, index) => (
+									<Button
+										key={index}
+										size='sm'
+										mode='outline'
+										appearance='neutral'
+										noneAction
+									>
+										<Spinner style={{ padding: '0 28px' }} />
+									</Button>
+							  )))}
 
 					{screenWidth <= 1440 && (
 						<Button size='sm' appearance='neutral' mode='secondary' rounded>

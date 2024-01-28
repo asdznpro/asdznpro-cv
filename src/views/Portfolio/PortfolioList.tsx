@@ -47,17 +47,13 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 					<Section>
 						<Box>
 							<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-								<Button
-									after={<Counter appearance='neutral'>12</Counter>}
-									disabled={!storePortfolioData}
-								>
+								<Button after={<Counter appearance='neutral'>12</Counter>}>
 									Все работы
 								</Button>
 								<Button
 									mode='outline'
 									appearance='neutral'
 									after={<Counter appearance='neutral'>4</Counter>}
-									disabled={!storePortfolioData}
 								>
 									Новое
 								</Button>
@@ -65,7 +61,6 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 									mode='outline'
 									appearance='neutral'
 									after={<Counter appearance='neutral'>5</Counter>}
-									disabled={!storePortfolioData}
 								>
 									Графический дизайн
 								</Button>
@@ -73,7 +68,6 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 									mode='outline'
 									appearance='neutral'
 									after={<Counter appearance='neutral'>1</Counter>}
-									disabled={!storePortfolioData}
 								>
 									UI/UX
 								</Button>
@@ -81,7 +75,6 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 									mode='outline'
 									appearance='neutral'
 									after={<Counter appearance='neutral'>3</Counter>}
-									disabled={!storePortfolioData}
 								>
 									Фронтенд
 								</Button>

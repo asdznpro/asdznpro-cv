@@ -1,13 +1,18 @@
-import { useDocumentTitle } from 'hooks'
+import { useEffect } from 'react'
+import { useAppSelector, useAppDispatch, useDocumentTitle } from 'hooks'
+import { useGetCvMapQuery } from 'services/CommonApi'
+import { setCvMapData } from 'store/СommonSlice'
 
 import styles from './Home.module.scss'
 
 import { Layout } from 'components/layout'
 import { CvLinkItem } from 'components/shared'
-import { Section, Heading, Box, Tile } from 'components/ui'
+import { Section, Heading, Box, Tile, Spinner } from 'components/ui'
 
 const Home = () => {
 	useDocumentTitle('')
+
+	const storeCvMapData = useAppSelector(state => state.common.cvMap)
 
 	return (
 		<Layout paddingTop='sm'>
@@ -45,44 +50,25 @@ const Home = () => {
 					<Heading level={2}>Резюме</Heading>
 				</Box>
 
-				<div
-					style={{
-						display: 'grid',
-						gridTemplateColumns: '1fr 1fr',
-						gap: 'clamp(8px, 1.2vw, 20px)',
-					}}
-				>
-					<CvLinkItem to='/about'>
-						<Heading level={3} wideLevel={2}>
-							Обо мне
-						</Heading>
-					</CvLinkItem>
-					<CvLinkItem to='/experience'>
-						<Heading level={3} wideLevel={2}>
-							Опыт работы
-						</Heading>
-					</CvLinkItem>
-					<CvLinkItem to='/portfolio'>
-						<Heading level={3} wideLevel={2}>
-							Портфолио
-						</Heading>
-					</CvLinkItem>
-					<CvLinkItem to='/hard-skills'>
-						<Heading level={3} wideLevel={2}>
-							Проф. навыки
-						</Heading>
-					</CvLinkItem>
-					<CvLinkItem to='/education'>
-						<Heading level={3} wideLevel={2}>
-							Образование
-						</Heading>
-					</CvLinkItem>
-					<CvLinkItem to='/contacts'>
-						<Heading level={3} wideLevel={2}>
-							Контакты
-						</Heading>
-					</CvLinkItem>
-				</div>
+				{storeCvMapData ? (
+					<div
+						style={{
+							display: 'grid',
+							gridTemplateColumns: '1fr 1fr',
+							gap: 'clamp(8px, 1.2vw, 20px)',
+						}}
+					>
+						{storeCvMapData.data.map((item, index) => (
+							<CvLinkItem to={'/' + item.pathname}>
+								<Heading level={3} wideLevel={2}>
+									{item.name}
+								</Heading>
+							</CvLinkItem>
+						))}
+					</div>
+				) : (
+					<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
+				)}
 			</Section>
 		</Layout>
 	)

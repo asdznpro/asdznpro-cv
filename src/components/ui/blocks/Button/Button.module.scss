@@ -22,6 +22,14 @@
 			@include ui-flex-container(flex, $shrink: 0);
 		}
 
+		.before {
+			padding-left: calc($ui-step * 0.5);
+		}
+
+		.after {
+			padding-right: calc($ui-step * 0.5);
+		}
+
 		.content {
 			@include ui-text-ellipsis;
 
@@ -34,7 +42,7 @@
 	}
 
 	&:active {
-		scale: 0.992;
+		scale: 0.972;
 	}
 
 	&:focus-visible {
@@ -255,18 +263,18 @@
 
 // disabled
 
-.root {
-	&:disabled {
-		opacity: $Alpha64;
-		pointer-events: none;
-		filter: blur(2px);
+.root:disabled {
+	opacity: $Alpha64;
+	cursor: not-allowed;
+
+	&:active {
+		scale: 1;
 	}
 }
 
 .disabled-link {
 	opacity: $Alpha64;
 	pointer-events: none;
-	filter: blur(2px);
 }
 
 .none-action {

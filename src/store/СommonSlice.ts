@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import ContactsModel from 'models/Contacts.interface'
+import CvMapModel from 'models/CvMap.interface'
 import EducationModel from 'models/Education.interface'
 import ExperienceModel from 'models/Experience.interface'
 import HardSkillsModel from 'models/HardSkills.interface'
@@ -9,6 +10,7 @@ import PortfolioModel from 'models/Portfolio.interface'
 
 interface CommonState {
 	contacts: ContactsModel | null
+	cvMap: CvMapModel | null
 	education: EducationModel | null
 	experience: ExperienceModel | null
 	hardSkills: HardSkillsModel | null
@@ -18,6 +20,7 @@ interface CommonState {
 
 const initialState: CommonState = {
 	contacts: null,
+	cvMap: null,
 	personal: null,
 	experience: null,
 	portfolio: null,
@@ -31,6 +34,9 @@ const commonSlice = createSlice({
 	reducers: {
 		setContactsData: (state, action: PayloadAction<ContactsModel | null>) => {
 			state.contacts = action.payload
+		},
+		setCvMapData: (state, action: PayloadAction<CvMapModel | null>) => {
+			state.cvMap = action.payload
 		},
 		setEducationData: (state, action: PayloadAction<EducationModel | null>) => {
 			state.education = action.payload
@@ -58,6 +64,7 @@ const commonSlice = createSlice({
 
 export const {
 	setContactsData,
+	setCvMapData,
 	setEducationData,
 	setExperienceData,
 	setHardSkillsData,
