@@ -23,10 +23,10 @@ interface ExperienceListProps {
 }
 
 const ExperienceList: React.FC<ExperienceListProps> = props => {
-	useDocumentTitle('Опыт работы — Андрей Сухушин // Curriculum Vitae')
-
 	const { screenWidth } = useDynamicAlignment()
 	const { storeExperienceData, theme } = props
+
+	useDocumentTitle(storeExperienceData ? storeExperienceData.displayName : '')
 
 	return (
 		<>

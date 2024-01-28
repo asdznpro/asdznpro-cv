@@ -21,8 +21,6 @@ import {
 } from 'components/ui'
 
 const Education = () => {
-	useDocumentTitle('Образование — Андрей Сухушин // Curriculum Vitae')
-
 	const dispatch = useAppDispatch()
 
 	const theme = useAppSelector(selectTheme)
@@ -35,6 +33,8 @@ const Education = () => {
 			dispatch(setEducationData(educationData))
 		}
 	}, [educationData, dispatch])
+
+	useDocumentTitle(storeEducationData ? storeEducationData.displayName : '')
 
 	return (
 		<Layout>

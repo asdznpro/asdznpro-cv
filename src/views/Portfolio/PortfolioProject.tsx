@@ -23,9 +23,7 @@ interface PortfolioProjectProps {
 const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 	const { item, theme } = props
 
-	useDocumentTitle(
-		item.projectShortName + ' — Андрей Сухушин // Curriculum Vitae'
-	)
+	useDocumentTitle(item.projectShortName)
 
 	useEffect(() => {
 		window.scrollTo(0, 0)

@@ -38,9 +38,7 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 		window.scrollTo(0, 0)
 	}, [])
 
-	useDocumentTitle(
-		item.employerInfo.name + ' — Андрей Сухушин // Curriculum Vitae'
-	)
+	useDocumentTitle(item.employerInfo.name)
 
 	return (
 		<>

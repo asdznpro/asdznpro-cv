@@ -18,8 +18,6 @@ import {
 import { CvLinkItem } from 'components/shared'
 
 const Contacts = () => {
-	useDocumentTitle('Контакты — Андрей Сухушин // Curriculum Vitae')
-
 	const dispatch = useAppDispatch()
 	const { data: contactsData } = useGetContactsQuery()
 	const storeContactsData = useAppSelector(state => state.common.contacts)
@@ -29,6 +27,8 @@ const Contacts = () => {
 			dispatch(setContactsData(contactsData))
 		}
 	}, [contactsData, dispatch])
+
+	useDocumentTitle(storeContactsData ? storeContactsData.displayName : '')
 
 	return (
 		<Layout>

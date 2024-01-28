@@ -25,7 +25,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 	const { storePortfolioData } = props
 	const { screenWidth } = useDynamicAlignment()
 
-	useDocumentTitle('Портфолио — Андрей Сухушин // Curriculum Vitae')
+	useDocumentTitle(storePortfolioData ? storePortfolioData.displayName : '')
 
 	return (
 		<>

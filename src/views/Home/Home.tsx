@@ -7,7 +7,7 @@ import { CvLinkItem } from 'components/shared'
 import { Section, Heading, Box, Tile } from 'components/ui'
 
 const Home = () => {
-	useDocumentTitle('Андрей Сухушин // Curriculum Vitae')
+	useDocumentTitle('')
 
 	return (
 		<Layout paddingTop='sm'>

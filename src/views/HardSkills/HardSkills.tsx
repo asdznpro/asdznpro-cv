@@ -20,8 +20,6 @@ import {
 import { HardSkillItem } from 'components/shared'
 
 const HardSkills = () => {
-	useDocumentTitle('Проф. навыки — Андрей Сухушин // Curriculum Vitae')
-
 	const dispatch = useAppDispatch()
 
 	const { data: hardSkillsData } = useGetHardSkillsQuery()
@@ -32,6 +30,8 @@ const HardSkills = () => {
 			dispatch(setHardSkillsData(hardSkillsData))
 		}
 	}, [hardSkillsData, dispatch])
+
+	useDocumentTitle(storeHardSkillsData ? storeHardSkillsData.displayName : '')
 
 	return (
 		<Layout>

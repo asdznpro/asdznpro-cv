@@ -19,8 +19,6 @@ import {
 } from 'components/ui'
 
 const About = () => {
-	useDocumentTitle('Обо мне — Андрей Сухушин // Curriculum Vitae')
-
 	const dispatch = useAppDispatch()
 	const { data: personalData } = useGetPersonalQuery()
 	const storePersonalData = useAppSelector(state => state.common.personal)
@@ -30,6 +28,8 @@ const About = () => {
 			dispatch(setPersonalData(personalData))
 		}
 	}, [personalData, dispatch])
+
+	useDocumentTitle(storePersonalData ? storePersonalData.displayName : '')
 
 	return (
 		<Layout>

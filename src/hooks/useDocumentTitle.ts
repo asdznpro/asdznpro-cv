@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 
-type UseDocumentTitle = (title: string) => void
+const defaultTitle = 'Андрей Сухушин // Curriculum Vitae'
 
-const useDocumentTitle: UseDocumentTitle = title => {
+const useDocumentTitle = (newTitle: string) => {
 	useEffect(() => {
-		document.title = title
-	}, [title])
+		document.title = newTitle ? newTitle + ' — ' + defaultTitle : defaultTitle
+	}, [newTitle])
 }
 
 export { useDocumentTitle }
