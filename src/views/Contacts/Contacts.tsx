@@ -32,38 +32,47 @@ const Contacts = () => {
 
 	return (
 		<Layout>
-			<Section>
-				<Box>
-					<PageTitle
-						title='Контакты'
-						breadcrumbs={<Breadcrumbs customLabels={['Контакты']} />}
-					/>
-				</Box>
-			</Section>
-
 			{storeContactsData ? (
-				<Section>
-					<div
-						style={{
-							display: 'grid',
-							gridTemplateColumns: '1fr 1fr',
-							gap: 'clamp(8px, 1.2vw, 20px)',
-						}}
-					>
-						{storeContactsData.data.map((link, index) => (
-							<CvLinkItem
-								key={index}
-								href={link.href}
-								target='blank'
-								backgroundColor={link.name.toLowerCase().replace(/\s+/g, '-')}
-							>
-								<img src={link.image} alt={link.name} width={72} height={72} />
-							</CvLinkItem>
-						))}
-					</div>
+				<>
+					<Section>
+						<Box>
+							<PageTitle
+								title={storeContactsData.displayName}
+								breadcrumbs={
+									<Breadcrumbs customLabels={[storeContactsData.displayName]} />
+								}
+							/>
+						</Box>
+					</Section>
 
-					<PageNavigation />
-				</Section>
+					<Section>
+						<div
+							style={{
+								display: 'grid',
+								gridTemplateColumns: '1fr 1fr',
+								gap: 'clamp(8px, 1.2vw, 20px)',
+							}}
+						>
+							{storeContactsData.data.map((link, index) => (
+								<CvLinkItem
+									key={index}
+									href={link.href}
+									target='blank'
+									backgroundColor={link.name.toLowerCase().replace(/\s+/g, '-')}
+								>
+									<img
+										src={link.image}
+										alt={link.name}
+										width={72}
+										height={72}
+									/>
+								</CvLinkItem>
+							))}
+						</div>
+
+						<PageNavigation />
+					</Section>
+				</>
 			) : (
 				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 			)}

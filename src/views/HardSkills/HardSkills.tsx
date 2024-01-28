@@ -35,37 +35,43 @@ const HardSkills = () => {
 
 	return (
 		<Layout>
-			<Section countColumns={8}>
-				<Box>
-					<PageTitle
-						title='Проф. навыки'
-						breadcrumbs={<Breadcrumbs customLabels={['Проф. навыки']} />}
-					/>
-				</Box>
-			</Section>
-
 			{storeHardSkillsData ? (
-				<Section countColumns={8}>
-					{storeHardSkillsData.data.map(item => (
-						<Tile key={item.id}>
-							<Box YPadding>
-								<Heading level={3}>{item.jobTitle}</Heading>
+				<>
+					<Section countColumns={8}>
+						<Box>
+							<PageTitle
+								title={storeHardSkillsData.displayName}
+								breadcrumbs={
+									<Breadcrumbs
+										customLabels={[storeHardSkillsData.displayName]}
+									/>
+								}
+							/>
+						</Box>
+					</Section>
 
-								<div className={styles.list}>
-									{item.stack.map((skill, index) => (
-										<HardSkillItem
-											key={item.id + '-' + index}
-											image={skill.image}
-											name={skill.name}
-										/>
-									))}
-								</div>
-							</Box>
-						</Tile>
-					))}
+					<Section countColumns={8}>
+						{storeHardSkillsData.data.map(item => (
+							<Tile key={item.id}>
+								<Box YPadding>
+									<Heading level={3}>{item.jobTitle}</Heading>
 
-					<PageNavigation />
-				</Section>
+									<div className={styles.list}>
+										{item.stack.map((skill, index) => (
+											<HardSkillItem
+												key={item.id + '-' + index}
+												image={skill.image}
+												name={skill.name}
+											/>
+										))}
+									</div>
+								</Box>
+							</Tile>
+						))}
+
+						<PageNavigation />
+					</Section>
+				</>
 			) : (
 				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 			)}

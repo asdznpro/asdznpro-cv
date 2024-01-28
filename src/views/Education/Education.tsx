@@ -38,53 +38,59 @@ const Education = () => {
 
 	return (
 		<Layout>
-			<Section>
-				<Box>
-					<PageTitle
-						title='Образование'
-						breadcrumbs={<Breadcrumbs customLabels={['Образование']} />}
-					/>
-				</Box>
-			</Section>
-
 			{storeEducationData ? (
-				<Section>
-					{storeEducationData.data.map(item => (
-						<Tile key={item.id}>
-							<Box YPadding>
-								{item.info.map((info, index) => (
-									<Fontbody key={item.id + '-' + index}>
-										<span style={{ color: '#9A9AAC' }}>{info.title}</span>
-										&nbsp;&nbsp;
-										{info.icon && (
-											<>
-												<img
-													src={
-														theme === 'dark' && info.icon
-															? info.iconLight
-															: info.icon
-													}
-													alt={info.value}
-													style={{ width: 32 }}
-												/>
-												&nbsp;&nbsp;
-											</>
-										)}
-										{info.value}
-										&nbsp;&nbsp;
-										{info.href && (
-											<AppLink href={info.href} target='blank'>
-												#
-											</AppLink>
-										)}
-									</Fontbody>
-								))}
-							</Box>
-						</Tile>
-					))}
+				<>
+					<Section>
+						<Box>
+							<PageTitle
+								title={storeEducationData.displayName}
+								breadcrumbs={
+									<Breadcrumbs
+										customLabels={[storeEducationData.displayName]}
+									/>
+								}
+							/>
+						</Box>
+					</Section>
 
-					<PageNavigation />
-				</Section>
+					<Section>
+						{storeEducationData.data.map(item => (
+							<Tile key={item.id}>
+								<Box YPadding>
+									{item.info.map((info, index) => (
+										<Fontbody key={item.id + '-' + index}>
+											<span style={{ color: '#9A9AAC' }}>{info.title}</span>
+											&nbsp;&nbsp;
+											{info.icon && (
+												<>
+													<img
+														src={
+															theme === 'dark' && info.icon
+																? info.iconLight
+																: info.icon
+														}
+														alt={info.value}
+														style={{ width: 32 }}
+													/>
+													&nbsp;&nbsp;
+												</>
+											)}
+											{info.value}
+											&nbsp;&nbsp;
+											{info.href && (
+												<AppLink href={info.href} target='blank'>
+													#
+												</AppLink>
+											)}
+										</Fontbody>
+									))}
+								</Box>
+							</Tile>
+						))}
+
+						<PageNavigation />
+					</Section>
+				</>
 			) : (
 				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 			)}

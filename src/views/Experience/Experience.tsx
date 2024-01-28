@@ -9,7 +9,7 @@ import { selectTheme } from 'store/ThemeSlice'
 import styles from './Experience.module.scss'
 
 import { Layout } from 'components/layout'
-import { Spinner } from 'components/ui'
+import { Box, Breadcrumbs, Section, Spinner } from 'components/ui'
 
 import { ExperienceList } from './ExperienceList'
 import { ExperienceEmployer } from './ExperienceEmployer'
@@ -46,7 +46,22 @@ const Experience = () => {
 						<Route
 							key={item.id}
 							path={item.pathname}
-							element={<ExperienceEmployer item={item} theme={theme} />}
+							element={
+								<>
+									<Section countColumns={10}>
+										<Box>
+											<Breadcrumbs
+												customLabels={[
+													storeExperienceData.displayName,
+													item.employerInfo.name,
+												]}
+											/>
+										</Box>
+									</Section>
+
+									<ExperienceEmployer item={item} theme={theme} />
+								</>
+							}
 						/>
 					))
 				) : (

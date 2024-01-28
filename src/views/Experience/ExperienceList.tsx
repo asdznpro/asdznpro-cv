@@ -30,57 +30,63 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 
 	return (
 		<>
-			<Section countColumns={10}>
-				<Box>
-					<PageTitle
-						title='Опыт работы'
-						breadcrumbs={<Breadcrumbs customLabels={['Опыт работы']} />}
-					/>
-				</Box>
-			</Section>
-
 			{storeExperienceData ? (
-				<Section countColumns={10}>
-					{storeExperienceData.data.map(item => (
-						<ExperienceItem
-							key={item.id}
-							title={item.employerInfo.name}
-							describe={item.employerInfo.shortDescription}
-							preview={screenWidth <= 768 ? item.employerInfo.preview : ''}
-							to={item.pathname}
-							ellipsis
-							logoPath={
-								theme === 'dark' && item.employerInfo.logoLight
-									? item.employerInfo.logoLight
-									: item.employerInfo.logo
-							}
-						>
-							<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-								{item.labels.map((label, index) => (
-									<Button
-										key={item.id + '-' + index}
-										size='sm'
-										appearance={
-											label.includes('закрыт') ? 'negative' : 'neutral'
-										}
-										before={
-											label.includes('закрыт') ? (
-												<Icon28LockOutline width={24} height={24} />
-											) : (
-												''
-											)
-										}
-										noneAction
-									>
-										{label}
-									</Button>
-								))}
-							</div>
-						</ExperienceItem>
-					))}
+				<>
+					<Section countColumns={10}>
+						<Box>
+							<PageTitle
+								title={storeExperienceData.displayName}
+								breadcrumbs={
+									<Breadcrumbs
+										customLabels={[storeExperienceData.displayName]}
+									/>
+								}
+							/>
+						</Box>
+					</Section>
 
-					<PageNavigation />
-				</Section>
+					<Section countColumns={10}>
+						{storeExperienceData.data.map(item => (
+							<ExperienceItem
+								key={item.id}
+								title={item.employerInfo.name}
+								describe={item.employerInfo.shortDescription}
+								preview={screenWidth <= 768 ? item.employerInfo.preview : ''}
+								to={item.pathname}
+								ellipsis
+								logoPath={
+									theme === 'dark' && item.employerInfo.logoLight
+										? item.employerInfo.logoLight
+										: item.employerInfo.logo
+								}
+							>
+								<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+									{item.labels.map((label, index) => (
+										<Button
+											key={item.id + '-' + index}
+											size='sm'
+											appearance={
+												label.includes('закрыт') ? 'negative' : 'neutral'
+											}
+											before={
+												label.includes('закрыт') ? (
+													<Icon28LockOutline width={24} height={24} />
+												) : (
+													''
+												)
+											}
+											noneAction
+										>
+											{label}
+										</Button>
+									))}
+								</div>
+							</ExperienceItem>
+						))}
+
+						<PageNavigation />
+					</Section>
+				</>
 			) : (
 				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 			)}

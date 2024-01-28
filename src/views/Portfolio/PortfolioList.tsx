@@ -29,20 +29,24 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 
 	return (
 		<>
-			<Section>
-				<Box>
-					<PageTitle
-						title='Портфолио'
-						breadcrumbs={<Breadcrumbs customLabels={['Портфолио']} />}
-					/>
-				</Box>
-			</Section>
+			{storePortfolioData ? (
+				<>
+					<Section>
+						<Box>
+							<PageTitle
+								title={storePortfolioData.displayName}
+								breadcrumbs={
+									<Breadcrumbs
+										customLabels={[storePortfolioData.displayName]}
+									/>
+								}
+							/>
+						</Box>
+					</Section>
 
-			<Section>
-				<Box>
-					<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-						{storePortfolioData ? (
-							<>
+					<Section>
+						<Box>
+							<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
 								<Button
 									after={<Counter appearance='neutral'>12</Counter>}
 									disabled={!storePortfolioData}
@@ -81,34 +85,10 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 								>
 									Фронтенд
 								</Button>
-							</>
-						) : (
-							<>
-								<Button noneAction={!storePortfolioData}>
-									<Spinner color='inherit' style={{ padding: '0 36px' }} />
-								</Button>
-								<Button
-									mode='outline'
-									appearance='neutral'
-									noneAction={!storePortfolioData}
-								>
-									<Spinner color='inherit' style={{ padding: '0 24px' }} />
-								</Button>
-								<Button
-									mode='outline'
-									appearance='neutral'
-									noneAction={!storePortfolioData}
-								>
-									<Spinner color='inherit' style={{ padding: '0 64px' }} />
-								</Button>
-							</>
-						)}
-					</div>
-				</Box>
-			</Section>
+							</div>
+						</Box>
+					</Section>
 
-			{storePortfolioData ? (
-				<>
 					<Section>
 						<Box>
 							<div

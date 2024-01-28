@@ -41,7 +41,11 @@ const Portfolio = () => {
 						<Route
 							key={item.id}
 							path={item.pathname}
-							element={<PortfolioProject item={item} theme={theme} />}
+							element={
+								<>
+									<PortfolioProject item={item} theme={theme} />
+								</>
+							}
 						/>
 					))
 				) : (

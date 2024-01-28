@@ -43,12 +43,6 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 	return (
 		<>
 			<Section countColumns={10}>
-				<Box>
-					<Breadcrumbs customLabels={['Опыт работы', item.employerInfo.name]} />
-				</Box>
-			</Section>
-
-			<Section countColumns={10}>
 				{item.employerInfo.preview && (
 					<Tile>
 						<div className={styles.preview}>
