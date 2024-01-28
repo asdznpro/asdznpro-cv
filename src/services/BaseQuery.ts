@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosError } from 'axios'
 
-const BASE_URL = 'https://api.myjson.online/v1/records/'
+const BASE_URL = 'https://asdznpro.github.io/asdznpro-cv-data-api/data/'
 
 const axiosBaseQuery = () => {
 	const axiosInstance = axios.create({
@@ -12,7 +12,7 @@ const axiosBaseQuery = () => {
 			const result = await axiosInstance({ url, method, data, params })
 			return { data: result.data }
 		} catch (axiosError) {
-			let err = axiosError as AxiosError
+			const err = axiosError as AxiosError
 			return {
 				error: { status: err.response?.status, data: err.response?.data },
 			}

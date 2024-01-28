@@ -45,31 +45,27 @@ const HardSkills = () => {
 			</Section>
 
 			{storeHardSkillsData ? (
-				<>
+				<Section countColumns={8}>
 					{storeHardSkillsData.data.map(item => (
-						<Section key={item.id} countColumns={8}>
-							<Tile>
-								<Box YPadding>
-									<Heading level={3}>{item.jobTitle}</Heading>
+						<Tile key={item.id}>
+							<Box YPadding>
+								<Heading level={3}>{item.jobTitle}</Heading>
 
-									<div className={styles.list}>
-										{item.stack.map((skill, index) => (
-											<HardSkillItem
-												key={item.id + '-' + index}
-												image={skill.image}
-												name={skill.name}
-											/>
-										))}
-									</div>
-								</Box>
-							</Tile>
-						</Section>
+								<div className={styles.list}>
+									{item.stack.map((skill, index) => (
+										<HardSkillItem
+											key={item.id + '-' + index}
+											image={skill.image}
+											name={skill.name}
+										/>
+									))}
+								</div>
+							</Box>
+						</Tile>
 					))}
 
-					<Section countColumns={8}>
-						<PageNavigation>PageNavigation</PageNavigation>
-					</Section>
-				</>
+					<PageNavigation />
+				</Section>
 			) : (
 				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 			)}

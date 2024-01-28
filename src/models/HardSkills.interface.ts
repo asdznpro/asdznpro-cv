@@ -1,8 +1,8 @@
 export default interface HardSkillsModel {
 	data: HardSkills[]
-	displayName?: string
-	id?: string
-	version?: number
+	displayName: string
+	pathname: string
+	id: string
 }
 
 interface HardSkills {

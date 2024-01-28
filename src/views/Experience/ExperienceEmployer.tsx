@@ -161,7 +161,7 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 			</Section>
 
 			<Section countColumns={10}>
-				<PageNavigation>PageNavigation</PageNavigation>
+				<PageNavigation />
 			</Section>
 		</>
 	)

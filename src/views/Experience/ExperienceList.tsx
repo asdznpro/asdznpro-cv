@@ -79,7 +79,7 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 						</ExperienceItem>
 					))}
 
-					<PageNavigation>PageNavigation</PageNavigation>
+					<PageNavigation />
 				</Section>
 			) : (
 				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />

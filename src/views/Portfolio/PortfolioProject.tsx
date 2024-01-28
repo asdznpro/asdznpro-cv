@@ -56,7 +56,7 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 			</Section>
 
 			<Section countColumns={10}>
-				<PageNavigation>PageNavigation</PageNavigation>
+				<PageNavigation />
 			</Section>
 		</>
 	)

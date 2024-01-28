@@ -2,9 +2,9 @@ import Award from './Awards.interface'
 
 export default interface PortfolioModel {
 	data: PortfolioProject[]
-	displayName?: string
-	id?: string
-	version?: number
+	displayName: string
+	pathname: string
+	id: string
 }
 
 interface PortfolioProject {

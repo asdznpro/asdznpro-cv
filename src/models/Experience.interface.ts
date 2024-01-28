@@ -2,9 +2,9 @@ import CommonInfo from './Common.interface'
 
 export default interface ExperienceModel {
 	data: Experience[]
-	displayName?: string
-	id?: string
-	version?: number
+	displayName: string
+	pathname: string
+	id: string
 }
 
 interface Experience {

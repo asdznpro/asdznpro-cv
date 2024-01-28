@@ -132,7 +132,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 					</Section>
 
 					<Section>
-						<PageNavigation>PageNavigation</PageNavigation>
+						<PageNavigation />
 					</Section>
 				</>
 			) : (
