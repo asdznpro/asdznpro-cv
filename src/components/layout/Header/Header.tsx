@@ -1,10 +1,7 @@
 import { useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
 
 import { setTheme, selectTheme } from 'store/ThemeSlice'
 import { useAppSelector, useAppDispatch, useDynamicAlignment } from 'hooks'
-import { useGetCvMapQuery } from 'services/CommonApi'
-import { setCvMapData } from 'store/СommonSlice'
 
 import styles from './Header.module.scss'
 
@@ -29,14 +26,6 @@ const Header: React.FC = () => {
 
 		localStorage.setItem('theme', newTheme)
 	}
-
-	const { data: cvMapData } = useGetCvMapQuery()
-
-	useEffect(() => {
-		if (cvMapData) {
-			dispatch(setCvMapData(cvMapData))
-		}
-	}, [cvMapData, dispatch])
 
 	return (
 		<div className={styles.root}>

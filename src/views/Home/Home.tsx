@@ -1,7 +1,4 @@
-import { useEffect } from 'react'
-import { useAppSelector, useAppDispatch, useDocumentTitle } from 'hooks'
-import { useGetCvMapQuery } from 'services/CommonApi'
-import { setCvMapData } from 'store/СommonSlice'
+import { useAppSelector, useDocumentTitle } from 'hooks'
 
 import styles from './Home.module.scss'
 

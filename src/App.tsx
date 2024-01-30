@@ -2,7 +2,9 @@ import { useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { RootState } from 'store'
-import { usePreferredTheme, useAppSelector } from 'hooks'
+import { useAppDispatch, useAppSelector, usePreferredTheme } from 'hooks'
+import { useGetCvMapQuery } from 'services/CommonApi'
+import { setCvMapData } from 'store/СommonSlice'
 
 import 'assets/styles/index.scss'
 
@@ -25,6 +27,16 @@ function App() {
 			)
 		}
 	}, [theme])
+
+	const dispatch = useAppDispatch()
+
+	const { data: cvMapData } = useGetCvMapQuery()
+
+	useEffect(() => {
+		if (cvMapData) {
+			dispatch(setCvMapData(cvMapData))
+		}
+	}, [cvMapData, dispatch])
 
 	return (
 		<BrowserRouter>
