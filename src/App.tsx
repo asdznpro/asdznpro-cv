@@ -3,8 +3,8 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { RootState } from 'store'
 import { useAppDispatch, useAppSelector, usePreferredTheme } from 'hooks'
-import { useGetCvMapQuery } from 'services/CommonApi'
-import { setCvMapData } from 'store/СommonSlice'
+import { useGetCvMapQuery, useGetPortfolioQuery } from 'services/CommonApi'
+import { setCvMapData, setPortfolioData } from 'store/СommonSlice'
 
 import 'assets/styles/index.scss'
 
@@ -30,6 +30,8 @@ function App() {
 
 	const dispatch = useAppDispatch()
 
+	// useGetCvMapQuery
+
 	const { data: cvMapData } = useGetCvMapQuery()
 
 	useEffect(() => {
@@ -37,6 +39,16 @@ function App() {
 			dispatch(setCvMapData(cvMapData))
 		}
 	}, [cvMapData, dispatch])
+
+	// useGetPortfolioQuery
+
+	const { data: portfolioData } = useGetPortfolioQuery()
+
+	useEffect(() => {
+		if (portfolioData) {
+			dispatch(setPortfolioData(portfolioData))
+		}
+	}, [portfolioData, dispatch])
 
 	return (
 		<BrowserRouter>

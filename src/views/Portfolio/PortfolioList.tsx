@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { useDocumentTitle, useDynamicAlignment } from 'hooks'
 
@@ -27,6 +27,28 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 
 	useDocumentTitle(storePortfolioData ? storePortfolioData.displayName : '')
 
+	// tag-based filtering with auto-reset
+
+	const [selectedTags, setSelectedTags] = useState<string[]>([])
+
+	const toggleTag = (tagType: string) => {
+		if (storePortfolioData && storePortfolioData.tags) {
+			if (selectedTags.includes(tagType)) {
+				setSelectedTags(prevTags => prevTags.filter(tag => tag !== tagType))
+			} else {
+				setSelectedTags(prevTags => [...prevTags, tagType])
+			}
+		}
+	}
+
+	useEffect(() => {
+		if (storePortfolioData && storePortfolioData.tags) {
+			if (selectedTags.length === storePortfolioData.tags.length) {
+				setSelectedTags([])
+			}
+		}
+	}, [selectedTags, storePortfolioData])
+
 	return (
 		<>
 			{storePortfolioData ? (
@@ -47,59 +69,79 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 					<Section>
 						<Box>
 							<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-								<Button after={<Counter appearance='neutral'>12</Counter>}>
+								<Button
+									onClick={() => setSelectedTags([])}
+									mode={selectedTags.length > 0 ? 'outline' : 'primary'}
+									appearance={selectedTags.length > 0 ? 'neutral' : 'accent'}
+									after={
+										<Counter appearance='neutral'>
+											{storePortfolioData.data.length}
+										</Counter>
+									}
+								>
 									Все работы
 								</Button>
-								<Button
-									mode='outline'
-									appearance='neutral'
-									after={<Counter appearance='neutral'>4</Counter>}
-								>
-									Новое
-								</Button>
-								<Button
-									mode='outline'
-									appearance='neutral'
-									after={<Counter appearance='neutral'>5</Counter>}
-								>
-									Графический дизайн
-								</Button>
-								<Button
-									mode='outline'
-									appearance='neutral'
-									after={<Counter appearance='neutral'>1</Counter>}
-								>
-									UI/UX
-								</Button>
-								<Button
-									mode='outline'
-									appearance='neutral'
-									after={<Counter appearance='neutral'>3</Counter>}
-								>
-									Фронтенд
-								</Button>
+
+								{storePortfolioData.tags.map((tag, index) => {
+									const projectsWithTag = storePortfolioData.data.filter(item =>
+										item.tags.some(tagItem => tagItem.type === tag.type)
+									)
+
+									return (
+										<Button
+											key={index}
+											onClick={() => toggleTag(tag.type)}
+											mode={
+												selectedTags.includes(tag.type) ? 'primary' : 'outline'
+											}
+											appearance={
+												selectedTags.includes(tag.type) ? 'accent' : 'neutral'
+											}
+											after={
+												<Counter appearance='neutral'>
+													{projectsWithTag.length}
+												</Counter>
+											}
+										>
+											{tag.name}
+										</Button>
+									)
+								})}
 							</div>
 						</Box>
 					</Section>
 
 					<Section>
-						<Box>
+						<Box style={screenWidth <= 768 ? { padding: '0' } : {}}>
 							<div
 								className={styles.list}
 								style={{ gridTemplateColumns: screenWidth <= 768 ? '1fr' : '' }}
 							>
-								{storePortfolioData.data.map(item => (
-									<PortfolioItem
-										key={item.id}
-										to={item.pathname}
-										projectName={item.projectName}
-										tags={item.tags
-											.map(tag => tag.name)
-											.filter(name => name)
-											.join(', ')}
-										date={'\u00A0• от\u00A0' + item.projectDate}
-									/>
-								))}
+								{storePortfolioData.data
+									.filter(item => {
+										if (selectedTags.length === 0) return true
+										return item.tags.some(tag =>
+											selectedTags.includes(tag.type)
+										)
+									})
+									.map(item => (
+										<PortfolioItem
+											key={item.id}
+											to={item.project.pathname}
+											award={
+												item.awards && item.awards.length > 0
+													? item.awards[0]
+													: null
+											}
+											preview={item.project.preview}
+											name={item.project.fullName}
+											tags={item.tags
+												.map(tag => tag.name)
+												.filter(name => name)
+												.join(', ')}
+											date={'\u00A0• от\u00A0' + item.project.date}
+										/>
+									))}
 							</div>
 						</Box>
 					</Section>

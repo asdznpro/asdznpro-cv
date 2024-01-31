@@ -60,7 +60,22 @@ const Button: React.FC<ButtonProps> = props => {
 		>
 			<span className={styles.in}>
 				{before && <span className={styles.before}>{before}</span>}
-				{children && <span className={styles.content}>{children}</span>}
+
+				{children && (
+					<span
+						className={styles.content}
+						style={
+							before
+								? { paddingRight: '6px' }
+								: after
+								? { paddingLeft: '6px' }
+								: {}
+						}
+					>
+						{children}
+					</span>
+				)}
+
 				{after && <span className={styles.after}>{after}</span>}
 			</span>
 		</Component>

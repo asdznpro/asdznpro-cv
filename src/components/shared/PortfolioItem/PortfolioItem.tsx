@@ -1,28 +1,53 @@
+import React, { useState } from 'react'
 import { useDynamicAlignment } from 'hooks'
 
 import styles from './PortfolioItem.module.scss'
 import PortfolioItemProps from './PortfolioItem.interface'
 
-import { Fontbody, Heading, RouterLink, Spinner } from 'components/ui'
+import { AppLink, Fontbody, Heading, RouterLink, Spinner } from 'components/ui'
+
+import { Icon28PictureOutline } from '@vkontakte/icons'
 
 const PortfolioItem: React.FC<PortfolioItemProps> = props => {
-	const { projectName, to, tags, date, preview, style } = props
+	const { name, to, tags, date, award, preview, style } = props
+
 	const { screenWidth } = useDynamicAlignment()
+	const [hasError, setHasError] = useState(false)
 
 	return (
 		<div className={styles.root} style={style}>
 			<RouterLink to={to} className={styles.link} />
 
 			<div className={styles.preview}>
+				{award && (
+					<AppLink href={award.href} target='blank' className={styles.award}>
+						{!hasError ? (
+							<img
+								src={award.image}
+								alt={award.name}
+								onError={() => setHasError(true)}
+							/>
+						) : (
+							<div className={styles['award-placeholder']}>
+								<Spinner width={40} height={40} />
+							</div>
+						)}
+					</AppLink>
+				)}
+
 				<div className={styles.image}>
-					{/* <img src={preview} alt={projectName} /> */}
-					<Spinner width={36} height={36} />
+					{!hasError && preview ? (
+						<img src={preview} alt={name} onError={() => setHasError(true)} />
+					) : (
+						<Icon28PictureOutline width={40} height={40} />
+					)}
 				</div>
 			</div>
 
 			<div
-				// className={[styles.info, screenWidth <= 768 && styles['x-padding']]
-				className={[styles.info].join(' ').trim()}
+				className={[styles.info, screenWidth <= 768 && styles['x-padding']]
+					.join(' ')
+					.trim()}
 			>
 				<span className={styles.caption}>
 					<Fontbody level={3} ellipsis secondary>
@@ -35,7 +60,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = props => {
 				</span>
 
 				<Heading className={styles['project-name']} level={4}>
-					{projectName}
+					{name}
 				</Heading>
 			</div>
 		</div>

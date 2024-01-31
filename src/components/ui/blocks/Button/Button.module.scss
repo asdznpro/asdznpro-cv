@@ -23,11 +23,11 @@
 		}
 
 		.before {
-			padding-left: calc($ui-step * 0.5);
+			padding-left: $ui-step;
 		}
 
 		.after {
-			padding-right: calc($ui-step * 0.5);
+			padding-right: $ui-step;
 		}
 
 		.content {
@@ -53,6 +53,11 @@
 .button-icon {
 	.in {
 		padding: $ui-step !important;
+
+		.before,
+		.after {
+			padding: 0;
+		}
 	}
 }
 

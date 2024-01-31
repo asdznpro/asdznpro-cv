@@ -10,12 +10,14 @@ const AppLink: React.FC<AppLinkProps> = props => {
 	let Component: React.ElementType = 'span' as React.ElementType
 	let additionalProps = {}
 
+	const modifiedTarget = target && `_${target}`
+
 	if (href) {
 		Component = 'a'
-		additionalProps = { href, target, ...additionalProps }
+		additionalProps = { href, target: modifiedTarget, ...additionalProps }
 	} else if (to) {
 		Component = Link
-		additionalProps = { to, target, ...additionalProps }
+		additionalProps = { to, target: modifiedTarget, ...additionalProps }
 	} else {
 		Component = 'span'
 		additionalProps = { onClick, ...additionalProps }

@@ -23,7 +23,7 @@ interface PortfolioProjectProps {
 const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 	const { item, theme } = props
 
-	useDocumentTitle(item.projectShortName)
+	useDocumentTitle(item.project.shortName)
 
 	useEffect(() => {
 		window.scrollTo(0, 0)
@@ -33,14 +33,14 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 		<>
 			<Section countColumns={10}>
 				<Box>
-					<Breadcrumbs customLabels={['Портфолио', item.projectShortName]} />
+					<Breadcrumbs customLabels={['Портфолио', item.project.shortName]} />
 				</Box>
 			</Section>
 
 			<Section countColumns={10}>
 				<Tile>
 					<Box YPadding>
-						<Heading level={3}>{item.projectName}</Heading>
+						<Heading level={3}>{item.project.fullName}</Heading>
 
 						<Fontbody level={2} role='paragraph'>
 							Сложно сказать, почему представители современных социальных

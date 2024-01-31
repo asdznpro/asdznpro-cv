@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosError } from 'axios'
 
-const BASE_URL = 'https://asdznpro.github.io/asdznpro-cv-data-api/data/'
+const BASE_URL = 'https://asdznpro.github.io/asdznpro-data-api/cv/data/'
 
 const axiosBaseQuery = () => {
 	const axiosInstance = axios.create({

@@ -17,7 +17,9 @@ const Header: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 	const theme = useAppSelector(selectTheme)
+
 	const storeCvMapData = useAppSelector(state => state.common.cvMap)
+	const storePortfolioData = useAppSelector(state => state.common.portfolio)
 
 	const handleToggleTheme = () => {
 		const newTheme = theme === 'light' ? 'dark' : 'light'
@@ -44,34 +46,37 @@ const Header: React.FC = () => {
 
 				<div className={styles['header-part']}>
 					{screenWidth > 1440 &&
-						(storeCvMapData
-							? storeCvMapData.data.map((item, index) => (
-									<Button
-										key={index}
-										to={'/' + item.pathname}
-										size='sm'
-										mode={
-											location.pathname.startsWith('/' + item.pathname)
-												? 'outline'
-												: 'tertiary'
-										}
-										appearance='neutral'
-										after={
-											item.name === 'Портфолио' && (
-												<Counter size='sm' appearance='neutral'>
-													1
-												</Counter>
-											)
-										}
-									>
-										{'#' +
-											item.name
-												.toLowerCase()
-												.replace(/\s/g, '_')
-												.replace(/\./g, '')}
-									</Button>
-							  ))
-							: [...Array(3)].map((_, index) => (
+						(storeCvMapData ? (
+							storeCvMapData.data.map((item, index) => (
+								<Button
+									key={index}
+									to={'/' + item.pathname}
+									size='sm'
+									mode={
+										location.pathname.startsWith('/' + item.pathname)
+											? 'outline'
+											: 'tertiary'
+									}
+									appearance='neutral'
+									after={
+										item.name === 'Портфолио' &&
+										storePortfolioData && (
+											<Counter size='sm' appearance='neutral'>
+												{storePortfolioData.data.length}
+											</Counter>
+										)
+									}
+								>
+									{'#' +
+										item.name
+											.toLowerCase()
+											.replace(/\s/g, '_')
+											.replace(/\./g, '')}
+								</Button>
+							))
+						) : (
+							<>
+								{[...Array(3)].map((_, index) => (
 									<Button
 										key={index}
 										size='sm'
@@ -81,12 +86,24 @@ const Header: React.FC = () => {
 									>
 										<Spinner style={{ padding: '0 28px' }} />
 									</Button>
-							  )))}
+								))}
+							</>
+						))}
 
 					{screenWidth <= 1440 && (
-						<Button size='sm' appearance='neutral' mode='secondary' rounded>
+						<Button
+							size='sm'
+							appearance='neutral'
+							mode='secondary'
+							before={<Spinner />}
+							rounded
+						>
 							#меню
 						</Button>
+
+						// <Button size='sm' appearance='neutral' mode='secondary' rounded>
+						// 	<Spinner style={{ padding: '0 20px' }} />
+						// </Button>
 					)}
 
 					<Button

@@ -2,6 +2,7 @@ import Award from './Awards.interface'
 
 export default interface PortfolioModel {
 	data: PortfolioProject[]
+	tags: PortfolioProjectTag[]
 	displayName: string
 	pathname: string
 	id: string
@@ -9,12 +10,14 @@ export default interface PortfolioModel {
 
 interface PortfolioProject {
 	id: number
-	client: string[]
-	projectName: string
-	projectShortName: string
-	projectPreview: string
-	projectDate: string
-	pathname: string
+	client?: string[]
+	project: {
+		fullName: string
+		shortName: string
+		pathname: string
+		preview: string
+		date: string
+	}
 	tags: PortfolioProjectTag[]
 	awards?: Award[]
 }

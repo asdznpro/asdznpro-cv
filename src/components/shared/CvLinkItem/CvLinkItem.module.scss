@@ -8,6 +8,7 @@
 	user-select: none;
 	transition: 0.2s ease-in;
 	color: var(--text-contrast);
+	box-shadow: 0 0 0 0;
 
 	.link {
 		@include ui-absolute-center;
@@ -29,9 +30,9 @@
 		transition: 0.2s ease-in;
 	}
 
-	&::after {
-		@include ui-flex-container(none);
-	}
+	// &::after {
+	// 	@include ui-flex-container(none);
+	// }
 
 	&:hover {
 		scale: 0.98;

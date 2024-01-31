@@ -56,7 +56,7 @@ const Home = () => {
 						}}
 					>
 						{storeCvMapData.data.map((item, index) => (
-							<CvLinkItem to={'/' + item.pathname}>
+							<CvLinkItem key={index} to={'/' + item.pathname}>
 								<Heading level={3} wideLevel={2}>
 									{item.name}
 								</Heading>
