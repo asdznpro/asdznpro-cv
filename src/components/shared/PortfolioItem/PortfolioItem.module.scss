@@ -69,7 +69,7 @@
 		padding-bottom: clamp($ui-step * 3, 1.64vmax, $ui-step * 5);
 
 		.project-name {
-			@include ui-text-ellipsis(3);
+			@include ui-text-ellipsis(2);
 		}
 
 		.caption {
@@ -83,18 +83,18 @@
 	}
 }
 
-.link:hover + .preview .image img {
-	scale: 1.16;
-}
-
-.link:active + .preview .image img {
-	scale: 1.08;
-}
-
 .link {
 	@include ui-absolute-center;
 	@include ui-size-control(100%, 100%);
 
 	border-radius: inherit;
 	z-index: $ui-index--2;
+}
+
+.link:hover + .preview .image img {
+	scale: 1.16;
+}
+
+.link:active + .preview .image img {
+	scale: 1.08;
 }

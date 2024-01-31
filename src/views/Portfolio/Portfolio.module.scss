@@ -3,5 +3,5 @@
 .list {
 	@include ui-display-grid(1fr 1fr);
 
-	gap: $ui-sm-gap;
+	gap: clamp($ui-step * 3, 1.64vmax, $ui-step * 5);
 }

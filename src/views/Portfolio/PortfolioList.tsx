@@ -19,10 +19,11 @@ import { PortfolioItem } from 'components/shared'
 
 interface PortfolioListProps {
 	storePortfolioData: PortfolioModel | null
+	theme: 'dark' | 'light' | undefined
 }
 
 const PortfolioList: React.FC<PortfolioListProps> = props => {
-	const { storePortfolioData } = props
+	const { storePortfolioData, theme } = props
 	const { screenWidth } = useDynamicAlignment()
 
 	useDocumentTitle(storePortfolioData ? storePortfolioData.displayName : '')
@@ -71,13 +72,20 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 							<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
 								<Button
 									onClick={() => setSelectedTags([])}
-									mode={selectedTags.length > 0 ? 'outline' : 'primary'}
+									mode={
+										selectedTags.length > 0
+											? theme === 'light'
+												? 'secondary'
+												: 'outline'
+											: 'primary'
+									}
 									appearance={selectedTags.length > 0 ? 'neutral' : 'accent'}
 									after={
 										<Counter appearance='neutral'>
 											{storePortfolioData.data.length}
 										</Counter>
 									}
+									rounded={selectedTags.length > 0 ? false : true}
 								>
 									Все работы
 								</Button>
@@ -92,7 +100,11 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 											key={index}
 											onClick={() => toggleTag(tag.type)}
 											mode={
-												selectedTags.includes(tag.type) ? 'primary' : 'outline'
+												selectedTags.includes(tag.type)
+													? 'primary'
+													: theme === 'light'
+													? 'secondary'
+													: 'outline'
 											}
 											appearance={
 												selectedTags.includes(tag.type) ? 'accent' : 'neutral'
@@ -102,6 +114,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 													{projectsWithTag.length}
 												</Counter>
 											}
+											rounded={selectedTags.includes(tag.type)}
 										>
 											{tag.name}
 										</Button>

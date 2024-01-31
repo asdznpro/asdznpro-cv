@@ -21,7 +21,12 @@ const Portfolio = () => {
 			<Routes>
 				<Route
 					path=''
-					element={<PortfolioList storePortfolioData={storePortfolioData} />}
+					element={
+						<PortfolioList
+							storePortfolioData={storePortfolioData}
+							theme={theme}
+						/>
+					}
 				/>
 
 				{storePortfolioData ? (
