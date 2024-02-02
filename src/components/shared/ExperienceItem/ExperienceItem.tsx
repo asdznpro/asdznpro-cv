@@ -9,14 +9,13 @@ import { Fontbody, Heading, Box, Tile, RouterLink } from 'components/ui'
 import { Icon28PictureOutline } from '@vkontakte/icons'
 
 const ExperienceItem: React.FC<ExperienceItemProps> = props => {
-	const { title, describe, logoPath, preview, children, style, ellipsis, to } =
-		props
+	const { title, describe, logoPath, preview, children, ellipsis, to } = props
 
 	const { screenWidth } = useDynamicAlignment()
 	const [hasError, setHasError] = useState(false)
 
 	return (
-		<Tile>
+		<Tile className={styles.root}>
 			{to && <RouterLink to={to} className={styles.link} />}
 
 			{!hasError && preview && (
@@ -26,7 +25,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = props => {
 			)}
 
 			<Box YPadding>
-				<div className={styles.root} style={style}>
+				<div className={styles.content}>
 					{screenWidth >= 768 && (
 						<div className={styles.logo}>
 							{!hasError && logoPath ? (

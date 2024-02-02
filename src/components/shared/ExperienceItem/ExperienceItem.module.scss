@@ -1,33 +1,41 @@
 @import 'assets/styles/Variables';
 
 .root {
-	@include ui-flex-container(flex);
+	transition: 0.12s ease-in;
 
-	gap: $ui-spacing;
+	// &:active {
+	// 	scale: 0.98;
+	// }
 
-	.logo {
-		@include ui-size-control(120px, 120px);
-		@include ui-flex-container(flex, center, center, $shrink: 0);
+	.content {
+		@include ui-flex-container(flex);
 
-		padding: $ui-step * 3;
-		overflow: hidden;
-		background: var(--background);
-		border-radius: $ui-rounded--16;
-		color: var(--text-secondary);
+		gap: $ui-spacing;
 
-		img {
-			@include ui-size-control(100%, 100%);
+		.logo {
+			@include ui-size-control(120px, 120px);
+			@include ui-flex-container(flex, center, center, $shrink: 0);
+
+			padding: $ui-step * 3;
+			overflow: hidden;
+			background: var(--background);
+			border-radius: $ui-rounded--16;
+			color: var(--text-secondary);
+
+			img {
+				@include ui-size-control(100%, 100%);
+			}
 		}
-	}
 
-	.info {
-		@include ui-size-control($minH: 100%);
-		@include ui-flex-container(flex, center, $flow: column);
+		.info {
+			@include ui-size-control($minH: 100%);
+			@include ui-flex-container(flex, center, $flow: column);
 
-		gap: clamp($ui-step * 3, 3vw, $ui-step * 4);
+			gap: clamp($ui-step * 3, 3vw, $ui-step * 4);
 
-		.describe-ellipsis {
-			@include ui-text-ellipsis(2);
+			.describe-ellipsis {
+				@include ui-text-ellipsis(2);
+			}
 		}
 	}
 }
@@ -38,6 +46,8 @@
 	overflow: hidden;
 	border-radius: clamp($ui-rounded--16, 2.4vmax, $ui-rounded--24);
 	margin: $ui-outer-padding $ui-outer-padding 0;
+	box-shadow: 0 0 0 1px var(--separator);
+
 
 	img {
 		@include ui-size-control(100%, $minW: 532px);

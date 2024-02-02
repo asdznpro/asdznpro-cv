@@ -1,4 +1,6 @@
-import { useEffect } from 'react'
+import Masonry from 'react-masonry-css'
+
+import React, { useState, useEffect } from 'react'
 import { useDocumentTitle } from 'hooks'
 
 import PortfolioModel from 'models/Portfolio.interface'
@@ -13,7 +15,14 @@ import {
 	PageNavigation,
 	Box,
 	Tile,
+	Button,
 } from 'components/ui'
+
+import {
+	Icon28StarsOutline,
+	Icon28CalendarCheckOutline,
+	Icon28PictureOutline,
+} from '@vkontakte/icons'
 
 interface PortfolioProjectProps {
 	item: PortfolioModel['data'][number]
@@ -25,9 +34,45 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 
 	useDocumentTitle(item.project.shortName)
 
-	useEffect(() => {
-		window.scrollTo(0, 0)
-	}, [])
+	// useEffect(() => {
+	// 	window.scrollTo(0, 0)
+	// }, [])
+
+	const [hasError, setHasError] = useState(false)
+
+	const [activeImage, setActiveImage] = useState<string | null>(null)
+
+	const handleImageClick = (image: string) => {
+		setActiveImage(image === activeImage ? null : image)
+	}
+
+	const images = [
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/1st-april.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/1st-september.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/23-february.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/activity2.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/activity-graduate.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/1st-may-2.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/lineup-vk-play-cup_2_2022.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/atomic-heart.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/chat_vk-play_2.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/get-purchase.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/1st-may-3.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/giveaway_rtx-3060.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/legendary-loot.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/activity-nostalgia.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/lineup-pro-summer-2022.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/promo-impossible-cashback.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/mega-sale.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/summer-contest.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/safe2_vk-play.png',
+		'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/portfolio/all/teamfinder.png',
+	]
+
+	const breakpointColumnsObj = {
+		default: 3,
+		768: 2,
+	}
 
 	return (
 		<>
@@ -40,7 +85,80 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 			<Section countColumns={10}>
 				<Tile>
 					<Box YPadding>
+						<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+							{item.tags.map((tag, index) => (
+								<Button
+									key={index}
+									size='sm'
+									mode={
+										tag.name && tag.name.includes('Новое')
+											? 'primary'
+											: 'secondary'
+									}
+									appearance={
+										tag.name && tag.name.includes('Новое')
+											? 'negative'
+											: 'neutral'
+									}
+									before={
+										tag.name &&
+										tag.name.includes('Новое') && (
+											<Icon28StarsOutline width={24} height={24} />
+										)
+									}
+									noneAction
+								>
+									{tag.name}
+								</Button>
+							))}
+
+							<Button
+								size='sm'
+								mode='secondary'
+								appearance='neutral'
+								noneAction
+								before={<Icon28CalendarCheckOutline width={24} height={24} />}
+							>
+								{'от ' + item.project.date}
+							</Button>
+
+							{item.client &&
+								item.client.map((client, index) => (
+									<Button
+										key={index}
+										size='sm'
+										mode='secondary'
+										appearance='neutral'
+										noneAction
+									>
+										{client}
+									</Button>
+								))}
+						</div>
+
 						<Heading level={3}>{item.project.fullName}</Heading>
+					</Box>
+				</Tile>
+
+				{item.project.preview && (
+					<Tile>
+						<div className={styles.preview}>
+							{!hasError ? (
+								<img
+									src={item.project.preview}
+									alt={item.project.fullName}
+									onError={() => setHasError(true)}
+								/>
+							) : (
+								<Icon28PictureOutline width={40} height={40} />
+							)}
+						</div>
+					</Tile>
+				)}
+
+				<Tile>
+					<Box YPadding>
+						<Heading level={3}>Paragraph</Heading>
 
 						<Fontbody level={2} role='paragraph'>
 							Сложно сказать, почему представители современных социальных
@@ -51,9 +169,42 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 						</Fontbody>
 					</Box>
 				</Tile>
-			</Section>
 
-			<Section countColumns={10}>
+				<Tile>
+					<Masonry
+						breakpointCols={breakpointColumnsObj}
+						className={styles.masonry}
+						columnClassName={styles['masonry-column']}
+					>
+						{images.map((image, index) => (
+							<div
+								key={index}
+								onClick={() => handleImageClick(image)}
+								className={[
+									styles['masonry-item'],
+									// image === activeImage ? styles['masonry-item__active'] : '',
+								]
+									.join(' ')
+									.trim()}
+							>
+								{activeImage === image && (
+									<div className={styles['expanded-image-container']}>
+										<img
+											src={image}
+											alt={image.split('/').pop()?.split('.').shift()}
+										/>
+									</div>
+								)}
+
+								<img
+									src={image}
+									alt={image.split('/').pop()?.split('.').shift()}
+								/>
+							</div>
+						))}
+					</Masonry>
+				</Tile>
+
 				<PageNavigation />
 			</Section>
 		</>

@@ -5,7 +5,6 @@ export default interface ExperienceItemProps {
 	preview?: string | undefined
 
 	children?: React.ReactNode
-	style?: React.CSSProperties
 
 	ellipsis?: boolean | undefined
 
