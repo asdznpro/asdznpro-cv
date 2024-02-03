@@ -1,0 +1,81 @@
+@import 'assets/styles/Variables';
+
+.root {
+	@include ui-flex-container(flex, $flow: column);
+
+	gap: calc($ui-step * 2);
+	padding-left: $ui-inner-padding;
+
+	ul {
+		list-style: disc;
+	}
+
+	li {
+		padding-left: calc($ui-step * 1);
+
+		&::marker {
+			font-size: inherit;
+			font-weight: bold;
+			color: $AccentBlue;
+		}
+	}
+}
+
+.nested-list {
+	padding-top: $ui-outer-padding;
+}
+
+// ol-list-level
+
+ol {
+	counter-reset: num;
+
+	& > li {
+		counter-increment: num;
+
+		&::marker {
+			content: counter(num) '. ';
+		}
+
+		ol {
+			counter-reset: num2;
+
+			> li {
+				counter-increment: num2;
+
+				&::marker {
+					content: counter(num) '.' counter(num2) '. ';
+				}
+
+				ol {
+					counter-reset: num3;
+
+					> li {
+						counter-increment: num3;
+
+						&::marker {
+							content: counter(num) '.' counter(num2) '.' counter(num3) '. ';
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// font-level
+
+.level-1 {
+	font-size: clamp($ui-step * 5, 4.4vmin, $ui-step * 6);
+	line-height: 1.333334em;
+}
+
+.level-2 {
+	font-size: clamp(17px, 3.6vmin, $ui-step * 5);
+	line-height: 1.4em;
+}
+
+.level-3 {
+	font-size: clamp(15px, 3.2vmin, 17px);
+	line-height: 1.4118em;
+}

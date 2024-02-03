@@ -3,8 +3,6 @@
 // levels
 
 .level-1 {
-	font-family: $ui-font-secondary;
-	font-weight: normal;
 	font-size: clamp($ui-step * 5, 4.4vmin, $ui-step * 6);
 	line-height: 1.333334em;
 }

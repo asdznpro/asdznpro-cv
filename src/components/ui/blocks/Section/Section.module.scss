@@ -12,6 +12,5 @@
 		@include ui-flex-container(flex, $flow: column);
 
 		gap: $ui-sm-gap;
-		color: var(--text-primary);
 	}
 }

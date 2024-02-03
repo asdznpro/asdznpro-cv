@@ -4,7 +4,15 @@ import styles from './Home.module.scss'
 
 import { Layout } from 'components/layout'
 import { CvLinkItem } from 'components/shared'
-import { Section, Heading, Box, Tile, Spinner } from 'components/ui'
+import {
+	Section,
+	Heading,
+	Box,
+	Tile,
+	Spinner,
+	ListComponent,
+	Footnote,
+} from 'components/ui'
 
 const Home = () => {
 	useDocumentTitle('')
@@ -29,7 +37,7 @@ const Home = () => {
 									textAlign: 'center',
 								}}
 							>
-								Андрей {'\n'} Сухушин
+								Андрей{'\n'}Сухушин
 							</Heading>
 						</Box>
 					</Tile>
@@ -37,6 +45,19 @@ const Home = () => {
 					<Tile>
 						<Box YPadding>
 							<Heading level={3}>Возможные должности</Heading>
+
+							<ListComponent
+								typeList='ul'
+								content={[
+									'Фронтенд-разработчик (React)',
+									'UX/UI дизайнер',
+									'Графический дизайнер',
+								]}
+							/>
+
+							<Footnote secondary>
+								*расположены в порядке приоритетности
+							</Footnote>
 						</Box>
 					</Tile>
 				</div>
