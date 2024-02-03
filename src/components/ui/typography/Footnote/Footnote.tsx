@@ -3,7 +3,7 @@ import typographyStyles from '../Typography.module.scss'
 import TypographyProps from '../TypographyProps.interface'
 
 interface TypographyExtendedProps extends TypographyProps {
-	role?: 'paragraph' | undefined
+	role?: 'paragraph' | 'label' | 'caption' | undefined
 	secondary?: boolean | undefined
 }
 
@@ -20,12 +20,13 @@ const Footnote: React.FC<TypographyExtendedProps> = props => {
 		className,
 	} = props
 
-	const Tag = role === 'paragraph' ? `p` : `span`
+	const Tag = (
+		role === 'paragraph' ? 'p' : role ? role : 'span'
+	) as React.ElementType
 
 	return (
 		<Tag
 			itemProp={itemProp}
-			role={role}
 			className={[
 				typographyStyles.root,
 				styles['level-' + (level ? level : 1)],

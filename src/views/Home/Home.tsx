@@ -25,7 +25,7 @@ const Home = () => {
 				<div
 					style={{
 						display: 'grid',
-						gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+						gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
 						gap: 'clamp(8px, 1.2vw, 20px)',
 					}}
 				>

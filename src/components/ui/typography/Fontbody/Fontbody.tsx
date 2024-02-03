@@ -27,7 +27,6 @@ const Fontbody: React.FC<TypographyExtendedProps> = props => {
 	return (
 		<Tag
 			itemProp={itemProp}
-			role={role}
 			className={[
 				typographyStyles.root,
 				styles['level-' + (level ? level : 1)],
