@@ -1,14 +1,14 @@
 @import 'assets/styles/Variables';
 
 .root {
-	@include ui-flex-container(flex, $items: center, $wrap: wrap);
+	.list {
+		@include ui-flex-container(flex, $items: center, $wrap: wrap);
 
-	gap: $ui-step * 3;
-	row-gap: $ui-step;
+		gap: $ui-step * 3;
+		row-gap: $ui-step;
+	}
 
 	.link {
-		@include ui-flex-container(flex);
-
 		position: relative;
 
 		&::after {
@@ -22,12 +22,19 @@
 
 			transition: 0.08s ease-in;
 			border-radius: $ui-rounded--8;
+			z-index: -1;
 		}
 
 		&:hover {
 			&::after {
 				background: var(--button-secondary);
 			}
+		}
+	}
+
+	.disabled {
+		&::after {
+			@include ui-flex-container(none);
 		}
 	}
 

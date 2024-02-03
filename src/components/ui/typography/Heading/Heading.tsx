@@ -27,7 +27,7 @@ const Heading: React.FC<HeadingProps> = props => {
 				styles['level-' + (level ? level : 1)],
 				styles['wideLevel-' + (wideLevel ? wideLevel : 1)],
 				noCaps ? '' : typographyStyles.caps,
-				ellipsis && typographyStyles.ellipsis,
+				ellipsis ? typographyStyles.ellipsis : '',
 				className,
 			]
 				.join(' ')

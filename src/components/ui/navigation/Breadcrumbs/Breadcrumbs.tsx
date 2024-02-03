@@ -28,29 +28,53 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
 	})
 
 	return (
-		<div aria-label='breadcrumbs' className={styles.root}>
-			{breadcrumbPaths.map((breadcrumb, index) => {
-				const isLast = index === breadcrumbPaths.length - 1
-				return (
-					<React.Fragment key={index}>
-						{index > 0 && (
-							<Fontbody className={styles.separator} level={2} secondary>
-								/
-							</Fontbody>
-						)}
+		<div className={styles.root}>
+			<ul
+				aria-label='breadcrumbs'
+				itemScope
+				itemType='https://schema.org/BreadcrumbList'
+				className={styles.list}
+			>
+				{breadcrumbPaths.map((breadcrumb, index) => {
+					const isLast = index === breadcrumbPaths.length - 1
 
-						{isLast ? (
-							<Fontbody level={2}>{breadcrumb.name}</Fontbody>
-						) : (
-							<Link to={breadcrumb.path}>
-								<Fontbody className={styles.link} level={2} secondary>
-									{breadcrumb.name}
+					let Component: React.ElementType = 'div' as React.ElementType
+					let additionalProps = {}
+
+					if (isLast) {
+						Component = 'div'
+						additionalProps = {}
+					} else {
+						Component = Link
+						additionalProps = { to: breadcrumb.path }
+					}
+
+					return (
+						<React.Fragment key={index}>
+							{index > 0 && (
+								<Fontbody className={styles.separator} level={2} secondary>
+									/
 								</Fontbody>
-							</Link>
-						)}
-					</React.Fragment>
-				)
-			})}
+							)}
+
+							<li
+								itemScope
+								itemProp='itemListElement'
+								itemType='https://schema.org/BreadcrumbList'
+								className={[styles.link, isLast ? styles.disabled : '']
+									.join(' ')
+									.trim()}
+							>
+								<Component {...additionalProps} itemProp='item'>
+									<Fontbody level={2} itemProp='name' secondary={!isLast}>
+										{breadcrumb.name}
+									</Fontbody>
+								</Component>
+							</li>
+						</React.Fragment>
+					)
+				})}
+			</ul>
 		</div>
 	)
 }
