@@ -8,13 +8,12 @@ import { selectTheme } from 'store/ThemeSlice'
 import styles from './Education.module.scss'
 
 import { Layout } from 'components/layout'
+import { BriefInfoBox, BriefInfoItem } from 'components/shared'
 import {
-	Fontbody,
 	Section,
 	PageTitle,
 	Breadcrumbs,
 	Spinner,
-	AppLink,
 	PageNavigation,
 	Box,
 	Tile,
@@ -57,33 +56,21 @@ const Education = () => {
 						{storeEducationData.data.map(item => (
 							<Tile key={item.id}>
 								<Box YPadding>
-									{item.info.map((info, index) => (
-										<Fontbody key={item.id + '-' + index}>
-											<span style={{ color: '#9A9AAC' }}>{info.title}</span>
-											&nbsp;&nbsp;
-											{info.icon && (
-												<>
-													<img
-														src={
-															theme === 'dark' && info.icon
-																? info.iconLight
-																: info.icon
-														}
-														alt={info.value}
-														style={{ width: 32 }}
-													/>
-													&nbsp;&nbsp;
-												</>
-											)}
-											{info.value}
-											&nbsp;&nbsp;
-											{info.href && (
-												<AppLink href={info.href} target='blank'>
-													#
-												</AppLink>
-											)}
-										</Fontbody>
-									))}
+									<BriefInfoBox>
+										{item.info.map((info, index) => (
+											<BriefInfoItem
+												key={item.id + '-' + index}
+												title={info.title}
+												icon={
+													theme === 'dark' && info.icon
+														? info.iconLight
+														: info.icon
+												}
+												value={info.value}
+												href={info.href}
+											/>
+										))}
+									</BriefInfoBox>
 								</Box>
 							</Tile>
 						))}

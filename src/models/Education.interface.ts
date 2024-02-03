@@ -7,7 +7,7 @@ export default interface EducationModel {
 	id: string
 }
 
-interface Education {
+export interface Education {
 	id: number
 	info: CommonInfo[]
 }

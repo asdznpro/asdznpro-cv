@@ -49,7 +49,7 @@ const About = () => {
 					<Section countColumns={10}>
 						<Tile>
 							<Box YPadding>
-								<Fontbody level={2} role='paragraph'>
+								<Fontbody role='paragraph'>
 									Сложно сказать, почему представители современных социальных
 									резервов освещают чрезвычайно интересные особенности картины в
 									целом, однако конкретные выводы, разумеется, превращены в

@@ -43,7 +43,7 @@ const Home = () => {
 					</Tile>
 
 					<Tile>
-						<Box YPadding>
+						<Box YPadding style={{ height: '100%' }}>
 							<Heading level={3}>Возможные должности</Heading>
 
 							<ListComponent
@@ -55,7 +55,7 @@ const Home = () => {
 								]}
 							/>
 
-							<Footnote secondary>
+							<Footnote secondary style={{ marginTop: 'auto' }}>
 								*расположены в порядке приоритетности
 							</Footnote>
 						</Box>

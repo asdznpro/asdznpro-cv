@@ -24,7 +24,7 @@ const CvLinkItem: React.FC<CvLinkItemProps> = props => {
 				/>
 			)}
 
-			<Icon28LinkOutline width={44} height={44} />
+			<Icon28LinkOutline width={40} height={40} />
 
 			<Box YPadding>{children}</Box>
 		</Tile>

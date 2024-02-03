@@ -1,0 +1,35 @@
+@import 'assets/styles/Variables';
+
+.root {
+	@include ui-flex-container(flex, $flow: column);
+
+	gap: $ui-outer-padding;
+}
+
+.item {
+	@include ui-flex-container(grid, $items: center);
+
+	grid-template-columns: repeat(auto-fit, minmax(176px, 1fr));
+
+	gap: $ui-spacing;
+	row-gap: $ui-outer-padding;
+
+	.title {
+		align-self: flex-start;
+	}
+
+	.value {
+		@include ui-flex-container(flex, $items: center);
+
+		grid-column: span 2;
+		gap: $ui-outer-padding;
+
+		.icon {
+			height: 100%;
+
+			img {
+				@include ui-size-control(32px, 32px);
+			}
+		}
+	}
+}
