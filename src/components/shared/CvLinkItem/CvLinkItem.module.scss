@@ -4,24 +4,32 @@
 	@include ui-flex-container(flex, flex-end);
 	@include ui-size-control($minH: 220px);
 
-	background-color: $AccentBlue;
+	background-color: var(--accent-blue-color);
 	user-select: none;
 	transition: 0.2s ease-in;
 	color: var(--text-contrast);
-	box-shadow: 0 0 0 0;
+
+	box-shadow: none;
 
 	.link {
 		@include ui-absolute-center;
 		@include ui-size-control(100%, 100%);
 
 		border-radius: inherit;
+
+		@media (min-width: $max-width--tablet) {
+			&:hover {
+				cursor: none;
+			}
+		}
 	}
 
-	svg {
+	.icon {
 		position: absolute;
 		top: 0;
 		right: 0;
 
+		pointer-events: none;
 		transition: inherit;
 		translate: -24px 24px;
 	}
@@ -30,15 +38,11 @@
 		transition: 0.2s ease-in;
 	}
 
-	// &::after {
-	// 	@include ui-flex-container(none);
-	// }
-
 	&:hover {
-		scale: 0.98;
+		// scale: 0.98;
 		border-radius: $ui-rounded--44;
 
-		svg {
+		.icon {
 			translate: 100% -100%;
 		}
 
@@ -48,34 +52,35 @@
 	}
 
 	&:active {
-		scale: 0.96;
+		// 	scale: 0.96;
+		border-radius: $ui-rounded--56;
 	}
 }
 
 .vk {
-	background-color: $Vk;
-}
-
-.telegram {
-	background-color: $Telegram;
+	background-color: var(--vk-color);
 }
 
 .vk-mail {
-	background-color: $VkMail;
+	background-color: var(--vk-mail-color);
 }
 
-.yandex {
-	background-color: $Yandex;
+.telegram {
+	background-color: var(--telegram-color);
 }
 
 .github {
-	background-color: $GitHub;
+	background-color: var(--github-color);
 }
 
 .gitlab {
-	background-color: $GitLab;
+	background-color: var(--gitlab-color);
+}
+
+.yandex {
+	background-color: var(--yandex-color);
 }
 
 .headhunter {
-	background-color: $HeadHunter;
+	background-color: var(--head-hunter-color);
 }

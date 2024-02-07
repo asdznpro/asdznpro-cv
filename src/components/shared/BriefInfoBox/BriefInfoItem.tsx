@@ -1,3 +1,5 @@
+import React, { useState } from 'react'
+
 import styles from './BriefInfoBox.module.scss'
 import CommonInfo from 'models/Common.interface'
 
@@ -6,6 +8,8 @@ import { AppLink, Fontbody } from 'components/ui'
 const BriefInfoItem: React.FC<CommonInfo> = props => {
 	const { title, icon, value, href } = props
 
+	const [hasError, setHasError] = useState(false)
+
 	return (
 		<div className={styles.item}>
 			<div className={styles.title}>
@@ -13,9 +17,9 @@ const BriefInfoItem: React.FC<CommonInfo> = props => {
 			</div>
 
 			<div className={styles.value}>
-				{icon && (
+				{!hasError && icon && (
 					<div className={styles.icon}>
-						<img src={icon} alt={value} />
+						<img src={icon} alt={value} onError={() => setHasError(true)} />
 					</div>
 				)}
 

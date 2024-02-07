@@ -3,4 +3,6 @@ export default interface BoxProps {
 	style?: React.CSSProperties
 
 	YPadding?: boolean | undefined
+
+	className?: string | undefined
 }

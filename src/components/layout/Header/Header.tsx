@@ -66,6 +66,12 @@ const Header: React.FC = () => {
 											</Counter>
 										)
 									}
+									disabled={
+										(item.name === 'Портфолио' &&
+											storePortfolioData &&
+											storePortfolioData.data.length === 0) ||
+										undefined
+									}
 								>
 									{'#' +
 										item.name

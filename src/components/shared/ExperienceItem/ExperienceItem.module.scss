@@ -1,14 +1,8 @@
 @import 'assets/styles/Variables';
 
 .root {
-	transition: 0.12s ease-in;
-
-	// &:active {
-	// 	scale: 0.98;
-	// }
-
 	.content {
-		@include ui-flex-container(flex);
+		@include ui-flex-container(flex, $flow: row);
 
 		gap: $ui-spacing;
 
@@ -32,6 +26,7 @@
 			@include ui-flex-container(flex, center, $flow: column);
 
 			gap: clamp($ui-step * 3, 3vw, $ui-step * 4);
+			transition: 0.24s ease-in;
 
 			.describe-ellipsis {
 				@include ui-text-ellipsis(2);
@@ -48,7 +43,6 @@
 	margin: $ui-outer-padding $ui-outer-padding 0;
 	box-shadow: 0 0 0 1px var(--separator);
 
-
 	img {
 		@include ui-size-control(100%, $minW: 532px);
 	}
@@ -59,4 +53,14 @@
 	@include ui-size-control(100%, 100%);
 
 	border-radius: inherit;
+
+	@media (min-width: $max-width--tablet) {
+		&:hover {
+			cursor: none;
+		}
+	}
+
+	// &:hover ~ .content .info {
+	// 	color: var(--text-secondary);
+	// }
 }

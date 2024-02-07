@@ -56,7 +56,7 @@
 			border-radius: inherit;
 
 			img {
-				transition: 0.16s ease-in;
+				transition: 0.24s ease-in;
 			}
 		}
 	}
@@ -70,10 +70,20 @@
 
 		.project-name {
 			@include ui-text-ellipsis(2);
+
+			transition: 0.24s ease-in;
 		}
 
 		.caption {
 			@include ui-display-grid(auto 1fr);
+		}
+	}
+
+	@media (max-width: $max-width--mobile) {
+		.info {
+			.project-name {
+				@include ui-text-ellipsis(3);
+			}
 		}
 	}
 
@@ -89,12 +99,22 @@
 
 	border-radius: inherit;
 	z-index: $ui-index--2;
-}
 
-.link:hover + .preview .image img {
-	scale: 1.16;
-}
+	@media (min-width: $max-width--tablet) {
+		&:hover {
+			cursor: none;
+		}
+	}
 
-.link:active + .preview .image img {
-	scale: 1.08;
+	// &:hover ~ .info .project-name {
+	// 	color: var(--text-secondary);
+	// }
+
+	&:hover ~ .preview .image img {
+		scale: 1.08;
+	}
+
+	&:active ~ .preview .image img {
+		scale: 1.04;
+	}
 }

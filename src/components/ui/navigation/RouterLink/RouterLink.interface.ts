@@ -8,4 +8,7 @@ export default interface RouterLinkProps {
 	onClick?: React.MouseEventHandler<HTMLSpanElement>
 
 	className?: string | undefined
+
+	onMouseEnter?: () => void
+	onMouseLeave?: () => void
 }

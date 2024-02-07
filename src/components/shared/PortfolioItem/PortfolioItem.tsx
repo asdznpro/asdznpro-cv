@@ -4,7 +4,14 @@ import { useDynamicAlignment } from 'hooks'
 import styles from './PortfolioItem.module.scss'
 import PortfolioItemProps from './PortfolioItem.interface'
 
-import { AppLink, Fontbody, Heading, RouterLink, Spinner } from 'components/ui'
+import {
+	AppLink,
+	Fontbody,
+	Heading,
+	RouterLink,
+	Spinner,
+	CustomCursor,
+} from 'components/ui'
 
 import { Icon28PictureOutline } from '@vkontakte/icons'
 
@@ -13,10 +20,28 @@ const PortfolioItem: React.FC<PortfolioItemProps> = props => {
 
 	const { screenWidth } = useDynamicAlignment()
 	const [hasError, setHasError] = useState(false)
+	const [isHovered, setIsHovered] = useState(false)
+
+	const handleMouseEnter = () => {
+		setIsHovered(true)
+	}
+
+	const handleMouseLeave = () => {
+		setIsHovered(false)
+	}
 
 	return (
 		<div className={styles.root} style={style}>
-			<RouterLink to={to} className={styles.link} />
+			{screenWidth >= 768 && isHovered && <CustomCursor />}
+
+			{to && (
+				<RouterLink
+					to={to}
+					className={styles.link}
+					onMouseEnter={handleMouseEnter}
+					onMouseLeave={handleMouseLeave}
+				/>
+			)}
 
 			<div className={styles.preview}>
 				{award && (

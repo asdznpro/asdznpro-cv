@@ -2,6 +2,7 @@
 
 export { Button } from './blocks/Button'
 export { Counter } from './blocks/Counter'
+export { CustomCursor } from './blocks/CustomCursor'
 export { ListComponent } from './blocks/ListComponent'
 export { Box } from './blocks/Box'
 export { PageTitle } from './blocks/PageTitle'

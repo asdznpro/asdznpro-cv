@@ -4,7 +4,16 @@ import styles from './RouterLink.module.scss'
 import RouterLinkProps from './RouterLink.interface'
 
 const RouterLink: React.FC<RouterLinkProps> = props => {
-	const { to, href, target, children, onClick, className } = props
+	const {
+		to,
+		href,
+		target,
+		children,
+		onClick,
+		className,
+		onMouseEnter,
+		onMouseLeave,
+	} = props
 
 	let Component: React.ElementType = 'span' as React.ElementType
 	let additionalProps = {}
@@ -27,6 +36,8 @@ const RouterLink: React.FC<RouterLinkProps> = props => {
 			onClick={onClick}
 			className={[styles.root, className].join(' ').trim()}
 			{...additionalProps}
+			onMouseEnter={onMouseEnter}
+			onMouseLeave={onMouseLeave}
 		>
 			{children}
 		</Component>
