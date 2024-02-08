@@ -1,4 +1,4 @@
-import { useDynamicAlignment } from 'hooks'
+import { useDynamicAlignment, useAppSelector } from 'hooks'
 
 import styles from './Footer.module.scss'
 
@@ -9,11 +9,15 @@ import { IconLogoReact28 } from 'components/ui/icons'
 const Footer: React.FC = () => {
 	const { screenWidth } = useDynamicAlignment()
 
+	const storePersonalData = useAppSelector(state => state.common.personal)
+
 	return (
 		<footer className={styles.root}>
 			<div className={styles.wrapper}>
 				<Fontbody secondary>
-					&copy; Андрей Сухушин, {new Date().getFullYear()}
+					&copy;{' '}
+					{storePersonalData && storePersonalData.data.fullName + ',' + ' '}
+					{new Date().getFullYear()}
 				</Fontbody>
 
 				{screenWidth >= 818 && (

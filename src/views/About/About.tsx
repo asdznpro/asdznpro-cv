@@ -1,12 +1,10 @@
-import { useEffect } from 'react'
-
-import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
-import { useGetPersonalQuery } from 'services/CommonApi'
-import { setPersonalData } from 'store/СommonSlice'
+import { useDocumentTitle, useAppSelector } from 'hooks'
+import { selectTheme } from 'store/ThemeSlice'
 
 import styles from './About.module.scss'
 
 import { Layout } from 'components/layout'
+import { BriefInfoBox, BriefInfoItem } from 'components/shared'
 import {
 	Fontbody,
 	Section,
@@ -19,15 +17,8 @@ import {
 } from 'components/ui'
 
 const About = () => {
-	const dispatch = useAppDispatch()
-	const { data: personalData } = useGetPersonalQuery()
+	const theme = useAppSelector(selectTheme)
 	const storePersonalData = useAppSelector(state => state.common.personal)
-
-	useEffect(() => {
-		if (personalData) {
-			dispatch(setPersonalData(personalData))
-		}
-	}, [personalData, dispatch])
 
 	useDocumentTitle(storePersonalData ? storePersonalData.displayName : '')
 
@@ -49,13 +40,71 @@ const About = () => {
 					<Section countColumns={10}>
 						<Tile>
 							<Box YPadding>
-								<Fontbody role='paragraph'>
-									Сложно сказать, почему представители современных социальных
-									резервов освещают чрезвычайно интересные особенности картины в
-									целом, однако конкретные выводы, разумеется, превращены в
-									посмешище, хотя само их существование приносит несомненную
-									пользу обществу.
-								</Fontbody>
+								{storePersonalData.data.bio.map((item, index) => (
+									<Fontbody key={index} role='paragraph'>
+										{item}
+									</Fontbody>
+								))}
+							</Box>
+						</Tile>
+
+						<Tile>
+							<Box YPadding>
+								<BriefInfoBox>
+									{storePersonalData.data.brief.map((item, index) => {
+										let value = item.value
+
+										if (item.title === 'Дата рождения:') {
+											const birthDate = new Date(value)
+											const formattedDate = birthDate.toLocaleDateString('ru', {
+												day: 'numeric',
+												month: 'long',
+												year: 'numeric',
+											})
+
+											const today = new Date()
+
+											let age = today.getFullYear() - birthDate.getFullYear()
+
+											const birthDayThisYear = new Date(
+												today.getFullYear(),
+												birthDate.getMonth(),
+												birthDate.getDate()
+											)
+
+											if (today < birthDayThisYear) {
+												age--
+											}
+
+											const ageString =
+												age % 10 === 1 && age !== 11
+													? `${age} год`
+													: `${age} ${
+															age % 10 >= 2 &&
+															age % 10 <= 4 &&
+															!(age >= 12 && age <= 14)
+																? 'года'
+																: 'лет'
+													  }`
+
+											value = `${formattedDate} (${ageString})`
+										}
+
+										return (
+											<BriefInfoItem
+												key={index}
+												title={item.title}
+												icon={
+													theme === 'dark' && item.iconLight
+														? item.iconLight
+														: item.icon
+												}
+												value={value}
+												href={item.href}
+											/>
+										)
+									})}
+								</BriefInfoBox>
 							</Box>
 						</Tile>
 

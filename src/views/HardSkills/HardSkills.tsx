@@ -7,6 +7,7 @@ import { setHardSkillsData } from 'store/СommonSlice'
 import styles from './HardSkills.module.scss'
 
 import { Layout } from 'components/layout'
+import { HardSkillItem } from 'components/shared'
 import {
 	Section,
 	PageTitle,
@@ -16,8 +17,14 @@ import {
 	PageNavigation,
 	Box,
 	Tile,
+	Button,
 } from 'components/ui'
-import { HardSkillItem } from 'components/shared'
+
+import {
+	Icon28BrainOutline,
+	Icon28BabyBottleOutline,
+	Icon24ExpositionOutline,
+} from '@vkontakte/icons'
 
 const HardSkills = () => {
 	const dispatch = useAppDispatch()
@@ -62,12 +69,78 @@ const HardSkills = () => {
 												key={item.id + '-' + index}
 												image={skill.image}
 												name={skill.name}
-											/>
+											>
+												<Button
+													size='xsm'
+													appearance={
+														skill.level === 'High'
+															? 'positive'
+															: skill.level === 'Middle'
+															? 'neutral'
+															: skill.level === 'Base'
+															? 'negative'
+															: undefined
+													}
+													before={
+														skill.level === 'High' ? (
+															<Icon28BrainOutline width={20} height={20} />
+														) : skill.level === 'Middle' ? (
+															<Icon24ExpositionOutline width={20} height={20} />
+														) : skill.level === 'Base' ? (
+															<Icon28BabyBottleOutline width={20} height={20} />
+														) : undefined
+													}
+													noneAction
+												>
+													{skill.level}
+												</Button>
+											</HardSkillItem>
 										))}
 									</div>
 								</Box>
 							</Tile>
 						))}
+
+						{/* {storeHardSkillsData.data.map(item => (
+							<Tile key={item.id}>
+								<Box YPadding>
+									<Heading level={3}>{item.jobTitle}</Heading>
+
+									<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+										{item.stack.map((skill, index) => (
+											<Button
+												key={item.id + '-' + index}
+												size='sm'
+												appearance={
+													skill.level === 'High'
+														? 'positive'
+														: skill.level === 'Middle'
+														? 'neutral'
+														: skill.level === 'Base'
+														? 'negative'
+														: undefined
+												}
+												mode='secondary'
+												before={
+													skill.image ? (
+														<img
+															src={skill.image}
+															alt={skill.name}
+															width={28}
+															height={28}
+														/>
+													) : (
+														<Spinner />
+													)
+												}
+											>
+												{skill.name}
+											</Button>
+										))}
+									</div>
+								</Box>
+							</Tile>
+						))} */}
 
 						<PageNavigation />
 					</Section>

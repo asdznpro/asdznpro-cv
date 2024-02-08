@@ -235,7 +235,7 @@
 }
 
 .size-xsm {
-	@include ui-size-button(7, 2, $ui-rounded--8, 0.5, 13px, 18px);
+	@include ui-size-button(7, 1.4, $ui-rounded--8, 0.4, 13px, 18px);
 }
 
 .size-sm {

@@ -48,7 +48,7 @@ export const commonApi = createApi({
 			}),
 		}),
 
-		getPersonal: builder.query<any, void>({
+		getPersonal: builder.query<PersonalModel, void>({
 			query: () => ({
 				url: 'personal.json',
 				method: 'GET',

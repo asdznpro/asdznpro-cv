@@ -18,49 +18,54 @@ const Home = () => {
 	useDocumentTitle('')
 
 	const storeCvMapData = useAppSelector(state => state.common.cvMap)
+	const storePersonalData = useAppSelector(state => state.common.personal)
 
 	return (
 		<Layout paddingTop='sm'>
 			<Section>
-				<div
-					style={{
-						display: 'grid',
-						gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
-						gap: 'clamp(8px, 1.2vw, 20px)',
-					}}
-				>
-					<Tile>
-						<Box YPadding>
-							<Heading
-								level={3}
-								style={{
-									textAlign: 'center',
-								}}
-							>
-								Андрей{'\n'}Сухушин
-							</Heading>
-						</Box>
-					</Tile>
+				{storePersonalData ? (
+					<div
+						style={{
+							display: 'grid',
+							gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+							gap: 'clamp(8px, 1.2vw, 20px)',
+						}}
+					>
+						<Tile>
+							<Box YPadding>
+								<Heading
+									level={3}
+									style={{
+										textAlign: 'center',
+									}}
+								>
+									{storePersonalData.data.firstName +
+										'\n' +
+										storePersonalData.data.lastName}
+								</Heading>
+							</Box>
+						</Tile>
 
-					<Tile>
-						<Box YPadding style={{ height: '100%' }}>
-							<Heading level={3}>Возможные должности</Heading>
+						<Tile>
+							<Box YPadding style={{ height: '100%' }}>
+								<Heading level={3}>
+									{storePersonalData.data.possibleJobs.title}
+								</Heading>
 
-							<ListComponent
-								typeList='ul'
-								content={[
-									'Фронтенд-разработчик (React)',
-									'UX/UI дизайнер',
-									'Графический дизайнер',
-								]}
-							/>
+								<ListComponent
+									typeList='ul'
+									content={storePersonalData.data.possibleJobs.list}
+								/>
 
-							<Footnote secondary style={{ marginTop: 'auto' }}>
-								*расположены в порядке приоритетности
-							</Footnote>
-						</Box>
-					</Tile>
-				</div>
+								<Footnote secondary style={{ marginTop: 'auto' }}>
+									{storePersonalData.data.possibleJobs.caption}
+								</Footnote>
+							</Box>
+						</Tile>
+					</div>
+				) : (
+					<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
+				)}
 			</Section>
 
 			<Section>

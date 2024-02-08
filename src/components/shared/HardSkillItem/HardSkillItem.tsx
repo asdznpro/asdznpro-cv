@@ -1,12 +1,10 @@
 import styles from './HardSkillItem.module.scss'
 import HardSkillItemProps from './HardSkillItem.interface'
 
-import { Button, Fontbody, Spinner } from 'components/ui'
-
-import { Icon28ChevronRightCircle } from '@vkontakte/icons'
+import { Fontbody, Spinner } from 'components/ui'
 
 const HardSkillItem: React.FC<HardSkillItemProps> = props => {
-	const { name, image, onClick } = props
+	const { name, image, children, onClick } = props
 
 	return (
 		<div className={styles.root} onClick={onClick}>
@@ -23,14 +21,7 @@ const HardSkillItem: React.FC<HardSkillItemProps> = props => {
 					{name}
 				</Fontbody>
 
-				{/* <Button
-					size='xsm'
-					appearance='neutral'
-					mode='secondary'
-					after={<Icon28ChevronRightCircle width={18} height={18} />}
-				>
-					Подробнее
-				</Button> */}
+				{children}
 			</div>
 		</div>
 	)

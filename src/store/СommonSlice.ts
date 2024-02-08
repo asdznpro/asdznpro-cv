@@ -14,7 +14,7 @@ interface CommonState {
 	education: EducationModel | null
 	experience: ExperienceModel | null
 	hardSkills: HardSkillsModel | null
-	personal: any | null
+	personal: PersonalModel | null
 	portfolio: PortfolioModel | null
 }
 
@@ -53,7 +53,7 @@ const commonSlice = createSlice({
 		) => {
 			state.hardSkills = action.payload
 		},
-		setPersonalData: (state, action: PayloadAction<any | null>) => {
+		setPersonalData: (state, action: PayloadAction<PersonalModel | null>) => {
 			state.personal = action.payload
 		},
 		setPortfolioData: (state, action: PayloadAction<PortfolioModel | null>) => {

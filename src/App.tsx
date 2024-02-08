@@ -3,8 +3,16 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { RootState } from 'store'
 import { useAppDispatch, useAppSelector, usePreferredTheme } from 'hooks'
-import { useGetCvMapQuery, useGetPortfolioQuery } from 'services/CommonApi'
-import { setCvMapData, setPortfolioData } from 'store/СommonSlice'
+import {
+	useGetCvMapQuery,
+	useGetPersonalQuery,
+	useGetPortfolioQuery,
+} from 'services/CommonApi'
+import {
+	setCvMapData,
+	setPersonalData,
+	setPortfolioData,
+} from 'store/СommonSlice'
 
 import 'assets/styles/index.scss'
 
@@ -13,7 +21,10 @@ import { AppRouter } from 'components/router'
 function App() {
 	usePreferredTheme()
 
+	const dispatch = useAppDispatch()
 	const theme = useAppSelector((state: RootState) => state.theme.theme)
+
+	// usePreferredTheme
 
 	useEffect(() => {
 		document.documentElement.setAttribute('data-theme', theme)
@@ -28,8 +39,6 @@ function App() {
 		}
 	}, [theme])
 
-	const dispatch = useAppDispatch()
-
 	// useGetCvMapQuery
 
 	const { data: cvMapData } = useGetCvMapQuery()
@@ -39,6 +48,16 @@ function App() {
 			dispatch(setCvMapData(cvMapData))
 		}
 	}, [cvMapData, dispatch])
+
+	// useGetPersonalQuery
+
+	const { data: personalData } = useGetPersonalQuery()
+
+	useEffect(() => {
+		if (personalData) {
+			dispatch(setPersonalData(personalData))
+		}
+	}, [personalData, dispatch])
 
 	// useGetPortfolioQuery
 

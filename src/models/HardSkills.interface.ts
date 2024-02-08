@@ -15,6 +15,7 @@ interface HardSkillsStack {
 	id: number
 	image: string
 	name: string
+	level: string
 	description?: string
 	examples?: string[]
 }
