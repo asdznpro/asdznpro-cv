@@ -60,7 +60,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
 							<li
 								itemScope
 								itemProp='itemListElement'
-								itemType='https://schema.org/BreadcrumbList'
+								itemType='https://schema.org/ListItem'
 								className={[styles.link, isLast ? styles.disabled : '']
 									.join(' ')
 									.trim()}
@@ -70,6 +70,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
 										{breadcrumb.name}
 									</Fontbody>
 								</Component>
+								<meta itemProp='position' content={(index + 1).toString()} />
 							</li>
 						</React.Fragment>
 					)
