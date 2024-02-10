@@ -15,7 +15,7 @@ interface Experience {
 	info: CommonInfo[]
 	execute: string[]
 	examples: string[]
-	feedback: Feedback[]
+	feedback?: Feedback[]
 }
 
 interface EmployerInfo {

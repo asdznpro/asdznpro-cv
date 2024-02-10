@@ -6,12 +6,16 @@ import ExperienceModel from 'models/Experience.interface'
 
 import styles from './Experience.module.scss'
 
-import { ExperienceItem, FeedbackItem } from 'components/shared'
+import {
+	ExperienceItem,
+	FeedbackItem,
+	BriefInfoBox,
+	BriefInfoItem,
+} from 'components/shared'
 import {
 	Fontbody,
 	Section,
 	Button,
-	Breadcrumbs,
 	Heading,
 	PageNavigation,
 	Box,
@@ -20,7 +24,7 @@ import {
 
 import {
 	Icon28LockOutline,
-	Icon28LinkOutline,
+	Icon24LinkCircleFilled,
 	Icon28PictureOutline,
 	Icon28LogoVkColor,
 } from '@vkontakte/icons'
@@ -34,9 +38,9 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 	const { item, theme } = props
 	const [hasError, setHasError] = useState(false)
 
-	useEffect(() => {
-		window.scrollTo(0, 0)
-	}, [])
+	// useEffect(() => {
+	// 	window.scrollTo(0, 0)
+	// }, [])
 
 	useDocumentTitle(item.employerInfo.name)
 
@@ -75,7 +79,7 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 								size='sm'
 								href={item.employerInfo.website}
 								target='blank'
-								after={<Icon28LinkOutline width={24} height={24} />}
+								before={<Icon24LinkCircleFilled width={24} height={24} />}
 							>
 								{item.employerInfo.website.split('https://')}
 							</Button>
@@ -100,6 +104,28 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 						))}
 					</div>
 				</ExperienceItem>
+
+				{/* {item.info && (
+					<Tile>
+						<Box YPadding>
+							<BriefInfoBox>
+								{item.info.map((itemInfo, index) => (
+									<BriefInfoItem
+										key={index}
+										title={itemInfo.title}
+										icon={
+											theme === 'dark' && itemInfo.iconLight
+												? itemInfo.iconLight
+												: itemInfo.icon
+										}
+										value={itemInfo.value}
+										href={itemInfo.href}
+									/>
+								))}
+							</BriefInfoBox>
+						</Box>
+					</Tile>
+				)} */}
 			</Section>
 
 			<Section countColumns={10}>
@@ -114,43 +140,45 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 				</Tile>
 			</Section>
 
-			<Section countColumns={10}>
-				<Box>
-					<Heading level={2}>Отзывы о работе</Heading>
-				</Box>
+			{item.feedback && (
+				<Section countColumns={10}>
+					<Box>
+						<Heading level={2}>Отзывы о работе</Heading>
+					</Box>
 
-				{item.feedback.map(item => (
-					<FeedbackItem
-						key={item.id}
-						avatar={item.avatar}
-						fullName={item.fullName}
-						jobTitle={item.jobTitle}
-						value={item.value}
-					>
-						<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-							{item.socialNetworks.map((network, index) => (
-								<Button
-									key={item.id + '-' + index}
-									href={network.href}
-									size='sm'
-									target='blank'
-									appearance='neutral'
-									before={
-										<img
-											src={network.icon}
-											alt={
-												'@' + network.href.replace(/^\//, '').split('/').pop()
-											}
-										/>
-									}
-								>
-									{'@' + network.href.replace(/^\//, '').split('/').pop()}
-								</Button>
-							))}
-						</div>
-					</FeedbackItem>
-				))}
-			</Section>
+					{item.feedback.map(item => (
+						<FeedbackItem
+							key={item.id}
+							avatar={item.avatar}
+							fullName={item.fullName}
+							jobTitle={item.jobTitle}
+							value={item.value}
+						>
+							<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+								{item.socialNetworks.map((network, index) => (
+									<Button
+										key={item.id + '-' + index}
+										href={network.href}
+										size='sm'
+										target='blank'
+										appearance='neutral'
+										before={
+											<img
+												src={network.icon}
+												alt={
+													'@' + network.href.replace(/^\//, '').split('/').pop()
+												}
+											/>
+										}
+									>
+										{'@' + network.href.replace(/^\//, '').split('/').pop()}
+									</Button>
+								))}
+							</div>
+						</FeedbackItem>
+					))}
+				</Section>
+			)}
 
 			<Section countColumns={10}>
 				<PageNavigation />
