@@ -180,26 +180,30 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 							<div
 								key={index}
 								onClick={() => handleImageClick(image)}
-								className={[
-									styles['masonry-item'],
-									// image === activeImage ? styles['masonry-item__active'] : '',
-								]
-									.join(' ')
-									.trim()}
+								className={[styles['masonry-item']].join(' ').trim()}
 							>
+								<div
+									className={[
+										styles['image'],
+										activeImage === image ? styles['expanded-image'] : '',
+									]
+										.join(' ')
+										.trim()}
+								>
+									<img
+										src={image}
+										alt={image.split('/').pop()?.split('.').shift()}
+									/>
+								</div>
+
 								{activeImage === image && (
-									<div className={styles['expanded-image-container']}>
+									<div className={styles['ghost-image']}>
 										<img
 											src={image}
 											alt={image.split('/').pop()?.split('.').shift()}
 										/>
 									</div>
 								)}
-
-								<img
-									src={image}
-									alt={image.split('/').pop()?.split('.').shift()}
-								/>
 							</div>
 						))}
 					</Masonry>

@@ -15,7 +15,7 @@ import {
 	Box,
 } from 'components/ui'
 
-import { Icon28LockOutline } from '@vkontakte/icons'
+import { Icon28LockOutline, Icon28CalendarCheckOutline } from '@vkontakte/icons'
 
 interface ExperienceListProps {
 	storeExperienceData: ExperienceModel | null
@@ -66,18 +66,34 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 											key={item.id + '-' + index}
 											size='sm'
 											appearance={
-												label.includes('закрыт') ? 'negative' : 'neutral'
+												label.id && label.id.includes('project-closed')
+													? 'negative'
+													: 'neutral'
 											}
 											before={
-												label.includes('закрыт') ? (
+												label.id && label.id.includes('project-closed') ? (
 													<Icon28LockOutline width={24} height={24} />
+												) : label.id && label.id.includes('date') ? (
+													<Icon28CalendarCheckOutline width={24} height={24} />
 												) : (
-													''
+													label.icon && (
+														<img
+															src={
+																theme === 'dark' && label.iconLight
+																	? label.iconLight
+																	: label.icon
+															}
+															alt={label.value}
+														/>
+													)
 												)
+											}
+											rounded={
+												label.id && label.id.includes('date') ? true : false
 											}
 											noneAction
 										>
-											{label}
+											{label.value}
 										</Button>
 									))}
 								</div>

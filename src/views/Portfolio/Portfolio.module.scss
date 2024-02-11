@@ -34,27 +34,17 @@
 	&-item {
 		@include ui-flex-container(flex, center, center);
 
-		overflow: hidden;
 		border-radius: $ui-rounded--16;
 		position: relative;
 		color: var(--text-secondary);
+		// background: var(--background);
 		cursor: pointer;
 		transition: 0.12s ease-in;
 
-		img {
-			width: 100%;
-			transition: 0.24s ease-in;
-			border-radius: $ui-rounded--16;
-		}
-
-		// &:hover {
-		// 	img {
-		// 		scale: 1.12;
-		// 	}
-		// }
-
-		// &:active {
-		// 	scale: 0.98;
+		// img {
+		// 	width: 100%;
+		// 	transition: 0.24s ease-in;
+		// 	border-radius: $ui-rounded--16;
 		// }
 
 		&:not(:last-child) {
@@ -62,7 +52,18 @@
 		}
 	}
 
-	.expanded-image-container {
+	.image {
+		position: relative;
+		overflow: hidden;
+		// transition: 0.24s ease-in;
+
+		img {
+			border-radius: $ui-rounded--16;
+			transition: 0.24s ease-in;
+		}
+	}
+
+	.expanded-image {
 		@include ui-flex-container(flex, center, center);
 
 		position: fixed;
@@ -73,15 +74,17 @@
 		top: 0;
 		left: 0;
 		padding: $ui-outer-padding;
-		border-radius: 0;
-		transition: 0.24s ease-in;
 
 		background-color: var(--overlay);
-		backdrop-filter: blur(32px);
+		backdrop-filter: blur(24px);
 
 		img {
 			max-height: 100%;
 			width: auto !important;
 		}
+	}
+
+	.ghost-image {
+		opacity: 0;
 	}
 }

@@ -11,7 +11,7 @@ interface Experience {
 	id: number
 	employerInfo: EmployerInfo
 	pathname: string
-	labels: string[]
+	labels: CommonInfo[]
 	info: CommonInfo[]
 	execute: string[]
 	examples: string[]

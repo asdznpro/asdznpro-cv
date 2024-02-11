@@ -1,5 +1,6 @@
 export default interface CommonInfo {
-	title: string
+	id?: string
+	title?: string
 	icon?: string
 	iconLight?: string
 	value: string
