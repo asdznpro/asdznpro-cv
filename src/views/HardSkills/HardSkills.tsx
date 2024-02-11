@@ -18,12 +18,14 @@ import {
 	Box,
 	Tile,
 	Button,
+	Fontbody,
+	Footnote,
 } from 'components/ui'
 
 import {
-	Icon28BrainOutline,
-	Icon28BabyBottleOutline,
-	Icon24ExpositionOutline,
+	Icon28CheckCircleOn,
+	Icon28StopCircleOutline,
+	Icon28CheckCircleOff,
 } from '@vkontakte/icons'
 
 const HardSkills = () => {
@@ -70,6 +72,11 @@ const HardSkills = () => {
 												image={skill.image}
 												name={skill.name}
 											>
+												{/* <Footnote level={2} secondary>
+													JavaScript в браузере и взаимодействия с ним: DOM,
+													события, http-запросы
+												</Footnote> */}
+
 												<Button
 													size='xsm'
 													appearance={
@@ -83,11 +90,11 @@ const HardSkills = () => {
 													}
 													before={
 														skill.level === 'High' ? (
-															<Icon28BrainOutline width={20} height={20} />
+															<Icon28CheckCircleOn width={20} height={20} />
 														) : skill.level === 'Middle' ? (
-															<Icon24ExpositionOutline width={20} height={20} />
+															<Icon28StopCircleOutline width={20} height={20} />
 														) : skill.level === 'Base' ? (
-															<Icon28BabyBottleOutline width={20} height={20} />
+															<Icon28CheckCircleOff width={20} height={20} />
 														) : undefined
 													}
 													noneAction
