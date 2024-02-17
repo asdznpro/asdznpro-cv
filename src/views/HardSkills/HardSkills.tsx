@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
 import { useGetHardSkillsQuery } from 'services/CommonApi'
-import { setHardSkillsData } from 'store/СommonSlice'
+import { setHardSkillsData, selectLanguage } from 'store'
 
 import styles from './HardSkills.module.scss'
 
@@ -31,7 +31,11 @@ import {
 const HardSkills = () => {
 	const dispatch = useAppDispatch()
 
-	const { data: hardSkillsData } = useGetHardSkillsQuery()
+	const language = useAppSelector(selectLanguage)
+
+	// useGetHardSkillsQuery
+
+	const { data: hardSkillsData } = useGetHardSkillsQuery({ language })
 	const storeHardSkillsData = useAppSelector(state => state.common.hardSkills)
 
 	useEffect(() => {
@@ -40,7 +44,10 @@ const HardSkills = () => {
 		}
 	}, [hardSkillsData, dispatch])
 
-	useDocumentTitle(storeHardSkillsData ? storeHardSkillsData.displayName : '')
+	useDocumentTitle(
+		storeHardSkillsData ? storeHardSkillsData.displayName : '',
+		language
+	)
 
 	return (
 		<Layout>

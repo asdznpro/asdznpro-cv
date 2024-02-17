@@ -19,13 +19,17 @@
 	}
 
 	.value {
-		@include ui-flex-container(flex, $items: center);
+		@include ui-flex-container(flex);
 
 		grid-column: span 2;
 		gap: $ui-outer-padding;
 
+		span {
+			@include ui-flex-container($self: center);
+		}
+
 		.icon {
-			height: 100%;
+			@include ui-flex-container($shrink: 0);
 
 			img {
 				@include ui-size-control(32px, 32px);

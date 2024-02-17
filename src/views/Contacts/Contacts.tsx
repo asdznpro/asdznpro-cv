@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
 import { useGetContactsQuery } from 'services/CommonApi'
-import { setContactsData } from 'store/СommonSlice'
+import { selectLanguage, setContactsData } from 'store'
 
 import styles from './Contacts.module.scss'
 
@@ -19,7 +19,10 @@ import { CvLinkItem } from 'components/shared'
 
 const Contacts = () => {
 	const dispatch = useAppDispatch()
-	const { data: contactsData } = useGetContactsQuery()
+
+	const language = useAppSelector(selectLanguage)
+
+	const { data: contactsData } = useGetContactsQuery({ language })
 	const storeContactsData = useAppSelector(state => state.common.contacts)
 
 	useEffect(() => {
@@ -28,7 +31,10 @@ const Contacts = () => {
 		}
 	}, [contactsData, dispatch])
 
-	useDocumentTitle(storeContactsData ? storeContactsData.displayName : '')
+	useDocumentTitle(
+		storeContactsData ? storeContactsData.displayName : '',
+		language
+	)
 
 	return (
 		<Layout>

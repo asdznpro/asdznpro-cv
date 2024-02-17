@@ -26,13 +26,14 @@ import {
 
 interface PortfolioProjectProps {
 	item: PortfolioModel['data'][number]
+	language: 'ru' | 'en'
 	theme: 'dark' | 'light' | undefined
 }
 
 const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
-	const { item, theme } = props
+	const { item, language, theme } = props
 
-	useDocumentTitle(item.project.shortName)
+	useDocumentTitle(item.project.shortName, language)
 
 	// useEffect(() => {
 	// 	window.scrollTo(0, 0)

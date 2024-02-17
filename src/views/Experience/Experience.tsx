@@ -3,8 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from 'hooks'
 import { useGetExperienceQuery } from 'services/CommonApi'
-import { setExperienceData } from 'store/СommonSlice'
-import { selectTheme } from 'store/ThemeSlice'
+import { setExperienceData, selectLanguage, selectTheme } from 'store'
 
 import styles from './Experience.module.scss'
 
@@ -17,9 +16,12 @@ import { ExperienceEmployer } from './ExperienceEmployer'
 const Experience = () => {
 	const dispatch = useAppDispatch()
 
+	const language = useAppSelector(selectLanguage)
 	const theme = useAppSelector(selectTheme)
 
-	const { data: experienceData } = useGetExperienceQuery()
+	// useGetExperienceQuery
+
+	const { data: experienceData } = useGetExperienceQuery({ language })
 	const storeExperienceData = useAppSelector(state => state.common.experience)
 
 	useEffect(() => {
@@ -36,6 +38,7 @@ const Experience = () => {
 					element={
 						<ExperienceList
 							storeExperienceData={storeExperienceData}
+							language={language}
 							theme={theme}
 						/>
 					}
@@ -59,7 +62,11 @@ const Experience = () => {
 										</Box>
 									</Section>
 
-									<ExperienceEmployer item={item} theme={theme} />
+									<ExperienceEmployer
+										item={item}
+										language={language}
+										theme={theme}
+									/>
 								</>
 							}
 						/>

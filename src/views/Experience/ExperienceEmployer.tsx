@@ -32,18 +32,19 @@ import {
 
 interface ExperienceEmployerProps {
 	item: ExperienceModel['data'][number]
+	language: 'ru' | 'en'
 	theme: 'dark' | 'light' | undefined
 }
 
 const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
-	const { item, theme } = props
+	const { item, language, theme } = props
 	const [hasError, setHasError] = useState(false)
 
 	// useEffect(() => {
 	// 	window.scrollTo(0, 0)
 	// }, [])
 
-	useDocumentTitle(item.employerInfo.name)
+	useDocumentTitle(item.employerInfo.name, language)
 
 	return (
 		<>

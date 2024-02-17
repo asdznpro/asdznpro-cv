@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 
 import { useAppSelector } from 'hooks'
-import { selectTheme } from 'store/ThemeSlice'
+import { selectLanguage, selectTheme } from 'store'
 
 import styles from './Portfolio.module.scss'
 
@@ -12,6 +12,7 @@ import { PortfolioProject } from './PortfolioProject'
 import { PortfolioList } from './PortfolioList'
 
 const Portfolio = () => {
+	const language = useAppSelector(selectLanguage)
 	const theme = useAppSelector(selectTheme)
 
 	const storePortfolioData = useAppSelector(state => state.common.portfolio)
@@ -24,6 +25,7 @@ const Portfolio = () => {
 					element={
 						<PortfolioList
 							storePortfolioData={storePortfolioData}
+							language={language}
 							theme={theme}
 						/>
 					}
@@ -34,7 +36,13 @@ const Portfolio = () => {
 						<Route
 							key={item.id}
 							path={item.project.pathname}
-							element={<PortfolioProject item={item} theme={theme} />}
+							element={
+								<PortfolioProject
+									item={item}
+									language={language}
+									theme={theme}
+								/>
+							}
 						/>
 					))
 				) : (

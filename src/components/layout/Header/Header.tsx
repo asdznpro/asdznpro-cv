@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom'
 
-import { setTheme, selectTheme } from 'store/ThemeSlice'
 import { useAppSelector, useAppDispatch, useDynamicAlignment } from 'hooks'
+import { setTheme, selectTheme, setLanguage, selectLanguage } from 'store'
 
 import styles from './Header.module.scss'
 
@@ -14,12 +14,26 @@ const Header: React.FC = () => {
 	const { screenWidth } = useDynamicAlignment()
 
 	const location = useLocation()
-
 	const dispatch = useAppDispatch()
-	const theme = useAppSelector(selectTheme)
 
 	const storeCvMapData = useAppSelector(state => state.common.cvMap)
 	const storePortfolioData = useAppSelector(state => state.common.portfolio)
+
+	// handleToggleLanguage
+
+	const language = useAppSelector(selectLanguage)
+
+	const handleToggleLanguage = () => {
+		const newLanguage = language === 'ru' ? 'en' : 'ru'
+
+		dispatch(setLanguage(newLanguage))
+
+		localStorage.setItem('language', newLanguage)
+	}
+
+	// handleToggleTheme
+
+	const theme = useAppSelector(selectTheme)
 
 	const handleToggleTheme = () => {
 		const newTheme = theme === 'light' ? 'dark' : 'light'
@@ -50,7 +64,13 @@ const Header: React.FC = () => {
 							storeCvMapData.data.map((item, index) => (
 								<Button
 									key={index}
-									to={'/' + item.pathname}
+									to={
+										storePortfolioData &&
+										storePortfolioData.data.length < 1 &&
+										(item.name === 'Портфолио' || item.name === 'Portfolio')
+											? ''
+											: '/' + item.pathname
+									}
 									size='sm'
 									mode={
 										location.pathname.startsWith('/' + item.pathname)
@@ -59,7 +79,7 @@ const Header: React.FC = () => {
 									}
 									appearance='neutral'
 									after={
-										item.name === 'Портфолио' &&
+										(item.name === 'Портфолио' || item.name === 'Portfolio') &&
 										storePortfolioData && (
 											<Counter size='sm' appearance='neutral'>
 												{storePortfolioData.data.length}
@@ -67,7 +87,7 @@ const Header: React.FC = () => {
 										)
 									}
 									disabled={
-										(item.name === 'Портфолио' &&
+										((item.name === 'Портфолио' || item.name === 'Portfolio') &&
 											storePortfolioData &&
 											storePortfolioData.data.length === 0) ||
 										undefined
@@ -104,12 +124,8 @@ const Header: React.FC = () => {
 							before={<Spinner />}
 							rounded
 						>
-							#меню
+							{/* #меню */}
 						</Button>
-
-						// <Button size='sm' appearance='neutral' mode='secondary' rounded>
-						// 	<Spinner style={{ padding: '0 20px' }} />
-						// </Button>
 					)}
 
 					<Button
@@ -125,6 +141,27 @@ const Header: React.FC = () => {
 						}
 						rounded
 					/>
+
+					<Button
+						onClick={handleToggleLanguage}
+						size='sm'
+						appearance={theme === 'light' ? 'neutral' : 'accent'}
+						// before={
+						// 	<img
+						// 		src={
+						// 			language === 'ru'
+						// 				? 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/custom/great-britain_color.svg'
+						// 				: 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/custom/russia.svg'
+						// 		}
+						// 		alt={language === 'ru' ? 'EN' : 'RU'}
+						// 		width={28}
+						// 		height={28}
+						// 	/>
+						// }
+						rounded
+					>
+						{language === 'ru' ? 'EN' : 'RU'}
+					</Button>
 				</div>
 			</div>
 		</div>

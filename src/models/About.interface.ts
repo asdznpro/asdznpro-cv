@@ -1,13 +1,13 @@
 import CommonInfo from './Common.interface'
 
-export default interface PersonalModel {
-	data: Personal
+export default interface AboutModel {
+	data: About
 	displayName: string
 	pathname: string
 	id: string
 }
 
-interface Personal {
+interface About {
 	fullName: string
 	firstName: string
 	lastName: string

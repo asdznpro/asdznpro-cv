@@ -1,4 +1,5 @@
 import { useAppSelector, useDocumentTitle } from 'hooks'
+import { selectLanguage } from 'store'
 
 import styles from './Home.module.scss'
 
@@ -15,15 +16,18 @@ import {
 } from 'components/ui'
 
 const Home = () => {
-	useDocumentTitle('')
+	const language = useAppSelector(selectLanguage)
 
+	useDocumentTitle('', language)
+
+	const storeAboutData = useAppSelector(state => state.common.about)
 	const storeCvMapData = useAppSelector(state => state.common.cvMap)
-	const storePersonalData = useAppSelector(state => state.common.personal)
+	const storePortfolioData = useAppSelector(state => state.common.portfolio)
 
 	return (
 		<Layout paddingTop='sm'>
 			<Section>
-				{storePersonalData ? (
+				{storeAboutData ? (
 					<div
 						style={{
 							display: 'grid',
@@ -31,7 +35,11 @@ const Home = () => {
 							gap: 'clamp(8px, 1.2vw, 20px)',
 						}}
 					>
-						<Tile>
+						<Tile
+							style={{
+								justifyContent: 'center',
+							}}
+						>
 							<Box YPadding>
 								<Heading
 									level={3}
@@ -39,9 +47,9 @@ const Home = () => {
 										textAlign: 'center',
 									}}
 								>
-									{storePersonalData.data.firstName +
+									{storeAboutData.data.firstName +
 										'\n' +
-										storePersonalData.data.lastName}
+										storeAboutData.data.lastName}
 								</Heading>
 							</Box>
 						</Tile>
@@ -49,16 +57,16 @@ const Home = () => {
 						<Tile>
 							<Box YPadding style={{ height: '100%' }}>
 								<Heading level={3}>
-									{storePersonalData.data.possibleJobs.title}
+									{storeAboutData.data.possibleJobs.title}
 								</Heading>
 
 								<ListComponent
 									typeList='ul'
-									content={storePersonalData.data.possibleJobs.list}
+									content={storeAboutData.data.possibleJobs.list}
 								/>
 
 								<Footnote secondary style={{ marginTop: 'auto' }}>
-									{storePersonalData.data.possibleJobs.caption}
+									{storeAboutData.data.possibleJobs.caption}
 								</Footnote>
 							</Box>
 						</Tile>
@@ -70,7 +78,7 @@ const Home = () => {
 
 			<Section>
 				<Box>
-					<Heading level={2}>Резюме</Heading>
+					<Heading level={2}>{language === 'en' ? 'CV' : 'Резюме'}</Heading>
 				</Box>
 
 				{storeCvMapData ? (
@@ -82,7 +90,26 @@ const Home = () => {
 						}}
 					>
 						{storeCvMapData.data.map((item, index) => (
-							<CvLinkItem key={index} to={'/' + item.pathname}>
+							<CvLinkItem
+								key={index}
+								to={
+									storePortfolioData &&
+									storePortfolioData.data.length < 1 &&
+									(item.name === 'Портфолио' || item.name === 'Portfolio')
+										? ''
+										: '/' + item.pathname
+								}
+								style={
+									storePortfolioData &&
+									storePortfolioData.data.length < 1 &&
+									(item.name === 'Портфолио' || item.name === 'Portfolio')
+										? {
+												cursor: 'not-allowed',
+												opacity: '64%',
+										  }
+										: undefined
+								}
+							>
 								<Heading level={3} wideLevel={2}>
 									{item.name}
 								</Heading>

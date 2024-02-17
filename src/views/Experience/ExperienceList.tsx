@@ -19,14 +19,18 @@ import { Icon28LockOutline, Icon28CalendarCheckOutline } from '@vkontakte/icons'
 
 interface ExperienceListProps {
 	storeExperienceData: ExperienceModel | null
+	language: 'ru' | 'en'
 	theme: 'dark' | 'light' | undefined
 }
 
 const ExperienceList: React.FC<ExperienceListProps> = props => {
+	const { storeExperienceData, language, theme } = props
 	const { screenWidth } = useDynamicAlignment()
-	const { storeExperienceData, theme } = props
 
-	useDocumentTitle(storeExperienceData ? storeExperienceData.displayName : '')
+	useDocumentTitle(
+		storeExperienceData ? storeExperienceData.displayName : '',
+		language
+	)
 
 	return (
 		<>

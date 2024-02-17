@@ -1,5 +1,5 @@
 import { useDocumentTitle, useAppSelector } from 'hooks'
-import { selectTheme } from 'store/ThemeSlice'
+import { selectLanguage, selectTheme } from 'store'
 
 import styles from './About.module.scss'
 
@@ -17,21 +17,23 @@ import {
 } from 'components/ui'
 
 const About = () => {
+	const language = useAppSelector(selectLanguage)
 	const theme = useAppSelector(selectTheme)
-	const storePersonalData = useAppSelector(state => state.common.personal)
 
-	useDocumentTitle(storePersonalData ? storePersonalData.displayName : '')
+	const storeAboutData = useAppSelector(state => state.common.about)
+
+	useDocumentTitle(storeAboutData ? storeAboutData.displayName : '', language)
 
 	return (
 		<Layout>
-			{storePersonalData ? (
+			{storeAboutData ? (
 				<>
 					<Section countColumns={10}>
 						<Box>
 							<PageTitle
-								title={storePersonalData.displayName}
+								title={storeAboutData.displayName}
 								breadcrumbs={
-									<Breadcrumbs customLabels={[storePersonalData.displayName]} />
+									<Breadcrumbs customLabels={[storeAboutData.displayName]} />
 								}
 							/>
 						</Box>
@@ -40,7 +42,7 @@ const About = () => {
 					<Section countColumns={10}>
 						<Tile>
 							<Box YPadding>
-								{storePersonalData.data.bio.map((item, index) => (
+								{storeAboutData.data.bio.map((item, index) => (
 									<Fontbody key={index} role='paragraph'>
 										{item}
 									</Fontbody>
@@ -51,10 +53,13 @@ const About = () => {
 						<Tile>
 							<Box YPadding>
 								<BriefInfoBox>
-									{storePersonalData.data.brief.map((item, index) => {
+									{storeAboutData.data.brief.map((item, index) => {
 										let value = item.value
 
-										if (item.title === 'Дата рождения:') {
+										if (
+											item.title &&
+											item.title.includes('Дата рождения' || 'Birthday')
+										) {
 											const birthDate = new Date(value)
 											const formattedDate = birthDate.toLocaleDateString('ru', {
 												day: 'numeric',

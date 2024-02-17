@@ -2,29 +2,41 @@ import { useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { RootState } from 'store'
-import { useAppDispatch, useAppSelector, usePreferredTheme } from 'hooks'
+import {
+	useAppDispatch,
+	useAppSelector,
+	usePreferredTheme,
+	useLanguage,
+} from 'hooks'
 import {
 	useGetCvMapQuery,
-	useGetPersonalQuery,
+	useGetAboutQuery,
 	useGetPortfolioQuery,
 } from 'services/CommonApi'
-import {
-	setCvMapData,
-	setPersonalData,
-	setPortfolioData,
-} from 'store/СommonSlice'
+import { setCvMapData, setAboutData, setPortfolioData } from 'store/СommonSlice'
 
 import 'assets/styles/index.scss'
 
 import { AppRouter } from 'components/router'
 
 function App() {
-	usePreferredTheme()
-
 	const dispatch = useAppDispatch()
-	const theme = useAppSelector((state: RootState) => state.theme.theme)
+
+	// useLanguage
+
+	useLanguage()
+
+	const language = useAppSelector((state: RootState) => state.language.language)
+
+	useEffect(() => {
+		document.documentElement.lang = language
+	}, [language])
 
 	// usePreferredTheme
+
+	usePreferredTheme()
+
+	const theme = useAppSelector((state: RootState) => state.theme.theme)
 
 	useEffect(() => {
 		document.documentElement.setAttribute('data-theme', theme)
@@ -39,9 +51,19 @@ function App() {
 		}
 	}, [theme])
 
+	// useGetAboutQuery
+
+	const { data: aboutData } = useGetAboutQuery({ language })
+
+	useEffect(() => {
+		if (aboutData) {
+			dispatch(setAboutData(aboutData))
+		}
+	}, [aboutData, dispatch])
+
 	// useGetCvMapQuery
 
-	const { data: cvMapData } = useGetCvMapQuery()
+	const { data: cvMapData } = useGetCvMapQuery({ language })
 
 	useEffect(() => {
 		if (cvMapData) {
@@ -49,19 +71,9 @@ function App() {
 		}
 	}, [cvMapData, dispatch])
 
-	// useGetPersonalQuery
-
-	const { data: personalData } = useGetPersonalQuery()
-
-	useEffect(() => {
-		if (personalData) {
-			dispatch(setPersonalData(personalData))
-		}
-	}, [personalData, dispatch])
-
 	// useGetPortfolioQuery
 
-	const { data: portfolioData } = useGetPortfolioQuery()
+	const { data: portfolioData } = useGetPortfolioQuery({ language })
 
 	useEffect(() => {
 		if (portfolioData) {

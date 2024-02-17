@@ -2,8 +2,7 @@ import { useEffect } from 'react'
 
 import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
 import { useGetEducationQuery } from 'services/CommonApi'
-import { setEducationData } from 'store/СommonSlice'
-import { selectTheme } from 'store/ThemeSlice'
+import { setEducationData, selectLanguage, selectTheme } from 'store'
 
 import styles from './Education.module.scss'
 
@@ -22,9 +21,12 @@ import {
 const Education = () => {
 	const dispatch = useAppDispatch()
 
+	const language = useAppSelector(selectLanguage)
 	const theme = useAppSelector(selectTheme)
 
-	const { data: educationData } = useGetEducationQuery()
+	// useGetEducationQuery
+
+	const { data: educationData } = useGetEducationQuery({ language })
 	const storeEducationData = useAppSelector(state => state.common.education)
 
 	useEffect(() => {
@@ -33,7 +35,10 @@ const Education = () => {
 		}
 	}, [educationData, dispatch])
 
-	useDocumentTitle(storeEducationData ? storeEducationData.displayName : '')
+	useDocumentTitle(
+		storeEducationData ? storeEducationData.displayName : '',
+		language
+	)
 
 	return (
 		<Layout>
