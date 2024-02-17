@@ -7,7 +7,7 @@ const useDocumentTitle = (newTitle: string, selectLanguage: string) => {
 	useEffect(() => {
 		const defaultTitle =
 			selectLanguage === 'en' ? defaultTitleEn : defaultTitleRu
-		document.title = newTitle ? newTitle + ' — ' + defaultTitle : defaultTitle
+		document.title = newTitle ? `${newTitle} — ${defaultTitle}` : defaultTitle
 	}, [newTitle, selectLanguage])
 }
 

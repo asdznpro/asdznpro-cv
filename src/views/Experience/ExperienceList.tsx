@@ -43,6 +43,7 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 								breadcrumbs={
 									<Breadcrumbs
 										customLabels={[storeExperienceData.displayName]}
+										selectLanguage={language}
 									/>
 								}
 							/>

@@ -8,12 +8,14 @@ import BreadcrumbsProps from './Breadcrumbs.interface'
 import { Fontbody } from 'components/ui'
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
-	const { customLabels } = props
+	const { customLabels, selectLanguage } = props
 
 	const location = useLocation()
 	const pathnames = location.pathname.split('/').filter(x => x)
 
-	const breadcrumbPaths = [{ path: '/', name: 'Резюме' }]
+	const breadcrumbPaths = [
+		{ path: '/', name: selectLanguage === 'en' ? 'CV' : 'Резюме' },
+	]
 
 	pathnames.forEach((_, index) => {
 		const path = `/${pathnames.slice(0, index + 1).join('/')}`

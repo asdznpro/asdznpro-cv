@@ -51,6 +51,7 @@ const Education = () => {
 								breadcrumbs={
 									<Breadcrumbs
 										customLabels={[storeEducationData.displayName]}
+										selectLanguage={language}
 									/>
 								}
 							/>

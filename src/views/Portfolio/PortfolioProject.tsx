@@ -79,7 +79,10 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 		<>
 			<Section countColumns={10}>
 				<Box>
-					<Breadcrumbs customLabels={['Портфолио', item.project.shortName]} />
+					<Breadcrumbs
+						customLabels={['Портфолио', item.project.shortName]}
+						selectLanguage={language}
+					/>
 				</Box>
 			</Section>
 

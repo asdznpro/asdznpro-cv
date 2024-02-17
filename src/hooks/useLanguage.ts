@@ -9,11 +9,12 @@ const useLanguage = () => {
 		const savedLanguage = localStorage.getItem('language')
 
 		if (savedLanguage === 'ru' || savedLanguage === 'en') {
-			dispatch(setLanguage(savedLanguage as 'ru' | 'en'))
+			dispatch(setLanguage(savedLanguage))
 		} else {
-			const userLanguage = navigator.language.split('-')[0] as 'ru' | 'en'
-			dispatch(setLanguage(userLanguage))
-			localStorage.setItem('language', userLanguage)
+			const userLanguage = navigator.language.split('-')[0]
+			const languageToSet = userLanguage === 'ru' ? 'ru' : 'en'
+			dispatch(setLanguage(languageToSet))
+			localStorage.setItem('language', languageToSet)
 		}
 	}, [dispatch])
 }

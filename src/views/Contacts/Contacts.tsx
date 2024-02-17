@@ -45,7 +45,10 @@ const Contacts = () => {
 							<PageTitle
 								title={storeContactsData.displayName}
 								breadcrumbs={
-									<Breadcrumbs customLabels={[storeContactsData.displayName]} />
+									<Breadcrumbs
+										customLabels={[storeContactsData.displayName]}
+										selectLanguage={language}
+									/>
 								}
 							/>
 						</Box>

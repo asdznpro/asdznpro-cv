@@ -67,6 +67,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 								breadcrumbs={
 									<Breadcrumbs
 										customLabels={[storePortfolioData.displayName]}
+										selectLanguage={language}
 									/>
 								}
 							/>

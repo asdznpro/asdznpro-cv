@@ -33,7 +33,10 @@ const About = () => {
 							<PageTitle
 								title={storeAboutData.displayName}
 								breadcrumbs={
-									<Breadcrumbs customLabels={[storeAboutData.displayName]} />
+									<Breadcrumbs
+										customLabels={[storeAboutData.displayName]}
+										selectLanguage={language}
+									/>
 								}
 							/>
 						</Box>
@@ -56,16 +59,16 @@ const About = () => {
 									{storeAboutData.data.brief.map((item, index) => {
 										let value = item.value
 
-										if (
-											item.title &&
-											item.title.includes('Дата рождения' || 'Birthday')
-										) {
+										if (item.id && item.id === 'birthday') {
 											const birthDate = new Date(value)
-											const formattedDate = birthDate.toLocaleDateString('ru', {
-												day: 'numeric',
-												month: 'long',
-												year: 'numeric',
-											})
+											const formattedDate = birthDate.toLocaleDateString(
+												language,
+												{
+													day: 'numeric',
+													month: 'long',
+													year: 'numeric',
+												}
+											)
 
 											const today = new Date()
 
@@ -83,13 +86,13 @@ const About = () => {
 
 											const ageString =
 												age % 10 === 1 && age !== 11
-													? `${age} год`
+													? `${age} ${language === 'en' ? 'years old' : 'год'}`
 													: `${age} ${
 															age % 10 >= 2 &&
 															age % 10 <= 4 &&
 															!(age >= 12 && age <= 14)
-																? 'года'
-																: 'лет'
+																? `${language === 'en' ? 'years old' : 'года'}`
+																: `${language === 'en' ? 'years old' : 'лет'}`
 													  }`
 
 											value = `${formattedDate} (${ageString})`

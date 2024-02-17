@@ -145,22 +145,23 @@ const Header: React.FC = () => {
 					<Button
 						onClick={handleToggleLanguage}
 						size='sm'
-						appearance={theme === 'light' ? 'neutral' : 'accent'}
-						// before={
-						// 	<img
-						// 		src={
-						// 			language === 'ru'
-						// 				? 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/custom/great-britain_color.svg'
-						// 				: 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/custom/russia.svg'
-						// 		}
-						// 		alt={language === 'ru' ? 'EN' : 'RU'}
-						// 		width={28}
-						// 		height={28}
-						// 	/>
-						// }
+						mode='outline'
+						appearance='neutral'
+						before={
+							<img
+								src={
+									language === 'ru'
+										? 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/custom/great-britain_color.svg'
+										: 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/custom/russia.svg'
+								}
+								alt={language === 'ru' ? 'EN' : 'RU'}
+								width={24}
+								height={24}
+							/>
+						}
 						rounded
 					>
-						{language === 'ru' ? 'EN' : 'RU'}
+						{screenWidth > 576 && (language === 'ru' ? 'EN' : 'RU')}
 					</Button>
 				</div>
 			</div>

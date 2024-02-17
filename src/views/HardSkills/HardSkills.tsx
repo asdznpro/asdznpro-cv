@@ -60,6 +60,7 @@ const HardSkills = () => {
 								breadcrumbs={
 									<Breadcrumbs
 										customLabels={[storeHardSkillsData.displayName]}
+										selectLanguage={language}
 									/>
 								}
 							/>
