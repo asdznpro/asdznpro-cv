@@ -13,7 +13,7 @@
 
 		overflow: hidden;
 		border-radius: $ui-rounded--24;
-		background: var(--header-alpha);
+		background: var(--header--alpha);
 		backdrop-filter: blur(44px);
 		box-shadow: 0 0 0 1px var(--separator);
 		padding: 0 min($ui-step * 9, calc($ui-outer-padding + $ui-inner-padding));

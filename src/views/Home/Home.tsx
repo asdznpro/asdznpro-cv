@@ -1,14 +1,28 @@
-import { useAppSelector, useDocumentTitle } from 'hooks'
+import { useRef } from 'react'
+import {
+	motion,
+	useScroll,
+	useSpring,
+	useTransform,
+	useMotionValue,
+	useVelocity,
+	useAnimationFrame,
+} from 'framer-motion'
+import { wrap } from '@motionone/utils'
+
+import { useAppSelector, useDocumentTitle, useDynamicAlignment } from 'hooks'
 import { selectLanguage } from 'store'
 
 import styles from './Home.module.scss'
 
+import { ParallaxText } from './ParallaxText'
 import { Layout } from 'components/layout'
 import { CvLinkItem } from 'components/shared'
 import {
+	Avatar,
+	Box,
 	Section,
 	Heading,
-	Box,
 	Tile,
 	Spinner,
 	ListComponent,
@@ -17,6 +31,7 @@ import {
 
 const Home = () => {
 	const language = useAppSelector(selectLanguage)
+	const { screenWidth } = useDynamicAlignment()
 
 	useDocumentTitle('', language)
 
@@ -27,6 +42,14 @@ const Home = () => {
 	return (
 		<Layout paddingTop='sm'>
 			<Section>
+				<Tile className={styles.warning}>
+					<Box YPadding>
+						<ParallaxText baseVelocity={8}>
+							{language === 'en' ? 'In development' : 'В разработке'}
+						</ParallaxText>
+					</Box>
+				</Tile>
+
 				{storeAboutData ? (
 					<div
 						style={{
@@ -40,7 +63,21 @@ const Home = () => {
 								justifyContent: 'center',
 							}}
 						>
-							<Box YPadding>
+							<Box
+								YPadding
+								style={{
+									alignItems: 'center',
+									// flexFlow: screenWidth >= 748 ? 'row' : '',
+								}}
+							>
+								<Avatar
+									image='https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/about/me.png'
+									name={storeAboutData.data.fullName
+										.split(' ')
+										.map(name => name.charAt(0))
+										.join('')}
+								/>
+
 								<Heading
 									level={3}
 									style={{
@@ -106,6 +143,7 @@ const Home = () => {
 										? {
 												cursor: 'not-allowed',
 												opacity: '64%',
+												filter: 'blur(4px)',
 										  }
 										: undefined
 								}

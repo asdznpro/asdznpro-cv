@@ -18,25 +18,34 @@
 }
 
 .accent {
-	@include ui-appearance-counter(var(--text-contrast), $AccentBlue);
+	@include ui-appearance-counter(
+		var(--text-contrast),
+		var(--accent-brand-color)
+	);
 }
 
 .positive {
-	@include ui-appearance-counter(var(--text-contrast), $Lime);
+	@include ui-appearance-counter(
+		var(--text-contrast),
+		var(--accent-positive-color)
+	);
 }
 
 .negative {
-	@include ui-appearance-counter(var(--text-contrast), $DeepCoral);
+	@include ui-appearance-counter(
+		var(--text-contrast),
+		var(--accent-negative-color)
+	);
 }
 
 .neutral {
-	color: var(--text-contrast-themed);
+	color: var(--text-contrast--themed);
 	background: var(--button-contrast);
 }
 
 .contrast {
 	color: var(--button-contrast);
-	background: var(--text-contrast-themed);
+	background: var(--text-contrast--themed);
 }
 
 // size

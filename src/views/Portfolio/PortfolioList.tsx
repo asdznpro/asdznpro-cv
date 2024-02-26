@@ -217,7 +217,9 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 										style={{ margin: '0 auto', padding: '28px 0' }}
 										secondary
 									>
-										{language === 'en' ? 'No projects' : 'Нет проектов'}
+										{language === 'en'
+											? 'Projects in development'
+											: 'Проекты в разработке'}
 									</Fontbody>
 								</Box>
 							</Tile>

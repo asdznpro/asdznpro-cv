@@ -62,6 +62,8 @@ const Header: React.FC = () => {
 					{screenWidth > 1440 &&
 						(storeCvMapData ? (
 							storeCvMapData.data.map((item, index) => (
+								// item.name заменить на id
+
 								<Button
 									key={index}
 									to={

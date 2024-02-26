@@ -116,6 +116,17 @@ const About = () => {
 							</Box>
 						</Tile>
 
+						<Tile>
+							<Box YPadding>
+								<Fontbody
+									style={{ margin: '0 auto', padding: '28px 0' }}
+									secondary
+								>
+									*рекомендации как на HH*
+								</Fontbody>
+							</Box>
+						</Tile>
+
 						<PageNavigation />
 					</Section>
 				</>

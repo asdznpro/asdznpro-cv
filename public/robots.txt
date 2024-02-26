@@ -1,0 +1,14 @@
+User-agent: Yandex
+
+Disallow: /experience/*
+Disallow: /portfolio/*
+
+Allow: /$
+Allow: /about$
+Allow: /experience$
+Allow: /portfolio$
+Allow: /hard-skills$
+Allow: /education$
+Allow: /contacts$
+
+Sitemap: https://cv.asdzn.pro/sitemap.xml

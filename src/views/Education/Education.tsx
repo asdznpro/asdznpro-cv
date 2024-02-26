@@ -44,7 +44,7 @@ const Education = () => {
 		<Layout>
 			{storeEducationData ? (
 				<>
-					<Section>
+					<Section countColumns={10}>
 						<Box>
 							<PageTitle
 								title={storeEducationData.displayName}
@@ -58,7 +58,7 @@ const Education = () => {
 						</Box>
 					</Section>
 
-					<Section>
+					<Section countColumns={10}>
 						{storeEducationData.data.map(item => (
 							<Tile key={item.id}>
 								<Box YPadding>

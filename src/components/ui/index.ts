@@ -1,5 +1,6 @@
 // blocks
 
+export { Avatar } from './blocks/Avatar'
 export { Button } from './blocks/Button'
 export { Counter } from './blocks/Counter'
 export { CustomCursor } from './blocks/CustomCursor'

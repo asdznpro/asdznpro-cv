@@ -4,12 +4,20 @@
 	@include ui-flex-container(flex, flex-end);
 	@include ui-size-control($minH: 220px);
 
-	background-color: var(--accent-blue-color);
 	user-select: none;
 	transition: 0.2s ease-in;
 	color: var(--text-contrast);
 
+	background: radial-gradient(
+		50% 100% at 0% 100%,
+		var(--fuchsia-color) 0%,
+		var(--accent-blue-color) 100%
+	);
+	background-size: 200%;
+	background-position: 100%;
+
 	box-shadow: none;
+	filter: blur(0px);
 
 	.link {
 		@include ui-absolute-center;
@@ -39,8 +47,7 @@
 	}
 
 	&:hover {
-		// scale: 0.98;
-		// border-radius: $ui-rounded--44;
+		background-position: 0;
 
 		.icon {
 			translate: 100% -100%;
@@ -50,37 +57,32 @@
 			scale: 1.12;
 		}
 	}
-
-	// &:active {
-	// 	scale: 0.96;
-	// border-radius: $ui-rounded--56;
-	// }
 }
 
 .vk {
-	background-color: var(--vk-color);
+	background: var(--vk-color);
 }
 
 .vk-mail {
-	background-color: var(--vk-mail-color);
+	background: var(--vk-mail-color);
 }
 
 .telegram {
-	background-color: var(--telegram-color);
+	background: var(--telegram-color);
 }
 
 .github {
-	background-color: var(--github-color);
+	background: var(--github-color);
 }
 
 .gitlab {
-	background-color: var(--gitlab-color);
+	background: var(--gitlab-color);
 }
 
 .yandex {
-	background-color: var(--yandex-color);
+	background: var(--yandex-color);
 }
 
 .headhunter {
-	background-color: var(--head-hunter-color);
+	background: var(--head-hunter-color);
 }

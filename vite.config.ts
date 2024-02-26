@@ -37,5 +37,17 @@ export default (args: ViteConfigInput) => {
 		server: {
 			host: true,
 		},
+
+		build: {
+			rollupOptions: {
+				output: {
+					manualChunks(id) {
+						if (id.includes('node_modules')) {
+							return 'vendor'
+						}
+					},
+				},
+			},
+		},
 	})
 }
