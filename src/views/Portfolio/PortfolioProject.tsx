@@ -35,9 +35,9 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 
 	useDocumentTitle(item.project.shortName, language)
 
-	// useEffect(() => {
-	// 	window.scrollTo(0, 0)
-	// }, [])
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
 
 	const [hasError, setHasError] = useState(false)
 
@@ -94,11 +94,6 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 								<Button
 									key={index}
 									size='sm'
-									mode={
-										tag.name && tag.name.includes('Новое')
-											? 'primary'
-											: 'secondary'
-									}
 									appearance={
 										tag.name && tag.name.includes('Новое')
 											? 'negative'
@@ -110,6 +105,7 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 											<Icon28StarsOutline width={24} height={24} />
 										)
 									}
+									rounded={tag.type && tag.type.includes('new') ? true : false}
 									noneAction
 								>
 									{tag.name}
@@ -118,10 +114,10 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 
 							<Button
 								size='sm'
-								mode='secondary'
 								appearance='neutral'
 								noneAction
 								before={<Icon28CalendarCheckOutline width={24} height={24} />}
+								rounded
 							>
 								{'от ' + item.project.date}
 							</Button>
@@ -131,11 +127,26 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 									<Button
 										key={index}
 										size='sm'
-										mode='secondary'
 										appearance='neutral'
+										before={
+											client.id && client.id.includes('date') ? (
+												<Icon28CalendarCheckOutline width={24} height={24} />
+											) : (
+												client.icon && (
+													<img
+														src={
+															theme === 'dark' && client.iconLight
+																? client.iconLight
+																: client.icon
+														}
+														alt={client.value}
+													/>
+												)
+											)
+										}
 										noneAction
 									>
-										{client}
+										{client.value}
 									</Button>
 								))}
 						</div>

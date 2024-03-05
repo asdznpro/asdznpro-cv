@@ -41,7 +41,7 @@
 	overflow: hidden;
 	border-radius: clamp($ui-rounded--16, 2.4vmax, $ui-rounded--24);
 	margin: $ui-outer-padding $ui-outer-padding 0;
-	box-shadow: 0 0 0 1px var(--separator);
+	// box-shadow: 0 0 0 1px var(--separator);
 
 	img {
 		@include ui-size-control(100%, $minW: 532px);

@@ -1,4 +1,5 @@
 import Award from './Awards.interface'
+import CommonInfo from './Common.interface'
 
 export default interface PortfolioModel {
 	data: PortfolioProject[]
@@ -10,7 +11,7 @@ export default interface PortfolioModel {
 
 interface PortfolioProject {
 	id: number
-	client?: string[]
+	client?: CommonInfo[]
 	project: {
 		fullName: string
 		shortName: string
