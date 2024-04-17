@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import * as React from 'react'
+import { useState } from 'react'
 
 import styles from './FeedbackItem.module.scss'
 import FeedbackItemProps from './FeedbackItem.interface'

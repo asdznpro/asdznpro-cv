@@ -23,12 +23,12 @@
 
 	.spinner {
 		@include ui-flex-container(flex);
-		@include anim-spinner(6.4s);
+		@include ui-animate-bounce(0.84s);
 
-		transition: 0.16s ease-in;
+		transition: 0.12s ease-in;
 
 		&:hover {
-			scale: 1.08;
+			scale: 1.2;
 		}
 	}
 }

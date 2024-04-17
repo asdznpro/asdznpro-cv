@@ -6,14 +6,15 @@
 	min-height: 100dvh;
 	box-sizing: border-box;
 
-	gap: clamp($ui-step * 8, 3vmax, $ui-step * 12);
+	// gap: clamp($ui-step * 8, 3vmax, $ui-step * 12);
 }
 
 .main {
 	@include ui-flex-container(flex, $flow: inherit);
 
-	gap: inherit;
+	gap: clamp($ui-step * 8, 3vmax, $ui-step * 12);
 	margin: 0 $ui-outer-margin;
+	padding: clamp($ui-step * 8, 3vmax, $ui-step * 12) 0;
 }
 
 .padding-top-sm {
@@ -22,4 +23,33 @@
 
 .padding-top-lg {
 	padding-top: clamp($ui-step * 36, calc(8vmax + 6vmin), $ui-step * 50);
+}
+
+// 
+
+[data-theme='light'] {
+	--warning-light: 0 0 0 0;
+}
+
+[data-theme='dark'] {
+	--warning-light: 0 1px 5px 0 rgba(255, 59, 59, 0.05),
+		0 2px 11px 0 rgba(255, 59, 59, 0.07), 0 4px 20px 0 rgba(255, 59, 59, 0.09),
+		0 7px 33px 0 rgba(255, 59, 59, 0.11), 0 12px 55px 0 rgba(255, 59, 59, 0.13),
+		0 21px 96px 0 rgba(255, 59, 59, 0.15), 0 46px 208px 0 rgba(255, 59, 59, 0.2);
+}
+
+.warning {
+	@include ui-size-control($H: 60px);
+	@include ui-flex-container(flex, center, center);
+
+	overflow: hidden;
+	// border-radius: $ui-rounded--xl;
+
+	// margin: $ui-outer-margin $ui-outer-margin 0;
+
+	color: var(--text-contrast);
+	background: var(--accent-negative-color);
+	user-select: none;
+
+	box-shadow: var(--warning-light);
 }

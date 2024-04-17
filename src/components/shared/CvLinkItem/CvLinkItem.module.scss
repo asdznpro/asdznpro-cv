@@ -1,7 +1,7 @@
 @import 'assets/styles/Variables';
 
 .root {
-	@include ui-flex-container(flex, flex-end);
+	@include ui-flex-container($justify: flex-end);
 	@include ui-size-control($minH: 220px);
 
 	user-select: none;
@@ -16,7 +16,7 @@
 	background-size: 200%;
 	background-position: 100%;
 
-	box-shadow: none;
+	box-shadow: none !important;
 	// filter: blur(0px);
 
 	.link {
@@ -25,7 +25,7 @@
 
 		border-radius: inherit;
 
-		@media (min-width: $max-width--tablet) {
+		@media (min-width: $ui-max-w--tablet) {
 			&:hover {
 				cursor: none;
 			}
@@ -60,29 +60,29 @@
 }
 
 .vk {
-	background: var(--vk-color);
+	background: var(--vk-color) !important;
 }
 
 .vk-mail {
-	background: var(--vk-mail-color);
+	background: var(--vk-mail-color) !important;
 }
 
 .telegram {
-	background: var(--telegram-color);
+	background: var(--telegram-color) !important;
 }
 
 .github {
-	background: var(--github-color);
+	background: var(--github-color) !important;
 }
 
 .gitlab {
-	background: var(--gitlab-color);
+	background: var(--gitlab-color) !important;
 }
 
 .yandex {
-	background: var(--yandex-color);
+	background: var(--yandex-color) !important;
 }
 
 .headhunter {
-	background: var(--head-hunter-color);
+	background: var(--head-hunter-color) !important;
 }

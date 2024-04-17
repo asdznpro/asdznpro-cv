@@ -1,1 +1,1 @@
-export { Fontbody } from './Fontbody'
+export * from './Fontbody'

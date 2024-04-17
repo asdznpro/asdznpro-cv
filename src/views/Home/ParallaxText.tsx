@@ -1,4 +1,5 @@
-import React, { useRef } from 'react'
+import * as React from 'react'
+import { useRef } from 'react'
 import {
 	motion,
 	useScroll,
@@ -10,11 +11,9 @@ import {
 } from 'framer-motion'
 import { wrap } from '@motionone/utils'
 
-import { Heading } from 'components/ui'
-
 interface ParallaxProps {
-	children: string
-	baseVelocity: number
+	children: React.ReactNode
+	baseVelocity?: number
 }
 
 function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
@@ -48,21 +47,8 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
 
 	return (
 		<div className='parallax'>
-			<motion.div className='scroller' style={{ x }}>
-				<Heading
-					level={4}
-					style={{
-						whiteSpace: 'nowrap',
-					}}
-				>
-					{[...Array(13)].map((_, index) => (
-						<React.Fragment key={index}>
-							{children} &nbsp;//&nbsp;{' '}
-						</React.Fragment>
-					))}
-
-					{children}
-				</Heading>
+			<motion.div className='scroller' style={{ x, whiteSpace: 'nowrap' }}>
+				{children}
 			</motion.div>
 		</div>
 	)

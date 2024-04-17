@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import * as React from 'react'
+import { useState } from 'react'
 
 import styles from './HardSkillItem.module.scss'
 import HardSkillItemProps from './HardSkillItem.interface'

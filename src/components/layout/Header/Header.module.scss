@@ -3,7 +3,9 @@
 .root {
 	@include ui-size-control(100%);
 
-	position: fixed;
+	position: sticky;
+	top: 0;
+
 	z-index: $ui-index--12;
 	padding: $ui-outer-margin;
 
@@ -11,13 +13,14 @@
 		@include ui-size-control(100%, clamp(92px, 8vmax, 104px));
 		@include ui-flex-container(flex, space-between, center);
 
+		padding: 0 min($ui-step * 9, calc($ui-outer-padding + $ui-inner-padding));
+		gap: $ui-spacing;
+
 		overflow: hidden;
-		border-radius: $ui-rounded--24;
+		border-radius: $ui-rounded--xl;
 		background: var(--header--alpha);
 		backdrop-filter: blur(44px);
 		box-shadow: 0 0 0 1px var(--separator);
-		padding: 0 min($ui-step * 9, calc($ui-outer-padding + $ui-inner-padding));
-		gap: $ui-spacing;
 
 		.header-part {
 			@include ui-flex-container(flex, $items: center);

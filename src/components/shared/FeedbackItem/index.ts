@@ -1,1 +1,1 @@
-export { FeedbackItem } from './FeedbackItem'
+export * from './FeedbackItem'

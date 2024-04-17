@@ -1,12 +1,13 @@
-import { useEffect } from 'react'
+import * as React from 'react'
 
+import { useEffect } from 'react'
 import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
+
 import { useGetEducationQuery } from 'services/CommonApi'
 import { setEducationData, selectLanguage, selectTheme } from 'store'
 
 import styles from './Education.module.scss'
 
-import { Layout } from 'components/layout'
 import { BriefInfoBox, BriefInfoItem } from 'components/shared'
 import {
 	Section,
@@ -41,7 +42,7 @@ const Education = () => {
 	)
 
 	return (
-		<Layout>
+		<React.Fragment>
 			{storeEducationData ? (
 				<>
 					<Section countColumns={10}>
@@ -87,7 +88,7 @@ const Education = () => {
 			) : (
 				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 			)}
-		</Layout>
+		</React.Fragment>
 	)
 }
 

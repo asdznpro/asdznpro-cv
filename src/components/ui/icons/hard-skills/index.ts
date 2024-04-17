@@ -1,1 +1,1 @@
-export { IconLogoReact28 } from './IconLogoReact28'
+export * from './IconLogoReact28'

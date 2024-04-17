@@ -1,29 +1,29 @@
 // blocks
 
-export { Avatar } from './blocks/Avatar'
-export { Button } from './blocks/Button'
-export { Counter } from './blocks/Counter'
-export { CustomCursor } from './blocks/CustomCursor'
-export { ListComponent } from './blocks/ListComponent'
-export { Box } from './blocks/Box'
-export { PageTitle } from './blocks/PageTitle'
-export { Section } from './blocks/Section'
-export { Spinner } from './blocks/Spinner'
-export { Tile } from './blocks/Tile'
+export * from './blocks/Avatar'
+export * from './blocks/Button'
+export * from './blocks/Counter'
+export * from './blocks/CustomCursor'
+export * from './blocks/ListComponent'
+export * from './blocks/Box'
+export * from './blocks/PageTitle'
+export * from './blocks/Section'
+export * from './blocks/Spinner'
+export * from './blocks/Tile'
 
 // icons
 
-export { CvLogo, CvLogoAbbreviated, CvLogoIcon } from './icons'
+export * from './icons'
 
 // navigation
 
-export { AppLink } from './navigation/AppLink'
-export { Breadcrumbs } from './navigation/Breadcrumbs'
-export { PageNavigation } from './navigation/PageNavigation'
-export { RouterLink } from './navigation/RouterLink'
+export * from './navigation/AppLink'
+export * from './navigation/Breadcrumbs'
+export * from './navigation/PageNavigation'
+export * from './navigation/RouterLink'
 
 // typography
 
-export { Heading } from './typography/Heading'
-export { Fontbody } from './typography/Fontbody'
-export { Footnote } from './typography/Footnote'
+export * from './typography/Heading'
+export * from './typography/Fontbody'
+export * from './typography/Footnote'

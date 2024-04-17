@@ -1,1 +1,1 @@
-export { PortfolioItem } from './PortfolioItem'
+export * from './PortfolioItem'

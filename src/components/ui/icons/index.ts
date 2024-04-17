@@ -1,7 +1,7 @@
-export { CvLogo } from './CvLogo'
-export { CvLogoAbbreviated } from './CvLogoAbbreviated'
-export { CvLogoIcon } from './CvLogoIcon'
+export * from './CvLogo'
+export * from './CvLogoAbbreviated'
+export * from './CvLogoIcon'
 
 // hard-skills
 
-export { IconLogoReact28 } from './hard-skills'
+export * from './hard-skills'

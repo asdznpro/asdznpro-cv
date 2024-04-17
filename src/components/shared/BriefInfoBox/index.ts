@@ -1,2 +1,2 @@
-export { BriefInfoBox } from './BriefInfoBox'
-export { BriefInfoItem } from './BriefInfoItem'
+export * from './BriefInfoBox'
+export * from './BriefInfoItem'

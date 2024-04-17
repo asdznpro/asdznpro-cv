@@ -4,7 +4,7 @@
 	@include ui-flex-container(flex, $flow: column);
 
 	position: relative;
-	border-radius: $ui-rounded--24;
+	border-radius: $ui-rounded--xl;
 
 	.preview {
 		position: relative;
@@ -79,7 +79,7 @@
 		}
 	}
 
-	@media (max-width: $max-width--mobile) {
+	@media (max-width: $ui-max-w--mobile) {
 		.info {
 			.project-name {
 				@include ui-text-ellipsis(3);
@@ -100,7 +100,7 @@
 	border-radius: inherit;
 	z-index: $ui-index--2;
 
-	@media (min-width: $max-width--tablet) {
+	@media (min-width: $ui-max-w--tablet) {
 		&:hover {
 			cursor: none;
 		}

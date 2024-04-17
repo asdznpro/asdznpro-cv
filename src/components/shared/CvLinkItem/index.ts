@@ -1,1 +1,1 @@
-export { CvLinkItem } from './CvLinkItem'
+export * from './CvLinkItem'

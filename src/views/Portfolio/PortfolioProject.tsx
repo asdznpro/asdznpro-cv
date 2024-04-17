@@ -1,7 +1,9 @@
-import Masonry from 'react-masonry-css'
+import * as React from 'react'
 
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useDocumentTitle } from 'hooks'
+
+import Masonry from 'react-masonry-css'
 
 import PortfolioModel from 'models/Portfolio.interface'
 

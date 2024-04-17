@@ -1,12 +1,13 @@
-import { useEffect } from 'react'
+import * as React from 'react'
 
+import { useEffect } from 'react'
 import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
+
 import { useGetHardSkillsQuery } from 'services/CommonApi'
 import { setHardSkillsData, selectLanguage } from 'store'
 
 import styles from './HardSkills.module.scss'
 
-import { Layout } from 'components/layout'
 import { HardSkillItem } from 'components/shared'
 import {
 	Section,
@@ -50,7 +51,7 @@ const HardSkills = () => {
 	)
 
 	return (
-		<Layout>
+		<React.Fragment>
 			{storeHardSkillsData ? (
 				<>
 					<Section countColumns={8}>
@@ -163,7 +164,7 @@ const HardSkills = () => {
 			) : (
 				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 			)}
-		</Layout>
+		</React.Fragment>
 	)
 }
 

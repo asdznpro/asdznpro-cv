@@ -17,7 +17,7 @@ import { setCvMapData, setAboutData, setPortfolioData } from 'store/СommonSlice
 
 import 'assets/styles/index.scss'
 
-import { AppRouter } from 'components/router'
+import { Layout } from 'components/layout'
 
 function App() {
 	const dispatch = useAppDispatch()
@@ -115,7 +115,7 @@ function App() {
 
 	return (
 		<BrowserRouter>
-			<AppRouter />
+			<Layout />
 		</BrowserRouter>
 	)
 }

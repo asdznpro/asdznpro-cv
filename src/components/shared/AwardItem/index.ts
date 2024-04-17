@@ -1,1 +1,1 @@
-export { AwardItem } from './AwardItem'
+export * from './AwardItem'

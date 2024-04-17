@@ -5,7 +5,7 @@
 	@include ui-flex-container(flex, $flow: column);
 
 	background-color: var(--field-background);
-	border-radius: clamp($ui-rounded--24, 3vmax, $ui-rounded--36);
+	border-radius: clamp($ui-rounded--xl, 3vmax, $ui-rounded--2xl);
 	overflow: hidden;
 	position: relative;
 	box-shadow: 0 0 0 1px var(--separator);

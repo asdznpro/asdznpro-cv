@@ -1,1 +1,3 @@
-export default interface EducationItemProps {}
+export default interface EducationItemProps {
+	children: React.ReactNode
+}

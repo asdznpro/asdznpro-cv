@@ -76,10 +76,10 @@
 }
 
 :root {
-	font-family: $ui-font-secondary, $MTSUltraExpanded, $MTSExpanded, $MTSWide,
-		-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-		Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol', 'Noto Color Emoji', Arial, Helvetica, sans-serif;
+	font-family: $ui-font-secondary, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+		Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji',
+		Arial, Helvetica, sans-serif;
 
 	font-size: clamp(17px, 3.6vmin, 20px);
 	font-weight: normal;
@@ -115,13 +115,13 @@ body {
 	margin: 0;
 	padding: 0;
 
-	display: flex;
-	overflow-x: hidden;
-	overflow-y: auto;
+	// display: flex;
+	// overflow-x: hidden;
+	// overflow-y: auto;
 }
 
 .scrollbar-stable {
-	@media (min-width: $max-width--mobile) {
+	@media (min-width: $ui-max-w--mobile) {
 		scrollbar-gutter: stable;
 	}
 }
@@ -151,6 +151,6 @@ nav {
 
 	&::-webkit-scrollbar-thumb {
 		background-color: var(--separator);
-		border-radius: $ui-rounded--8;
+		border-radius: $ui-rounded--xsm;
 	}
 }

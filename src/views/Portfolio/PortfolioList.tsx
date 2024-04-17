@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import * as React from 'react'
 
+import { useState, useEffect } from 'react'
 import { useDocumentTitle, useDynamicAlignment } from 'hooks'
 
 import styles from './Portfolio.module.scss'

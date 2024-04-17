@@ -1,1 +1,1 @@
-export { CustomCursor } from './CustomCursor'
+export * from './CustomCursor'

@@ -1,9 +1,10 @@
+import * as React from 'react'
+
 import { useDocumentTitle, useAppSelector } from 'hooks'
 import { selectLanguage, selectTheme } from 'store'
 
 import styles from './About.module.scss'
 
-import { Layout } from 'components/layout'
 import { BriefInfoBox, BriefInfoItem } from 'components/shared'
 import {
 	Fontbody,
@@ -25,7 +26,7 @@ const About = () => {
 	useDocumentTitle(storeAboutData ? storeAboutData.displayName : '', language)
 
 	return (
-		<Layout>
+		<React.Fragment>
 			{storeAboutData ? (
 				<>
 					<Section countColumns={10}>
@@ -133,7 +134,7 @@ const About = () => {
 			) : (
 				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 			)}
-		</Layout>
+		</React.Fragment>
 	)
 }
 

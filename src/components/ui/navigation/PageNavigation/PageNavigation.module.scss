@@ -12,7 +12,7 @@
 		gap: $ui-step;
 	}
 
-	@media (max-width: $max-width--mobile) {
+	@media (max-width: $ui-max-w--mobile) {
 		@include ui-display-grid($ui-column-width 1fr $ui-column-width);
 
 		.route {

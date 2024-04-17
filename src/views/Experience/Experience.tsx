@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
@@ -7,11 +9,9 @@ import { setExperienceData, selectLanguage, selectTheme } from 'store'
 
 import styles from './Experience.module.scss'
 
-import { Layout } from 'components/layout'
 import { Box, Breadcrumbs, Section, Spinner } from 'components/ui'
 
-import { ExperienceList } from './ExperienceList'
-import { ExperienceEmployer } from './ExperienceEmployer'
+import { ExperienceList, ExperienceEmployer } from 'views/Experience'
 
 const Experience = () => {
 	const dispatch = useAppDispatch()
@@ -31,7 +31,7 @@ const Experience = () => {
 	}, [experienceData, dispatch])
 
 	return (
-		<Layout>
+		<React.Fragment>
 			<Routes>
 				<Route
 					path=''
@@ -81,7 +81,7 @@ const Experience = () => {
 					/>
 				)}
 			</Routes>
-		</Layout>
+		</React.Fragment>
 	)
 }
 

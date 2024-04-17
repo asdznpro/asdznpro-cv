@@ -4,6 +4,6 @@
 	@include ui-size-control(max-content);
 
 	.wrapper {
-		@include anim-spinner;
+		@include ui-animate-spin;
 	}
 }

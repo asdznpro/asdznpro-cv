@@ -1,14 +1,4 @@
-import { useRef } from 'react'
-import {
-	motion,
-	useScroll,
-	useSpring,
-	useTransform,
-	useMotionValue,
-	useVelocity,
-	useAnimationFrame,
-} from 'framer-motion'
-import { wrap } from '@motionone/utils'
+import * as React from 'react'
 
 import { useAppSelector, useDocumentTitle, useDynamicAlignment } from 'hooks'
 import { selectLanguage } from 'store'
@@ -16,7 +6,6 @@ import { selectLanguage } from 'store'
 import styles from './Home.module.scss'
 
 import { ParallaxText } from './ParallaxText'
-import { Layout } from 'components/layout'
 import { CvLinkItem } from 'components/shared'
 import {
 	Avatar,
@@ -40,22 +29,22 @@ const Home = () => {
 	const storePortfolioData = useAppSelector(state => state.common.portfolio)
 
 	return (
-		<Layout paddingTop='sm'>
+		<React.Fragment>
 			<Section>
-				<Tile className={styles.warning}>
+				{/* <Tile className={styles.warning}>
 					<Box YPadding>
 						<ParallaxText baseVelocity={8}>
 							{language === 'en' ? 'In development' : 'В разработке'}
 						</ParallaxText>
 					</Box>
-				</Tile>
+				</Tile> */}
 
 				{storeAboutData ? (
 					<div
 						style={{
 							display: 'grid',
-							gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
-							gap: 'clamp(8px, 1.2vw, 20px)',
+							gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+							gap: 'clamp(8px, 1vmax, 20px)',
 						}}
 					>
 						<Tile
@@ -123,7 +112,7 @@ const Home = () => {
 						style={{
 							display: 'grid',
 							gridTemplateColumns: '1fr 1fr',
-							gap: 'clamp(8px, 1.2vw, 20px)',
+							gap: 'clamp(8px, 1vmax, 20px)',
 						}}
 					>
 						{storeCvMapData.data.map((item, index) => (
@@ -158,7 +147,7 @@ const Home = () => {
 					<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 				)}
 			</Section>
-		</Layout>
+		</React.Fragment>
 	)
 }
 

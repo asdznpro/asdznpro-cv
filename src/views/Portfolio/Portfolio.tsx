@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import { Route, Routes } from 'react-router-dom'
 
 import { useAppSelector } from 'hooks'
@@ -5,11 +7,9 @@ import { selectLanguage, selectTheme } from 'store'
 
 import styles from './Portfolio.module.scss'
 
-import { Layout } from 'components/layout'
 import { Spinner } from 'components/ui'
 
-import { PortfolioProject } from './PortfolioProject'
-import { PortfolioList } from './PortfolioList'
+import { PortfolioList, PortfolioProject } from 'views/Portfolio'
 
 const Portfolio = () => {
 	const language = useAppSelector(selectLanguage)
@@ -18,7 +18,7 @@ const Portfolio = () => {
 	const storePortfolioData = useAppSelector(state => state.common.portfolio)
 
 	return (
-		<Layout>
+		<React.Fragment>
 			<Routes>
 				<Route
 					path=''
@@ -54,7 +54,7 @@ const Portfolio = () => {
 					/>
 				)}
 			</Routes>
-		</Layout>
+		</React.Fragment>
 	)
 }
 

@@ -228,29 +228,29 @@
 }
 
 .size-xsm {
-	@include ui-size-button(7, 1.4, $ui-rounded--8, 0.4, 13px, 18px);
+	@include ui-size-button(7, 1.4, $ui-rounded--xsm, 0.4, 13px, 18px);
 }
 
 .size-sm {
-	@include ui-size-button(11, 3, $ui-rounded--12, 1, 15px, 20px);
+	@include ui-size-button(11, 3, $ui-rounded--sm, 1, 15px, 20px);
 }
 
 .size-md {
-	@include ui-size-button(14, 4, $ui-rounded--16, 1.5, 17px, 24px);
+	@include ui-size-button(14, 4, $ui-rounded--md, 1.5, 17px, 24px);
 }
 
 .size-lg {
-	@include ui-size-button(16, 5, $ui-rounded--16, 2, 20px, 28px);
+	@include ui-size-button(16, 5, $ui-rounded--md, 2, 20px, 28px);
 }
 
 .size-xlg {
-	@include ui-size-button(18, 6, $ui-rounded--20, 3, 24px, 32px);
+	@include ui-size-button(18, 6, $ui-rounded--l, 3, 24px, 32px);
 }
 
 // corners
 
 .rounded {
-	border-radius: $ui-rounded--64;
+	border-radius: $ui-rounded--5xl;
 }
 
 // stretched

@@ -13,7 +13,7 @@
 			padding: $ui-step * 3;
 			overflow: hidden;
 			background: var(--background);
-			border-radius: $ui-rounded--16;
+			border-radius: $ui-rounded--md;
 			color: var(--text-secondary);
 
 			img {
@@ -39,7 +39,7 @@
 	@include ui-flex-container(flex, center, center);
 
 	overflow: hidden;
-	border-radius: clamp($ui-rounded--16, 2.4vmax, $ui-rounded--24);
+	border-radius: clamp($ui-rounded--md, 2.4vmax, $ui-rounded--xl);
 	margin: $ui-outer-padding $ui-outer-padding 0;
 	// box-shadow: 0 0 0 1px var(--separator);
 
@@ -54,7 +54,7 @@
 
 	border-radius: inherit;
 
-	@media (min-width: $max-width--tablet) {
+	@media (min-width: $ui-max-w--tablet) {
 		&:hover {
 			cursor: none;
 		}

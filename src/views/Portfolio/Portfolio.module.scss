@@ -24,7 +24,7 @@
 
 	gap: $ui-outer-padding;
 	overflow: hidden;
-	border-radius: clamp($ui-rounded--16, 2.4vmax, $ui-rounded--24);
+	border-radius: clamp($ui-rounded--md, 2.4vmax, $ui-rounded--xl);
 	margin: $ui-outer-padding;
 
 	&-column {
@@ -34,7 +34,7 @@
 	&-item {
 		@include ui-flex-container(flex, center, center);
 
-		border-radius: $ui-rounded--16;
+		border-radius: $ui-rounded--md;
 		position: relative;
 		color: var(--text-secondary);
 		// background: var(--background);
@@ -44,7 +44,7 @@
 		// img {
 		// 	width: 100%;
 		// 	transition: 0.24s ease-in;
-		// 	border-radius: $ui-rounded--16;
+		// 	border-radius: $ui-rounded--md;
 		// }
 
 		&:not(:last-child) {
@@ -58,7 +58,7 @@
 		// transition: 0.24s ease-in;
 
 		img {
-			border-radius: $ui-rounded--16;
+			border-radius: $ui-rounded--md;
 			transition: 0.24s ease-in;
 		}
 	}

@@ -1,1 +1,1 @@
-export { EducationItem } from './EducationItem'
+export * from './EducationItem'

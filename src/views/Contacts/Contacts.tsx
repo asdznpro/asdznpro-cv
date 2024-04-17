@@ -1,12 +1,13 @@
-import { useEffect } from 'react'
+import * as React from 'react'
 
+import { useEffect } from 'react'
 import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
+
 import { useGetContactsQuery } from 'services/CommonApi'
 import { selectLanguage, setContactsData } from 'store'
 
 import styles from './Contacts.module.scss'
 
-import { Layout } from 'components/layout'
 import {
 	Section,
 	PageTitle,
@@ -37,7 +38,7 @@ const Contacts = () => {
 	)
 
 	return (
-		<Layout>
+		<React.Fragment>
 			{storeContactsData ? (
 				<>
 					<Section>
@@ -59,7 +60,7 @@ const Contacts = () => {
 							style={{
 								display: 'grid',
 								gridTemplateColumns: '1fr 1fr',
-								gap: 'clamp(8px, 1.2vw, 20px)',
+								gap: 'clamp(8px, 1vmax, 20px)',
 							}}
 						>
 							{storeContactsData.data.map((link, index) => (
@@ -85,7 +86,7 @@ const Contacts = () => {
 			) : (
 				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 			)}
-		</Layout>
+		</React.Fragment>
 	)
 }
 

@@ -190,18 +190,51 @@
 
 // Animation ———————————————————————————————————————————————— //
 
-@mixin anim-spinner($time: 0.72s) {
-	animation: spinner;
+@mixin ui-animate-spin($time: 0.72s) {
+	animation: spin;
 	animation-duration: $time;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 
-	@keyframes spinner {
+	@keyframes spin {
 		0% {
 			transform: rotate(0deg);
 		}
 		100% {
 			transform: rotate(360deg);
+		}
+	}
+}
+
+@mixin ui-animate-ping($time: 0.72s) {
+	animation: ping;
+	animation-duration: $time;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+
+	@keyframes ping {
+		75%,
+		100% {
+			transform: scale(2);
+			opacity: 0;
+		}
+	}
+}
+
+@mixin ui-animate-bounce($time: 0.72s) {
+	animation: bounce;
+	animation-duration: $time;
+	animation-iteration-count: infinite;
+
+	@keyframes bounce {
+		0%,
+		100% {
+			transform: translateY(-25%);
+			animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+		}
+		50% {
+			transform: translateY(0);
+			animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
 		}
 	}
 }
