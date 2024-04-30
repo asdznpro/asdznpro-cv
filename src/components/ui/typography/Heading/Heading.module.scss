@@ -18,7 +18,7 @@
 }
 
 .level-4 {
-	font-size: clamp($ui-step * 4, 4.4vmin, $ui-step * 6);
+	font-size: clamp($ui-step * 5, 4.4vmin, $ui-step * 6);
 	line-height: 1.333334em;
 }
 
@@ -34,10 +34,4 @@
 
 .wideLevel-3 {
 	font-family: $MTSWide;
-}
-
-// caps
-
-.caps {
-	text-transform: uppercase;
 }

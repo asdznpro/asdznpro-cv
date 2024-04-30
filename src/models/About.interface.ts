@@ -1,6 +1,6 @@
-import CommonInfo from './Common.interface'
+import { CommonInfoModel } from 'models'
 
-export default interface AboutModel {
+export interface AboutModel {
 	data: About
 	displayName: string
 	pathname: string
@@ -13,7 +13,7 @@ interface About {
 	lastName: string
 	photo: string
 	bio: string[]
-	brief: CommonInfo[]
+	brief: CommonInfoModel[]
 	possibleJobs: {
 		title: string
 		list: string[]

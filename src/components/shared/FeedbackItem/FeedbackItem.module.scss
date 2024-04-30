@@ -3,7 +3,7 @@
 .person {
 	@include ui-flex-container(flex);
 
-	gap: $ui-sm-gap;
+	gap: inherit;
 
 	.avatar {
 		@include ui-size-control(72px, 72px);

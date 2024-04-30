@@ -1,0 +1,352 @@
+@import 'Variables';
+
+// Layout ———————————————————————————————————————————————— //
+
+// Display
+
+.ui {
+	&-block {
+		display: block;
+	}
+
+	&-inline-block {
+		display: inline-block;
+	}
+
+	&-inline {
+		display: inline;
+	}
+
+	&-flex {
+		display: flex;
+	}
+
+	&-grid {
+		display: grid;
+	}
+}
+
+// Flexbox & Grid ———————————————————————————————————————————————— //
+
+// Flex
+
+.ui {
+	// Flex Direction
+
+	&-row {
+		flex-direction: row;
+	}
+
+	&-row-reverse {
+		flex-direction: row-reverse;
+	}
+
+	&-col {
+		flex-direction: column;
+	}
+
+	&-col-reverse {
+		flex-direction: column-reverse;
+	}
+}
+
+// Gap
+
+.ui-gap {
+	&-0 {
+		gap: 0;
+	}
+
+	&-global {
+		gap: $ui-spacing;
+	}
+}
+
+// Sizing ———————————————————————————————————————————————— //
+
+.ui {
+	// Width
+
+	&-w {
+		&-full {
+			@include ui-size-control(100% !important);
+		}
+	}
+
+	// Height
+
+	&-h {
+		&-full {
+			@include ui-size-control($H: 100% !important);
+		}
+	}
+}
+
+// Max-Width in Columns
+
+.ui-max-w {
+	@for $i from 2 through 12 {
+		$column: $i;
+
+		&-#{$column}-cols {
+			@include ui-max-width($column);
+		}
+	}
+}
+
+// Typography ———————————————————————————————————————————————— //
+
+// Line Clamp
+
+.ui-clamp {
+	@for $i from 1 through 6 {
+		$line: $i;
+
+		&-#{$line} {
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: $line;
+		}
+	}
+
+	&-none {
+		overflow: visible;
+		display: block;
+		-webkit-box-orient: horizontal;
+		-webkit-line-clamp: none;
+	}
+}
+
+// Font
+
+.ui-font {
+	// Font Weight
+
+	&-normal {
+		font-weight: 400;
+	}
+
+	&-medium {
+		font-weight: 500;
+	}
+
+	&-bold {
+		font-weight: 700;
+	}
+
+	&-black {
+		font-weight: 900;
+	}
+
+	// Font Style
+
+	&-italic {
+		font-style: italic;
+	}
+
+	&-not-italic {
+		font-style: normal;
+	}
+}
+
+// Text
+
+.ui-text {
+	// Text Align
+
+	&-left {
+		text-align: left;
+	}
+
+	&-center {
+		text-align: center;
+	}
+
+	&-right {
+		text-align: right;
+	}
+
+	&-justify {
+		text-align: justify;
+	}
+
+	&-start {
+		text-align: start;
+	}
+
+	&-end {
+		text-align: end;
+	}
+
+	// Text Color
+
+	&-inherit {
+		color: inherit;
+	}
+
+	&-secondary {
+		color: var(--text-secondary);
+	}
+
+	&-accent {
+		color: var(--accent-brand-color);
+	}
+
+	&-positive {
+		color: var(--accent-positive-color);
+	}
+
+	&-negative {
+		color: var(--accent-negative-color);
+	}
+
+	// Text Transform
+
+	&-uppercase {
+		text-transform: uppercase;
+	}
+
+	&-lowercase {
+		text-transform: lowercase;
+	}
+
+	&-capitalize {
+		text-transform: capitalize;
+	}
+
+	&-normal-case {
+		text-transform: none;
+	}
+
+	// Text Transform
+
+	&-truncate {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&-ellipsis {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&-clip {
+		overflow: hidden;
+		text-overflow: clip;
+		white-space: nowrap;
+	}
+}
+
+// Borders ———————————————————————————————————————————————— //
+
+.ui-rounded {
+	&-xsm {
+		border-radius: $ui-rounded--xsm;
+	}
+
+	&-sm {
+		border-radius: $ui-rounded--sm;
+	}
+
+	&-md {
+		border-radius: $ui-rounded--md;
+	}
+
+	&-l {
+		border-radius: $ui-rounded--l;
+	}
+
+	&-xl {
+		border-radius: $ui-rounded--xl;
+	}
+
+	&-2xl {
+		border-radius: $ui-rounded--2xl;
+	}
+
+	&-3xl {
+		border-radius: $ui-rounded--3xl;
+	}
+
+	&-4xl {
+		border-radius: $ui-rounded--4xl;
+	}
+
+	&-5xl {
+		border-radius: $ui-rounded--5xl;
+	}
+}
+
+// Animation ———————————————————————————————————————————————— //
+
+.ui-animate {
+	&-none {
+		animation: none;
+	}
+
+	&-spin {
+		@include ui-animate-spin;
+	}
+
+	&-ping {
+		@include ui-animate-ping;
+	}
+
+	&-bounce {
+		@include ui-animate-bounce;
+	}
+}
+
+// Other ———————————————————————————————————————————————— //
+
+.ui-scrollbar-stable {
+	@media (min-width: $ui-max-w--mobile) {
+		scrollbar-gutter: stable;
+	}
+}
+
+// Skeleton Style
+
+// .ui-skeleton {
+// 	@include ui-flex-container(flex, center, center);
+
+// 	position: relative;
+// 	overflow: hidden;
+
+// 	background: rgba($Gray--400, 24%);
+// 	border: 1px solid rgba($Gray--200, 12%);
+
+// 	&::after {
+// 		content: '';
+
+// 		@include ui-size-control(360%, 100%);
+// 		@include ui-flex-container(flex, $items: center);
+
+// 		position: absolute;
+// 		// transform: skew(0.08turn);
+
+// 		background: linear-gradient(
+// 			90deg,
+// 			rgba($Gray--200, 0%) 0%,
+// 			rgba($Gray--400, 36%) 50%,
+// 			rgba($Gray--200, 0%) 100%
+// 		);
+
+// 		animation: skeleton;
+// 		animation-duration: 1.44s;
+// 		animation-iteration-count: infinite;
+// 		animation-timing-function: linear;
+
+// 		@keyframes skeleton {
+// 			0% {
+// 				translate: -100%;
+// 			}
+// 			100% {
+// 				translate: 100%;
+// 			}
+// 		}
+// 	}
+// }

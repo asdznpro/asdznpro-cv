@@ -22,10 +22,9 @@
 .masonry {
 	@include ui-flex-container(flex);
 
-	gap: $ui-outer-padding;
+	gap: 8px;
 	overflow: hidden;
-	border-radius: clamp($ui-rounded--md, 2.4vmax, $ui-rounded--xl);
-	margin: $ui-outer-padding;
+	border-radius: clamp($ui-rounded--xl, 3vmax, $ui-rounded--2xl);
 
 	&-column {
 		background-clip: padding-box;
@@ -48,7 +47,7 @@
 		// }
 
 		&:not(:last-child) {
-			margin-bottom: $ui-outer-padding;
+			margin-bottom: 8px;
 		}
 	}
 

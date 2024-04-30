@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react'
 import { useDocumentTitle, useDynamicAlignment } from 'hooks'
 
 import styles from './Portfolio.module.scss'
-import PortfolioModel from 'models/Portfolio.interface'
+import { PortfolioModel } from 'models'
+
+import { Portfolio } from './Portfolio'
 
 import {
 	Section,
@@ -18,7 +20,6 @@ import {
 	Tile,
 	Fontbody,
 } from 'components/ui'
-import { PortfolioItem } from 'components/shared'
 
 interface PortfolioListProps {
 	storePortfolioData: PortfolioModel | null
@@ -65,7 +66,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 						<Box>
 							<PageTitle
 								title={storePortfolioData.displayName}
-								breadcrumbs={
+								before={
 									<Breadcrumbs
 										customLabels={[storePortfolioData.displayName]}
 										selectLanguage={language}
@@ -82,6 +83,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 									<>
 										<Button
 											onClick={() => setSelectedTags([])}
+											buttonSize='md'
 											mode={
 												selectedTags.length > 0
 													? theme === 'light'
@@ -112,6 +114,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 												<Button
 													key={index}
 													onClick={() => toggleTag(tag.type)}
+													buttonSize='md'
 													mode={
 														selectedTags.includes(tag.type)
 															? 'primary'
@@ -139,6 +142,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 								) : (
 									<>
 										<Button
+											buttonSize='md'
 											after={
 												<Counter appearance='neutral'>
 													{storePortfolioData.data.length}
@@ -153,6 +157,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 										{[...Array(3)].map((_, index) => (
 											<Button
 												key={index}
+												buttonSize='md'
 												mode={theme === 'light' ? 'secondary' : 'outline'}
 												appearance='neutral'
 												after={
@@ -188,7 +193,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 											)
 										})
 										.map(item => (
-											<PortfolioItem
+											<Portfolio.Item
 												key={item.id}
 												to={item.project.pathname}
 												award={
@@ -196,7 +201,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 														? item.awards[0]
 														: null
 												}
-												preview={item.project.preview}
+												src={item.project.preview}
 												name={item.project.fullName}
 												tags={item.tags
 													.map(tag => tag.name)
@@ -215,8 +220,8 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 							<Tile>
 								<Box YPadding>
 									<Fontbody
-										style={{ margin: '0 auto', padding: '28px 0' }}
-										secondary
+										className='ui-text-secondary ui-text-center'
+										style={{ padding: '28px 0' }}
 									>
 										{language === 'en'
 											? 'Projects in development'

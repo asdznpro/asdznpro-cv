@@ -1,4 +1,4 @@
-export default interface Award {
+export interface AwardModel {
 	id: number
 	image: string
 	href: string

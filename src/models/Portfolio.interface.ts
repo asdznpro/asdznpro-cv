@@ -1,7 +1,6 @@
-import Award from './Awards.interface'
-import CommonInfo from './Common.interface'
+import { AwardModel, CommonInfoModel } from 'models'
 
-export default interface PortfolioModel {
+export interface PortfolioModel {
 	data: PortfolioProject[]
 	tags: PortfolioProjectTag[]
 	displayName: string
@@ -11,7 +10,7 @@ export default interface PortfolioModel {
 
 interface PortfolioProject {
 	id: number
-	client?: CommonInfo[]
+	client?: CommonInfoModel[]
 	project: {
 		fullName: string
 		shortName: string
@@ -20,7 +19,7 @@ interface PortfolioProject {
 		date: string
 	}
 	tags: PortfolioProjectTag[]
-	awards?: Award[]
+	awards?: AwardModel[]
 }
 
 interface PortfolioProjectTag {

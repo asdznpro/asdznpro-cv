@@ -18,7 +18,7 @@ import {
 import { Icon28PictureOutline } from '@vkontakte/icons'
 
 const PortfolioItem: React.FC<PortfolioItemProps> = props => {
-	const { name, to, tags, date, award, preview, style } = props
+	const { name, to, tags, date, award, src, ...restProps } = props
 
 	const { screenWidth } = useDynamicAlignment()
 	const [hasError, setHasError] = useState(false)
@@ -33,7 +33,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = props => {
 	}
 
 	return (
-		<div className={styles.root} style={style}>
+		<div {...restProps} className={styles.root}>
 			{screenWidth >= 768 && isHovered && <CustomCursor />}
 
 			{to && (
@@ -47,7 +47,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = props => {
 
 			<div className={styles.preview}>
 				{award && (
-					<AppLink href={award.href} target='blank' className={styles.award}>
+					<AppLink href={award.href} target='_blank' className={styles.award}>
 						{!hasError ? (
 							<img
 								src={award.image}
@@ -63,8 +63,8 @@ const PortfolioItem: React.FC<PortfolioItemProps> = props => {
 				)}
 
 				<div className={styles.image}>
-					{!hasError && preview ? (
-						<img src={preview} alt={name} onError={() => setHasError(true)} />
+					{!hasError && src ? (
+						<img src={src} alt={name} onError={() => setHasError(true)} />
 					) : (
 						<Icon28PictureOutline width={40} height={40} />
 					)}
@@ -77,16 +77,23 @@ const PortfolioItem: React.FC<PortfolioItemProps> = props => {
 					.trim()}
 			>
 				<span className={styles.caption}>
-					<Fontbody level={3} ellipsis secondary>
+					<Fontbody level={3} className='ui-text-truncate ui-text-secondary'>
 						{tags}
 					</Fontbody>
 
-					<Fontbody level={3} style={{ whiteSpace: 'nowrap' }} secondary>
+					<Fontbody
+						level={3}
+						className='ui-text-secondary'
+						style={{ whiteSpace: 'nowrap' }}
+					>
 						{date}
 					</Fontbody>
 				</span>
 
-				<Heading className={styles['project-name']} level={4}>
+				<Heading
+					className={[styles['project-name'], 'ui-text-uppercase'].join(' ')}
+					level={4}
+				>
 					{name}
 				</Heading>
 			</div>

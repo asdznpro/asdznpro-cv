@@ -16,31 +16,31 @@ const PageNavigation: React.FC<PageNavigationProps> = props => {
 			<Box YPadding>
 				<div className={[styles.root].join(' ')}>
 					<Button
-						size='lg'
+						buttonSize='lg'
 						before={<Icon28ArrowLeftOutline width={36} height={36} />}
 						stretched
 					/>
-
 					<div className={styles.route}>
-						<Footnote ellipsis secondary>
+						<Footnote className='ui-text-secondary ui-text-truncate'>
 							Предыдущий раздел
 						</Footnote>
 
-						<Fontbody ellipsis>previous-page-title</Fontbody>
+						<Fontbody className='ui-text-truncate'>
+							previous-page-title
+						</Fontbody>
 					</div>
 
 					<div className={styles.route} style={{ textAlign: 'end' }}>
-						<Footnote ellipsis secondary>
+						<Footnote className='ui-text-secondary ui-text-truncate'>
 							Следующий раздел
 						</Footnote>
 
-						<Fontbody ellipsis>next-page-title</Fontbody>
+						<Fontbody className='ui-text-truncate'>next-page-title</Fontbody>
 					</div>
-
 					<Button
 						mode='secondary'
 						appearance='neutral'
-						size='lg'
+						buttonSize='lg'
 						before={<Icon28ArrowRightOutline width={36} height={36} />}
 						disabled
 						stretched

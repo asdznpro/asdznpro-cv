@@ -8,8 +8,8 @@ import { setEducationData, selectLanguage, selectTheme } from 'store'
 
 import styles from './Education.module.scss'
 
-import { BriefInfoBox, BriefInfoItem } from 'components/shared'
 import {
+	BriefInfo,
 	Section,
 	PageTitle,
 	Breadcrumbs,
@@ -49,7 +49,7 @@ const Education = () => {
 						<Box>
 							<PageTitle
 								title={storeEducationData.displayName}
-								breadcrumbs={
+								before={
 									<Breadcrumbs
 										customLabels={[storeEducationData.displayName]}
 										selectLanguage={language}
@@ -63,9 +63,9 @@ const Education = () => {
 						{storeEducationData.data.map(item => (
 							<Tile key={item.id}>
 								<Box YPadding>
-									<BriefInfoBox>
+									<BriefInfo.Box>
 										{item.info.map((info, index) => (
-											<BriefInfoItem
+											<BriefInfo.Item
 												key={item.id + '-' + index}
 												title={info.title}
 												icon={
@@ -77,7 +77,7 @@ const Education = () => {
 												href={info.href}
 											/>
 										))}
-									</BriefInfoBox>
+									</BriefInfo.Box>
 								</Box>
 							</Tile>
 						))}

@@ -1,20 +1,6 @@
 @import 'assets/styles/Variables';
 
-.root {
-	@include ui-flex-container(inline);
-
-	color: inherit;
-	white-space: pre-wrap;
-}
-
-.caps {
-	text-transform: uppercase;
-}
-
-.secondary {
-	color: var(--text-secondary);
-}
-
-.ellipsis {
-	@include ui-text-ellipsis;
-}
+// .root {
+// 	color: inherit;
+// 	white-space: pre-wrap;
+// }

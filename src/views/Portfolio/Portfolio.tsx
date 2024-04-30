@@ -9,7 +9,9 @@ import styles from './Portfolio.module.scss'
 
 import { Spinner } from 'components/ui'
 
-import { PortfolioList, PortfolioProject } from 'views/Portfolio'
+import { PortfolioItem } from './PortfolioItem'
+import { PortfolioList } from './PortfolioList'
+import { PortfolioProject } from './PortfolioProject'
 
 const Portfolio = () => {
 	const language = useAppSelector(selectLanguage)
@@ -23,7 +25,7 @@ const Portfolio = () => {
 				<Route
 					path=''
 					element={
-						<PortfolioList
+						<Portfolio.List
 							storePortfolioData={storePortfolioData}
 							language={language}
 							theme={theme}
@@ -37,7 +39,7 @@ const Portfolio = () => {
 							key={item.id}
 							path={item.project.pathname}
 							element={
-								<PortfolioProject
+								<Portfolio.Project
 									item={item}
 									language={language}
 									theme={theme}
@@ -57,5 +59,16 @@ const Portfolio = () => {
 		</React.Fragment>
 	)
 }
+
+Portfolio.Item = PortfolioItem
+Portfolio.Item.displayName = 'Portfolio.Item'
+
+Portfolio.List = PortfolioList
+Portfolio.List.displayName = 'Portfolio.List'
+
+Portfolio.Project = PortfolioProject
+Portfolio.Project.displayName = 'Portfolio.Project'
+
+Portfolio.displayName = 'Portfolio'
 
 export { Portfolio }

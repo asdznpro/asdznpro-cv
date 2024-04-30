@@ -1,13 +1,9 @@
-export default interface AppLinkProps {
-	children: React.ReactNode
+import { LinkProps } from 'react-router-dom'
 
-	to?: string | undefined
-	href?: string | undefined
-	target?: 'self' | 'blank' | 'parent' | 'top' | undefined
+export default interface AppLinkProps
+	extends React.AllHTMLAttributes<HTMLElement> {
+	to?: LinkProps['to']
+	target?: React.HTMLAttributeAnchorTarget | undefined
 
-	onClick?: React.MouseEventHandler<HTMLSpanElement>
-
-	flex?: boolean | undefined
 	colorless?: boolean | undefined
-	className?: string | undefined
 }

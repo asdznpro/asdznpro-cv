@@ -5,7 +5,6 @@ import { selectLanguage } from 'store'
 
 import styles from './Home.module.scss'
 
-import { ParallaxText } from './ParallaxText'
 import { CvLinkItem } from 'components/shared'
 import {
 	Avatar,
@@ -60,19 +59,14 @@ const Home = () => {
 								}}
 							>
 								<Avatar
-									image='https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/about/me.png'
+									src='https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/about/me.png'
 									name={storeAboutData.data.fullName
 										.split(' ')
 										.map(name => name.charAt(0))
 										.join('')}
 								/>
 
-								<Heading
-									level={3}
-									style={{
-										textAlign: 'center',
-									}}
-								>
+								<Heading level={3} className='ui-text-uppercase ui-text-center'>
 									{storeAboutData.data.firstName +
 										'\n' +
 										storeAboutData.data.lastName}
@@ -82,16 +76,19 @@ const Home = () => {
 
 						<Tile>
 							<Box YPadding style={{ height: '100%' }}>
-								<Heading level={3}>
+								<Heading level={3} className='ui-text-uppercase'>
 									{storeAboutData.data.possibleJobs.title}
 								</Heading>
 
 								<ListComponent
 									typeList='ul'
-									content={storeAboutData.data.possibleJobs.list}
+									listContent={storeAboutData.data.possibleJobs.list}
 								/>
 
-								<Footnote secondary style={{ marginTop: 'auto' }}>
+								<Footnote
+									className='ui-text-secondary'
+									style={{ marginTop: 'auto' }}
+								>
 									{storeAboutData.data.possibleJobs.caption}
 								</Footnote>
 							</Box>
@@ -104,7 +101,9 @@ const Home = () => {
 
 			<Section>
 				<Box>
-					<Heading level={2}>{language === 'en' ? 'CV' : 'Резюме'}</Heading>
+					<Heading level={2} className='ui-text-uppercase'>
+						{language === 'en' ? 'CV' : 'Резюме'}
+					</Heading>
 				</Box>
 
 				{storeCvMapData ? (
@@ -137,7 +136,7 @@ const Home = () => {
 										: undefined
 								}
 							>
-								<Heading level={3} wideLevel={2}>
+								<Heading level={3} wideLevel={2} className='ui-text-uppercase'>
 									{item.name}
 								</Heading>
 							</CvLinkItem>

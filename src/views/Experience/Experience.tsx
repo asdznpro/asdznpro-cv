@@ -11,7 +11,9 @@ import styles from './Experience.module.scss'
 
 import { Box, Breadcrumbs, Section, Spinner } from 'components/ui'
 
-import { ExperienceList, ExperienceEmployer } from 'views/Experience'
+import { ExperienceItem } from './ExperienceItem'
+import { ExperienceList } from './ExperienceList'
+import { ExperienceEmployer } from './ExperienceEmployer'
 
 const Experience = () => {
 	const dispatch = useAppDispatch()
@@ -36,7 +38,7 @@ const Experience = () => {
 				<Route
 					path=''
 					element={
-						<ExperienceList
+						<Experience.List
 							storeExperienceData={storeExperienceData}
 							language={language}
 							theme={theme}
@@ -63,7 +65,7 @@ const Experience = () => {
 										</Box>
 									</Section>
 
-									<ExperienceEmployer
+									<Experience.Employer
 										item={item}
 										language={language}
 										theme={theme}
@@ -84,5 +86,16 @@ const Experience = () => {
 		</React.Fragment>
 	)
 }
+
+Experience.Item = ExperienceItem
+Experience.Item.displayName = 'Experience.Item'
+
+Experience.List = ExperienceList
+Experience.List.displayName = 'Experience.List'
+
+Experience.Employer = ExperienceEmployer
+Experience.Employer.displayName = 'Experience.Employer'
+
+Experience.displayName = 'Experience'
 
 export { Experience }

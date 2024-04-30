@@ -1,10 +1,9 @@
-export default interface CvLinkItemProps {
-	children?: React.ReactNode
-	style?: React.CSSProperties
+import { LinkProps } from 'react-router-dom'
 
-	to?: string | undefined
-	href?: string | undefined
-	target?: 'self' | 'blank' | 'parent' | 'top' | undefined
+export default interface CvLinkItemProps
+	extends React.AllHTMLAttributes<HTMLElement> {
+	to?: LinkProps['to']
+	target?: React.HTMLAttributeAnchorTarget | undefined
 
 	backgroundColor?: string | undefined
 }

@@ -1,12 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import AboutModel from 'models/About.interface'
-import ContactsModel from 'models/Contacts.interface'
-import CvMapModel from 'models/CvMap.interface'
-import EducationModel from 'models/Education.interface'
-import ExperienceModel from 'models/Experience.interface'
-import HardSkillsModel from 'models/HardSkills.interface'
-import PortfolioModel from 'models/Portfolio.interface'
+import {
+	AboutModel,
+	ContactsModel,
+	CvMapModel,
+	EducationModel,
+	ExperienceModel,
+	HardSkillsModel,
+	PortfolioModel,
+} from 'models'
 
 interface CommonState {
 	about: AboutModel | null

@@ -1,4 +1,4 @@
-export default interface HardSkillsModel {
+export interface HardSkillsModel {
 	data: HardSkills[]
 	displayName: string
 	pathname: string

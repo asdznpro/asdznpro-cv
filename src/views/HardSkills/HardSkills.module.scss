@@ -5,3 +5,31 @@
 
 	gap: $ui-sm-gap;
 }
+
+.item {
+	@include ui-size-control($minW: 0);
+	@include ui-flex-container(flex);
+
+	gap: $ui-sm-gap;
+
+	&Image {
+		@include ui-size-control($H: clamp($ui-step * 12, 7.2vmax, $ui-step * 18));
+		@include ui-flex-container(flex, center, center, $shrink: 0);
+
+		aspect-ratio: 1 / 1;
+
+		img {
+			@include ui-size-control(100%, 100%);
+		}
+	}
+
+	&Info {
+		@include ui-size-control(
+			$minW: 0,
+			$minH: clamp($ui-step * 12, 7.2vmax, $ui-step * 18)
+		);
+		@include ui-flex-container(flex, center, $flow: column);
+
+		gap: $ui-step * 2;
+	}
+}

@@ -1,3 +1,4 @@
-export default interface CustomCursorProps {
-	appearance?: 'accent' | 'neutral' | undefined
+export default interface CustomCursorProps
+	extends React.AllHTMLAttributes<HTMLElement> {
+	appearance?: 'accent' | 'positive' | 'negative' | 'neutral' | undefined
 }

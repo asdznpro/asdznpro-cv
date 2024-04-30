@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { useState } from 'react'
 
-import styles from './BriefInfoBox.module.scss'
-import CommonInfo from 'models/Common.interface'
+import styles from './BriefInfo.module.scss'
+import { CommonInfoModel } from 'models'
 
 import { AppLink, Fontbody } from 'components/ui'
 
-const BriefInfoItem: React.FC<CommonInfo> = props => {
+const BriefInfoItem: React.FC<CommonInfoModel> = props => {
 	const { title, icon, value, href } = props
 
 	const [hasError, setHasError] = useState(false)
@@ -14,7 +14,9 @@ const BriefInfoItem: React.FC<CommonInfo> = props => {
 	return (
 		<div className={styles.item}>
 			<div className={styles.title}>
-				<Fontbody secondary>{title ? title : 'title-info:'}</Fontbody>
+				<Fontbody className='ui-text-secondary'>
+					{title ? title : 'title-info:'}
+				</Fontbody>
 			</div>
 
 			<div className={styles.value}>
@@ -27,7 +29,7 @@ const BriefInfoItem: React.FC<CommonInfo> = props => {
 				<Fontbody>
 					{value ? value : 'text-info'}{' '}
 					{href && (
-						<AppLink href={href} target='blank'>
+						<AppLink href={href} target='_blank'>
 							#
 						</AppLink>
 					)}

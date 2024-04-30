@@ -1,43 +1,17 @@
 import styles from './Fontbody.module.scss'
-import typographyStyles from '../Typography.module.scss'
 import TypographyProps from '../TypographyProps.interface'
 
-interface TypographyExtendedProps extends TypographyProps {
-	role?: 'paragraph' | undefined
-	secondary?: boolean | undefined
-}
+const Fontbody: React.FC<TypographyProps> = props => {
+	const { level, children, role, className, ...restProps } = props
 
-const Fontbody: React.FC<TypographyExtendedProps> = props => {
-	const {
-		level,
-		children,
-		itemProp,
-		caps,
-		ellipsis,
-		style,
-		role,
-		secondary,
-		className,
-	} = props
-
-	const adjustedLevel = level ? Math.min(level + 2, 5) : 3
 	const Tag = role === 'paragraph' ? `p` : `span`
-	// : (`h${adjustedLevel}` as keyof JSX.IntrinsicElements)
 
 	return (
 		<Tag
-			itemProp={itemProp}
-			className={[
-				typographyStyles.root,
-				styles['level-' + (level ? level : 1)],
-				caps ? typographyStyles.caps : '',
-				ellipsis ? typographyStyles.ellipsis : '',
-				secondary ? typographyStyles.secondary : '',
-				className,
-			]
+			{...restProps}
+			className={[styles['level-' + (level ? level : 1)], className]
 				.join(' ')
 				.trim()}
-			style={style}
 		>
 			{children}
 		</Tag>

@@ -1,6 +1,6 @@
-import CommonInfo from './Common.interface'
+import { CommonInfoModel } from 'models'
 
-export default interface EducationModel {
+export interface EducationModel {
 	data: Education[]
 	displayName: string
 	pathname: string
@@ -9,5 +9,5 @@ export default interface EducationModel {
 
 export interface Education {
 	id: number
-	info: CommonInfo[]
+	info: CommonInfoModel[]
 }

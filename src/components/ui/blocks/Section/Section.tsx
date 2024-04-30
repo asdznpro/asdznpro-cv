@@ -2,16 +2,16 @@ import styles from './Section.module.scss'
 import SectionProps from './Section.interface'
 
 const Section: React.FC<SectionProps> = props => {
-	const { children, style, countColumns } = props
+	const { children, countColumns = 12, ...restProps } = props
 
 	return (
 		<section
-			className={[styles.root, styles[`width-${countColumns || 12}-columns`]]
+			{...restProps}
+			className={[styles.root, `ui-max-w-${countColumns}-cols`]
 				.join(' ')
 				.trim()}
-			style={style}
 		>
-			<div className={[styles.content].join(' ').trim()}>{children}</div>
+			<div className={styles.content}>{children}</div>
 		</section>
 	)
 }

@@ -1,14 +1,9 @@
-export default interface RouterLinkProps {
+import { LinkProps } from 'react-router-dom'
+
+export default interface RouterLinkProps
+	extends React.AllHTMLAttributes<HTMLElement> {
 	children?: React.ReactNode
 
-	to?: string | undefined
-	href?: string | undefined
-	target?: 'self' | 'blank' | 'parent' | 'top' | undefined
-
-	onClick?: React.MouseEventHandler<HTMLSpanElement>
-
-	className?: string | undefined
-
-	onMouseEnter?: () => void
-	onMouseLeave?: () => void
+	to?: LinkProps['to']
+	target?: React.HTMLAttributeAnchorTarget | undefined
 }

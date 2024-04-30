@@ -8,7 +8,7 @@ import { setHardSkillsData, selectLanguage } from 'store'
 
 import styles from './HardSkills.module.scss'
 
-import { HardSkillItem } from 'components/shared'
+import { HardSkillItem } from './HardSkillItem'
 import {
 	Section,
 	PageTitle,
@@ -19,8 +19,6 @@ import {
 	Box,
 	Tile,
 	Button,
-	Fontbody,
-	Footnote,
 } from 'components/ui'
 
 import {
@@ -58,7 +56,7 @@ const HardSkills = () => {
 						<Box>
 							<PageTitle
 								title={storeHardSkillsData.displayName}
-								breadcrumbs={
+								before={
 									<Breadcrumbs
 										customLabels={[storeHardSkillsData.displayName]}
 										selectLanguage={language}
@@ -72,13 +70,15 @@ const HardSkills = () => {
 						{storeHardSkillsData.data.map(item => (
 							<Tile key={item.id}>
 								<Box YPadding>
-									<Heading level={3}>{item.jobTitle}</Heading>
+									<Heading level={3} className='ui-text-uppercase'>
+										{item.jobTitle}
+									</Heading>
 
 									<div className={styles.list}>
 										{item.stack.map((skill, index) => (
-											<HardSkillItem
+											<HardSkills.Item
 												key={item.id + '-' + index}
-												image={skill.image}
+												src={skill.image}
 												name={skill.name}
 											>
 												{/* <Footnote level={2} secondary>
@@ -87,7 +87,7 @@ const HardSkills = () => {
 												</Footnote> */}
 
 												<Button
-													size='xsm'
+													buttonSize='xsm'
 													appearance={
 														skill.level === 'High'
 															? 'positive'
@@ -110,53 +110,12 @@ const HardSkills = () => {
 												>
 													{skill.level}
 												</Button>
-											</HardSkillItem>
+											</HardSkills.Item>
 										))}
 									</div>
 								</Box>
 							</Tile>
 						))}
-
-						{/* {storeHardSkillsData.data.map(item => (
-							<Tile key={item.id}>
-								<Box YPadding>
-									<Heading level={3}>{item.jobTitle}</Heading>
-
-									<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-										{item.stack.map((skill, index) => (
-											<Button
-												key={item.id + '-' + index}
-												size='sm'
-												appearance={
-													skill.level === 'High'
-														? 'positive'
-														: skill.level === 'Middle'
-														? 'neutral'
-														: skill.level === 'Base'
-														? 'negative'
-														: undefined
-												}
-												mode='secondary'
-												before={
-													skill.image ? (
-														<img
-															src={skill.image}
-															alt={skill.name}
-															width={28}
-															height={28}
-														/>
-													) : (
-														<Spinner />
-													)
-												}
-											>
-												{skill.name}
-											</Button>
-										))}
-									</div>
-								</Box>
-							</Tile>
-						))} */}
 
 						<PageNavigation />
 					</Section>
@@ -167,5 +126,10 @@ const HardSkills = () => {
 		</React.Fragment>
 	)
 }
+
+HardSkills.Item = HardSkillItem
+HardSkills.Item.displayName = 'HardSkill.Item'
+
+HardSkills.displayName = 'HardSkills'
 
 export { HardSkills }

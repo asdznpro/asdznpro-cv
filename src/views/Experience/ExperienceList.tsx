@@ -2,9 +2,10 @@ import * as React from 'react'
 
 import { useDynamicAlignment, useDocumentTitle } from 'hooks'
 
-import ExperienceModel from 'models/Experience.interface'
+import { ExperienceModel } from 'models'
 
-import { ExperienceItem } from 'components/shared'
+import { Experience } from './Experience'
+
 import {
 	Section,
 	PageTitle,
@@ -13,6 +14,7 @@ import {
 	Spinner,
 	PageNavigation,
 	Box,
+	Fontbody,
 } from 'components/ui'
 
 import { Icon28LockOutline, Icon28CalendarCheckOutline } from '@vkontakte/icons'
@@ -40,7 +42,7 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 						<Box>
 							<PageTitle
 								title={storeExperienceData.displayName}
-								breadcrumbs={
+								before={
 									<Breadcrumbs
 										customLabels={[storeExperienceData.displayName]}
 										selectLanguage={language}
@@ -52,24 +54,25 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 
 					<Section countColumns={10}>
 						{storeExperienceData.data.map(item => (
-							<ExperienceItem
+							<Experience.Item
 								key={item.id}
-								title={item.employerInfo.name}
-								describe={item.employerInfo.shortDescription}
-								preview={screenWidth <= 768 ? item.employerInfo.preview : ''}
 								to={item.pathname}
-								ellipsis
+								title={item.employerInfo.name}
+								preview={screenWidth <= 768 ? item.employerInfo.preview : ''}
 								logoPath={
 									theme === 'dark' && item.employerInfo.logoLight
 										? item.employerInfo.logoLight
 										: item.employerInfo.logo
 								}
 							>
+								<Fontbody level={3} className='ui-text-secondary ui-clamp-2'>
+									{item.employerInfo.shortDescription}
+								</Fontbody>
+
 								<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
 									{item.labels.map((label, index) => (
 										<Button
 											key={item.id + '-' + index}
-											size='sm'
 											appearance={
 												label.id && label.id.includes('project-closed')
 													? 'negative'
@@ -102,7 +105,7 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 										</Button>
 									))}
 								</div>
-							</ExperienceItem>
+							</Experience.Item>
 						))}
 
 						<PageNavigation />

@@ -2,19 +2,25 @@ import styles from './Counter.module.scss'
 import CounterProps from './Counter.interface'
 
 const Counter: React.FC<CounterProps> = props => {
-	const { children, mode, appearance, size, className, style } = props
+	const {
+		children,
+		appearance = 'accent',
+		counterSize = 'md',
+		className,
+		...restProps
+	} = props
 
 	return (
 		<span
+			{...restProps}
 			className={[
 				styles.root,
-				styles[`${appearance ? appearance : 'accent'}`],
-				styles[`size-${size ? size : 'md'}`],
+				styles[`${appearance}`],
+				styles[`size-${counterSize}`],
 				className,
 			]
 				.join(' ')
 				.trim()}
-			style={style}
 		>
 			{children}
 		</span>

@@ -1,8 +1,3 @@
-export default interface BoxProps {
-	children: React.ReactNode
-	style?: React.CSSProperties
-
+export default interface BoxProps extends React.AllHTMLAttributes<HTMLElement> {
 	YPadding?: boolean | undefined
-
-	className?: string | undefined
 }

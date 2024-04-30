@@ -1,7 +1,5 @@
-export default interface CounterProps {
-	children?: React.ReactNode
-
-	mode?: 'primary' | 'secondary' | 'tertiary' | 'outline' | undefined
+export default interface CounterProps
+	extends React.AllHTMLAttributes<HTMLElement> {
 	appearance?:
 		| 'accent'
 		| 'positive'
@@ -9,9 +7,6 @@ export default interface CounterProps {
 		| 'neutral'
 		| 'contrast'
 		| undefined
-	size?: 'xlg' | 'lg' | 'md' | 'sm' | 'xsm' | undefined
 
-	className?: string | undefined
-
-	style?: React.CSSProperties
+	counterSize?: 'xlg' | 'lg' | 'md' | 'sm' | 'xsm' | undefined
 }

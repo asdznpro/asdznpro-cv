@@ -2,8 +2,4 @@
 
 .root {
 	@include ui-size-control(max-content);
-
-	.wrapper {
-		@include ui-animate-spin;
-	}
 }

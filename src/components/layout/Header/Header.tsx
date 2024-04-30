@@ -47,7 +47,7 @@ const Header: React.FC = () => {
 		<div className={styles.root}>
 			<div className={styles.container}>
 				<div className={styles['header-part']}>
-					<AppLink to='/' flex>
+					<AppLink to='/' className='ui-flex'>
 						{screenWidth > 880 ? (
 							<CvLogo width={369.42} height={44} />
 						) : screenWidth > 360 ? (
@@ -73,7 +73,6 @@ const Header: React.FC = () => {
 											? ''
 											: '/' + item.pathname
 									}
-									size='sm'
 									mode={
 										location.pathname.startsWith('/' + item.pathname)
 											? 'outline'
@@ -83,7 +82,7 @@ const Header: React.FC = () => {
 									after={
 										(item.name === 'Портфолио' || item.name === 'Portfolio') &&
 										storePortfolioData && (
-											<Counter size='sm' appearance='neutral'>
+											<Counter counterSize='sm' appearance='neutral'>
 												{storePortfolioData.data.length}
 											</Counter>
 										)
@@ -107,7 +106,6 @@ const Header: React.FC = () => {
 								{[...Array(3)].map((_, index) => (
 									<Button
 										key={index}
-										size='sm'
 										mode='outline'
 										appearance='neutral'
 										noneAction
@@ -120,7 +118,6 @@ const Header: React.FC = () => {
 
 					{screenWidth <= 1440 && (
 						<Button
-							size='sm'
 							appearance='neutral'
 							mode='secondary'
 							before={<Spinner />}
@@ -132,7 +129,6 @@ const Header: React.FC = () => {
 
 					<Button
 						onClick={handleToggleTheme}
-						size='sm'
 						appearance={theme === 'light' ? 'neutral' : 'accent'}
 						before={
 							theme === 'light' ? (
@@ -146,7 +142,6 @@ const Header: React.FC = () => {
 
 					<Button
 						onClick={handleToggleLanguage}
-						size='sm'
 						mode='outline'
 						appearance='neutral'
 						before={

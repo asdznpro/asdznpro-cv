@@ -11,7 +11,7 @@ import { Box, Tile, RouterLink, CustomCursor } from 'components/ui'
 import { Icon28LinkOutline } from '@vkontakte/icons'
 
 const CvLinkItem: React.FC<CvLinkItemProps> = props => {
-	const { children, style, to, href, target, backgroundColor } = props
+	const { children, to, href, target, backgroundColor, ...restProps } = props
 
 	const { screenWidth } = useDynamicAlignment()
 	const [isHovered, setIsHovered] = useState(false)
@@ -26,10 +26,10 @@ const CvLinkItem: React.FC<CvLinkItemProps> = props => {
 
 	return (
 		<Tile
+			{...restProps}
 			className={[styles.root, backgroundColor && styles[`${backgroundColor}`]]
 				.join(' ')
 				.trim()}
-			style={style}
 		>
 			{screenWidth >= 768 && isHovered && <CustomCursor appearance='neutral' />}
 

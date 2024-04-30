@@ -3,16 +3,13 @@ import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { useDocumentTitle } from 'hooks'
 
-import ExperienceModel from 'models/Experience.interface'
+import { ExperienceModel } from 'models'
 
 import styles from './Experience.module.scss'
 
-import {
-	ExperienceItem,
-	FeedbackItem,
-	BriefInfoBox,
-	BriefInfoItem,
-} from 'components/shared'
+import { Experience } from './Experience'
+
+import { FeedbackItem } from 'components/shared'
 import {
 	Fontbody,
 	Section,
@@ -21,13 +18,13 @@ import {
 	PageNavigation,
 	Box,
 	Tile,
+	Carousel,
 } from 'components/ui'
 
 import {
 	Icon28LockOutline,
 	Icon24LinkCircleFilled,
 	Icon28PictureOutline,
-	Icon28LogoVkColor,
 	Icon28CalendarCheckOutline,
 } from '@vkontakte/icons'
 
@@ -66,22 +63,24 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 					</Tile>
 				)}
 
-				<ExperienceItem
+				<Experience.Item
 					key={item.id}
 					title={item.employerInfo.name}
-					describe={item.employerInfo.shortDescription}
 					logoPath={
 						theme === 'dark' && item.employerInfo.logoLight
 							? item.employerInfo.logoLight
 							: item.employerInfo.logo
 					}
 				>
+					<Fontbody level={3} className='ui-text-secondary'>
+						{item.employerInfo.shortDescription}
+					</Fontbody>
+
 					<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
 						{item.employerInfo.website && (
 							<Button
-								size='sm'
 								href={item.employerInfo.website}
-								target='blank'
+								target='_blank'
 								before={<Icon24LinkCircleFilled width={24} height={24} />}
 							>
 								{item.employerInfo.website.split('https://')}
@@ -91,7 +90,6 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 						{item.labels.map((label, index) => (
 							<Button
 								key={item.id + '-' + index}
-								size='sm'
 								appearance={
 									label.id && label.id.includes('project-closed')
 										? 'negative'
@@ -122,7 +120,7 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 							</Button>
 						))}
 					</div>
-				</ExperienceItem>
+				</Experience.Item>
 
 				{/* {item.info && (
 					<Tile>
@@ -149,7 +147,9 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 
 			<Section countColumns={10}>
 				<Box>
-					<Heading level={2}>Чем я занимался?</Heading>
+					<Heading level={2} className='ui-text-uppercase'>
+						Чем я занимался?
+					</Heading>
 				</Box>
 
 				<Tile>
@@ -162,40 +162,44 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 			{item.feedback && (
 				<Section countColumns={10}>
 					<Box>
-						<Heading level={2}>Отзывы о работе</Heading>
+						<Heading level={2} className='ui-text-uppercase'>
+							Отзывы о работе
+						</Heading>
 					</Box>
 
-					{item.feedback.map(item => (
-						<FeedbackItem
-							key={item.id}
-							avatar={item.avatar}
-							fullName={item.fullName}
-							jobTitle={item.jobTitle}
-							value={item.value}
-						>
-							<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-								{item.socialNetworks.map((network, index) => (
-									<Button
-										key={item.id + '-' + index}
-										href={network.href}
-										size='sm'
-										target='blank'
-										appearance='neutral'
-										before={
-											<img
-												src={network.icon}
-												alt={
-													'@' + network.href.replace(/^\//, '').split('/').pop()
-												}
-											/>
-										}
-									>
-										{'@' + network.href.replace(/^\//, '').split('/').pop()}
-									</Button>
-								))}
-							</div>
-						</FeedbackItem>
-					))}
+					<Carousel>
+						{item.feedback.map(item => (
+							<FeedbackItem
+								key={item.id}
+								avatar={item.avatar}
+								fullName={item.fullName}
+								jobTitle={item.jobTitle}
+								value={item.value}
+							>
+								<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+									{item.socialNetworks.map((network, index) => (
+										<Button
+											key={item.id + '-' + index}
+											href={network.href}
+											target='_blank'
+											appearance='neutral'
+											before={
+												<img
+													src={network.icon}
+													alt={
+														'@' +
+														network.href.replace(/^\//, '').split('/').pop()
+													}
+												/>
+											}
+										>
+											{'@' + network.href.replace(/^\//, '').split('/').pop()}
+										</Button>
+									))}
+								</div>
+							</FeedbackItem>
+						))}
+					</Carousel>
 				</Section>
 			)}
 

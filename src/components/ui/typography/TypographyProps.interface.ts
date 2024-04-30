@@ -1,13 +1,4 @@
-export default interface TypographyProps {
-	children: React.ReactNode
-
+export default interface TypographyProps
+	extends React.AllHTMLAttributes<HTMLElement> {
 	level?: 1 | 2 | 3 | undefined
-
-	caps?: boolean | undefined
-	ellipsis?: boolean | undefined
-	className?: string | undefined
-
-	itemProp?: 'name' | undefined
-
-	style?: React.CSSProperties
 }

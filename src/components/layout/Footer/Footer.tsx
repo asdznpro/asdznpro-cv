@@ -17,13 +17,13 @@ const Footer: React.FC = () => {
 	return (
 		<footer className={styles.root}>
 			<div className={styles.wrapper}>
-				<Fontbody secondary>
+				<Fontbody className='ui-text-secondary'>
 					&copy; {storeAboutData && storeAboutData.data.fullName + ',' + ' '}
 					{new Date().getFullYear()}
 				</Fontbody>
 
 				{screenWidth >= 818 && (
-					<Fontbody secondary>
+					<Fontbody className='ui-text-secondary'>
 						{language === 'en'
 							? 'Built with React'
 							: 'Сайт создан с помощью React'}
@@ -32,12 +32,11 @@ const Footer: React.FC = () => {
 
 				{screenWidth >= 412 && (
 					<AppLink
-						className={styles['grid-span']}
+						className={[styles['grid-span'], 'ui-flex'].join(' ')}
 						href='https://reactjs.org/'
-						target='blank'
-						flex
+						target='_blank'
 					>
-						<div className={styles.spinner}>
+						<div className={[styles.icon, 'ui-animate-bounce'].join(' ')}>
 							<IconLogoReact28 width={48} height={48} />
 						</div>
 					</AppLink>

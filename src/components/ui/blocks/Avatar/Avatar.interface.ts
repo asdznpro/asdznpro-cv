@@ -1,6 +1,2 @@
-export default interface AvatarProps {
-	image: string
-	name: string
-	width?: number
-	height?: number
-}
+export default interface AvatarProps
+	extends React.AllHTMLAttributes<HTMLElement> {}

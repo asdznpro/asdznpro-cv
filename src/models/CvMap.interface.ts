@@ -1,4 +1,4 @@
-export default interface CvMapModel {
+export interface CvMapModel {
 	data: CvMap[]
 	displayName: string
 	id: string

@@ -9,7 +9,7 @@ type ViteConfigInput = {
 export default (args: ViteConfigInput) => {
 	const generateScopedName =
 		args.mode === 'production'
-			? 'css-[hash:base64:8]'
+			? '[hash:base64:8]'
 			: '[name]_[local]__[hash:base64:5]'
 
 	return defineConfig({
@@ -41,8 +41,32 @@ export default (args: ViteConfigInput) => {
 		build: {
 			rollupOptions: {
 				output: {
-					manualChunks(id) {
+					manualChunks(id: string) {
 						if (id.includes('node_modules')) {
+							// if (id.match(/node_modules\/(react|react-dom)\//)) {
+							// 	return 'react'
+							// }
+
+							// if (id.match(/node_modules\/(@reduxjs\/toolkit|react-redux)\//)) {
+							// 	return 'redux'
+							// }
+
+							// if (id.match(/node_modules\/react-router-dom\//)) {
+							// 	return 'react-router'
+							// }
+
+							if (id.match(/node_modules\/framer-motion\//)) {
+								return 'framer-motion'
+							}
+
+							// if (id.match(/node_modules\/lodash\//)) {
+							// 	return 'lodash'
+							// }
+
+							// if (id.match(/node_modules\/axios\//)) {
+							// 	return 'axios'
+							// }
+
 							return 'vendor'
 						}
 					},

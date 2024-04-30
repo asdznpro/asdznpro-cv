@@ -1,4 +1,4 @@
-export default interface CommonInfo {
+export interface CommonInfoModel {
 	id?: string
 	title?: string
 	icon?: string

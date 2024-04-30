@@ -1,7 +1,10 @@
 // blocks
 
 export * from './blocks/Avatar'
+export * from './blocks/Box'
+export * from './blocks/BriefInfo'
 export * from './blocks/Button'
+export * from './blocks/Carousel'
 export * from './blocks/Counter'
 export * from './blocks/CustomCursor'
 export * from './blocks/ListComponent'

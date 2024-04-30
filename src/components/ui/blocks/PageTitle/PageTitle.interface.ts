@@ -1,5 +1,4 @@
-export default interface PageTitleProps {
-	title: string | undefined
-	describe?: string | undefined
-	breadcrumbs?: React.ReactNode
+export default interface PageTitleProps
+	extends React.AllHTMLAttributes<HTMLElement> {
+	before?: React.ReactNode
 }

@@ -6,19 +6,12 @@ import { useDynamicAlignment } from 'hooks'
 import styles from './ExperienceItem.module.scss'
 import ExperienceItemProps from './ExperienceItem.interface'
 
-import {
-	Fontbody,
-	Heading,
-	Box,
-	Tile,
-	RouterLink,
-	CustomCursor,
-} from 'components/ui'
+import { Heading, Box, Tile, RouterLink, CustomCursor } from 'components/ui'
 
 import { Icon28PictureOutline } from '@vkontakte/icons'
 
 const ExperienceItem: React.FC<ExperienceItemProps> = props => {
-	const { title, describe, logoPath, preview, children, ellipsis, to } = props
+	const { title, logoPath, preview, children, to } = props
 
 	const { screenWidth } = useDynamicAlignment()
 	const [hasError, setHasError] = useState(false)
@@ -67,15 +60,9 @@ const ExperienceItem: React.FC<ExperienceItemProps> = props => {
 				)}
 
 				<div className={styles.info}>
-					<Heading level={3}>{title}</Heading>
-
-					<Fontbody
-						level={3}
-						className={ellipsis ? styles['describe-ellipsis'] : ''}
-						secondary
-					>
-						{describe}
-					</Fontbody>
+					<Heading level={3} className='ui-text-uppercase'>
+						{title}
+					</Heading>
 
 					{children}
 				</div>

@@ -31,11 +31,11 @@ const FeedbackItem: React.FC<FeedbackItemProps> = props => {
 					)}
 
 					<div className={styles.info}>
-						<Heading level={4} wideLevel={3} noCaps ellipsis>
+						<Heading level={4} wideLevel={3} className='ui-text-truncate'>
 							{fullName}
 						</Heading>
 
-						<Footnote secondary>{jobTitle}</Footnote>
+						<Footnote className='ui-text-secondary'>{jobTitle}</Footnote>
 					</div>
 				</div>
 

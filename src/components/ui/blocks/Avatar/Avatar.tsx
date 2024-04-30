@@ -7,18 +7,18 @@ import AvatarProps from './Avatar.interface'
 import { Heading, Spinner } from 'components/ui'
 
 const Avatar: React.FC<AvatarProps> = props => {
-	const { image, name, width, height } = props
+	const { src, name, width, height, ...restProps } = props
 
 	const [hasError, setHasError] = useState(false)
 
 	return (
-		<div className={styles.root}>
+		<div {...restProps} className={styles.root}>
 			<div
 				className={styles.image}
 				style={{ width: width ? width : 196, height: height ? height : 196 }}
 			>
-				{!hasError && image ? (
-					<img src={image} alt={name} onError={() => setHasError(true)} />
+				{!hasError && src ? (
+					<img src={src} alt={name} onError={() => setHasError(true)} />
 				) : name ? (
 					<Heading level={2}>{name}</Heading>
 				) : (

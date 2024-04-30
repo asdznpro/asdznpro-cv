@@ -45,7 +45,7 @@ const Contacts = () => {
 						<Box>
 							<PageTitle
 								title={storeContactsData.displayName}
-								breadcrumbs={
+								before={
 									<Breadcrumbs
 										customLabels={[storeContactsData.displayName]}
 										selectLanguage={language}
@@ -67,7 +67,7 @@ const Contacts = () => {
 								<CvLinkItem
 									key={index}
 									href={link.href}
-									target='blank'
+									target='_blank'
 									backgroundColor={link.name.toLowerCase().replace(/\s+/g, '-')}
 								>
 									<img

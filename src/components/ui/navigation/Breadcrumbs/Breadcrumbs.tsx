@@ -8,7 +8,7 @@ import BreadcrumbsProps from './Breadcrumbs.interface'
 import { Fontbody } from 'components/ui'
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
-	const { customLabels, selectLanguage } = props
+	const { customLabels, selectLanguage, ...restProps } = props
 
 	const location = useLocation()
 	const pathnames = location.pathname.split('/').filter(x => x)
@@ -30,7 +30,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
 	})
 
 	return (
-		<div className={styles.root}>
+		<div {...restProps} className={styles.root}>
 			<ul
 				aria-label='breadcrumbs'
 				itemScope
@@ -54,7 +54,10 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
 					return (
 						<React.Fragment key={index}>
 							{index > 0 && (
-								<Fontbody className={styles.separator} level={2} secondary>
+								<Fontbody
+									className={[styles.separator, 'ui-text-secondary'].join(' ')}
+									level={2}
+								>
 									/
 								</Fontbody>
 							)}
@@ -68,7 +71,11 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
 									.trim()}
 							>
 								<Component {...additionalProps} itemProp='item'>
-									<Fontbody level={2} itemProp='name' secondary={!isLast}>
+									<Fontbody
+										level={2}
+										itemProp='name'
+										className={isLast ? '' : 'ui-text-secondary'}
+									>
 										{breadcrumb.name}
 									</Fontbody>
 								</Component>

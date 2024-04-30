@@ -5,8 +5,8 @@ import { selectLanguage, selectTheme } from 'store'
 
 import styles from './About.module.scss'
 
-import { BriefInfoBox, BriefInfoItem } from 'components/shared'
 import {
+	BriefInfo,
 	Fontbody,
 	Section,
 	PageTitle,
@@ -33,7 +33,7 @@ const About = () => {
 						<Box>
 							<PageTitle
 								title={storeAboutData.displayName}
-								breadcrumbs={
+								before={
 									<Breadcrumbs
 										customLabels={[storeAboutData.displayName]}
 										selectLanguage={language}
@@ -56,7 +56,7 @@ const About = () => {
 
 						<Tile>
 							<Box YPadding>
-								<BriefInfoBox>
+								<BriefInfo.Box>
 									{storeAboutData.data.brief.map((item, index) => {
 										let value = item.value
 
@@ -100,7 +100,7 @@ const About = () => {
 										}
 
 										return (
-											<BriefInfoItem
+											<BriefInfo.Item
 												key={index}
 												title={item.title}
 												icon={
@@ -113,15 +113,15 @@ const About = () => {
 											/>
 										)
 									})}
-								</BriefInfoBox>
+								</BriefInfo.Box>
 							</Box>
 						</Tile>
 
 						<Tile>
 							<Box YPadding>
 								<Fontbody
+									className='ui-text-secondary'
 									style={{ margin: '0 auto', padding: '28px 0' }}
-									secondary
 								>
 									*рекомендации как на HH*
 								</Fontbody>

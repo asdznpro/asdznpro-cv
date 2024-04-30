@@ -1,6 +1,6 @@
-import CommonInfo from './Common.interface'
+import { CommonInfoModel } from 'models'
 
-export default interface ExperienceModel {
+export interface ExperienceModel {
 	data: Experience[]
 	displayName: string
 	pathname: string
@@ -11,8 +11,8 @@ interface Experience {
 	id: number
 	employerInfo: EmployerInfo
 	pathname: string
-	labels: CommonInfo[]
-	info: CommonInfo[]
+	labels: CommonInfoModel[]
+	info: CommonInfoModel[]
 	execute: string[]
 	examples: string[]
 	feedback?: Feedback[]

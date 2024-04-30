@@ -6,9 +6,9 @@ import ButtonProps from './Button.interface'
 const Button: React.FC<ButtonProps> = props => {
 	const {
 		children,
-		mode,
-		appearance,
-		size,
+		mode = 'primary',
+		appearance = 'accent',
+		buttonSize = 'sm',
 		rounded,
 		disabled,
 		noneAction,
@@ -19,44 +19,45 @@ const Button: React.FC<ButtonProps> = props => {
 		to,
 		href,
 		target,
-		onClick,
-		style,
+		...restProps
 	} = props
 
 	let Component: React.ElementType = 'button' as React.ElementType
 	let additionalProps = {}
 
-	const modifiedTarget = target && `_${target}`
-
 	if (href) {
 		Component = 'a'
-		additionalProps = { href, target: modifiedTarget, ...additionalProps }
+		additionalProps = { href, target, ...additionalProps }
 	} else if (to) {
 		Component = Link
-		additionalProps = { to, target: modifiedTarget, ...additionalProps }
+		additionalProps = { to, target, ...additionalProps }
 	} else {
 		Component = 'button'
-		additionalProps = { onClick, disabled, ...additionalProps }
+		additionalProps = {
+			disabled: disabled || noneAction,
+			...additionalProps,
+		}
 	}
 
 	return (
 		<Component
+			{...restProps}
+			{...additionalProps}
 			className={[
 				styles.root,
-				styles[`mode-${mode ? mode : 'primary'}`],
-				styles[`${appearance ? appearance : 'accent'}`],
-				styles[`size-${size ? size : 'md'}`],
+				styles[`mode-${mode}`],
+				styles[`${appearance}`],
+				styles[`size-${buttonSize}`],
 				rounded && styles['rounded'],
 				(to || href) && disabled && styles['disabled-link'],
-				noneAction && styles['none-action'],
 				stretched && styles.stretched,
 				!children && (!before || !after) ? styles['button-icon'] : '',
+				noneAction && styles['none-action'],
+				disabled && styles['disabled'],
 				className,
 			]
 				.join(' ')
 				.trim()}
-			style={style}
-			{...additionalProps}
 		>
 			<span className={styles.in}>
 				{before && <span className={styles.before}>{before}</span>}

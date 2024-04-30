@@ -5,7 +5,7 @@ import { useDocumentTitle } from 'hooks'
 
 import Masonry from 'react-masonry-css'
 
-import PortfolioModel from 'models/Portfolio.interface'
+import { PortfolioModel } from 'models'
 
 import styles from './Portfolio.module.scss'
 
@@ -37,9 +37,9 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 
 	useDocumentTitle(item.project.shortName, language)
 
-	useEffect(() => {
-		window.scrollTo(0, 0)
-	}, [])
+	// useEffect(() => {
+	// 	window.scrollTo(0, 0)
+	// }, [])
 
 	const [hasError, setHasError] = useState(false)
 
@@ -95,7 +95,6 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 							{item.tags.map((tag, index) => (
 								<Button
 									key={index}
-									size='sm'
 									appearance={
 										tag.name && tag.name.includes('Новое')
 											? 'negative'
@@ -115,7 +114,6 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 							))}
 
 							<Button
-								size='sm'
 								appearance='neutral'
 								noneAction
 								before={<Icon28CalendarCheckOutline width={24} height={24} />}
@@ -128,7 +126,6 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 								item.client.map((client, index) => (
 									<Button
 										key={index}
-										size='sm'
 										appearance='neutral'
 										before={
 											client.id && client.id.includes('date') ? (
@@ -153,7 +150,9 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 								))}
 						</div>
 
-						<Heading level={3}>{item.project.fullName}</Heading>
+						<Heading level={3} className='ui-text-uppercase ui-clamp-3'>
+							{item.project.fullName}
+						</Heading>
 					</Box>
 				</Tile>
 
@@ -175,7 +174,9 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 
 				<Tile>
 					<Box YPadding>
-						<Heading level={3}>Paragraph</Heading>
+						<Heading level={3} className='ui-text-uppercase'>
+							Paragraph
+						</Heading>
 
 						<Fontbody level={2} role='paragraph'>
 							Сложно сказать, почему представители современных социальных
@@ -187,44 +188,44 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 					</Box>
 				</Tile>
 
-				<Tile>
-					<Masonry
-						breakpointCols={breakpointColumnsObj}
-						className={styles.masonry}
-						columnClassName={styles['masonry-column']}
-					>
-						{images.map((image, index) => (
+				{/* <Tile> */}
+				<Masonry
+					breakpointCols={breakpointColumnsObj}
+					className={styles.masonry}
+					columnClassName={styles['masonry-column']}
+				>
+					{images.map((image, index) => (
+						<div
+							key={index}
+							onClick={() => handleImageClick(image)}
+							className={[styles['masonry-item']].join(' ').trim()}
+						>
 							<div
-								key={index}
-								onClick={() => handleImageClick(image)}
-								className={[styles['masonry-item']].join(' ').trim()}
+								className={[
+									styles['image'],
+									activeImage === image ? styles['expanded-image'] : '',
+								]
+									.join(' ')
+									.trim()}
 							>
-								<div
-									className={[
-										styles['image'],
-										activeImage === image ? styles['expanded-image'] : '',
-									]
-										.join(' ')
-										.trim()}
-								>
+								<img
+									src={image}
+									alt={image.split('/').pop()?.split('.').shift()}
+								/>
+							</div>
+
+							{activeImage === image && (
+								<div className={styles['ghost-image']}>
 									<img
 										src={image}
 										alt={image.split('/').pop()?.split('.').shift()}
 									/>
 								</div>
-
-								{activeImage === image && (
-									<div className={styles['ghost-image']}>
-										<img
-											src={image}
-											alt={image.split('/').pop()?.split('.').shift()}
-										/>
-									</div>
-								)}
-							</div>
-						))}
-					</Masonry>
-				</Tile>
+							)}
+						</div>
+					))}
+				</Masonry>
+				{/* </Tile> */}
 
 				<PageNavigation />
 			</Section>

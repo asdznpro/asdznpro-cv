@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { useRef, useEffect } from 'react'
 
 import styles from './CustomCursor.module.scss'
@@ -29,7 +30,6 @@ const CustomCursor: React.FC<CustomCursorProps> = props => {
 
 		document.addEventListener('mousemove', handleMouseMove)
 
-		// Get the initial position of cursorRef
 		if (cursorRef.current) {
 			cursorRect.current = cursorRef.current.getBoundingClientRect()
 		}
@@ -41,14 +41,15 @@ const CustomCursor: React.FC<CustomCursorProps> = props => {
 
 	return (
 		<div ref={cursorRef} className={styles.root}>
-			<Button
-				className={styles.content}
-				appearance={appearance}
-				size='sm'
-				before={<Icon28LinkOutline />}
-				rounded
-				noneAction
-			/>
+			{React.cloneElement(
+				<Button
+					className={styles.content}
+					before={<Icon28LinkOutline />}
+					rounded
+					noneAction
+				/>,
+				{ appearance }
+			)}
 		</div>
 	)
 }

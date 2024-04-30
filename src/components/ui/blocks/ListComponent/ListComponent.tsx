@@ -2,7 +2,7 @@ import styles from './ListComponent.module.scss'
 import ListComponentProps, { NestedList } from './ListComponent.interface'
 
 const ListComponent: React.FC<ListComponentProps> = props => {
-	const { typeList, content, fontLevel } = props
+	const { typeList, listContent, fontLevel } = props
 
 	const renderNestedList = (nestedList: NestedList) => {
 		const ListType: React.ElementType =
@@ -52,7 +52,7 @@ const ListComponent: React.FC<ListComponentProps> = props => {
 		)
 	}
 
-	return renderList(content)
+	return renderList(listContent)
 }
 
 export { ListComponent }

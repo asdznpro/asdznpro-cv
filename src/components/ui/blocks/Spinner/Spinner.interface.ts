@@ -1,6 +1,5 @@
-export default interface SpinnerProps {
+export default interface SpinnerProps
+	extends React.AllHTMLAttributes<HTMLElement> {
 	width?: number
 	height?: number
-	color?: string
-	style?: React.CSSProperties
 }

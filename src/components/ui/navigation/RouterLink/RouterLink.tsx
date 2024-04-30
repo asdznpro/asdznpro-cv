@@ -4,40 +4,27 @@ import styles from './RouterLink.module.scss'
 import RouterLinkProps from './RouterLink.interface'
 
 const RouterLink: React.FC<RouterLinkProps> = props => {
-	const {
-		to,
-		href,
-		target,
-		children,
-		onClick,
-		className,
-		onMouseEnter,
-		onMouseLeave,
-	} = props
+	const { to, href, target, children, className, ...restProps } = props
 
 	let Component: React.ElementType = 'span' as React.ElementType
 	let additionalProps = {}
 
-	const modifiedTarget = target && `_${target}`
-
 	if (href) {
 		Component = 'a'
-		additionalProps = { href, target: modifiedTarget, ...additionalProps }
+		additionalProps = { href, target, ...additionalProps }
 	} else if (to) {
 		Component = Link
-		additionalProps = { to, target: modifiedTarget, ...additionalProps }
+		additionalProps = { to, target, ...additionalProps }
 	} else {
 		Component = 'span'
-		additionalProps = { onClick, ...additionalProps }
+		additionalProps = { ...additionalProps }
 	}
 
 	return (
 		<Component
-			onClick={onClick}
-			className={[styles.root, className].join(' ').trim()}
+			{...restProps}
 			{...additionalProps}
-			onMouseEnter={onMouseEnter}
-			onMouseLeave={onMouseLeave}
+			className={[styles.root, className].join(' ').trim()}
 		>
 			{children}
 		</Component>

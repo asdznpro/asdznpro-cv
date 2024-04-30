@@ -1,6 +1,7 @@
-export default interface ListComponentProps {
+export default interface ListComponentProps
+	extends React.AllHTMLAttributes<HTMLElement> {
 	typeList: 'ul' | 'ol' | undefined
-	content: (string | NestedList)[]
+	listContent: (string | NestedList)[]
 
 	fontLevel?: 1 | 2 | 3 | undefined
 }

@@ -1,4 +1,5 @@
-export default interface FeedbackItemProps {
+export default interface FeedbackItemProps
+	extends React.AllHTMLAttributes<HTMLElement> {
 	avatar: string
 	fullName: string
 	jobTitle: string

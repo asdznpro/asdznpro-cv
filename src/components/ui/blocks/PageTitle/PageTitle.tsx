@@ -4,14 +4,14 @@ import PageTitleProps from './PageTitle.interface'
 import { Fontbody, Heading } from 'components/ui'
 
 const PageTitle: React.FC<PageTitleProps> = props => {
-	const { title, describe, breadcrumbs } = props
+	const { title, label, before, ...restProps } = props
 
 	return (
-		<div className={styles.root}>
-			{breadcrumbs}
+		<div {...restProps} className={styles.root}>
+			{before}
 
-			{title && <Heading>{title}</Heading>}
-			{describe && <Fontbody>{describe}</Fontbody>}
+			{title && <Heading className='ui-text-uppercase'>{title}</Heading>}
+			{label && <Fontbody>{label}</Fontbody>}
 		</div>
 	)
 }

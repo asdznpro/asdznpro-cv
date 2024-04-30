@@ -1,7 +1,4 @@
-export default interface TileProps {
-	children: React.ReactNode
-	style?: React.CSSProperties
-
+export default interface TileProps
+	extends React.AllHTMLAttributes<HTMLElement> {
 	padding?: boolean | undefined
-	className?: string | undefined
 }

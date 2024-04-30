@@ -1,0 +1,63 @@
+@import 'assets/styles/Variables';
+
+.root {
+	position: relative;
+}
+
+.carousel {
+	&Container {
+		overflow: visible;
+
+		&:active {
+			cursor: grabbing;
+		}
+	}
+
+	// &Slider {
+	// 	gap: 8px;
+	// }
+
+	&Item {
+		position: relative;
+		// margin-right: 8px;
+	}
+
+	&DotList {
+		@include ui-size-control(fit-content);
+
+		position: absolute;
+		left: 50%;
+		translate: -50%;
+		bottom: 8px;
+
+		padding: 6px;
+		gap: 6px;
+
+		border-radius: $ui-rounded--2xl;
+		background-color: var(--button-secondary);
+		backdrop-filter: blur(24px);
+		outline: 1px solid var(--separator--alpha);
+		outline-offset: -1px;
+	}
+
+	&DotItem {
+		@include ui-size-control(8px, 8px);
+
+		border-radius: $ui-rounded--2xl;
+		background-color: var(--button-secondary--hover);
+
+		transition: 0.16s ease-in;
+
+		&:active {
+			@include ui-size-control(16px, 8px);
+
+			background-color: var(--button-secondary--hover);
+		}
+
+		&Active {
+			@include ui-size-control(24px, 8px);
+
+			background-color: var(--text-secondary);
+		}
+	}
+}
