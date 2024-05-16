@@ -11,6 +11,7 @@
 	.content {
 		@include ui-flex-container(flex, $flow: column);
 
+		// gap: $ui-spacing;
 		gap: $ui-sm-gap;
 	}
 }

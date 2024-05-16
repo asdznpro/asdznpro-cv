@@ -9,6 +9,8 @@ import { setHardSkillsData, selectLanguage } from 'store'
 import styles from './HardSkills.module.scss'
 
 import { HardSkillItem } from './HardSkillItem'
+import { HardSkillItemSkeleton } from './HardSkillItemSkeleton'
+
 import {
 	Section,
 	PageTitle,
@@ -19,6 +21,7 @@ import {
 	Box,
 	Tile,
 	Button,
+	Footnote,
 } from 'components/ui'
 
 import {
@@ -81,7 +84,7 @@ const HardSkills = () => {
 												src={skill.image}
 												name={skill.name}
 											>
-												{/* <Footnote level={2} secondary>
+												{/* <Footnote level={2} className='ui-text-secondary'>
 													JavaScript в браузере и взаимодействия с ним: DOM,
 													события, http-запросы
 												</Footnote> */}
@@ -92,10 +95,10 @@ const HardSkills = () => {
 														skill.level === 'High'
 															? 'positive'
 															: skill.level === 'Middle'
-															? 'neutral'
-															: skill.level === 'Base'
-															? 'negative'
-															: undefined
+																? 'neutral'
+																: skill.level === 'Base'
+																	? 'negative'
+																	: undefined
 													}
 													before={
 														skill.level === 'High' ? (
@@ -107,6 +110,7 @@ const HardSkills = () => {
 														) : undefined
 													}
 													noneAction
+													rounded
 												>
 													{skill.level}
 												</Button>
@@ -121,11 +125,28 @@ const HardSkills = () => {
 					</Section>
 				</>
 			) : (
-				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
+				<Section countColumns={8}>
+					{[...Array(2)].map((_, index) => (
+						<Tile key={index}>
+							<Box YPadding>
+								<div className={styles.list}>
+									{[...Array(6)].map((_, index) => (
+										<HardSkills.Skeleton key={index} />
+									))}
+								</div>
+							</Box>
+						</Tile>
+					))}
+
+					<PageNavigation.Skeleton />
+				</Section>
 			)}
 		</React.Fragment>
 	)
 }
+
+HardSkills.Skeleton = HardSkillItemSkeleton
+HardSkills.Skeleton.displayName = 'HardSkill.Skeleton'
 
 HardSkills.Item = HardSkillItem
 HardSkills.Item.displayName = 'HardSkill.Item'

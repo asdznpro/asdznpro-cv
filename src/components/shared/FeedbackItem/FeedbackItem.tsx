@@ -39,7 +39,9 @@ const FeedbackItem: React.FC<FeedbackItemProps> = props => {
 					</div>
 				</div>
 
-				<Fontbody level={2}>{value}</Fontbody>
+				<Fontbody level={2} className='ui-clamp-3'>
+					{value}
+				</Fontbody>
 
 				{children}
 			</Box>

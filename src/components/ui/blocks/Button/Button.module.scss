@@ -22,20 +22,22 @@
 		.before,
 		.after {
 			@include ui-flex-container(flex, $shrink: 0);
+
+			// outline: 10px solid var(--accent-negative-color);
+			// border-radius: 50%
 		}
 
-		.before {
-			padding-left: $ui-step;
-		}
+		// .before {
+		// 	padding-left: $ui-step;
+		// }
 
-		.after {
-			padding-right: $ui-step;
-		}
+		// .after {
+		// 	padding-right: $ui-step;
+		// }
 
 		.content {
 			@include ui-text-ellipsis;
 
-			padding: 0 $ui-step;
 			box-sizing: border-box;
 
 			font-family: $ui-font-secondary;
@@ -140,9 +142,9 @@
 	@include ui-secondary-appearance-button(var(--text-primary));
 }
 
-// tertiary
+// ghost
 
-@mixin ui-tertiary-appearance-button($color) {
+@mixin ui-ghost-appearance-button($color) {
 	color: $color;
 
 	&:hover {
@@ -155,19 +157,19 @@
 }
 
 .mode-tertiary.accent {
-	@include ui-tertiary-appearance-button(var(--accent-brand-color));
+	@include ui-ghost-appearance-button(var(--accent-brand-color));
 }
 
-.mode-tertiary.positive {
-	@include ui-tertiary-appearance-button(var(--accent-positive-color));
+.mode-ghost.positive {
+	@include ui-ghost-appearance-button(var(--accent-positive-color));
 }
 
-.mode-tertiary.negative {
-	@include ui-tertiary-appearance-button(var(--accent-negative-color));
+.mode-ghost.negative {
+	@include ui-ghost-appearance-button(var(--accent-negative-color));
 }
 
-.mode-tertiary.neutral {
-	@include ui-tertiary-appearance-button(var(--text-primary));
+.mode-ghost.neutral {
+	@include ui-ghost-appearance-button(var(--text-primary));
 }
 
 // outline
@@ -212,39 +214,41 @@
 	$font-size,
 	$line-height
 ) {
-	$calc: $ui-step * $height;
-
-	@include ui-size-control($H: $calc, $minW: $calc, $minH: $calc);
+	@include ui-size-control($H: $height, $minW: $height, $minH: $height);
 
 	border-radius: $rounded;
 
 	.in {
-		padding: 0 $ui-step * $padding;
-		gap: $ui-step * $gap;
+		padding: 0 $padding;
+		gap: $gap;
 
 		font-size: $font-size;
 		line-height: $line-height;
+
+		// .content {
+		// 	padding: 0 calc($padding / 3);
+		// }
 	}
 }
 
 .size-xsm {
-	@include ui-size-button(7, 1.4, $ui-rounded--xsm, 0.4, 13px, 18px);
+	@include ui-size-button(28px, 6px, $ui-rounded--xsm, 4px, 13px, 18px);
 }
 
 .size-sm {
-	@include ui-size-button(11, 3, $ui-rounded--sm, 1, 15px, 20px);
+	@include ui-size-button(44px, 10px, $ui-rounded--sm, 8px, 15px, 20px);
 }
 
 .size-md {
-	@include ui-size-button(14, 4, $ui-rounded--md, 1.5, 17px, 24px);
+	@include ui-size-button(56px, 14px, $ui-rounded--md, 12px, 17px, 24px);
 }
 
 .size-lg {
-	@include ui-size-button(16, 5, $ui-rounded--md, 2, 20px, 28px);
+	@include ui-size-button(64px, 16px, $ui-rounded--md, 12px, 20px, 28px);
 }
 
 .size-xlg {
-	@include ui-size-button(18, 6, $ui-rounded--l, 3, 24px, 32px);
+	@include ui-size-button(72px, 18px, $ui-rounded--l, 16px, 24px, 32px);
 }
 
 // corners

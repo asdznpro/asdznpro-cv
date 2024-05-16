@@ -41,8 +41,9 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 	// 	window.scrollTo(0, 0)
 	// }, [])
 
-	const [hasError, setHasError] = useState(false)
+	//
 
+	const [hasError, setHasError] = useState(false)
 	const [activeImage, setActiveImage] = useState<string | null>(null)
 
 	const handleImageClick = (image: string) => {
@@ -188,44 +189,40 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 					</Box>
 				</Tile>
 
-				{/* <Tile> */}
 				<Masonry
 					breakpointCols={breakpointColumnsObj}
-					className={styles.masonry}
-					columnClassName={styles['masonry-column']}
+					className={styles.gridMasonry}
+					columnClassName={styles.gridMasonryColumn}
 				>
 					{images.map((image, index) => (
 						<div
 							key={index}
 							onClick={() => handleImageClick(image)}
-							className={[styles['masonry-item']].join(' ').trim()}
+							className={styles.gridMasonryItem}
 						>
-							<div
-								className={[
-									styles['image'],
-									activeImage === image ? styles['expanded-image'] : '',
-								]
-									.join(' ')
-									.trim()}
-							>
-								<img
-									src={image}
-									alt={image.split('/').pop()?.split('.').shift()}
-								/>
-							</div>
-
-							{activeImage === image && (
-								<div className={styles['ghost-image']}>
+							<div className={styles.image}>
+								<div
+									className={[
+										styles.imageVisible,
+										activeImage === image ? styles.imageExpanded : '',
+									].join(' ')}
+								>
 									<img
 										src={image}
 										alt={image.split('/').pop()?.split('.').shift()}
 									/>
 								</div>
-							)}
+
+								<div className={styles.imageGhost}>
+									<img
+										src={image}
+										alt={image.split('/').pop()?.split('.').shift()}
+									/>
+								</div>
+							</div>
 						</div>
 					))}
 				</Masonry>
-				{/* </Tile> */}
 
 				<PageNavigation />
 			</Section>

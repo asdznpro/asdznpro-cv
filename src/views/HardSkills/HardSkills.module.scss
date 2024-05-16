@@ -13,7 +13,7 @@
 	gap: $ui-sm-gap;
 
 	&Image {
-		@include ui-size-control($H: clamp($ui-step * 12, 7.2vmax, $ui-step * 18));
+		@include ui-size-control($H: clamp($ui-step * 8, 5.6vmax, $ui-step * 18));
 		@include ui-flex-container(flex, center, center, $shrink: 0);
 
 		aspect-ratio: 1 / 1;
@@ -31,5 +31,43 @@
 		@include ui-flex-container(flex, center, $flow: column);
 
 		gap: $ui-step * 2;
+	}
+}
+
+.skeleton {
+	@include ui-size-control($minW: 0);
+	@include ui-flex-container(flex);
+
+	gap: $ui-sm-gap;
+
+	&Image {
+		@include ui-size-control($H: clamp($ui-step * 16, 5.6vmax, $ui-step * 18));
+		@include ui-flex-container($shrink: 0);
+
+		aspect-ratio: 1 / 1;
+
+		border-radius: 50%;
+	}
+
+	&Info {
+		@include ui-size-control(
+			100%,
+			$minH: clamp($ui-step * 8, 5.6vmax, $ui-step * 18)
+		);
+		@include ui-flex-container(flex, center, $flow: column);
+
+		gap: $ui-step;
+
+		&Name {
+			@include ui-size-control(84%, 32px);
+
+			border-radius: $ui-rounded--sm;
+		}
+
+		&Caption {
+			@include ui-size-control(60%, 20px);
+
+			border-radius: $ui-rounded--sm;
+		}
 	}
 }

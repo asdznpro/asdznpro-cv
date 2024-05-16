@@ -62,25 +62,23 @@ const Header: React.FC = () => {
 					{screenWidth > 1440 &&
 						(storeCvMapData ? (
 							storeCvMapData.data.map((item, index) => (
-								// item.name заменить на id
-
 								<Button
 									key={index}
 									to={
 										storePortfolioData &&
 										storePortfolioData.data.length < 1 &&
-										(item.name === 'Портфолио' || item.name === 'Portfolio')
+										item.pathname === 'portfolio'
 											? ''
 											: '/' + item.pathname
 									}
 									mode={
 										location.pathname.startsWith('/' + item.pathname)
 											? 'outline'
-											: 'tertiary'
+											: 'ghost'
 									}
 									appearance='neutral'
 									after={
-										(item.name === 'Портфолио' || item.name === 'Portfolio') &&
+										item.pathname === 'portfolio' &&
 										storePortfolioData && (
 											<Counter counterSize='sm' appearance='neutral'>
 												{storePortfolioData.data.length}
@@ -88,10 +86,15 @@ const Header: React.FC = () => {
 										)
 									}
 									disabled={
-										((item.name === 'Портфолио' || item.name === 'Portfolio') &&
+										(item.pathname === 'portfolio' &&
 											storePortfolioData &&
 											storePortfolioData.data.length === 0) ||
 										undefined
+									}
+									rounded={
+										location.pathname.startsWith('/' + item.pathname)
+											? true
+											: false
 									}
 								>
 									{'#' +

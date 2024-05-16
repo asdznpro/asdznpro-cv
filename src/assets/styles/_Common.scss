@@ -310,43 +310,23 @@
 
 // Skeleton Style
 
-// .ui-skeleton {
-// 	@include ui-flex-container(flex, center, center);
+.ui-skeleton {
+	@include ui-flex-container(flex, center, center);
 
-// 	position: relative;
-// 	overflow: hidden;
+	position: relative;
+	overflow: hidden;
 
-// 	background: rgba($Gray--400, 24%);
-// 	border: 1px solid rgba($Gray--200, 12%);
+	background: var(--background--alpha);
 
-// 	&::after {
-// 		content: '';
+	&::after {
+		content: '';
 
-// 		@include ui-size-control(360%, 100%);
-// 		@include ui-flex-container(flex, $items: center);
+		@include ui-size-control(100%, 100%);
+		@include ui-flex-container(flex, $items: center);
 
-// 		position: absolute;
-// 		// transform: skew(0.08turn);
+		@include ui-animate-pulse;
 
-// 		background: linear-gradient(
-// 			90deg,
-// 			rgba($Gray--200, 0%) 0%,
-// 			rgba($Gray--400, 36%) 50%,
-// 			rgba($Gray--200, 0%) 100%
-// 		);
-
-// 		animation: skeleton;
-// 		animation-duration: 1.44s;
-// 		animation-iteration-count: infinite;
-// 		animation-timing-function: linear;
-
-// 		@keyframes skeleton {
-// 			0% {
-// 				translate: -100%;
-// 			}
-// 			100% {
-// 				translate: 100%;
-// 			}
-// 		}
-// 	}
-// }
+		position: absolute;
+		background: var(--background--alpha);
+	}
+}

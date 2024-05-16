@@ -19,6 +19,7 @@ import {
 	Box,
 	Tile,
 	Carousel,
+	BriefInfo,
 } from 'components/ui'
 
 import {
@@ -122,12 +123,12 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 					</div>
 				</Experience.Item>
 
-				{/* {item.info && (
+				{item.info && (
 					<Tile>
 						<Box YPadding>
-							<BriefInfoBox>
+							<BriefInfo.Box>
 								{item.info.map((itemInfo, index) => (
-									<BriefInfoItem
+									<BriefInfo.Item
 										key={index}
 										title={itemInfo.title}
 										icon={
@@ -139,10 +140,10 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 										href={itemInfo.href}
 									/>
 								))}
-							</BriefInfoBox>
+							</BriefInfo.Box>
 						</Box>
 					</Tile>
-				)} */}
+				)}
 			</Section>
 
 			<Section countColumns={10}>

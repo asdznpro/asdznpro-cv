@@ -3,12 +3,14 @@ import PageNavigationProps from './PageNavigation.interface'
 
 import { Button, Footnote, Fontbody, Tile, Box } from 'components/ui'
 
+import { PageNavigationSkeleton } from './PageNavigationSkeleton'
+
 import {
 	Icon28ArrowLeftOutline,
 	Icon28ArrowRightOutline,
 } from '@vkontakte/icons'
 
-const PageNavigation: React.FC<PageNavigationProps> = props => {
+const PageNavigation = (props: PageNavigationProps) => {
 	const { children } = props
 
 	return (
@@ -50,5 +52,9 @@ const PageNavigation: React.FC<PageNavigationProps> = props => {
 		</Tile>
 	)
 }
+
+PageNavigation.Skeleton = PageNavigationSkeleton
+PageNavigation.Skeleton.displayName = 'PageNavigation.Skeleton'
+PageNavigation.displayName = 'PageNavigation'
 
 export { PageNavigation }

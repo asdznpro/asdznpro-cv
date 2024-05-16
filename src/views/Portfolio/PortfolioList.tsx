@@ -78,7 +78,13 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 
 					<Section>
 						<Box>
-							<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+							<div
+								style={{
+									display: 'flex',
+									gap: 6,
+									flexWrap: 'wrap',
+								}}
+							>
 								{storePortfolioData.data.length > 1 ? (
 									<>
 										<Button
@@ -119,8 +125,8 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 														selectedTags.includes(tag.type)
 															? 'primary'
 															: theme === 'light'
-															? 'secondary'
-															: 'outline'
+																? 'secondary'
+																: 'outline'
 													}
 													appearance={
 														selectedTags.includes(tag.type)
