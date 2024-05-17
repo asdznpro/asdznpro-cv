@@ -38,7 +38,7 @@ const HardSkills = () => {
 	// useGetHardSkillsQuery
 
 	const { data: hardSkillsData } = useGetHardSkillsQuery({ language })
-	const storeHardSkillsData = useAppSelector(state => state.common.hardSkills)
+	const storeHardSkillsData = useAppSelector((state) => state.common.hardSkills)
 
 	useEffect(() => {
 		if (hardSkillsData) {
@@ -48,7 +48,7 @@ const HardSkills = () => {
 
 	useDocumentTitle(
 		storeHardSkillsData ? storeHardSkillsData.displayName : '',
-		language
+		language.lang,
 	)
 
 	return (
@@ -62,7 +62,7 @@ const HardSkills = () => {
 								before={
 									<Breadcrumbs
 										customLabels={[storeHardSkillsData.displayName]}
-										selectLanguage={language}
+										selectLanguage={language.lang}
 									/>
 								}
 							/>
@@ -70,10 +70,10 @@ const HardSkills = () => {
 					</Section>
 
 					<Section countColumns={8}>
-						{storeHardSkillsData.data.map(item => (
+						{storeHardSkillsData.data.map((item) => (
 							<Tile key={item.id}>
 								<Box YPadding>
-									<Heading level={3} className='ui-text-uppercase'>
+									<Heading level={3} className="ui-text-uppercase">
 										{item.jobTitle}
 									</Heading>
 
@@ -90,7 +90,7 @@ const HardSkills = () => {
 												</Footnote> */}
 
 												<Button
-													buttonSize='xsm'
+													buttonSize="xsm"
 													appearance={
 														skill.level === 'High'
 															? 'positive'

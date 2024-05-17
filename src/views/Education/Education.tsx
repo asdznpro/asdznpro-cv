@@ -28,7 +28,7 @@ const Education = () => {
 	// useGetEducationQuery
 
 	const { data: educationData } = useGetEducationQuery({ language })
-	const storeEducationData = useAppSelector(state => state.common.education)
+	const storeEducationData = useAppSelector((state) => state.common.education)
 
 	useEffect(() => {
 		if (educationData) {
@@ -38,7 +38,7 @@ const Education = () => {
 
 	useDocumentTitle(
 		storeEducationData ? storeEducationData.displayName : '',
-		language
+		language.lang,
 	)
 
 	return (
@@ -52,7 +52,7 @@ const Education = () => {
 								before={
 									<Breadcrumbs
 										customLabels={[storeEducationData.displayName]}
-										selectLanguage={language}
+										selectLanguage={language.lang}
 									/>
 								}
 							/>
@@ -60,7 +60,7 @@ const Education = () => {
 					</Section>
 
 					<Section countColumns={10}>
-						{storeEducationData.data.map(item => (
+						{storeEducationData.data.map((item) => (
 							<Tile key={item.id}>
 								<Box YPadding>
 									<BriefInfo.Box>
@@ -69,7 +69,7 @@ const Education = () => {
 												key={item.id + '-' + index}
 												title={info.title}
 												icon={
-													theme === 'dark' && info.icon
+													theme.mode === 'dark' && info.icon
 														? info.iconLight
 														: info.icon
 												}

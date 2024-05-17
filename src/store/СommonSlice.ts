@@ -6,6 +6,7 @@ import {
 	CvMapModel,
 	EducationModel,
 	ExperienceModel,
+	FeedbackModel,
 	HardSkillsModel,
 	PortfolioModel,
 } from 'models'
@@ -16,6 +17,7 @@ interface CommonState {
 	cvMap: CvMapModel | null
 	education: EducationModel | null
 	experience: ExperienceModel | null
+	feedback: FeedbackModel | null
 	hardSkills: HardSkillsModel | null
 	portfolio: PortfolioModel | null
 }
@@ -26,6 +28,7 @@ const initialState: CommonState = {
 	cvMap: null,
 	education: null,
 	experience: null,
+	feedback: null,
 	hardSkills: null,
 	portfolio: null,
 }
@@ -48,13 +51,16 @@ const commonSlice = createSlice({
 		},
 		setExperienceData: (
 			state,
-			action: PayloadAction<ExperienceModel | null>
+			action: PayloadAction<ExperienceModel | null>,
 		) => {
 			state.experience = action.payload
 		},
+		setFeedbackData: (state, action: PayloadAction<FeedbackModel | null>) => {
+			state.feedback = action.payload
+		},
 		setHardSkillsData: (
 			state,
-			action: PayloadAction<HardSkillsModel | null>
+			action: PayloadAction<HardSkillsModel | null>,
 		) => {
 			state.hardSkills = action.payload
 		},
@@ -65,12 +71,13 @@ const commonSlice = createSlice({
 })
 
 export const {
+	setAboutData,
 	setContactsData,
 	setCvMapData,
 	setEducationData,
 	setExperienceData,
+	setFeedbackData,
 	setHardSkillsData,
-	setAboutData,
 	setPortfolioData,
 } = commonSlice.actions
 export default commonSlice.reducer

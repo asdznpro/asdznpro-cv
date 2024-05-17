@@ -9,6 +9,8 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default tseslint.config(
+	js.configs.recommended,
+	...tseslint.configs.recommended,
 	{
 		plugins: {
 			'@typescript-eslint': tseslint.plugin,
@@ -21,8 +23,6 @@ export default tseslint.config(
 	{
 		ignores: ['dist', 'node_modules', 'coverage', 'eslint.config.js'],
 	},
-	js.configs.recommended,
-	...tseslint.configs.recommended,
 	{
 		languageOptions: {
 			globals: {
@@ -36,16 +36,14 @@ export default tseslint.config(
 		},
 	},
 	{
-		files: ['**/*.{ts,tsx}'],
 		rules: {
 			...prettierPlugin.configs.recommended.rules,
 			...eslintConfigPrettier.rules,
-
-			'prefer-const': 'error',
-			'react/no-unstable-nested-components': ['warn', { allowAsProps: false }],
-			'react/self-closing-comp': ['error', { component: true, html: true }],
-			'max-lines': ['warn', { max: 124 }],
-
+		},
+	},
+	{
+		files: ['**/*.{js,jsx,ts,tsx}'],
+		rules: {
 			'no-mixed-spaces-and-tabs': 'off',
 			'no-unused-vars': 'off',
 			'@typescript-eslint/no-unused-vars': 'off',
@@ -53,13 +51,13 @@ export default tseslint.config(
 				'warn',
 				{ allowConstantExport: true },
 			],
-			'react/jsx-curly-brace-presence': [
-				'warn',
-				{ props: 'never', children: 'never' },
-			],
-			'react/function-component-definition': [
-				'warn',
-				{ namedComponents: 'arrow-function' },
+			'prettier/prettier': [
+				'off',
+				{
+					useTabs: true,
+					singleQuote: true,
+					semi: false,
+				},
 			],
 		},
 	}

@@ -1,10 +1,10 @@
-import * as React from 'react'
-
 import OriginalCarousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
 import styles from './Carousel.module.scss'
 import CarouselProps from './Carousel.interface'
+
+import { CarouselEmbla } from './CarouselEmbla'
 
 import { Button } from 'components/ui'
 
@@ -13,7 +13,7 @@ import {
 	Icon28ArrowRightOutline,
 } from '@vkontakte/icons'
 
-const Carousel: React.FC<CarouselProps> = props => {
+const Carousel = (props: CarouselProps) => {
 	const { children, className, ...restProps } = props
 
 	const responsive = {
@@ -57,7 +57,7 @@ const Carousel: React.FC<CarouselProps> = props => {
 
 		return (
 			<Button
-				buttonSize='md'
+				buttonSize="md"
 				onClick={onClick}
 				before={before}
 				style={{ position: 'absolute', ...style }}
@@ -104,5 +104,10 @@ const Carousel: React.FC<CarouselProps> = props => {
 		</div>
 	)
 }
+
+Carousel.Embla = CarouselEmbla
+Carousel.Embla.displayName = 'Carousel.Embla'
+
+Carousel.displayName = 'Carousel'
 
 export { Carousel }

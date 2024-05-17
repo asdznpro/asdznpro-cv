@@ -1,7 +1,7 @@
 import styles from './Section.module.scss'
 import SectionProps from './Section.interface'
 
-const Section: React.FC<SectionProps> = props => {
+const Section: React.FC<SectionProps> = (props) => {
 	const { children, countColumns = 12, ...restProps } = props
 
 	return (
@@ -11,7 +11,7 @@ const Section: React.FC<SectionProps> = props => {
 				.join(' ')
 				.trim()}
 		>
-			<div className={styles.content}>{children}</div>
+			{children}
 		</section>
 	)
 }

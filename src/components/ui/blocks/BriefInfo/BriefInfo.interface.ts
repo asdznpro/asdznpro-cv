@@ -1,4 +1,4 @@
 export default interface BriefInfoProps
 	extends React.AllHTMLAttributes<HTMLElement> {
-	// level?: number
+	level?: 1 | 2 | 3 | undefined
 }

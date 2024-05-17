@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from 'hooks'
-import { useGetExperienceQuery } from 'services/CommonApi'
+import { useGetExperienceQuery, useGetFeedbackQuery } from 'services/CommonApi'
 import { setExperienceData, selectLanguage, selectTheme } from 'store'
 
 import styles from './Experience.module.scss'
@@ -14,6 +14,7 @@ import { Box, Breadcrumbs, Section, Spinner } from 'components/ui'
 import { ExperienceItem } from './ExperienceItem'
 import { ExperienceList } from './ExperienceList'
 import { ExperienceEmployer } from './ExperienceEmployer'
+import { setFeedbackData } from 'store/СommonSlice'
 
 const Experience = () => {
 	const dispatch = useAppDispatch()
@@ -24,7 +25,7 @@ const Experience = () => {
 	// useGetExperienceQuery
 
 	const { data: experienceData } = useGetExperienceQuery({ language })
-	const storeExperienceData = useAppSelector(state => state.common.experience)
+	const storeExperienceData = useAppSelector((state) => state.common.experience)
 
 	useEffect(() => {
 		if (experienceData) {
@@ -32,51 +33,71 @@ const Experience = () => {
 		}
 	}, [experienceData, dispatch])
 
+	// useGetFeedbackQuery
+
+	const { data: feedbackData } = useGetFeedbackQuery({ language })
+	const storeFeedbackData = useAppSelector((state) => state.common.feedback)
+
+	useEffect(() => {
+		if (feedbackData) {
+			dispatch(setFeedbackData(feedbackData))
+		}
+	}, [feedbackData, dispatch])
+
 	return (
 		<React.Fragment>
 			<Routes>
 				<Route
-					path=''
+					path=""
 					element={
 						<Experience.List
 							storeExperienceData={storeExperienceData}
-							language={language}
-							theme={theme}
+							language={language.lang}
+							theme={theme.mode}
 						/>
 					}
 				/>
 
-				{storeExperienceData ? (
-					storeExperienceData.data.map(item => (
-						<Route
-							key={item.id}
-							path={item.pathname}
-							element={
-								<>
-									<Section countColumns={10}>
-										<Box>
-											<Breadcrumbs
-												customLabels={[
-													storeExperienceData.displayName,
-													item.employerInfo.name,
-												]}
-												selectLanguage={language}
-											/>
-										</Box>
-									</Section>
+				{storeExperienceData && storeFeedbackData ? (
+					storeExperienceData.data.map((item) => {
+						const matchingFeedback = storeFeedbackData.data.find(
+							(feedbackItem) => feedbackItem.id === item.pathname,
+						)
 
-									<Experience.Employer
-										item={item}
-										language={language}
-										theme={theme}
-									/>
-								</>
-							}
-						/>
-					))
+						return (
+							<Route
+								key={item.id}
+								path={item.pathname}
+								element={
+									<>
+										<Section countColumns={10}>
+											<Box>
+												<Breadcrumbs
+													customLabels={[
+														storeExperienceData.displayName,
+														item.employerInfo.name,
+													]}
+													selectLanguage={language.lang}
+												/>
+											</Box>
+										</Section>
+
+										<Experience.Employer
+											employerData={item}
+											feedbackData={
+												matchingFeedback ? matchingFeedback.feedback : []
+											}
+											language={language}
+											theme={theme}
+										/>
+									</>
+								}
+							/>
+						)
+					})
 				) : (
 					<Route
-						path='*'
+						path="*"
 						element={
 							<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 						}

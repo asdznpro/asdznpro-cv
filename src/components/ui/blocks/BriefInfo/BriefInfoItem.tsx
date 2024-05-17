@@ -6,15 +6,19 @@ import { CommonInfoModel } from 'models'
 
 import { AppLink, Fontbody } from 'components/ui'
 
-const BriefInfoItem: React.FC<CommonInfoModel> = props => {
-	const { title, icon, value, href, ...restProps } = props
+interface BriefInfoItemProps extends CommonInfoModel {
+	level?: 1 | 2 | 3 | undefined
+}
+
+const BriefInfoItem: React.FC<BriefInfoItemProps> = (props) => {
+	const { title, icon, value, href, level = 1, ...restProps } = props
 
 	const [hasError, setHasError] = useState(false)
 
 	return (
 		<div {...restProps} className={styles.item}>
 			<div className={styles.title}>
-				<Fontbody level={1} className='ui-text-secondary'>
+				<Fontbody level={level} className="ui-text-secondary">
 					{title ? title : 'title-info:'}
 				</Fontbody>
 			</div>
@@ -26,10 +30,10 @@ const BriefInfoItem: React.FC<CommonInfoModel> = props => {
 					</div>
 				)}
 
-				<Fontbody level={1}>
+				<Fontbody level={level}>
 					{value ? value : 'text-info'}{' '}
 					{href && (
-						<AppLink href={href} target='_blank'>
+						<AppLink href={href} target="_blank">
 							#
 						</AppLink>
 					)}

@@ -15,7 +15,6 @@ interface Experience {
 	info: CommonInfoModel[]
 	execute: string[]
 	examples: string[]
-	feedback?: Feedback[]
 }
 
 interface EmployerInfo {
@@ -26,16 +25,4 @@ interface EmployerInfo {
 	preview?: string
 	shortDescription: string
 	fullDescription?: string
-}
-
-interface Feedback {
-	id: number
-	avatar: string
-	fullName: string
-	jobTitle: string
-	value: string
-	socialNetworks: {
-		icon: string
-		href: string
-	}[]
 }

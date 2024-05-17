@@ -3,6 +3,8 @@ import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { useDocumentTitle, useDynamicAlignment } from 'hooks'
 
+import { EmblaOptionsType } from 'embla-carousel'
+
 import styles from './Portfolio.module.scss'
 import { PortfolioModel } from 'models'
 
@@ -19,6 +21,7 @@ import {
 	Counter,
 	Tile,
 	Fontbody,
+	Carousel,
 } from 'components/ui'
 
 interface PortfolioListProps {
@@ -27,13 +30,13 @@ interface PortfolioListProps {
 	theme: 'dark' | 'light' | undefined
 }
 
-const PortfolioList: React.FC<PortfolioListProps> = props => {
+const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 	const { storePortfolioData, language, theme } = props
 	const { screenWidth } = useDynamicAlignment()
 
 	useDocumentTitle(
 		storePortfolioData ? storePortfolioData.displayName : '',
-		language
+		language,
 	)
 
 	// tag-based filtering with auto-reset
@@ -43,9 +46,9 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 	const toggleTag = (tagType: string) => {
 		if (storePortfolioData && storePortfolioData.tags) {
 			if (selectedTags.includes(tagType)) {
-				setSelectedTags(prevTags => prevTags.filter(tag => tag !== tagType))
+				setSelectedTags((prevTags) => prevTags.filter((tag) => tag !== tagType))
 			} else {
-				setSelectedTags(prevTags => [...prevTags, tagType])
+				setSelectedTags((prevTags) => [...prevTags, tagType])
 			}
 		}
 	}
@@ -57,6 +60,10 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 			}
 		}
 	}, [selectedTags, storePortfolioData])
+
+	// carousel options
+
+	const OPTIONS: EmblaOptionsType = { dragFree: true }
 
 	return (
 		<>
@@ -76,20 +83,20 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 						</Box>
 					</Section>
 
-					<Section>
-						<Box>
-							<div
-								style={{
-									display: 'flex',
-									gap: 6,
-									flexWrap: 'wrap',
-								}}
-							>
+					<Section
+						style={{
+							maxWidth: '100%',
+							alignItems: 'center',
+							overflow: 'hidden',
+						}}
+					>
+						<Box className="ui-w-full ui-max-w-12-cols">
+							<Carousel.Embla options={OPTIONS}>
 								{storePortfolioData.data.length > 1 ? (
 									<>
 										<Button
 											onClick={() => setSelectedTags([])}
-											buttonSize='md'
+											buttonSize="md"
 											mode={
 												selectedTags.length > 0
 													? theme === 'light'
@@ -101,7 +108,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 												selectedTags.length > 0 ? 'neutral' : 'accent'
 											}
 											after={
-												<Counter appearance='neutral'>
+												<Counter appearance="neutral">
 													{storePortfolioData.data.length}
 												</Counter>
 											}
@@ -112,15 +119,17 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 
 										{storePortfolioData.tags.map((tag, index) => {
 											const projectsWithTag = storePortfolioData.data.filter(
-												item =>
-													item.tags.some(tagItem => tagItem.type === tag.type)
+												(item) =>
+													item.tags.some(
+														(tagItem) => tagItem.type === tag.type,
+													),
 											)
 
 											return (
 												<Button
 													key={index}
 													onClick={() => toggleTag(tag.type)}
-													buttonSize='md'
+													buttonSize="md"
 													mode={
 														selectedTags.includes(tag.type)
 															? 'primary'
@@ -134,7 +143,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 															: 'neutral'
 													}
 													after={
-														<Counter appearance='neutral'>
+														<Counter appearance="neutral">
 															{projectsWithTag.length}
 														</Counter>
 													}
@@ -148,9 +157,9 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 								) : (
 									<>
 										<Button
-											buttonSize='md'
+											buttonSize="md"
 											after={
-												<Counter appearance='neutral'>
+												<Counter appearance="neutral">
 													{storePortfolioData.data.length}
 												</Counter>
 											}
@@ -163,9 +172,9 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 										{[...Array(3)].map((_, index) => (
 											<Button
 												key={index}
-												buttonSize='md'
+												buttonSize="md"
 												mode={theme === 'light' ? 'secondary' : 'outline'}
-												appearance='neutral'
+												appearance="neutral"
 												after={
 													<Spinner
 														width={28}
@@ -178,13 +187,22 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 										))}
 									</>
 								)}
-							</div>
+							</Carousel.Embla>
 						</Box>
 					</Section>
 
 					{storePortfolioData.data.length > 1 && (
-						<Section>
-							<Box style={screenWidth <= 768 ? { padding: '0' } : {}}>
+						<Section
+							style={{
+								maxWidth: '100%',
+								alignItems: 'center',
+								overflow: 'hidden',
+							}}
+						>
+							<Box
+								className="ui-w-full ui-max-w-12-cols"
+								style={screenWidth <= 768 ? { padding: '0' } : {}}
+							>
 								<div
 									className={styles.list}
 									style={{
@@ -192,13 +210,13 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 									}}
 								>
 									{storePortfolioData.data
-										.filter(item => {
+										.filter((item) => {
 											if (selectedTags.length === 0) return true
-											return item.tags.some(tag =>
-												selectedTags.includes(tag.type)
+											return item.tags.some((tag) =>
+												selectedTags.includes(tag.type),
 											)
 										})
-										.map(item => (
+										.map((item) => (
 											<Portfolio.Item
 												key={item.id}
 												to={item.project.pathname}
@@ -210,8 +228,8 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 												src={item.project.preview}
 												name={item.project.fullName}
 												tags={item.tags
-													.map(tag => tag.name)
-													.filter(name => name)
+													.map((tag) => tag.name)
+													.filter((name) => name)
 													.join(', ')}
 												date={'\u00A0• от\u00A0' + item.project.date}
 											/>
@@ -226,7 +244,7 @@ const PortfolioList: React.FC<PortfolioListProps> = props => {
 							<Tile>
 								<Box YPadding>
 									<Fontbody
-										className='ui-text-secondary ui-text-center'
+										className="ui-text-secondary ui-text-center"
 										style={{ padding: '28px 0' }}
 									>
 										{language === 'en'

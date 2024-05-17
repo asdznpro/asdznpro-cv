@@ -1,14 +1,18 @@
 import * as React from 'react'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useDocumentTitle } from 'hooks'
 
-import { ExperienceModel } from 'models'
+import {
+	ExperienceModel,
+	FeedbackModel,
+	LanguageModel,
+	ThemeModel,
+} from 'models'
 
 import styles from './Experience.module.scss'
 
 import { Experience } from './Experience'
-
 import { FeedbackItem } from 'components/shared'
 import {
 	Fontbody,
@@ -30,31 +34,32 @@ import {
 } from '@vkontakte/icons'
 
 interface ExperienceEmployerProps {
-	item: ExperienceModel['data'][number]
-	language: 'ru' | 'en'
-	theme: 'dark' | 'light' | undefined
+	employerData: ExperienceModel['data'][number]
+	feedbackData: FeedbackModel['data'][number]['feedback']
+	language: LanguageModel
+	theme: ThemeModel
 }
 
-const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
-	const { item, language, theme } = props
+const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
+	const { employerData, feedbackData, language, theme } = props
 	const [hasError, setHasError] = useState(false)
 
 	// useEffect(() => {
 	// 	window.scrollTo(0, 0)
 	// }, [])
 
-	useDocumentTitle(item.employerInfo.name, language)
+	useDocumentTitle(employerData.employerInfo.name, language.lang)
 
 	return (
 		<>
 			<Section countColumns={10}>
-				{item.employerInfo.preview && (
+				{employerData.employerInfo.preview && (
 					<Tile>
 						<div className={styles.preview}>
 							{!hasError ? (
 								<img
-									src={item.employerInfo.preview}
-									alt={item.employerInfo.name}
+									src={employerData.employerInfo.preview}
+									alt={employerData.employerInfo.name}
 									onError={() => setHasError(true)}
 								/>
 							) : (
@@ -65,32 +70,32 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 				)}
 
 				<Experience.Item
-					key={item.id}
-					title={item.employerInfo.name}
+					key={employerData.id}
+					title={employerData.employerInfo.name}
 					logoPath={
-						theme === 'dark' && item.employerInfo.logoLight
-							? item.employerInfo.logoLight
-							: item.employerInfo.logo
+						theme.mode === 'dark' && employerData.employerInfo.logoLight
+							? employerData.employerInfo.logoLight
+							: employerData.employerInfo.logo
 					}
 				>
-					<Fontbody level={3} className='ui-text-secondary'>
-						{item.employerInfo.shortDescription}
+					<Fontbody level={3} className="ui-text-secondary">
+						{employerData.employerInfo.shortDescription}
 					</Fontbody>
 
 					<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-						{item.employerInfo.website && (
+						{employerData.employerInfo.website && (
 							<Button
-								href={item.employerInfo.website}
-								target='_blank'
+								href={employerData.employerInfo.website}
+								target="_blank"
 								before={<Icon24LinkCircleFilled width={24} height={24} />}
 							>
-								{item.employerInfo.website.split('https://')}
+								{employerData.employerInfo.website.split('https://')}
 							</Button>
 						)}
 
-						{item.labels.map((label, index) => (
+						{employerData.labels.map((label, index) => (
 							<Button
-								key={item.id + '-' + index}
+								key={employerData.id + '-' + index}
 								appearance={
 									label.id && label.id.includes('project-closed')
 										? 'negative'
@@ -105,7 +110,7 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 										label.icon && (
 											<img
 												src={
-													theme === 'dark' && label.iconLight
+													theme.mode === 'dark' && label.iconLight
 														? label.iconLight
 														: label.icon
 												}
@@ -122,85 +127,111 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = props => {
 						))}
 					</div>
 				</Experience.Item>
+			</Section>
 
-				{item.info && (
+			<Section countColumns={10}>
+				<Box>
+					<Heading level={2} className="ui-text-uppercase">
+						Чем я занимался?
+					</Heading>
+				</Box>
+
+				<span />
+
+				{employerData.info && (
 					<Tile>
 						<Box YPadding>
 							<BriefInfo.Box>
-								{item.info.map((itemInfo, index) => (
+								{employerData.info.map((itemInfo, index) => (
 									<BriefInfo.Item
 										key={index}
 										title={itemInfo.title}
 										icon={
-											theme === 'dark' && itemInfo.iconLight
+											theme.mode === 'dark' && itemInfo.iconLight
 												? itemInfo.iconLight
 												: itemInfo.icon
 										}
 										value={itemInfo.value}
 										href={itemInfo.href}
+										level={2}
 									/>
 								))}
 							</BriefInfo.Box>
 						</Box>
 					</Tile>
 				)}
-			</Section>
-
-			<Section countColumns={10}>
-				<Box>
-					<Heading level={2} className='ui-text-uppercase'>
-						Чем я занимался?
-					</Heading>
-				</Box>
 
 				<Tile>
 					<Box YPadding>
-						<Fontbody level={2}>{item.employerInfo.fullDescription}</Fontbody>
+						<Fontbody level={2}>В разработке</Fontbody>
 					</Box>
 				</Tile>
 			</Section>
 
-			{item.feedback && (
+			<Section countColumns={10}>
+				<Box>
+					<Heading level={2} className="ui-text-uppercase">
+						Примеры работ
+					</Heading>
+				</Box>
+
+				<span />
+
+				<Tile>
+					<Box YPadding>
+						<Fontbody level={2}>В разработке</Fontbody>
+					</Box>
+				</Tile>
+			</Section>
+
+			{feedbackData.length > 0 && (
 				<Section countColumns={10}>
 					<Box>
-						<Heading level={2} className='ui-text-uppercase'>
+						<Heading level={2} className="ui-text-uppercase">
 							Отзывы о работе
 						</Heading>
 					</Box>
 
-					<Carousel>
-						{item.feedback.map(item => (
+					<span />
+
+					<Carousel.Embla>
+						{feedbackData.map((item) => (
 							<FeedbackItem
-								key={item.id}
+								key={item.id + item.id}
 								avatar={item.avatar}
 								fullName={item.fullName}
 								jobTitle={item.jobTitle}
 								value={item.value}
+								style={{ flex: '0 0 100%' }}
 							>
-								<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-									{item.socialNetworks.map((network, index) => (
-										<Button
-											key={item.id + '-' + index}
-											href={network.href}
-											target='_blank'
-											appearance='neutral'
-											before={
-												<img
-													src={network.icon}
-													alt={
-														'@' +
-														network.href.replace(/^\//, '').split('/').pop()
+								{item.socialNetworks && (
+									<Carousel.Embla>
+										{item.socialNetworks &&
+											item.socialNetworks.map((network, index) => (
+												<Button
+													key={item.id + '-' + index}
+													href={network.href}
+													target="_blank"
+													appearance="neutral"
+													before={
+														<img
+															src={network.icon}
+															alt={
+																'@' +
+																network.href.replace(/^\//, '').split('/').pop()
+															}
+														/>
 													}
-												/>
-											}
-										>
-											{'@' + network.href.replace(/^\//, '').split('/').pop()}
-										</Button>
-									))}
-								</div>
+												>
+													{'@' +
+														network.href.replace(/^\//, '').split('/').pop()}
+												</Button>
+											))}
+									</Carousel.Embla>
+								)}
 							</FeedbackItem>
 						))}
-					</Carousel>
+					</Carousel.Embla>
 				</Section>
 			)}
 

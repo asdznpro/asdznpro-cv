@@ -7,11 +7,6 @@
 	@include ui-flex-container(flex, $flow: column);
 
 	margin: 0 auto;
-
-	.content {
-		@include ui-flex-container(flex, $flow: column);
-
-		// gap: $ui-spacing;
-		gap: $ui-sm-gap;
-	}
+	padding: 0 $ui-outer-margin;
+	gap: $ui-sm-gap;
 }

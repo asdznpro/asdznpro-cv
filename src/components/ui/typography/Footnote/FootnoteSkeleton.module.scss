@@ -1,0 +1,19 @@
+@import 'assets/styles/Variables';
+
+.root {
+	border-radius: $ui-rounded--xsm;
+}
+
+// levels
+
+.level-1 {
+	@include ui-size-control($H: 20px);
+}
+
+.level-2 {
+	@include ui-size-control($H: 18px);
+}
+
+.level-3 {
+	@include ui-size-control($H: 16px);
+}

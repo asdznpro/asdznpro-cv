@@ -7,59 +7,68 @@ import {
 	CvMapModel,
 	EducationModel,
 	ExperienceModel,
+	FeedbackModel,
 	HardSkillsModel,
+	LanguageModel,
 	PortfolioModel,
 } from 'models'
 
 export const commonApi = createApi({
 	reducerPath: 'commonApi',
 	baseQuery: axiosBaseQuery(),
-	endpoints: builder => ({
-		getAbout: builder.query<AboutModel, { language: 'ru' | 'en' }>({
+	endpoints: (builder) => ({
+		getAbout: builder.query<AboutModel, { language: LanguageModel }>({
 			query: ({ language }) => ({
-				url: `${language}/about.json`,
+				url: `${language.lang}/about.json`,
 				method: 'GET',
 			}),
 		}),
 
-		getContacts: builder.query<ContactsModel, { language: 'ru' | 'en' }>({
+		getContacts: builder.query<ContactsModel, { language: LanguageModel }>({
 			query: ({ language }) => ({
-				url: `${language}/contacts.json`,
+				url: `${language.lang}/contacts.json`,
 				method: 'GET',
 			}),
 		}),
 
-		getCvMap: builder.query<CvMapModel, { language: 'ru' | 'en' }>({
+		getCvMap: builder.query<CvMapModel, { language: LanguageModel }>({
 			query: ({ language }) => ({
-				url: `${language}/cv-map.json`,
+				url: `${language.lang}/cv-map.json`,
 				method: 'GET',
 			}),
 		}),
 
-		getEducation: builder.query<EducationModel, { language: 'ru' | 'en' }>({
+		getEducation: builder.query<EducationModel, { language: LanguageModel }>({
 			query: ({ language }) => ({
-				url: `${language}/education.json`,
+				url: `${language.lang}/education.json`,
 				method: 'GET',
 			}),
 		}),
 
-		getExperience: builder.query<ExperienceModel, { language: 'ru' | 'en' }>({
+		getExperience: builder.query<ExperienceModel, { language: LanguageModel }>({
 			query: ({ language }) => ({
-				url: `${language}/experience.json`,
+				url: `${language.lang}/experience.json`,
 				method: 'GET',
 			}),
 		}),
 
-		getHardSkills: builder.query<HardSkillsModel, { language: 'ru' | 'en' }>({
+		getFeedback: builder.query<FeedbackModel, { language: LanguageModel }>({
 			query: ({ language }) => ({
-				url: `${language}/hard-skills.json`,
+				url: `${language.lang}/feedback.json`,
 				method: 'GET',
 			}),
 		}),
 
-		getPortfolio: builder.query<PortfolioModel, { language: 'ru' | 'en' }>({
+		getHardSkills: builder.query<HardSkillsModel, { language: LanguageModel }>({
 			query: ({ language }) => ({
-				url: `${language}/portfolio.json`,
+				url: `${language.lang}/hard-skills.json`,
+				method: 'GET',
+			}),
+		}),
+
+		getPortfolio: builder.query<PortfolioModel, { language: LanguageModel }>({
+			query: ({ language }) => ({
+				url: `${language.lang}/portfolio.json`,
 				method: 'GET',
 			}),
 		}),
@@ -72,6 +81,7 @@ export const {
 	useGetCvMapQuery,
 	useGetEducationQuery,
 	useGetExperienceQuery,
+	useGetFeedbackQuery,
 	useGetHardSkillsQuery,
 	useGetPortfolioQuery,
 } = commonApi

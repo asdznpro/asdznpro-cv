@@ -4,9 +4,10 @@ import { useState } from 'react'
 import styles from './Avatar.module.scss'
 import AvatarProps from './Avatar.interface'
 
+import { AvatarSkeleton } from './AvatarSkeleton'
 import { Heading, Spinner } from 'components/ui'
 
-const Avatar: React.FC<AvatarProps> = props => {
+const Avatar = (props: AvatarProps) => {
 	const { src, name, width, height, ...restProps } = props
 
 	const [hasError, setHasError] = useState(false)
@@ -28,5 +29,10 @@ const Avatar: React.FC<AvatarProps> = props => {
 		</div>
 	)
 }
+
+Avatar.Skeleton = AvatarSkeleton
+Avatar.Skeleton.displayName = 'Avatar.Skeleton'
+
+Avatar.displayName = 'Avatar'
 
 export { Avatar }

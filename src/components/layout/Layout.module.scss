@@ -5,16 +5,13 @@
 
 	min-height: 100dvh;
 	box-sizing: border-box;
-
-	// gap: clamp($ui-step * 8, 3vmax, $ui-step * 12);
 }
 
 .main {
 	@include ui-flex-container(flex, $flow: inherit);
 
-	gap: clamp($ui-step * 8, 3vmax, $ui-step * 12);
-	margin: 0 $ui-outer-margin;
-	padding: clamp($ui-step * 8, 3vmax, $ui-step * 12) 0;
+	gap: clamp($ui-step * 10, 3.2vmax, $ui-step * 14);
+	padding: clamp($ui-step * 10, 3.2vmax, $ui-step * 14) 0;
 }
 
 .padding-top-sm {
@@ -25,7 +22,7 @@
 	padding-top: clamp($ui-step * 36, calc(8vmax + 6vmin), $ui-step * 50);
 }
 
-// 
+//
 
 [data-theme='light'] {
 	--warning-light: 0 0 0 0;
@@ -43,9 +40,6 @@
 	@include ui-flex-container(flex, center, center);
 
 	overflow: hidden;
-	// border-radius: $ui-rounded--xl;
-
-	// margin: $ui-outer-margin $ui-outer-margin 0;
 
 	color: var(--text-contrast);
 	background: var(--accent-negative-color);

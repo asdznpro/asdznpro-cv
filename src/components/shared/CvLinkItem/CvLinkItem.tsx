@@ -6,11 +6,12 @@ import { useDynamicAlignment } from 'hooks'
 import styles from './CvLinkItem.module.scss'
 import CvLinkItemProps from './CvLinkItem.interface'
 
+import { CvLinkItemSkeleton } from './CvLinkItemSkeleton'
 import { Box, Tile, RouterLink, CustomCursor } from 'components/ui'
 
 import { Icon28LinkOutline } from '@vkontakte/icons'
 
-const CvLinkItem: React.FC<CvLinkItemProps> = props => {
+const CvLinkItem = (props: CvLinkItemProps) => {
 	const { children, to, href, target, backgroundColor, ...restProps } = props
 
 	const { screenWidth } = useDynamicAlignment()
@@ -31,7 +32,7 @@ const CvLinkItem: React.FC<CvLinkItemProps> = props => {
 				.join(' ')
 				.trim()}
 		>
-			{screenWidth >= 768 && isHovered && <CustomCursor appearance='neutral' />}
+			{screenWidth >= 768 && isHovered && <CustomCursor appearance="neutral" />}
 
 			{(to || href) && (
 				<RouterLink
@@ -52,5 +53,10 @@ const CvLinkItem: React.FC<CvLinkItemProps> = props => {
 		</Tile>
 	)
 }
+
+CvLinkItem.Skeleton = CvLinkItemSkeleton
+CvLinkItem.Skeleton.displayName = 'CvLinkItem.Skeleton'
+
+CvLinkItem.displayName = 'CvLinkItem'
 
 export { CvLinkItem }

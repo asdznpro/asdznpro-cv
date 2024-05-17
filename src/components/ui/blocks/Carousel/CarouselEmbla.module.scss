@@ -1,0 +1,17 @@
+@import 'assets/styles/Variables';
+
+.root {
+	@include ui-size-control($maxW: 100%);
+	@include ui-flex-container(flex, $items: center);
+
+	position: relative;
+
+	.container {
+		@include ui-size-control(100%, $maxW: 100%);
+		@include ui-flex-container(flex);
+
+		gap: 6px;
+		backface-visibility: hidden;
+		touch-action: pan-y pinch-zoom;
+	}
+}

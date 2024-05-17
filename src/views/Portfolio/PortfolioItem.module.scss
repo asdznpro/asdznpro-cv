@@ -11,7 +11,8 @@
 		color: var(--text-secondary);
 		border-radius: inherit;
 		background: var(--background-alpha);
-		box-shadow: 0 0 0 1px var(--separator);
+		outline: 1px solid var(--separator);
+		outline-offset: -1px;
 
 		aspect-ratio: 133 / 64;
 

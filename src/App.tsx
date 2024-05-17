@@ -26,20 +26,20 @@ function App() {
 
 	useLanguage()
 
-	const language = useAppSelector((state: RootState) => state.language.language)
+	const language = useAppSelector((state: RootState) => state.language.lang)
 
 	useEffect(() => {
-		document.documentElement.lang = language
+		document.documentElement.lang = language.lang
 
 		const title =
-			language === 'en'
+			language.lang === 'en'
 				? `Andrew Sukhushin's Curriculum Vitae`
 				: 'Андрей Сухушин // Curriculum Vitae'
 
 		document.title = title
 
 		const description =
-			language === 'en'
+			language.lang === 'en'
 				? 'Graphic Designer with over 5 years of experience creating unique and creative design solutions. In the past year, also actively developing in the field of UI/UX Design & Frontend Development, striving to apply a creative approach to creating functional and attractive web interfaces // Graphic & UI/UX Designer, Frontend Developer'
 				: 'Графический дизайнер с более чем 5-летним стажем работы в создании уникальных и креативных дизайн-решений. В последний год также активно развиваюсь в области UI/UX дизайна и Frontend-разработки, стремясь применять свой творческий подход к созданию функциональных и привлекательных веб-интерфейсов // Графический & UI/UX дизайнер, Фронтенд-разработчик'
 
@@ -56,7 +56,7 @@ function App() {
 		}
 
 		const ogDescription = document.querySelector(
-			'meta[property="og:description"]'
+			'meta[property="og:description"]',
 		)
 
 		if (ogDescription) {
@@ -68,24 +68,26 @@ function App() {
 
 	usePreferredTheme()
 
-	const theme = useAppSelector((state: RootState) => state.theme.theme)
+	const theme = useAppSelector((state: RootState) => state.theme.mode)
 
 	useEffect(() => {
-		document.documentElement.setAttribute('data-theme', theme)
+		document.documentElement.setAttribute('data-theme', theme.mode)
 
 		const metaThemeColor = document.querySelector('meta[name=theme-color]')
 
 		if (metaThemeColor) {
 			metaThemeColor.setAttribute(
 				'content',
-				theme === 'dark' ? '#17171C' : '#F4F4F6'
+				theme.mode === 'dark' ? '#17171C' : '#F4F4F6',
 			)
 		}
 	}, [theme])
 
 	// useGetAboutQuery
 
-	const { data: aboutData } = useGetAboutQuery({ language })
+	const { data: aboutData } = useGetAboutQuery({
+		language,
+	})
 
 	useEffect(() => {
 		if (aboutData) {

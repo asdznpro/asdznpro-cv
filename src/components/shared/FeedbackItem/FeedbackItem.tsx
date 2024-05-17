@@ -8,12 +8,12 @@ import { Box, Fontbody, Footnote, Heading, Tile } from 'components/ui'
 
 import { Icon28UserOutline } from '@vkontakte/icons'
 
-const FeedbackItem: React.FC<FeedbackItemProps> = props => {
-	const { avatar, fullName, jobTitle, value, children } = props
+const FeedbackItem: React.FC<FeedbackItemProps> = (props) => {
+	const { avatar, fullName, jobTitle, value, children, ...restProps } = props
 	const [hasError, setHasError] = useState(false)
 
 	return (
-		<Tile>
+		<Tile {...restProps}>
 			<Box YPadding>
 				<div className={styles.person}>
 					{avatar && (
@@ -31,15 +31,15 @@ const FeedbackItem: React.FC<FeedbackItemProps> = props => {
 					)}
 
 					<div className={styles.info}>
-						<Heading level={4} wideLevel={3} className='ui-text-truncate'>
+						<Heading level={4} wideLevel={3} className="ui-text-truncate">
 							{fullName}
 						</Heading>
 
-						<Footnote className='ui-text-secondary'>{jobTitle}</Footnote>
+						<Footnote className="ui-text-secondary">{jobTitle}</Footnote>
 					</div>
 				</div>
 
-				<Fontbody level={2} className='ui-clamp-3'>
+				<Fontbody level={2} className="ui-clamp-3">
 					{value}
 				</Fontbody>
 

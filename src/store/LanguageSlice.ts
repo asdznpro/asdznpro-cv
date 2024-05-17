@@ -1,25 +1,27 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from 'store'
 
+import { LanguageModel } from 'models'
+
 interface LanguageState {
-	language: 'ru' | 'en'
+	lang: LanguageModel
 }
 
 const initialState: LanguageState = {
-	language: 'ru',
+	lang: { lang: 'ru' },
 }
 
 export const languageSlice = createSlice({
 	name: 'language',
 	initialState,
 	reducers: {
-		setLanguage: (state, action: PayloadAction<'ru' | 'en'>) => {
-			state.language = action.payload
+		setLanguage: (state, action: PayloadAction<LanguageModel>) => {
+			state.lang = action.payload
 		},
 	},
 })
 
 export const { setLanguage } = languageSlice.actions
-export const selectLanguage = (state: RootState) => state.language.language
+export const selectLanguage = (state: RootState) => state.language.lang
 
 export default languageSlice.reducer

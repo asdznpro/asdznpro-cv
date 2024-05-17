@@ -1,0 +1,23 @@
+@import 'assets/styles/Variables';
+
+.root {
+	border-radius: $ui-rounded--md;
+}
+
+// levels
+
+.level-1 {
+	@include ui-size-control($H: 72px);
+}
+
+.level-2 {
+	@include ui-size-control($H: 48px);
+}
+
+.level-3 {
+	@include ui-size-control($H: 36px);
+}
+
+.level-4 {
+	@include ui-size-control($H: 32px);
+}

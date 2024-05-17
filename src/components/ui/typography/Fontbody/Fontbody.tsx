@@ -1,7 +1,9 @@
 import styles from './Fontbody.module.scss'
 import TypographyProps from '../TypographyProps.interface'
 
-const Fontbody: React.FC<TypographyProps> = props => {
+import { FontbodySkeleton } from './FontbodySkeleton'
+
+const Fontbody = (props: TypographyProps) => {
 	const { level, children, role, className, ...restProps } = props
 
 	const Tag = role === 'paragraph' ? `p` : `span`
@@ -17,5 +19,10 @@ const Fontbody: React.FC<TypographyProps> = props => {
 		</Tag>
 	)
 }
+
+Fontbody.Skeleton = FontbodySkeleton
+Fontbody.Skeleton.displayName = 'Fontbody.Skeleton'
+
+Fontbody.displayName = 'Fontbody'
 
 export { Fontbody }

@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch, useDynamicAlignment } from 'hooks'
 import { setTheme, selectTheme, setLanguage, selectLanguage } from 'store'
 
 import styles from './Header.module.scss'
+import { LanguageModel, ThemeModel } from 'models'
 
 import { AppLink, Button, Counter, Spinner } from 'components/ui'
 
@@ -13,20 +14,20 @@ import { Icon28MoonOutline, Icon28SunOutline } from '@vkontakte/icons'
 const Header: React.FC = () => {
 	const { screenWidth } = useDynamicAlignment()
 
-	const location = useLocation()
 	const dispatch = useAppDispatch()
+	const location = useLocation()
 
-	const storeCvMapData = useAppSelector(state => state.common.cvMap)
-	const storePortfolioData = useAppSelector(state => state.common.portfolio)
+	const storeCvMapData = useAppSelector((state) => state.common.cvMap)
+	const storePortfolioData = useAppSelector((state) => state.common.portfolio)
 
 	// handleToggleLanguage
 
 	const language = useAppSelector(selectLanguage)
 
 	const handleToggleLanguage = () => {
-		const newLanguage = language === 'ru' ? 'en' : 'ru'
+		const newLanguage = language.lang === 'ru' ? 'en' : 'ru'
 
-		dispatch(setLanguage(newLanguage))
+		dispatch(setLanguage({ lang: newLanguage } as LanguageModel))
 
 		localStorage.setItem('language', newLanguage)
 	}
@@ -36,9 +37,9 @@ const Header: React.FC = () => {
 	const theme = useAppSelector(selectTheme)
 
 	const handleToggleTheme = () => {
-		const newTheme = theme === 'light' ? 'dark' : 'light'
+		const newTheme = theme.mode === 'light' ? 'dark' : 'light'
 
-		dispatch(setTheme(newTheme))
+		dispatch(setTheme({ mode: newTheme } as ThemeModel))
 
 		localStorage.setItem('theme', newTheme)
 	}
@@ -47,7 +48,7 @@ const Header: React.FC = () => {
 		<div className={styles.root}>
 			<div className={styles.container}>
 				<div className={styles['header-part']}>
-					<AppLink to='/' className='ui-flex'>
+					<AppLink to="/" className="ui-flex">
 						{screenWidth > 880 ? (
 							<CvLogo width={369.42} height={44} />
 						) : screenWidth > 360 ? (
@@ -76,11 +77,11 @@ const Header: React.FC = () => {
 											? 'outline'
 											: 'ghost'
 									}
-									appearance='neutral'
+									appearance="neutral"
 									after={
 										item.pathname === 'portfolio' &&
 										storePortfolioData && (
-											<Counter counterSize='sm' appearance='neutral'>
+											<Counter counterSize="sm" appearance="neutral">
 												{storePortfolioData.data.length}
 											</Counter>
 										)
@@ -109,8 +110,8 @@ const Header: React.FC = () => {
 								{[...Array(3)].map((_, index) => (
 									<Button
 										key={index}
-										mode='outline'
-										appearance='neutral'
+										mode="outline"
+										appearance="neutral"
 										noneAction
 									>
 										<Spinner style={{ padding: '0 28px' }} />
@@ -121,8 +122,8 @@ const Header: React.FC = () => {
 
 					{screenWidth <= 1440 && (
 						<Button
-							appearance='neutral'
-							mode='secondary'
+							appearance="neutral"
+							mode="secondary"
 							before={<Spinner />}
 							rounded
 						>
@@ -132,9 +133,9 @@ const Header: React.FC = () => {
 
 					<Button
 						onClick={handleToggleTheme}
-						appearance={theme === 'light' ? 'neutral' : 'accent'}
+						appearance={theme.mode === 'light' ? 'neutral' : 'accent'}
 						before={
-							theme === 'light' ? (
+							theme.mode === 'light' ? (
 								<Icon28MoonOutline width={24} height={24} />
 							) : (
 								<Icon28SunOutline width={24} height={24} />
@@ -145,23 +146,23 @@ const Header: React.FC = () => {
 
 					<Button
 						onClick={handleToggleLanguage}
-						mode='outline'
-						appearance='neutral'
+						mode="outline"
+						appearance="neutral"
 						before={
 							<img
 								src={
-									language === 'ru'
+									language.lang === 'ru'
 										? 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/custom/great-britain_color.svg'
 										: 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/custom/russia.svg'
 								}
-								alt={language === 'ru' ? 'EN' : 'RU'}
+								alt={language.lang === 'ru' ? 'EN' : 'RU'}
 								width={24}
 								height={24}
 							/>
 						}
 						rounded
 					>
-						{screenWidth > 576 && (language === 'ru' ? 'EN' : 'RU')}
+						{screenWidth > 576 && (language.lang === 'ru' ? 'EN' : 'RU')}
 					</Button>
 				</div>
 			</div>

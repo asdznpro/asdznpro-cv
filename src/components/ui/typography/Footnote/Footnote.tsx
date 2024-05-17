@@ -1,7 +1,9 @@
 import styles from './Footnote.module.scss'
 import TypographyProps from '../TypographyProps.interface'
 
-const Footnote: React.FC<TypographyProps> = props => {
+import { FootnoteSkeleton } from './FootnoteSkeleton'
+
+const Footnote = (props: TypographyProps) => {
 	const { level, children, role, className, ...restProps } = props
 
 	const Tag = (
@@ -19,5 +21,10 @@ const Footnote: React.FC<TypographyProps> = props => {
 		</Tag>
 	)
 }
+
+Footnote.Skeleton = FootnoteSkeleton
+Footnote.Skeleton.displayName = 'Footnote.Skeleton'
+
+Footnote.displayName = 'Footnote'
 
 export { Footnote }

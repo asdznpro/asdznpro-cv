@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
 export const setupStore = () => {
 	return configureStore({
 		reducer: rootReducer,
-		middleware: getDefaultMiddleware =>
+		middleware: (getDefaultMiddleware) =>
 			getDefaultMiddleware().concat([commonApi.middleware]),
 	})
 }
@@ -27,12 +27,13 @@ export type AppStore = ReturnType<typeof setupStore>
 export type AppDispatch = AppStore['dispatch']
 
 export {
+	setAboutData,
 	setContactsData,
 	setCvMapData,
 	setEducationData,
 	setExperienceData,
+	setFeedbackData,
 	setHardSkillsData,
-	setAboutData,
 	setPortfolioData,
 } from './СommonSlice'
 export { setLanguage, selectLanguage } from './LanguageSlice'

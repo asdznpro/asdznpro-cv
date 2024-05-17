@@ -21,9 +21,12 @@ const About = () => {
 	const language = useAppSelector(selectLanguage)
 	const theme = useAppSelector(selectTheme)
 
-	const storeAboutData = useAppSelector(state => state.common.about)
+	const storeAboutData = useAppSelector((state) => state.common.about)
 
-	useDocumentTitle(storeAboutData ? storeAboutData.displayName : '', language)
+	useDocumentTitle(
+		storeAboutData ? storeAboutData.displayName : '',
+		language.lang,
+	)
 
 	return (
 		<React.Fragment>
@@ -36,7 +39,7 @@ const About = () => {
 								before={
 									<Breadcrumbs
 										customLabels={[storeAboutData.displayName]}
-										selectLanguage={language}
+										selectLanguage={language.lang}
 									/>
 								}
 							/>
@@ -47,7 +50,7 @@ const About = () => {
 						<Tile>
 							<Box YPadding>
 								{storeAboutData.data.bio.map((item, index) => (
-									<Fontbody key={index} role='paragraph'>
+									<Fontbody key={index} role="paragraph">
 										{item}
 									</Fontbody>
 								))}
@@ -63,12 +66,12 @@ const About = () => {
 										if (item.id && item.id === 'birthday') {
 											const birthDate = new Date(value)
 											const formattedDate = birthDate.toLocaleDateString(
-												language,
+												language.lang,
 												{
 													day: 'numeric',
 													month: 'long',
 													year: 'numeric',
-												}
+												},
 											)
 
 											const today = new Date()
@@ -78,7 +81,7 @@ const About = () => {
 											const birthDayThisYear = new Date(
 												today.getFullYear(),
 												birthDate.getMonth(),
-												birthDate.getDate()
+												birthDate.getDate(),
 											)
 
 											if (today < birthDayThisYear) {
@@ -87,14 +90,14 @@ const About = () => {
 
 											const ageString =
 												age % 10 === 1 && age !== 11
-													? `${age} ${language === 'en' ? 'years old' : 'год'}`
+													? `${age} ${language.lang === 'en' ? 'years old' : 'год'}`
 													: `${age} ${
 															age % 10 >= 2 &&
 															age % 10 <= 4 &&
 															!(age >= 12 && age <= 14)
-																? `${language === 'en' ? 'years old' : 'года'}`
-																: `${language === 'en' ? 'years old' : 'лет'}`
-													  }`
+																? `${language.lang === 'en' ? 'years old' : 'года'}`
+																: `${language.lang === 'en' ? 'years old' : 'лет'}`
+														}`
 
 											value = `${formattedDate} (${ageString})`
 										}
@@ -104,7 +107,7 @@ const About = () => {
 												key={index}
 												title={item.title}
 												icon={
-													theme === 'dark' && item.iconLight
+													theme.mode === 'dark' && item.iconLight
 														? item.iconLight
 														: item.icon
 												}
@@ -120,7 +123,7 @@ const About = () => {
 						<Tile>
 							<Box YPadding>
 								<Fontbody
-									className='ui-text-secondary'
+									className="ui-text-secondary"
 									style={{ margin: '0 auto', padding: '28px 0' }}
 								>
 									*рекомендации как на HH*

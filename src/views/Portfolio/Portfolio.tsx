@@ -17,39 +17,39 @@ const Portfolio = () => {
 	const language = useAppSelector(selectLanguage)
 	const theme = useAppSelector(selectTheme)
 
-	const storePortfolioData = useAppSelector(state => state.common.portfolio)
+	const storePortfolioData = useAppSelector((state) => state.common.portfolio)
 
 	return (
 		<React.Fragment>
 			<Routes>
 				<Route
-					path=''
+					path=""
 					element={
 						<Portfolio.List
 							storePortfolioData={storePortfolioData}
-							language={language}
-							theme={theme}
+							language={language.lang}
+							theme={theme.mode}
 						/>
 					}
 				/>
 
 				{storePortfolioData ? (
-					storePortfolioData.data.map(item => (
+					storePortfolioData.data.map((item) => (
 						<Route
 							key={item.id}
 							path={item.project.pathname}
 							element={
 								<Portfolio.Project
 									item={item}
-									language={language}
-									theme={theme}
+									language={language.lang}
+									theme={theme.mode}
 								/>
 							}
 						/>
 					))
 				) : (
 					<Route
-						path='*'
+						path="*"
 						element={
 							<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
 						}

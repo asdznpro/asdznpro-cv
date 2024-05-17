@@ -24,7 +24,7 @@ const Contacts = () => {
 	const language = useAppSelector(selectLanguage)
 
 	const { data: contactsData } = useGetContactsQuery({ language })
-	const storeContactsData = useAppSelector(state => state.common.contacts)
+	const storeContactsData = useAppSelector((state) => state.common.contacts)
 
 	useEffect(() => {
 		if (contactsData) {
@@ -34,7 +34,7 @@ const Contacts = () => {
 
 	useDocumentTitle(
 		storeContactsData ? storeContactsData.displayName : '',
-		language
+		language.lang,
 	)
 
 	return (
@@ -48,7 +48,7 @@ const Contacts = () => {
 								before={
 									<Breadcrumbs
 										customLabels={[storeContactsData.displayName]}
-										selectLanguage={language}
+										selectLanguage={language.lang}
 									/>
 								}
 							/>
@@ -67,7 +67,7 @@ const Contacts = () => {
 								<CvLinkItem
 									key={index}
 									href={link.href}
-									target='_blank'
+									target="_blank"
 									backgroundColor={link.name.toLowerCase().replace(/\s+/g, '-')}
 								>
 									<img
@@ -84,7 +84,21 @@ const Contacts = () => {
 					</Section>
 				</>
 			) : (
-				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
+				<Section>
+					<div
+						style={{
+							display: 'grid',
+							gridTemplateColumns: '1fr 1fr',
+							gap: 'clamp(8px, 1vmax, 20px)',
+						}}
+					>
+						{[...Array(6)].map((_, index) => (
+							<CvLinkItem.Skeleton key={index} />
+						))}
+					</div>
+
+					<PageNavigation.Skeleton />
+				</Section>
 			)}
 		</React.Fragment>
 	)
