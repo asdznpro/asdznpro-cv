@@ -2,8 +2,9 @@ import * as React from 'react'
 
 import styles from './HardSkills.module.scss'
 import HardSkillItemProps from './HardSkillItem.interface'
+import { Fontbody, Footnote } from 'components/ui'
 
-const HardSkillItemSkeleton: React.FC<HardSkillItemProps> = props => {
+const HardSkillItemSkeleton: React.FC<HardSkillItemProps> = (props) => {
 	const { name, src, children, ...restProps } = props
 
 	return (
@@ -11,9 +12,15 @@ const HardSkillItemSkeleton: React.FC<HardSkillItemProps> = props => {
 			<div className={[styles.skeletonImage, 'ui-skeleton'].join(' ')} />
 
 			<div className={styles.skeletonInfo}>
-				<span className={[styles.skeletonInfoName, 'ui-skeleton'].join(' ')} />
-				<span
-					className={[styles.skeletonInfoCaption, 'ui-skeleton'].join(' ')}
+				<Fontbody.Skeleton
+					style={{
+						width: '84%',
+					}}
+				/>
+				<Footnote.Skeleton
+					style={{
+						width: '60%',
+					}}
 				/>
 			</div>
 		</div>

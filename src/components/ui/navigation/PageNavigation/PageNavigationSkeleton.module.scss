@@ -16,18 +16,6 @@
 		@include ui-flex-container(flex, center, $flow: column);
 
 		gap: $ui-step;
-
-		&Title {
-			@include ui-size-control(60%, 20px);
-
-			border-radius: $ui-rounded--sm;
-		}
-
-		&Value {
-			@include ui-size-control(84%, 32px);
-
-			border-radius: $ui-rounded--sm;
-		}
 	}
 
 	@media (max-width: $ui-max-w--mobile) {

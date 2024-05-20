@@ -19,8 +19,12 @@
 		overflow: hidden;
 		border-radius: $ui-rounded--xl;
 		background: var(--header--alpha);
-		backdrop-filter: blur(44px);
-		box-shadow: 0 0 0 1px var(--separator);
+		backdrop-filter: blur(48px);
+
+		// box-shadow: 0 0 0 1px var(--separator);
+
+		outline: 1px solid var(--separator);
+		outline-offset: -1px;
 
 		.header-part {
 			@include ui-flex-container(flex, $items: center);

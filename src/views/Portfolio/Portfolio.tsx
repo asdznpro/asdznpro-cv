@@ -7,11 +7,18 @@ import { selectLanguage, selectTheme } from 'store'
 
 import styles from './Portfolio.module.scss'
 
-import { Spinner } from 'components/ui'
-
 import { PortfolioItem } from './PortfolioItem'
 import { PortfolioList } from './PortfolioList'
 import { PortfolioProject } from './PortfolioProject'
+
+import {
+	Box,
+	Breadcrumbs,
+	PageNavigation,
+	Section,
+	Spinner,
+	Tile,
+} from 'components/ui'
 
 const Portfolio = () => {
 	const language = useAppSelector(selectLanguage)
@@ -51,7 +58,27 @@ const Portfolio = () => {
 					<Route
 						path="*"
 						element={
-							<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
+							<>
+								<Section countColumns={10}>
+									<Box>
+										<Breadcrumbs.Skeleton />
+									</Box>
+								</Section>
+
+								<Section countColumns={10}>
+									<Tile>
+										<Box YPadding>
+											<Spinner
+												className="ui-mx-auto ui-py-48-px"
+												width={36}
+												height={36}
+											/>
+										</Box>
+									</Tile>
+
+									<PageNavigation.Skeleton />
+								</Section>
+							</>
 						}
 					/>
 				)}

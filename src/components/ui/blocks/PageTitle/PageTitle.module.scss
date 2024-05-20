@@ -3,5 +3,5 @@
 .root {
 	@include ui-flex-container(flex, $flow: column);
 
-	gap: clamp($ui-step * 2, 1.2vmax, $ui-spacing);
+	gap: $ui-spacing;
 }

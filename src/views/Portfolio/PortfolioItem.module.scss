@@ -11,6 +11,7 @@
 		color: var(--text-secondary);
 		border-radius: inherit;
 		background: var(--background-alpha);
+
 		outline: 1px solid var(--separator);
 		outline-offset: -1px;
 
@@ -58,6 +59,8 @@
 
 			img {
 				transition: 0.24s ease-in;
+				z-index: -1;
+				object-fit: cover;
 			}
 		}
 	}

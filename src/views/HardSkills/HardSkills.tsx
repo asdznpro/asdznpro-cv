@@ -125,21 +125,29 @@ const HardSkills = () => {
 					</Section>
 				</>
 			) : (
-				<Section countColumns={8}>
-					{[...Array(2)].map((_, index) => (
-						<Tile key={index}>
-							<Box YPadding>
-								<div className={styles.list}>
-									{[...Array(6)].map((_, index) => (
-										<HardSkills.Skeleton key={index} />
-									))}
-								</div>
-							</Box>
-						</Tile>
-					))}
+				<>
+					<Section countColumns={8}>
+						<Box>
+							<PageTitle.Skeleton before={<Breadcrumbs.Skeleton />} />
+						</Box>
+					</Section>
 
-					<PageNavigation.Skeleton />
-				</Section>
+					<Section countColumns={8}>
+						{[...Array(2)].map((_, index) => (
+							<Tile key={index}>
+								<Box YPadding>
+									<div className={styles.list}>
+										{[...Array(6)].map((_, index) => (
+											<HardSkills.Skeleton key={index} />
+										))}
+									</div>
+								</Box>
+							</Tile>
+						))}
+
+						<PageNavigation.Skeleton />
+					</Section>
+				</>
 			)}
 		</React.Fragment>
 	)

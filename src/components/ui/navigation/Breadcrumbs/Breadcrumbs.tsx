@@ -5,13 +5,14 @@ import { Link, useLocation } from 'react-router-dom'
 import styles from './Breadcrumbs.module.scss'
 import BreadcrumbsProps from './Breadcrumbs.interface'
 
+import { BreadcrumbsSkeleton } from './BreadcrumbsSkeleton'
 import { Fontbody } from 'components/ui'
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
+const Breadcrumbs = (props: BreadcrumbsProps) => {
 	const { customLabels, selectLanguage, ...restProps } = props
 
 	const location = useLocation()
-	const pathnames = location.pathname.split('/').filter(x => x)
+	const pathnames = location.pathname.split('/').filter((x) => x)
 
 	const breadcrumbPaths = [
 		{ path: '/', name: selectLanguage === 'en' ? 'CV' : 'Резюме' },
@@ -32,9 +33,9 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
 	return (
 		<div {...restProps} className={styles.root}>
 			<ul
-				aria-label='breadcrumbs'
+				aria-label="breadcrumbs"
 				itemScope
-				itemType='https://schema.org/BreadcrumbList'
+				itemType="https://schema.org/BreadcrumbList"
 				className={styles.list}
 			>
 				{breadcrumbPaths.map((breadcrumb, index) => {
@@ -64,22 +65,22 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
 
 							<li
 								itemScope
-								itemProp='itemListElement'
-								itemType='https://schema.org/ListItem'
+								itemProp="itemListElement"
+								itemType="https://schema.org/ListItem"
 								className={[styles.link, isLast ? styles.disabled : '']
 									.join(' ')
 									.trim()}
 							>
-								<Component {...additionalProps} itemProp='item'>
+								<Component {...additionalProps} itemProp="item">
 									<Fontbody
 										level={2}
-										itemProp='name'
+										itemProp="name"
 										className={isLast ? '' : 'ui-text-secondary'}
 									>
 										{breadcrumb.name}
 									</Fontbody>
 								</Component>
-								<meta itemProp='position' content={(index + 1).toString()} />
+								<meta itemProp="position" content={(index + 1).toString()} />
 							</li>
 						</React.Fragment>
 					)
@@ -88,5 +89,10 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = props => {
 		</div>
 	)
 }
+
+Breadcrumbs.Skeleton = BreadcrumbsSkeleton
+Breadcrumbs.Skeleton.displayName = 'Breadcrumbs.Skeleton'
+
+Breadcrumbs.displayName = 'Breadcrumbs'
 
 export { Breadcrumbs }

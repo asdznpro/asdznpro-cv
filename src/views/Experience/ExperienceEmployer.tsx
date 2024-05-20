@@ -184,55 +184,60 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 				</Tile>
 			</Section>
 
-			{feedbackData.length > 0 && (
-				<Section countColumns={10}>
-					<Box>
-						<Heading level={2} className="ui-text-uppercase">
-							Отзывы о работе
-						</Heading>
-					</Box>
+			{feedbackData && feedbackData.length > 0 && (
+				<div className="ui-max-w-full ui-overflow-hidden">
+					<Section countColumns={10}>
+						<Box>
+							<Heading level={2} className="ui-text-uppercase">
+								Отзывы о работе
+							</Heading>
+						</Box>
 
-					<span />
+						<span />
 
-					<Carousel.Embla>
-						{feedbackData.map((item) => (
-							<FeedbackItem
-								key={item.id + item.id}
-								avatar={item.avatar}
-								fullName={item.fullName}
-								jobTitle={item.jobTitle}
-								value={item.value}
-								style={{ flex: '0 0 100%' }}
-							>
-								{item.socialNetworks && (
-									<Carousel.Embla>
-										{item.socialNetworks &&
-											item.socialNetworks.map((network, index) => (
-												<Button
-													key={item.id + '-' + index}
-													href={network.href}
-													target="_blank"
-													appearance="neutral"
-													before={
-														<img
-															src={network.icon}
-															alt={
-																'@' +
-																network.href.replace(/^\//, '').split('/').pop()
-															}
-														/>
-													}
-												>
-													{'@' +
-														network.href.replace(/^\//, '').split('/').pop()}
-												</Button>
-											))}
-									</Carousel.Embla>
-								)}
-							</FeedbackItem>
-						))}
-					</Carousel.Embla>
-				</Section>
+						<Carousel.Embla>
+							{feedbackData.map((item) => (
+								<FeedbackItem
+									key={item.id + item.id}
+									avatar={item.avatar}
+									fullName={item.fullName}
+									jobTitle={item.jobTitle}
+									value={item.value}
+									style={{ flex: '0 0 100%' }}
+								>
+									{item.socialNetworks && (
+										<Carousel.Embla>
+											{item.socialNetworks &&
+												item.socialNetworks.map((network, index) => (
+													<Button
+														key={item.id + '-' + index}
+														href={network.href}
+														target="_blank"
+														appearance="neutral"
+														before={
+															<img
+																src={network.icon}
+																alt={
+																	'@' +
+																	network.href
+																		.replace(/^\//, '')
+																		.split('/')
+																		.pop()
+																}
+															/>
+														}
+													>
+														{'@' +
+															network.href.replace(/^\//, '').split('/').pop()}
+													</Button>
+												))}
+										</Carousel.Embla>
+									)}
+								</FeedbackItem>
+							))}
+						</Carousel.Embla>
+					</Section>
+				</div>
 			)}
 
 			<Section countColumns={10}>

@@ -83,160 +83,152 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 						</Box>
 					</Section>
 
-					<Section
-						style={{
-							maxWidth: '100%',
-							alignItems: 'center',
-							overflow: 'hidden',
-						}}
-					>
-						<Box className="ui-w-full ui-max-w-12-cols">
-							<Carousel.Embla options={OPTIONS}>
-								{storePortfolioData.data.length > 1 ? (
-									<>
-										<Button
-											onClick={() => setSelectedTags([])}
-											buttonSize="md"
-											mode={
-												selectedTags.length > 0
-													? theme === 'light'
-														? 'secondary'
-														: 'outline'
-													: 'primary'
-											}
-											appearance={
-												selectedTags.length > 0 ? 'neutral' : 'accent'
-											}
-											after={
-												<Counter appearance="neutral">
-													{storePortfolioData.data.length}
-												</Counter>
-											}
-											rounded={selectedTags.length > 0 ? false : true}
-										>
-											{language === 'en' ? 'All' : 'Все работы'}
-										</Button>
+					<div className="ui-max-w-full ui-overflow-hidden">
+						<Section>
+							<Box className="ui-max-w-12-cols">
+								<Carousel.Embla options={OPTIONS}>
+									{storePortfolioData.data.length > 1 ? (
+										<>
+											<Button
+												onClick={() => setSelectedTags([])}
+												buttonSize="md"
+												mode={
+													selectedTags.length > 0
+														? theme === 'light'
+															? 'secondary'
+															: 'outline'
+														: 'primary'
+												}
+												appearance={
+													selectedTags.length > 0 ? 'neutral' : 'accent'
+												}
+												after={
+													<Counter appearance="neutral">
+														{storePortfolioData.data.length}
+													</Counter>
+												}
+												rounded={selectedTags.length > 0 ? false : true}
+											>
+												{language === 'en' ? 'All' : 'Все работы'}
+											</Button>
 
-										{storePortfolioData.tags.map((tag, index) => {
-											const projectsWithTag = storePortfolioData.data.filter(
-												(item) =>
-													item.tags.some(
-														(tagItem) => tagItem.type === tag.type,
-													),
-											)
+											{storePortfolioData.tags.map((tag, index) => {
+												const projectsWithTag = storePortfolioData.data.filter(
+													(item) =>
+														item.tags.some(
+															(tagItem) => tagItem.type === tag.type,
+														),
+												)
 
-											return (
+												return (
+													<Button
+														key={index}
+														onClick={() => toggleTag(tag.type)}
+														buttonSize="md"
+														mode={
+															selectedTags.includes(tag.type)
+																? 'primary'
+																: theme === 'light'
+																	? 'secondary'
+																	: 'outline'
+														}
+														appearance={
+															selectedTags.includes(tag.type)
+																? 'accent'
+																: 'neutral'
+														}
+														after={
+															<Counter appearance="neutral">
+																{projectsWithTag.length}
+															</Counter>
+														}
+														rounded={selectedTags.includes(tag.type)}
+													>
+														{tag.name}
+													</Button>
+												)
+											})}
+										</>
+									) : (
+										<>
+											<Button
+												buttonSize="md"
+												after={
+													<Counter appearance="neutral">
+														{storePortfolioData.data.length}
+													</Counter>
+												}
+												rounded
+												disabled
+											>
+												{language === 'en' ? 'All' : 'Все работы'}
+											</Button>
+
+											{[...Array(3)].map((_, index) => (
 												<Button
 													key={index}
-													onClick={() => toggleTag(tag.type)}
 													buttonSize="md"
-													mode={
-														selectedTags.includes(tag.type)
-															? 'primary'
-															: theme === 'light'
-																? 'secondary'
-																: 'outline'
-													}
-													appearance={
-														selectedTags.includes(tag.type)
-															? 'accent'
-															: 'neutral'
-													}
+													mode={theme === 'light' ? 'secondary' : 'outline'}
+													appearance="neutral"
 													after={
-														<Counter appearance="neutral">
-															{projectsWithTag.length}
-														</Counter>
+														<Spinner
+															width={28}
+															height={28}
+															style={{ padding: '0 56px' }}
+														/>
 													}
-													rounded={selectedTags.includes(tag.type)}
-												>
-													{tag.name}
-												</Button>
-											)
-										})}
-									</>
-								) : (
-									<>
-										<Button
-											buttonSize="md"
-											after={
-												<Counter appearance="neutral">
-													{storePortfolioData.data.length}
-												</Counter>
-											}
-											rounded
-											disabled
-										>
-											{language === 'en' ? 'All' : 'Все работы'}
-										</Button>
-
-										{[...Array(3)].map((_, index) => (
-											<Button
-												key={index}
-												buttonSize="md"
-												mode={theme === 'light' ? 'secondary' : 'outline'}
-												appearance="neutral"
-												after={
-													<Spinner
-														width={28}
-														height={28}
-														style={{ padding: '0 56px' }}
-													/>
-												}
-												disabled
-											/>
-										))}
-									</>
-								)}
-							</Carousel.Embla>
-						</Box>
-					</Section>
-
-					{storePortfolioData.data.length > 1 && (
-						<Section
-							style={{
-								maxWidth: '100%',
-								alignItems: 'center',
-								overflow: 'hidden',
-							}}
-						>
-							<Box
-								className="ui-w-full ui-max-w-12-cols"
-								style={screenWidth <= 768 ? { padding: '0' } : {}}
-							>
-								<div
-									className={styles.list}
-									style={{
-										gridTemplateColumns: screenWidth <= 768 ? '1fr' : '',
-									}}
-								>
-									{storePortfolioData.data
-										.filter((item) => {
-											if (selectedTags.length === 0) return true
-											return item.tags.some((tag) =>
-												selectedTags.includes(tag.type),
-											)
-										})
-										.map((item) => (
-											<Portfolio.Item
-												key={item.id}
-												to={item.project.pathname}
-												award={
-													item.awards && item.awards.length > 0
-														? item.awards[0]
-														: null
-												}
-												src={item.project.preview}
-												name={item.project.fullName}
-												tags={item.tags
-													.map((tag) => tag.name)
-													.filter((name) => name)
-													.join(', ')}
-												date={'\u00A0• от\u00A0' + item.project.date}
-											/>
-										))}
-								</div>
+													disabled
+												/>
+											))}
+										</>
+									)}
+								</Carousel.Embla>
 							</Box>
 						</Section>
+					</div>
+
+					{storePortfolioData.data.length > 1 && (
+						<div className="ui-max-w-full ui-overflow-hidden">
+							<Section>
+								<Box
+									className="ui-w-full ui-max-w-12-cols"
+									style={screenWidth <= 768 ? { padding: '0' } : {}}
+								>
+									<div
+										className={styles.list}
+										style={{
+											gridTemplateColumns: screenWidth <= 768 ? '1fr' : '',
+										}}
+									>
+										{storePortfolioData.data
+											.filter((item) => {
+												if (selectedTags.length === 0) return true
+												return item.tags.some((tag) =>
+													selectedTags.includes(tag.type),
+												)
+											})
+											.map((item) => (
+												<Portfolio.Item
+													key={item.id}
+													to={item.project.pathname}
+													award={
+														item.awards && item.awards.length > 0
+															? item.awards[0]
+															: null
+													}
+													src={item.project.preview}
+													name={item.project.fullName}
+													tags={item.tags
+														.map((tag) => tag.name)
+														.filter((name) => name)
+														.join(', ')}
+													date={'\u00A0• от\u00A0' + item.project.date}
+												/>
+											))}
+									</div>
+								</Box>
+							</Section>
+						</div>
 					)}
 
 					<Section>
@@ -259,7 +251,63 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 					</Section>
 				</>
 			) : (
-				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
+				<>
+					<Section>
+						<Box>
+							<PageTitle.Skeleton before={<Breadcrumbs.Skeleton />} />
+						</Box>
+					</Section>
+
+					<div className="ui-max-w-full ui-overflow-hidden">
+						<Section>
+							<Box className="ui-max-w-12-cols">
+								<Carousel.Embla options={OPTIONS}>
+									<Button
+										buttonSize="md"
+										after={<Counter appearance="neutral">0</Counter>}
+										rounded
+										disabled
+									>
+										{language === 'en' ? 'All' : 'Все работы'}
+									</Button>
+
+									{[...Array(3)].map((_, index) => (
+										<Button
+											key={index}
+											buttonSize="md"
+											mode={theme === 'light' ? 'secondary' : 'outline'}
+											appearance="neutral"
+											after={
+												<Spinner
+													width={28}
+													height={28}
+													style={{ padding: '0 56px' }}
+												/>
+											}
+											disabled
+										/>
+									))}
+								</Carousel.Embla>
+							</Box>
+						</Section>
+					</div>
+
+					<Section>
+						<Tile>
+							<Box YPadding>
+								<Spinner
+									className="ui-mx-auto ui-py-48-px"
+									width={36}
+									height={36}
+								/>
+							</Box>
+						</Tile>
+					</Section>
+
+					<Section>
+						<PageNavigation.Skeleton />
+					</Section>
+				</>
 			)}
 		</>
 	)

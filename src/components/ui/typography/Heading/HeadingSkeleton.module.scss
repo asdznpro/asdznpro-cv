@@ -1,23 +1,23 @@
 @import 'assets/styles/Variables';
 
 .root {
-	border-radius: $ui-rounded--md;
+	border-radius: $ui-rounded--l;
 }
 
 // levels
 
 .level-1 {
-	@include ui-size-control($H: 72px);
+	@include ui-size-control($H: clamp(56px, 8.6vmin, 72px));
 }
 
 .level-2 {
-	@include ui-size-control($H: 48px);
+	@include ui-size-control($H: clamp(36px, 6.4vmin, 48px));
 }
 
 .level-3 {
-	@include ui-size-control($H: 36px);
+	@include ui-size-control($H: clamp(28px, 5.6vmin, 36px));
 }
 
 .level-4 {
-	@include ui-size-control($H: 32px);
+	@include ui-size-control($H: clamp(24px, 4.4vmin, 32px));
 }

@@ -9,7 +9,14 @@ import { setExperienceData, selectLanguage, selectTheme } from 'store'
 
 import styles from './Experience.module.scss'
 
-import { Box, Breadcrumbs, Section, Spinner } from 'components/ui'
+import {
+	Box,
+	Breadcrumbs,
+	PageNavigation,
+	Section,
+	Spinner,
+	Tile,
+} from 'components/ui'
 
 import { ExperienceItem } from './ExperienceItem'
 import { ExperienceList } from './ExperienceList'
@@ -58,11 +65,13 @@ const Experience = () => {
 					}
 				/>
 
-				{storeExperienceData && storeFeedbackData ? (
+				{storeExperienceData ? (
 					storeExperienceData.data.map((item) => {
-						const matchingFeedback = storeFeedbackData.data.find(
-							(feedbackItem) => feedbackItem.id === item.pathname,
-						)
+						const matchingFeedback =
+							storeFeedbackData &&
+							storeFeedbackData.data.find(
+								(feedbackItem) => feedbackItem.id === item.pathname,
+							)
 
 						return (
 							<Route
@@ -99,7 +108,27 @@ const Experience = () => {
 					<Route
 						path="*"
 						element={
-							<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
+							<>
+								<Section countColumns={10}>
+									<Box>
+										<Breadcrumbs.Skeleton />
+									</Box>
+								</Section>
+
+								<Section countColumns={10}>
+									<Tile>
+										<Box YPadding>
+											<Spinner
+												className="ui-mx-auto ui-py-48-px"
+												width={36}
+												height={36}
+											/>
+										</Box>
+									</Tile>
+
+									<PageNavigation.Skeleton />
+								</Section>
+							</>
 						}
 					/>
 				)}

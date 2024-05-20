@@ -9,6 +9,7 @@
 	color: var(--text-contrast);
 
 	box-shadow: none !important;
+	outline: none !important;
 
 	.link {
 		@include ui-absolute-center;

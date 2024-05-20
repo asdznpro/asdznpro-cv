@@ -38,19 +38,10 @@ const Home = () => {
 							gap: 'clamp(8px, 1vmax, 20px)',
 						}}
 					>
-						<Tile
-							style={{
-								justifyContent: 'center',
-							}}
-						>
-							<Box
-								YPadding
-								style={{
-									alignItems: 'center',
-									// flexFlow: screenWidth >= 748 ? 'row' : '',
-								}}
-							>
+						<Tile>
+							<Box YPadding>
 								<Avatar
+									className="ui-mx-auto"
 									src="https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/about/me.png"
 									name={storeAboutData.data.fullName
 										.split(' ')
@@ -67,7 +58,7 @@ const Home = () => {
 						</Tile>
 
 						<Tile>
-							<Box YPadding style={{ height: '100%' }}>
+							<Box YPadding className="ui-h-100-pct">
 								<Heading level={3} className="ui-text-uppercase">
 									{storeAboutData.data.possibleJobs.title}
 								</Heading>
@@ -77,10 +68,7 @@ const Home = () => {
 									listContent={storeAboutData.data.possibleJobs.list}
 								/>
 
-								<Footnote
-									className="ui-text-secondary"
-									style={{ marginTop: 'auto' }}
-								>
+								<Footnote className="ui-text-secondary ui-mt-auto">
 									{storeAboutData.data.possibleJobs.caption}
 								</Footnote>
 							</Box>
@@ -94,88 +82,31 @@ const Home = () => {
 							gap: 'clamp(8px, 1vmax, 20px)',
 						}}
 					>
-						<Tile
-							style={{
-								justifyContent: 'center',
-							}}
-						>
+						<Tile>
 							<Box YPadding>
-								<Avatar.Skeleton
-									style={{
-										margin: '0 auto',
-									}}
-								/>
+								<Avatar.Skeleton className="ui-mx-auto" />
 
-								<div
-									style={{
-										display: 'flex',
-										flexDirection: 'column',
-										alignItems: 'center',
-										gap: 6,
-									}}
-								>
-									<Heading.Skeleton
-										level={3}
-										style={{
-											width: '84%',
-										}}
-									/>
-									<Heading.Skeleton
-										level={3}
-										style={{
-											width: '60%',
-										}}
-									/>
+								<div className="ui-flex ui-col ui-items-center ui-gap-4">
+									<Heading.Skeleton level={3} className="ui-w-84-pct" />
+									<Heading.Skeleton level={3} className="ui-w-56-pct" />
 								</div>
 							</Box>
 						</Tile>
 
 						<Tile>
-							<Box YPadding style={{ height: '100%' }}>
-								<div
-									style={{
-										display: 'flex',
-										flexDirection: 'column',
-										gap: 6,
-									}}
-								>
-									<Heading.Skeleton
-										level={3}
-										style={{
-											width: '72%',
-										}}
-									/>
-									<Heading.Skeleton
-										level={3}
-										style={{
-											width: '60%',
-										}}
-									/>
+							<Box YPadding className="ui-h-100-pct">
+								<div className="ui-flex ui-col ui-gap-4">
+									<Heading.Skeleton level={3} className="ui-w-72-pct" />
+									<Heading.Skeleton level={3} className="ui-w-60-pct" />
 								</div>
 
-								<div
-									style={{
-										display: 'flex',
-										flexDirection: 'column',
-										gap: 6,
-									}}
-								>
+								<div className="ui-flex ui-col ui-gap-4">
 									<Fontbody.Skeleton level={2} />
 									<Fontbody.Skeleton level={2} />
-									<Fontbody.Skeleton
-										level={2}
-										style={{
-											width: '92%',
-										}}
-									/>
+									<Fontbody.Skeleton level={2} className="ui-w-92-pct" />
 								</div>
 
-								<Footnote.Skeleton
-									style={{
-										marginTop: 'auto',
-										width: '84%',
-									}}
-								/>
+								<Footnote.Skeleton className="ui-mt-auto ui-w-84-pct" />
 							</Box>
 						</Tile>
 					</div>
@@ -191,8 +122,8 @@ const Home = () => {
 					) : (
 						<Heading.Skeleton
 							level={2}
+							className="ui-w-40-pct"
 							style={{
-								width: '36%',
 								minWidth: '240px',
 							}}
 						/>

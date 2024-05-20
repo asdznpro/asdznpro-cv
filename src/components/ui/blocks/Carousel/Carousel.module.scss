@@ -13,13 +13,8 @@
 		}
 	}
 
-	// &Slider {
-	// 	gap: 8px;
-	// }
-
 	&Item {
 		position: relative;
-		// margin-right: 8px;
 	}
 
 	&DotList {
@@ -58,6 +53,10 @@
 			@include ui-size-control(24px, 8px);
 
 			background-color: var(--text-secondary);
+
+			&:active {
+				background-color: var(--text-secondary);
+			}
 		}
 	}
 }

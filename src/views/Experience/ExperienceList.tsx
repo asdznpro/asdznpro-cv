@@ -15,6 +15,7 @@ import {
 	PageNavigation,
 	Box,
 	Fontbody,
+	Tile,
 } from 'components/ui'
 
 import { Icon28LockOutline, Icon28CalendarCheckOutline } from '@vkontakte/icons'
@@ -25,13 +26,13 @@ interface ExperienceListProps {
 	theme: 'dark' | 'light' | undefined
 }
 
-const ExperienceList: React.FC<ExperienceListProps> = props => {
+const ExperienceList: React.FC<ExperienceListProps> = (props) => {
 	const { storeExperienceData, language, theme } = props
 	const { screenWidth } = useDynamicAlignment()
 
 	useDocumentTitle(
 		storeExperienceData ? storeExperienceData.displayName : '',
-		language
+		language,
 	)
 
 	return (
@@ -53,7 +54,7 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 					</Section>
 
 					<Section countColumns={10}>
-						{storeExperienceData.data.map(item => (
+						{storeExperienceData.data.map((item) => (
 							<Experience.Item
 								key={item.id}
 								to={item.pathname}
@@ -65,7 +66,7 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 										: item.employerInfo.logo
 								}
 							>
-								<Fontbody level={3} className='ui-text-secondary ui-clamp-2'>
+								<Fontbody level={3} className="ui-text-secondary ui-clamp-2">
 									{item.employerInfo.shortDescription}
 								</Fontbody>
 
@@ -112,7 +113,27 @@ const ExperienceList: React.FC<ExperienceListProps> = props => {
 					</Section>
 				</>
 			) : (
-				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
+				<>
+					<Section countColumns={10}>
+						<Box>
+							<PageTitle.Skeleton before={<Breadcrumbs.Skeleton />} />
+						</Box>
+					</Section>
+
+					<Section countColumns={10}>
+						<Tile>
+							<Box YPadding>
+								<Spinner
+									className="ui-mx-auto ui-py-48-px"
+									width={36}
+									height={36}
+								/>
+							</Box>
+						</Tile>
+
+						<PageNavigation.Skeleton />
+					</Section>
+				</>
 			)}
 		</>
 	)

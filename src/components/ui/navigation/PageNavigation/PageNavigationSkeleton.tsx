@@ -10,13 +10,29 @@ const PageNavigationSkeleton: React.FC = () => {
 					<span className={[styles.button, 'ui-skeleton'].join(' ')} />
 
 					<div className={styles.route}>
-						<span className={[styles.routeTitle, 'ui-skeleton'].join(' ')} />
-						<span className={[styles.routeValue, 'ui-skeleton'].join(' ')} />
+						<Footnote.Skeleton
+							style={{
+								width: '60%',
+							}}
+						/>
+						<Fontbody.Skeleton
+							style={{
+								width: '84%',
+							}}
+						/>
 					</div>
 
 					<div className={styles.route} style={{ alignItems: 'end' }}>
-						<span className={[styles.routeTitle, 'ui-skeleton'].join(' ')} />
-						<span className={[styles.routeValue, 'ui-skeleton'].join(' ')} />
+						<Footnote.Skeleton
+							style={{
+								width: '60%',
+							}}
+						/>
+						<Fontbody.Skeleton
+							style={{
+								width: '84%',
+							}}
+						/>
 					</div>
 
 					<span className={[styles.button, 'ui-skeleton'].join(' ')} />

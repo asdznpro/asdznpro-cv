@@ -84,21 +84,29 @@ const Contacts = () => {
 					</Section>
 				</>
 			) : (
-				<Section>
-					<div
-						style={{
-							display: 'grid',
-							gridTemplateColumns: '1fr 1fr',
-							gap: 'clamp(8px, 1vmax, 20px)',
-						}}
-					>
-						{[...Array(6)].map((_, index) => (
-							<CvLinkItem.Skeleton key={index} />
-						))}
-					</div>
+				<>
+					<Section>
+						<Box>
+							<PageTitle.Skeleton before={<Breadcrumbs.Skeleton />} />
+						</Box>
+					</Section>
 
-					<PageNavigation.Skeleton />
-				</Section>
+					<Section>
+						<div
+							style={{
+								display: 'grid',
+								gridTemplateColumns: '1fr 1fr',
+								gap: 'clamp(8px, 1vmax, 20px)',
+							}}
+						>
+							{[...Array(6)].map((_, index) => (
+								<CvLinkItem.Skeleton key={index} />
+							))}
+						</div>
+
+						<PageNavigation.Skeleton />
+					</Section>
+				</>
 			)}
 		</React.Fragment>
 	)

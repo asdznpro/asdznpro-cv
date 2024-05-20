@@ -4,11 +4,16 @@
 	@include ui-size-control(100%);
 	@include ui-flex-container(flex, $flow: column);
 
+	position: relative;
+
 	background-color: var(--field-background);
 	border-radius: clamp($ui-rounded--xl, 3vmax, $ui-rounded--2xl);
 	overflow: hidden;
-	position: relative;
-	box-shadow: 0 0 0 1px var(--separator);
+
+	// box-shadow: 0 0 0 1px var(--separator);
+
+	outline: 1px solid var(--separator);
+	outline-offset: -1px;
 }
 
 .padding {

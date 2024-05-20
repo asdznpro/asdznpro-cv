@@ -5,10 +5,10 @@ import styles from './AvatarSkeleton.module.scss'
 import AvatarProps from './Avatar.interface'
 
 const AvatarSkeleton: React.FC<AvatarProps> = (props) => {
-	const { src, name, width, height, ...restProps } = props
+	const { src, name, width, height, className, ...restProps } = props
 
 	return (
-		<div {...restProps} className={styles.root}>
+		<div {...restProps} className={[styles.root, className].join(' ')}>
 			<div
 				className={[styles.image, 'ui-skeleton'].join(' ')}
 				style={{ width: width ? width : 196, height: height ? height : 196 }}

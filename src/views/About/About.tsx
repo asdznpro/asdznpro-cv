@@ -135,7 +135,27 @@ const About = () => {
 					</Section>
 				</>
 			) : (
-				<Spinner width={48} height={48} style={{ margin: '0 auto' }} />
+				<>
+					<Section countColumns={10}>
+						<Box>
+							<PageTitle.Skeleton before={<Breadcrumbs.Skeleton />} />
+						</Box>
+					</Section>
+
+					<Section countColumns={10}>
+						<Tile>
+							<Box YPadding>
+								<Spinner
+									className="ui-mx-auto ui-py-48-px"
+									width={36}
+									height={36}
+								/>
+							</Box>
+						</Tile>
+
+						<PageNavigation.Skeleton />
+					</Section>
+				</>
 			)}
 		</React.Fragment>
 	)

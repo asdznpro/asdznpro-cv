@@ -8,12 +8,12 @@ import { AvatarSkeleton } from './AvatarSkeleton'
 import { Heading, Spinner } from 'components/ui'
 
 const Avatar = (props: AvatarProps) => {
-	const { src, name, width, height, ...restProps } = props
+	const { src, name, width, height, className, ...restProps } = props
 
 	const [hasError, setHasError] = useState(false)
 
 	return (
-		<div {...restProps} className={styles.root}>
+		<div {...restProps} className={[styles.root, className].join(' ')}>
 			<div
 				className={styles.image}
 				style={{ width: width ? width : 196, height: height ? height : 196 }}
