@@ -16,7 +16,6 @@ const FeedbackItem: React.FC<FeedbackItemProps> = (props) => {
 		<Tile {...restProps}>
 			<Box YPadding>
 				<div className={styles.person}>
-					{avatar && (
 						<div className={styles.avatar}>
 							{!hasError ? (
 								<img
@@ -25,10 +24,9 @@ const FeedbackItem: React.FC<FeedbackItemProps> = (props) => {
 									onError={() => setHasError(true)}
 								/>
 							) : (
-								<Icon28UserOutline width={36} height={36} />
+								<Icon28UserOutline width={32} height={32} />
 							)}
 						</div>
-					)}
 
 					<div className={styles.info}>
 						<Heading level={4} wideLevel={3} className="ui-text-truncate">

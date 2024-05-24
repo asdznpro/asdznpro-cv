@@ -94,15 +94,17 @@ const Education = () => {
 					</Section>
 
 					<Section countColumns={10}>
-						<Tile>
-							<Box YPadding>
-								<Spinner
-									className="ui-mx-auto ui-py-48-px"
-									width={36}
-									height={36}
-								/>
-							</Box>
-						</Tile>
+						{[...Array(2)].map((_, index) => (
+							<Tile key={index}>
+								<Box YPadding>
+									<Spinner
+										className="ui-mx-auto ui-py-48-px"
+										width={36}
+										height={36}
+									/>
+								</Box>
+							</Tile>
+						))}
 
 						<PageNavigation.Skeleton />
 					</Section>

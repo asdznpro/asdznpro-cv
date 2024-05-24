@@ -10,6 +10,7 @@ import styles from './Portfolio.module.scss'
 import { PortfolioItem } from './PortfolioItem'
 import { PortfolioList } from './PortfolioList'
 import { PortfolioProject } from './PortfolioProject'
+import { PortfolioItemSkeleton } from './PortfolioItemSkeleton'
 
 import {
 	Box,
@@ -86,6 +87,9 @@ const Portfolio = () => {
 		</React.Fragment>
 	)
 }
+
+Portfolio.ItemSkeleton = PortfolioItemSkeleton
+Portfolio.ItemSkeleton.displayName = 'Portfolio.ItemSkeleton'
 
 Portfolio.Item = PortfolioItem
 Portfolio.Item.displayName = 'Portfolio.Item'

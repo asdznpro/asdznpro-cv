@@ -1,9 +1,13 @@
 @import 'assets/styles/Variables';
 
 .list {
-	@include ui-display-grid(1fr 1fr);
+	// @include ui-display-grid(1fr 1fr);
 
-	gap: clamp($ui-step * 3, 1.64vmax, $ui-step * 5);
+	@include ui-flex-container(grid);
+
+	gap: $ui-spacing;
+	grid-template-columns: 1fr 1fr;
+	// grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
 }
 
 .preview {

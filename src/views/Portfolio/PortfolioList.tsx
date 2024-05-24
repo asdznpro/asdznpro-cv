@@ -83,7 +83,7 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 						</Box>
 					</Section>
 
-					<div className="ui-max-w-full ui-overflow-hidden">
+					<div className="ui-max-w-full ui-overflow-x-hidden">
 						<Section>
 							<Box className="ui-max-w-12-cols">
 								<Carousel.Embla options={OPTIONS}>
@@ -172,9 +172,9 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 													appearance="neutral"
 													after={
 														<Spinner
+															className="ui-px-56-px"
 															width={28}
 															height={28}
-															style={{ padding: '0 56px' }}
 														/>
 													}
 													disabled
@@ -190,10 +190,7 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 					{storePortfolioData.data.length > 1 && (
 						<div className="ui-max-w-full ui-overflow-hidden">
 							<Section>
-								<Box
-									className="ui-w-full ui-max-w-12-cols"
-									style={screenWidth <= 768 ? { padding: '0' } : {}}
-								>
+								<Box style={screenWidth <= 768 ? { padding: '0' } : {}}>
 									<div
 										className={styles.list}
 										style={{
@@ -293,15 +290,18 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 					</div>
 
 					<Section>
-						<Tile>
-							<Box YPadding>
-								<Spinner
-									className="ui-mx-auto ui-py-48-px"
-									width={36}
-									height={36}
-								/>
-							</Box>
-						</Tile>
+						<Box style={screenWidth <= 768 ? { padding: '0' } : {}}>
+							<div
+								className={styles.list}
+								style={{
+									gridTemplateColumns: screenWidth <= 768 ? '1fr' : '',
+								}}
+							>
+								{[...Array(4)].map((_, index) => (
+									<Portfolio.ItemSkeleton key={index} tags={''} />
+								))}
+							</div>
+						</Box>
 					</Section>
 
 					<Section>

@@ -5,9 +5,19 @@ import { Route, Routes } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from 'hooks'
 import { useGetExperienceQuery, useGetFeedbackQuery } from 'services/CommonApi'
-import { setExperienceData, selectLanguage, selectTheme } from 'store'
+import {
+	setExperienceData,
+	setFeedbackData,
+	selectLanguage,
+	selectTheme,
+} from 'store'
 
 import styles from './Experience.module.scss'
+
+import { ExperienceItem } from './ExperienceItem'
+import { ExperienceList } from './ExperienceList'
+import { ExperienceEmployer } from './ExperienceEmployer'
+import { ExperienceItemSkeleton } from './ExperienceItemSkeleton'
 
 import {
 	Box,
@@ -17,11 +27,6 @@ import {
 	Spinner,
 	Tile,
 } from 'components/ui'
-
-import { ExperienceItem } from './ExperienceItem'
-import { ExperienceList } from './ExperienceList'
-import { ExperienceEmployer } from './ExperienceEmployer'
-import { setFeedbackData } from 'store/СommonSlice'
 
 const Experience = () => {
 	const dispatch = useAppDispatch()
@@ -136,6 +141,9 @@ const Experience = () => {
 		</React.Fragment>
 	)
 }
+
+Experience.ItemSkeleton = ExperienceItemSkeleton
+Experience.ItemSkeleton.displayName = 'Experience.ItemSkeleton'
 
 Experience.Item = ExperienceItem
 Experience.Item.displayName = 'Experience.Item'

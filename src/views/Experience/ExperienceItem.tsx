@@ -10,7 +10,7 @@ import { Heading, Box, Tile, RouterLink, CustomCursor } from 'components/ui'
 
 import { Icon28PictureOutline } from '@vkontakte/icons'
 
-const ExperienceItem: React.FC<ExperienceItemProps> = props => {
+const ExperienceItem: React.FC<ExperienceItemProps> = (props) => {
 	const { title, logoPath, preview, children, to } = props
 
 	const { screenWidth } = useDynamicAlignment()
@@ -38,7 +38,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = props => {
 				/>
 			)}
 
-			{!hasError && preview && (
+			{!hasError && preview && screenWidth < 768 && (
 				<div className={styles.preview}>
 					<img src={preview} alt={title} onError={() => setHasError(true)} />
 				</div>
@@ -60,7 +60,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = props => {
 				)}
 
 				<div className={styles.info}>
-					<Heading level={3} className='ui-text-uppercase'>
+					<Heading level={3} className="ui-text-uppercase">
 						{title}
 					</Heading>
 

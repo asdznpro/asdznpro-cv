@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { useDynamicAlignment, useDocumentTitle } from 'hooks'
+import { useDocumentTitle } from 'hooks'
 
 import { ExperienceModel } from 'models'
 
@@ -11,11 +11,9 @@ import {
 	PageTitle,
 	Button,
 	Breadcrumbs,
-	Spinner,
 	PageNavigation,
 	Box,
 	Fontbody,
-	Tile,
 } from 'components/ui'
 
 import { Icon28LockOutline, Icon28CalendarCheckOutline } from '@vkontakte/icons'
@@ -28,7 +26,6 @@ interface ExperienceListProps {
 
 const ExperienceList: React.FC<ExperienceListProps> = (props) => {
 	const { storeExperienceData, language, theme } = props
-	const { screenWidth } = useDynamicAlignment()
 
 	useDocumentTitle(
 		storeExperienceData ? storeExperienceData.displayName : '',
@@ -59,7 +56,7 @@ const ExperienceList: React.FC<ExperienceListProps> = (props) => {
 								key={item.id}
 								to={item.pathname}
 								title={item.employerInfo.name}
-								preview={screenWidth <= 768 ? item.employerInfo.preview : ''}
+								preview={item.employerInfo.preview}
 								logoPath={
 									theme === 'dark' && item.employerInfo.logoLight
 										? item.employerInfo.logoLight
@@ -121,15 +118,9 @@ const ExperienceList: React.FC<ExperienceListProps> = (props) => {
 					</Section>
 
 					<Section countColumns={10}>
-						<Tile>
-							<Box YPadding>
-								<Spinner
-									className="ui-mx-auto ui-py-48-px"
-									width={36}
-									height={36}
-								/>
-							</Box>
-						</Tile>
+						{[...Array(3)].map((_, index) => (
+							<Experience.ItemSkeleton key={index} />
+						))}
 
 						<PageNavigation.Skeleton />
 					</Section>

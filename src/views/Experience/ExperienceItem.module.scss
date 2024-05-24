@@ -22,7 +22,7 @@
 		}
 
 		.info {
-			@include ui-size-control($minH: 100%);
+			@include ui-size-control(100%, $minH: 100%);
 			@include ui-flex-container(flex, center, $flow: column);
 
 			gap: clamp($ui-step * 3, 3vw, $ui-step * 4);
@@ -41,7 +41,6 @@
 	overflow: hidden;
 	border-radius: clamp($ui-rounded--md, 2.4vmax, $ui-rounded--xl);
 	margin: $ui-outer-padding $ui-outer-padding 0;
-	// box-shadow: 0 0 0 1px var(--separator);
 
 	img {
 		@include ui-size-control(100%, $minW: 532px);

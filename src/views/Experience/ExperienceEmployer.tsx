@@ -131,12 +131,10 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 
 			<Section countColumns={10}>
 				<Box>
-					<Heading level={2} className="ui-text-uppercase">
+					<Heading level={2} className="ui-text-uppercase ui-mb-12-px">
 						Чем я занимался?
 					</Heading>
 				</Box>
-
-				<span />
 
 				{employerData.info && (
 					<Tile>
@@ -170,12 +168,10 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 
 			<Section countColumns={10}>
 				<Box>
-					<Heading level={2} className="ui-text-uppercase">
+					<Heading level={2} className="ui-text-uppercase ui-mb-12-px">
 						Примеры работ
 					</Heading>
 				</Box>
-
-				<span />
 
 				<Tile>
 					<Box YPadding>
@@ -188,12 +184,10 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 				<div className="ui-max-w-full ui-overflow-hidden">
 					<Section countColumns={10}>
 						<Box>
-							<Heading level={2} className="ui-text-uppercase">
+							<Heading level={2} className="ui-text-uppercase ui-mb-12-px">
 								Отзывы о работе
 							</Heading>
 						</Box>
-
-						<span />
 
 						<Carousel.Embla>
 							{feedbackData.map((item) => (

@@ -17,7 +17,7 @@
 	background-position: 100%;
 
 	box-shadow: none !important;
-	// filter: blur(0px);
+	outline: none !important;
 
 	.link {
 		@include ui-absolute-center;

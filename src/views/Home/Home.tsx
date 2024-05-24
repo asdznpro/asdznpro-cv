@@ -116,7 +116,7 @@ const Home = () => {
 			<Section>
 				<Box>
 					{storeCvMapData ? (
-						<Heading level={2} className="ui-text-uppercase">
+						<Heading level={2} className="ui-text-uppercase ui-mb-12-px">
 							{language.lang === 'en' ? 'CV' : 'Резюме'}
 						</Heading>
 					) : (
@@ -129,8 +129,6 @@ const Home = () => {
 						/>
 					)}
 				</Box>
-
-				<span />
 
 				{storeCvMapData ? (
 					<div

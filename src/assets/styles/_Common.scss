@@ -25,6 +25,10 @@
 		display: grid;
 	}
 
+	&inherit {
+		display: inherit;
+	}
+
 	// Overflow
 
 	&overflow-auto {
@@ -194,11 +198,9 @@
 			align-items: stretch;
 		}
 	}
-}
 
-// Spacing ———————————————————————————————————————————————— //
+	// Spacing ———————————————————————————————————————————————— //
 
-.ui- {
 	// Padding
 
 	@for $i from 0 through 9999 {

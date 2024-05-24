@@ -17,7 +17,7 @@ import {
 
 import { Icon28PictureOutline } from '@vkontakte/icons'
 
-const PortfolioItem: React.FC<PortfolioItemProps> = props => {
+const PortfolioItem: React.FC<PortfolioItemProps> = (props) => {
 	const { name, to, tags, date, award, src, ...restProps } = props
 
 	const { screenWidth } = useDynamicAlignment()
@@ -47,7 +47,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = props => {
 
 			<div className={styles.preview}>
 				{award && (
-					<AppLink href={award.href} target='_blank' className={styles.award}>
+					<AppLink href={award.href} target="_blank" className={styles.award}>
 						{!hasError ? (
 							<img
 								src={award.image}
@@ -77,13 +77,13 @@ const PortfolioItem: React.FC<PortfolioItemProps> = props => {
 					.trim()}
 			>
 				<span className={styles.caption}>
-					<Fontbody level={3} className='ui-text-truncate ui-text-secondary'>
+					<Fontbody level={3} className="ui-text-truncate ui-text-secondary">
 						{tags}
 					</Fontbody>
 
 					<Fontbody
 						level={3}
-						className='ui-text-secondary'
+						className="ui-text-secondary"
 						style={{ whiteSpace: 'nowrap' }}
 					>
 						{date}
@@ -91,7 +91,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = props => {
 				</span>
 
 				<Heading
-					className={[styles['project-name'], 'ui-text-uppercase'].join(' ')}
+					className={`ui-text-uppercase ui-clamp-${screenWidth <= 576 ? 3 : 2}`}
 					level={4}
 				>
 					{name}

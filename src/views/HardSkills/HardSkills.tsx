@@ -16,7 +16,6 @@ import {
 	PageTitle,
 	Heading,
 	Breadcrumbs,
-	Spinner,
 	PageNavigation,
 	Box,
 	Tile,
