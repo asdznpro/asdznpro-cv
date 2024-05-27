@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { useEffect } from 'react'
-import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
+import { useDocumentHead, useAppDispatch, useAppSelector } from 'hooks'
 
 import { useGetEducationQuery } from 'services'
 import { setEducationData, selectLanguage, selectTheme } from 'store'
@@ -28,7 +28,7 @@ const Education = () => {
 	// useGetEducationQuery
 
 	const { data: educationData } = useGetEducationQuery({ language })
-	const storeEducationData = useAppSelector((state) => state.common.education)
+	const data = useAppSelector((state) => state.common.education) // storeEducationData
 
 	useEffect(() => {
 		if (educationData) {
@@ -36,22 +36,23 @@ const Education = () => {
 		}
 	}, [educationData, dispatch])
 
-	useDocumentTitle(
-		storeEducationData ? storeEducationData.displayName : '',
-		language.lang,
+	useDocumentHead(
+		language,
+		data ? data.displayName : '',
+		data ? data.pathname : '',
 	)
 
 	return (
 		<React.Fragment>
-			{storeEducationData ? (
+			{data ? (
 				<>
 					<Section countColumns={10}>
 						<Box>
 							<PageTitle
-								title={storeEducationData.displayName}
+								title={data.displayName}
 								before={
 									<Breadcrumbs
-										customLabels={[storeEducationData.displayName]}
+										customLabels={[data.displayName]}
 										selectLanguage={language.lang}
 									/>
 								}
@@ -60,7 +61,7 @@ const Education = () => {
 					</Section>
 
 					<Section countColumns={10}>
-						{storeEducationData.data.map((item) => (
+						{data.data.map((item) => (
 							<Tile key={item.id}>
 								<Box YPadding>
 									<BriefInfo.Box>

@@ -1,11 +1,11 @@
 import * as React from 'react'
 
 import { useState, useEffect } from 'react'
-import { useDocumentTitle } from 'hooks'
+import { useDocumentHead } from 'hooks'
 
 import Masonry from 'react-masonry-css'
 
-import { PortfolioModel } from 'models'
+import { LanguageModel, PortfolioModel, ThemeModel } from 'models'
 
 import styles from './Portfolio.module.scss'
 
@@ -28,14 +28,18 @@ import {
 
 interface PortfolioProjectProps {
 	item: PortfolioModel['data'][number]
-	language: 'ru' | 'en'
-	theme: 'dark' | 'light' | undefined
+	language: LanguageModel
+	theme: ThemeModel
 }
 
-const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
+const PortfolioProject: React.FC<PortfolioProjectProps> = (props) => {
 	const { item, language, theme } = props
 
-	useDocumentTitle(item.project.shortName, language)
+	useDocumentHead(
+		language,
+		item.project.shortName,
+		'portfolio/' + item.project.pathname,
+	)
 
 	// useEffect(() => {
 	// 	window.scrollTo(0, 0)
@@ -84,7 +88,7 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 				<Box>
 					<Breadcrumbs
 						customLabels={['Портфолио', item.project.shortName]}
-						selectLanguage={language}
+						selectLanguage={language.lang}
 					/>
 				</Box>
 			</Section>
@@ -115,7 +119,7 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 							))}
 
 							<Button
-								appearance='neutral'
+								appearance="neutral"
 								noneAction
 								before={<Icon28CalendarCheckOutline width={24} height={24} />}
 								rounded
@@ -127,7 +131,7 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 								item.client.map((client, index) => (
 									<Button
 										key={index}
-										appearance='neutral'
+										appearance="neutral"
 										before={
 											client.id && client.id.includes('date') ? (
 												<Icon28CalendarCheckOutline width={24} height={24} />
@@ -135,7 +139,7 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 												client.icon && (
 													<img
 														src={
-															theme === 'dark' && client.iconLight
+															theme.mode === 'dark' && client.iconLight
 																? client.iconLight
 																: client.icon
 														}
@@ -151,7 +155,7 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 								))}
 						</div>
 
-						<Heading level={3} className='ui-text-uppercase ui-clamp-3'>
+						<Heading level={3} className="ui-text-uppercase ui-clamp-3">
 							{item.project.fullName}
 						</Heading>
 					</Box>
@@ -175,11 +179,11 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = props => {
 
 				<Tile>
 					<Box YPadding>
-						<Heading level={3} className='ui-text-uppercase'>
+						<Heading level={3} className="ui-text-uppercase">
 							Paragraph
 						</Heading>
 
-						<Fontbody level={2} role='paragraph'>
+						<Fontbody level={2} role="paragraph">
 							Сложно сказать, почему представители современных социальных
 							резервов освещают чрезвычайно интересные особенности картины в
 							целом, однако конкретные выводы, разумеется, превращены в

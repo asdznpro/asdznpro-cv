@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { useEffect } from 'react'
-import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
+import { useDocumentHead, useAppDispatch, useAppSelector } from 'hooks'
 
 import { useGetHardSkillsQuery } from 'services'
 import { setHardSkillsData, selectLanguage } from 'store'
@@ -37,7 +37,7 @@ const HardSkills = () => {
 	// useGetHardSkillsQuery
 
 	const { data: hardSkillsData } = useGetHardSkillsQuery({ language })
-	const storeHardSkillsData = useAppSelector((state) => state.common.hardSkills)
+	const data = useAppSelector((state) => state.common.hardSkills) // storeHardSkillsData
 
 	useEffect(() => {
 		if (hardSkillsData) {
@@ -45,22 +45,23 @@ const HardSkills = () => {
 		}
 	}, [hardSkillsData, dispatch])
 
-	useDocumentTitle(
-		storeHardSkillsData ? storeHardSkillsData.displayName : '',
-		language.lang,
+	useDocumentHead(
+		language,
+		data ? data.displayName : '',
+		data ? data.pathname : '',
 	)
 
 	return (
 		<React.Fragment>
-			{storeHardSkillsData ? (
+			{data ? (
 				<>
 					<Section countColumns={8}>
 						<Box>
 							<PageTitle
-								title={storeHardSkillsData.displayName}
+								title={data.displayName}
 								before={
 									<Breadcrumbs
-										customLabels={[storeHardSkillsData.displayName]}
+										customLabels={[data.displayName]}
 										selectLanguage={language.lang}
 									/>
 								}
@@ -69,7 +70,7 @@ const HardSkills = () => {
 					</Section>
 
 					<Section countColumns={8}>
-						{storeHardSkillsData.data.map((item) => (
+						{data.data.map((item) => (
 							<Tile key={item.id}>
 								<Box YPadding>
 									<Heading level={3} className="ui-text-uppercase">

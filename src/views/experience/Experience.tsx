@@ -63,9 +63,9 @@ const Experience = () => {
 					path=""
 					element={
 						<Experience.List
-							storeExperienceData={storeExperienceData}
-							language={language.lang}
-							theme={theme.mode}
+							data={storeExperienceData}
+							language={language}
+							theme={theme}
 						/>
 					}
 				/>

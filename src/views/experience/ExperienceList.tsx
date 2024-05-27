@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import { useDocumentTitle } from 'hooks'
+import { useDocumentHead } from 'hooks'
 
-import { ExperienceModel } from 'models'
+import { ExperienceModel, LanguageModel, ThemeModel } from 'models'
 
 import { Experience } from './Experience'
 
@@ -19,31 +19,32 @@ import {
 import { Icon28LockOutline, Icon28CalendarCheckOutline } from '@vkontakte/icons'
 
 interface ExperienceListProps {
-	storeExperienceData: ExperienceModel | null
-	language: 'ru' | 'en'
-	theme: 'dark' | 'light' | undefined
+	data: ExperienceModel | null
+	language: LanguageModel
+	theme: ThemeModel
 }
 
 const ExperienceList: React.FC<ExperienceListProps> = (props) => {
-	const { storeExperienceData, language, theme } = props
+	const { data, language, theme } = props
 
-	useDocumentTitle(
-		storeExperienceData ? storeExperienceData.displayName : '',
+	useDocumentHead(
 		language,
+		data ? data.displayName : '',
+		data ? data.pathname : '',
 	)
 
 	return (
 		<>
-			{storeExperienceData ? (
+			{data ? (
 				<>
 					<Section countColumns={10}>
 						<Box>
 							<PageTitle
-								title={storeExperienceData.displayName}
+								title={data.displayName}
 								before={
 									<Breadcrumbs
-										customLabels={[storeExperienceData.displayName]}
-										selectLanguage={language}
+										customLabels={[data.displayName]}
+										selectLanguage={language.lang}
 									/>
 								}
 							/>
@@ -51,14 +52,14 @@ const ExperienceList: React.FC<ExperienceListProps> = (props) => {
 					</Section>
 
 					<Section countColumns={10}>
-						{storeExperienceData.data.map((item) => (
+						{data.data.map((item) => (
 							<Experience.Item
 								key={item.id}
 								to={item.pathname}
 								title={item.employerInfo.name}
 								preview={item.employerInfo.preview}
 								logoPath={
-									theme === 'dark' && item.employerInfo.logoLight
+									theme.mode === 'dark' && item.employerInfo.logoLight
 										? item.employerInfo.logoLight
 										: item.employerInfo.logo
 								}
@@ -85,7 +86,7 @@ const ExperienceList: React.FC<ExperienceListProps> = (props) => {
 													label.icon && (
 														<img
 															src={
-																theme === 'dark' && label.iconLight
+																theme.mode === 'dark' && label.iconLight
 																	? label.iconLight
 																	: label.icon
 															}

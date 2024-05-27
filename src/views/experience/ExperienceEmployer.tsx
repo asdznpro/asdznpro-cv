@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { useState } from 'react'
-import { useDocumentTitle } from 'hooks'
+import { useDocumentHead } from 'hooks'
 
 import {
 	ExperienceModel,
@@ -48,7 +48,11 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 	// 	window.scrollTo(0, 0)
 	// }, [])
 
-	useDocumentTitle(employerData.employerInfo.name, language.lang)
+	useDocumentHead(
+		language,
+		employerData.employerInfo.name,
+		'experience/' + employerData.pathname,
+	)
 
 	return (
 		<>

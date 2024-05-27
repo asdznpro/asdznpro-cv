@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { useDocumentTitle, useAppSelector } from 'hooks'
+import { useDocumentHead, useAppSelector } from 'hooks'
 import { selectLanguage, selectTheme } from 'store'
 
 import styles from './About.module.scss'
@@ -21,24 +21,25 @@ const About = () => {
 	const language = useAppSelector(selectLanguage)
 	const theme = useAppSelector(selectTheme)
 
-	const storeAboutData = useAppSelector((state) => state.common.about)
+	const data = useAppSelector((state) => state.common.about) // storeAboutData
 
-	useDocumentTitle(
-		storeAboutData ? storeAboutData.displayName : '',
-		language.lang,
+	useDocumentHead(
+		language,
+		data ? data.displayName : '',
+		data ? data.pathname : '',
 	)
 
 	return (
 		<React.Fragment>
-			{storeAboutData ? (
+			{data ? (
 				<>
 					<Section countColumns={10}>
 						<Box>
 							<PageTitle
-								title={storeAboutData.displayName}
+								title={data.displayName}
 								before={
 									<Breadcrumbs
-										customLabels={[storeAboutData.displayName]}
+										customLabels={[data.displayName]}
 										selectLanguage={language.lang}
 									/>
 								}
@@ -49,7 +50,7 @@ const About = () => {
 					<Section countColumns={10}>
 						<Tile>
 							<Box YPadding>
-								{storeAboutData.data.bio.map((item, index) => (
+								{data.data.bio.map((item, index) => (
 									<Fontbody key={index} role="paragraph">
 										{item}
 									</Fontbody>
@@ -60,7 +61,7 @@ const About = () => {
 						<Tile>
 							<Box YPadding>
 								<BriefInfo.Box>
-									{storeAboutData.data.brief.map((item, index) => {
+									{data.data.brief.map((item, index) => {
 										let value = item.value
 
 										if (item.id && item.id === 'birthday') {

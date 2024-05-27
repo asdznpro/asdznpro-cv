@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { useEffect } from 'react'
-import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
+import { useDocumentHead, useAppDispatch, useAppSelector } from 'hooks'
 
 import { useGetContactsQuery } from 'services'
 import { selectLanguage, setContactsData } from 'store'
@@ -14,7 +14,6 @@ import {
 	Breadcrumbs,
 	PageNavigation,
 	Box,
-	Spinner,
 } from 'components/ui'
 import { CvLinkItem } from 'components/shared'
 
@@ -24,7 +23,7 @@ const Contacts = () => {
 	const language = useAppSelector(selectLanguage)
 
 	const { data: contactsData } = useGetContactsQuery({ language })
-	const storeContactsData = useAppSelector((state) => state.common.contacts)
+	const data = useAppSelector((state) => state.common.contacts) // storeContactsData
 
 	useEffect(() => {
 		if (contactsData) {
@@ -32,22 +31,23 @@ const Contacts = () => {
 		}
 	}, [contactsData, dispatch])
 
-	useDocumentTitle(
-		storeContactsData ? storeContactsData.displayName : '',
-		language.lang,
+	useDocumentHead(
+		language,
+		data ? data.displayName : '',
+		data ? data.pathname : '',
 	)
 
 	return (
 		<React.Fragment>
-			{storeContactsData ? (
+			{data ? (
 				<>
 					<Section>
 						<Box>
 							<PageTitle
-								title={storeContactsData.displayName}
+								title={data.displayName}
 								before={
 									<Breadcrumbs
-										customLabels={[storeContactsData.displayName]}
+										customLabels={[data.displayName]}
 										selectLanguage={language.lang}
 									/>
 								}
@@ -63,7 +63,7 @@ const Contacts = () => {
 								gap: 'clamp(8px, 1vmax, 20px)',
 							}}
 						>
-							{storeContactsData.data.map((link, index) => (
+							{data.data.map((link, index) => (
 								<CvLinkItem
 									key={index}
 									href={link.href}

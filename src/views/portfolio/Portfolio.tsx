@@ -34,9 +34,9 @@ const Portfolio = () => {
 					path=""
 					element={
 						<Portfolio.List
-							storePortfolioData={storePortfolioData}
-							language={language.lang}
-							theme={theme.mode}
+							data={storePortfolioData}
+							language={language}
+							theme={theme}
 						/>
 					}
 				/>
@@ -49,8 +49,8 @@ const Portfolio = () => {
 							element={
 								<Portfolio.Project
 									item={item}
-									language={language.lang}
-									theme={theme.mode}
+									language={language}
+									theme={theme}
 								/>
 							}
 						/>

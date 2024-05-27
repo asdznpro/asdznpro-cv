@@ -1,12 +1,12 @@
 import * as React from 'react'
 
 import { useState, useEffect } from 'react'
-import { useDocumentTitle, useDynamicAlignment } from 'hooks'
+import { useDocumentHead, useDynamicAlignment } from 'hooks'
 
 import { EmblaOptionsType } from 'embla-carousel'
 
 import styles from './Portfolio.module.scss'
-import { PortfolioModel } from 'models'
+import { LanguageModel, PortfolioModel, ThemeModel } from 'models'
 
 import { Portfolio } from './Portfolio'
 
@@ -25,18 +25,19 @@ import {
 } from 'components/ui'
 
 interface PortfolioListProps {
-	storePortfolioData: PortfolioModel | null
-	language: 'ru' | 'en'
-	theme: 'dark' | 'light' | undefined
+	data: PortfolioModel | null
+	language: LanguageModel
+	theme: ThemeModel
 }
 
 const PortfolioList: React.FC<PortfolioListProps> = (props) => {
-	const { storePortfolioData, language, theme } = props
+	const { data, language, theme } = props
 	const { screenWidth } = useDynamicAlignment()
 
-	useDocumentTitle(
-		storePortfolioData ? storePortfolioData.displayName : '',
+	useDocumentHead(
 		language,
+		data ? data.displayName : '',
+		data ? data.pathname : '',
 	)
 
 	// tag-based filtering with auto-reset
@@ -44,7 +45,7 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 	const [selectedTags, setSelectedTags] = useState<string[]>([])
 
 	const toggleTag = (tagType: string) => {
-		if (storePortfolioData && storePortfolioData.tags) {
+		if (data && data.tags) {
 			if (selectedTags.includes(tagType)) {
 				setSelectedTags((prevTags) => prevTags.filter((tag) => tag !== tagType))
 			} else {
@@ -54,12 +55,12 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 	}
 
 	useEffect(() => {
-		if (storePortfolioData && storePortfolioData.tags) {
-			if (selectedTags.length === storePortfolioData.tags.length) {
+		if (data && data.tags) {
+			if (selectedTags.length === data.tags.length) {
 				setSelectedTags([])
 			}
 		}
-	}, [selectedTags, storePortfolioData])
+	}, [selectedTags, data])
 
 	// carousel options
 
@@ -67,16 +68,16 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 
 	return (
 		<>
-			{storePortfolioData ? (
+			{data ? (
 				<>
 					<Section>
 						<Box>
 							<PageTitle
-								title={storePortfolioData.displayName}
+								title={data.displayName}
 								before={
 									<Breadcrumbs
-										customLabels={[storePortfolioData.displayName]}
-										selectLanguage={language}
+										customLabels={[data.displayName]}
+										selectLanguage={language.lang}
 									/>
 								}
 							/>
@@ -87,14 +88,14 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 						<Section>
 							<Box className="ui-max-w-12-cols">
 								<Carousel.Embla options={OPTIONS}>
-									{storePortfolioData.data.length > 1 ? (
+									{data.data.length > 1 ? (
 										<>
 											<Button
 												onClick={() => setSelectedTags([])}
 												buttonSize="md"
 												mode={
 													selectedTags.length > 0
-														? theme === 'light'
+														? theme.mode === 'light'
 															? 'secondary'
 															: 'outline'
 														: 'primary'
@@ -104,20 +105,19 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 												}
 												after={
 													<Counter appearance="neutral">
-														{storePortfolioData.data.length}
+														{data.data.length}
 													</Counter>
 												}
 												rounded={selectedTags.length > 0 ? false : true}
 											>
-												{language === 'en' ? 'All' : 'Все работы'}
+												{language.lang === 'en' ? 'All' : 'Все работы'}
 											</Button>
 
-											{storePortfolioData.tags.map((tag, index) => {
-												const projectsWithTag = storePortfolioData.data.filter(
-													(item) =>
-														item.tags.some(
-															(tagItem) => tagItem.type === tag.type,
-														),
+											{data.tags.map((tag, index) => {
+												const projectsWithTag = data.data.filter((item) =>
+													item.tags.some(
+														(tagItem) => tagItem.type === tag.type,
+													),
 												)
 
 												return (
@@ -128,7 +128,7 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 														mode={
 															selectedTags.includes(tag.type)
 																? 'primary'
-																: theme === 'light'
+																: theme.mode === 'light'
 																	? 'secondary'
 																	: 'outline'
 														}
@@ -155,20 +155,22 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 												buttonSize="md"
 												after={
 													<Counter appearance="neutral">
-														{storePortfolioData.data.length}
+														{data.data.length}
 													</Counter>
 												}
 												rounded
 												disabled
 											>
-												{language === 'en' ? 'All' : 'Все работы'}
+												{language.lang === 'en' ? 'All' : 'Все работы'}
 											</Button>
 
 											{[...Array(3)].map((_, index) => (
 												<Button
 													key={index}
 													buttonSize="md"
-													mode={theme === 'light' ? 'secondary' : 'outline'}
+													mode={
+														theme.mode === 'light' ? 'secondary' : 'outline'
+													}
 													appearance="neutral"
 													after={
 														<Spinner
@@ -187,7 +189,7 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 						</Section>
 					</div>
 
-					{storePortfolioData.data.length > 1 && (
+					{data.data.length > 1 && (
 						<div className="ui-max-w-full ui-overflow-hidden">
 							<Section>
 								<Box style={screenWidth <= 768 ? { padding: '0' } : {}}>
@@ -197,7 +199,7 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 											gridTemplateColumns: screenWidth <= 768 ? '1fr' : '',
 										}}
 									>
-										{storePortfolioData.data
+										{data.data
 											.filter((item) => {
 												if (selectedTags.length === 0) return true
 												return item.tags.some((tag) =>
@@ -229,14 +231,14 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 					)}
 
 					<Section>
-						{storePortfolioData.data.length < 1 && (
+						{data.data.length < 1 && (
 							<Tile>
 								<Box YPadding>
 									<Fontbody
 										className="ui-text-secondary ui-text-center"
 										style={{ padding: '28px 0' }}
 									>
-										{language === 'en'
+										{language.lang === 'en'
 											? 'Projects in development'
 											: 'Проекты в разработке'}
 									</Fontbody>
@@ -265,14 +267,14 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 										rounded
 										disabled
 									>
-										{language === 'en' ? 'All' : 'Все работы'}
+										{language.lang === 'en' ? 'All' : 'Все работы'}
 									</Button>
 
 									{[...Array(3)].map((_, index) => (
 										<Button
 											key={index}
 											buttonSize="md"
-											mode={theme === 'light' ? 'secondary' : 'outline'}
+											mode={theme.mode === 'light' ? 'secondary' : 'outline'}
 											appearance="neutral"
 											after={
 												<Spinner

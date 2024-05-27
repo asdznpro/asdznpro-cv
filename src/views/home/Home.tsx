@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { useAppSelector, useDocumentTitle, useDynamicAlignment } from 'hooks'
+import { useAppSelector, useDocumentHead, useDynamicAlignment } from 'hooks'
 import { selectLanguage } from 'store'
 
 import styles from './Home.module.scss'
@@ -21,7 +21,7 @@ const Home = () => {
 	const language = useAppSelector(selectLanguage)
 	const { screenWidth } = useDynamicAlignment()
 
-	useDocumentTitle('', language.lang)
+	useDocumentHead(language)
 
 	const storeAboutData = useAppSelector((state) => state.common.about)
 	const storeCvMapData = useAppSelector((state) => state.common.cvMap)
