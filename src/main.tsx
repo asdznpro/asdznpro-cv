@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom/client'
 
 import { Provider } from 'react-redux'
 
-import storeApp from './storeApp'
+import storeApp from './store-app'
 import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -11,5 +11,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 		<Provider store={storeApp}>
 			<App />
 		</Provider>
-	</React.StrictMode>
+	</React.StrictMode>,
 )

@@ -3,7 +3,7 @@ import * as React from 'react'
 import { useEffect } from 'react'
 import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
 
-import { useGetEducationQuery } from 'services/CommonApi'
+import { useGetEducationQuery } from 'services'
 import { setEducationData, selectLanguage, selectTheme } from 'store'
 
 import styles from './Education.module.scss'

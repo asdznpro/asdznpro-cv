@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useAppDispatch } from 'hooks'
-import { setTheme } from 'store/ThemeSlice'
+import { setTheme } from 'store'
 
 import { ThemeModel } from 'models'
 

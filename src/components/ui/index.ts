@@ -1,18 +1,18 @@
 // blocks
 
-export * from './blocks/Avatar'
-export * from './blocks/Box'
-export * from './blocks/BriefInfo'
-export * from './blocks/Button'
-export * from './blocks/Carousel'
-export * from './blocks/Counter'
-export * from './blocks/CustomCursor'
-export * from './blocks/ListComponent'
-export * from './blocks/Box'
-export * from './blocks/PageTitle'
-export * from './blocks/Section'
-export * from './blocks/Spinner'
-export * from './blocks/Tile'
+export * from './blocks/avatar'
+export * from './blocks/box'
+export * from './blocks/brief-info'
+export * from './blocks/button'
+export * from './blocks/carousel'
+export * from './blocks/counter'
+export * from './blocks/custom-cursor'
+export * from './blocks/list-component'
+export * from './blocks/box'
+export * from './blocks/page-title'
+export * from './blocks/section'
+export * from './blocks/spinner'
+export * from './blocks/tile'
 
 // icons
 
@@ -20,13 +20,13 @@ export * from './icons'
 
 // navigation
 
-export * from './navigation/AppLink'
-export * from './navigation/Breadcrumbs'
-export * from './navigation/PageNavigation'
-export * from './navigation/RouterLink'
+export * from './navigation/app-link'
+export * from './navigation/breadcrumbs'
+export * from './navigation/page-navigation'
+export * from './navigation/router-link'
 
 // typography
 
-export * from './typography/Heading'
-export * from './typography/Fontbody'
-export * from './typography/Footnote'
+export * from './typography/heading'
+export * from './typography/fontbody'
+export * from './typography/footnote'

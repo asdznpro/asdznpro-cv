@@ -1,3 +1,3 @@
 // export * from './AwardItem'
-export * from './CvLinkItem'
-export * from './FeedbackItem'
+export * from './cv-link-item'
+export * from './feedback-item'

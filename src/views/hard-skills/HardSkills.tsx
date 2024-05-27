@@ -3,7 +3,7 @@ import * as React from 'react'
 import { useEffect } from 'react'
 import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
 
-import { useGetHardSkillsQuery } from 'services/CommonApi'
+import { useGetHardSkillsQuery } from 'services'
 import { setHardSkillsData, selectLanguage } from 'store'
 
 import styles from './HardSkills.module.scss'

@@ -12,8 +12,8 @@ import {
 	useGetCvMapQuery,
 	useGetAboutQuery,
 	useGetPortfolioQuery,
-} from 'services/CommonApi'
-import { setCvMapData, setAboutData, setPortfolioData } from 'store/СommonSlice'
+} from 'services'
+import { setCvMapData, setAboutData, setPortfolioData } from 'store'
 
 import 'assets/styles/index.scss'
 

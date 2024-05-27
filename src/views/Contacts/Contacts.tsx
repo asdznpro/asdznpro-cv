@@ -3,7 +3,7 @@ import * as React from 'react'
 import { useEffect } from 'react'
 import { useDocumentTitle, useAppDispatch, useAppSelector } from 'hooks'
 
-import { useGetContactsQuery } from 'services/CommonApi'
+import { useGetContactsQuery } from 'services'
 import { selectLanguage, setContactsData } from 'store'
 
 import styles from './Contacts.module.scss'

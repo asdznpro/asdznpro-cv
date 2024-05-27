@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from 'hooks'
-import { useGetExperienceQuery, useGetFeedbackQuery } from 'services/CommonApi'
+import { useGetExperienceQuery, useGetFeedbackQuery } from 'services'
 import {
 	setExperienceData,
 	setFeedbackData,

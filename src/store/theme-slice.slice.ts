@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ThemeModel } from 'models/Common.interface'
+import { ThemeModel } from 'models'
 import { RootState } from 'store'
 
 interface ThemeState {

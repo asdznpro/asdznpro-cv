@@ -6,13 +6,13 @@ import { Header, Footer } from 'components/layout'
 import { AppRouter } from 'components/router'
 import { Box, Heading } from 'components/ui'
 
-import { ParallaxText } from 'views/Home/ParallaxText'
+import { ParallaxText } from 'views/home/ParallaxText'
 
 interface LayoutProps {
 	style?: React.CSSProperties
 }
 
-const Layout: React.FC<LayoutProps> = props => {
+const Layout: React.FC<LayoutProps> = (props) => {
 	const { style } = props
 
 	return (
@@ -25,7 +25,7 @@ const Layout: React.FC<LayoutProps> = props => {
 							style={{
 								whiteSpace: 'nowrap',
 							}}
-							className='ui-text-uppercase'
+							className="ui-text-uppercase"
 						>
 							{[...Array(36)].map((_, index) => (
 								<React.Fragment key={index}>
