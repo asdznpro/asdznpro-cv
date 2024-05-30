@@ -4,8 +4,10 @@
 	"description": "Graphic Designer with over 5 years of experience creating unique and creative design solutions. In the past year, also actively developing in the field of UI/UX Design and Frontend Development, striving to apply a creative approach to creating functional and attractive web interfaces // Frontend Developer, UI/UX, Graphic Designer",
 	"theme_color": "#3D3BFF",
 	"background_color": "#3D3BFF",
+	"scope": "/",
 	"start_url": "/",
 	"display": "standalone",
+	"orientation": "portrait",
 	"icons": [
 		{
 			"src": "/favicon/android-chrome-192x192.png",

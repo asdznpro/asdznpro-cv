@@ -152,10 +152,10 @@ const Header: React.FC = () => {
 							<img
 								src={
 									language.lang === 'ru'
-										? 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/custom/great-britain_color.svg'
-										: 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/custom/russia.svg'
+										? 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/countries/great-britain_rounded_28.svg'
+										: 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/countries/russia_rounded_28.svg'
 								}
-								alt={language.lang === 'ru' ? 'EN' : 'RU'}
+								alt="Language"
 								width={24}
 								height={24}
 							/>

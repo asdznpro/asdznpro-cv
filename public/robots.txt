@@ -1,7 +1,43 @@
 User-agent: Yandex
+Host: https://cv.asdzn.pro
 
 Disallow: /experience/*
 Disallow: /portfolio/*
+Disallow: *utm_
+
+Allow: /$
+Allow: /about$
+Allow: /experience$
+Allow: /portfolio$
+Allow: /hard-skills$
+Allow: /education$
+Allow: /contacts$
+
+Sitemap: https://cv.asdzn.pro/sitemap.xml
+
+User-agent: Googlebot
+Host: https://cv.asdzn.pro
+
+Disallow: /experience/*
+Disallow: /portfolio/*
+Disallow: *utm_
+
+Allow: /$
+Allow: /about$
+Allow: /experience$
+Allow: /portfolio$
+Allow: /hard-skills$
+Allow: /education$
+Allow: /contacts$
+
+Sitemap: https://cv.asdzn.pro/sitemap.xml
+
+User-agent: *
+Host: https://cv.asdzn.pro
+
+Disallow: /experience/*
+Disallow: /portfolio/*
+Disallow: *utm_
 
 Allow: /$
 Allow: /about$
