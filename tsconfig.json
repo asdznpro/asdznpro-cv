@@ -26,9 +26,9 @@
 			"components/*": ["components/*"],
 			"constants/*": ["constants/*"],
 			"hooks/*": ["hooks/*"],
-			"models/*": ["models/*"],
 			"services/*": ["services/*"],
 			"store/*": ["store/*"],
+			"types/*": ["types/*"],
 			"utils/*": ["utils/*"],
 			"views/*": ["views/*"]
 		}

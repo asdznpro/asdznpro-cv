@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { useDocumentHead } from 'hooks'
 
-import { ExperienceModel, LanguageModel, ThemeModel } from 'models'
+import { ExperienceType, LanguageType, ThemeType } from 'types'
 
 import { Experience } from './Experience'
 
@@ -19,9 +19,9 @@ import {
 import { Icon28LockOutline, Icon28CalendarCheckOutline } from '@vkontakte/icons'
 
 interface ExperienceListProps {
-	data: ExperienceModel | null
-	language: LanguageModel
-	theme: ThemeModel
+	data: ExperienceType | null
+	language: LanguageType
+	theme: ThemeType
 }
 
 const ExperienceList: React.FC<ExperienceListProps> = (props) => {

@@ -5,7 +5,7 @@ import { useDocumentHead } from 'hooks'
 
 import Masonry from 'react-masonry-css'
 
-import { LanguageModel, PortfolioModel, ThemeModel } from 'models'
+import { LanguageType, PortfolioType, ThemeType } from 'types'
 
 import styles from './Portfolio.module.scss'
 
@@ -27,9 +27,9 @@ import {
 } from '@vkontakte/icons'
 
 interface PortfolioProjectProps {
-	item: PortfolioModel['data'][number]
-	language: LanguageModel
-	theme: ThemeModel
+	item: PortfolioType['data'][number]
+	language: LanguageType
+	theme: ThemeType
 }
 
 const PortfolioProject: React.FC<PortfolioProjectProps> = (props) => {

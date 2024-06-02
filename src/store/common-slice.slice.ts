@@ -1,25 +1,25 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import {
-	AboutModel,
-	ContactsModel,
-	CvMapModel,
-	EducationModel,
-	ExperienceModel,
-	FeedbackModel,
-	HardSkillsModel,
-	PortfolioModel,
-} from 'models'
+	AboutType,
+	ContactsType,
+	CvMapType,
+	EducationType,
+	ExperienceType,
+	FeedbackType,
+	HardSkillsType,
+	PortfolioType,
+} from 'types'
 
 interface CommonState {
-	about: AboutModel | null
-	contacts: ContactsModel | null
-	cvMap: CvMapModel | null
-	education: EducationModel | null
-	experience: ExperienceModel | null
-	feedback: FeedbackModel | null
-	hardSkills: HardSkillsModel | null
-	portfolio: PortfolioModel | null
+	about: AboutType | null
+	contacts: ContactsType | null
+	cvMap: CvMapType | null
+	education: EducationType | null
+	experience: ExperienceType | null
+	feedback: FeedbackType | null
+	hardSkills: HardSkillsType | null
+	portfolio: PortfolioType | null
 }
 
 const initialState: CommonState = {
@@ -37,34 +37,34 @@ const commonSlice = createSlice({
 	name: 'common',
 	initialState,
 	reducers: {
-		setAboutData: (state, action: PayloadAction<AboutModel | null>) => {
+		setAboutData: (state, action: PayloadAction<AboutType | null>) => {
 			state.about = action.payload
 		},
-		setContactsData: (state, action: PayloadAction<ContactsModel | null>) => {
+		setContactsData: (state, action: PayloadAction<ContactsType | null>) => {
 			state.contacts = action.payload
 		},
-		setCvMapData: (state, action: PayloadAction<CvMapModel | null>) => {
+		setCvMapData: (state, action: PayloadAction<CvMapType | null>) => {
 			state.cvMap = action.payload
 		},
-		setEducationData: (state, action: PayloadAction<EducationModel | null>) => {
+		setEducationData: (state, action: PayloadAction<EducationType | null>) => {
 			state.education = action.payload
 		},
 		setExperienceData: (
 			state,
-			action: PayloadAction<ExperienceModel | null>,
+			action: PayloadAction<ExperienceType | null>,
 		) => {
 			state.experience = action.payload
 		},
-		setFeedbackData: (state, action: PayloadAction<FeedbackModel | null>) => {
+		setFeedbackData: (state, action: PayloadAction<FeedbackType | null>) => {
 			state.feedback = action.payload
 		},
 		setHardSkillsData: (
 			state,
-			action: PayloadAction<HardSkillsModel | null>,
+			action: PayloadAction<HardSkillsType | null>,
 		) => {
 			state.hardSkills = action.payload
 		},
-		setPortfolioData: (state, action: PayloadAction<PortfolioModel | null>) => {
+		setPortfolioData: (state, action: PayloadAction<PortfolioType | null>) => {
 			state.portfolio = action.payload
 		},
 	},

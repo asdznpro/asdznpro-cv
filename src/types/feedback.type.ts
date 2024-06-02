@@ -1,4 +1,4 @@
-export interface FeedbackModel {
+export interface FeedbackType {
 	data: FeedbackItem[]
 	displayName: string
 	pathname: string

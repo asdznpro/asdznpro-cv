@@ -4,7 +4,7 @@ import { useAppSelector, useAppDispatch, useDynamicAlignment } from 'hooks'
 import { setTheme, selectTheme, setLanguage, selectLanguage } from 'store'
 
 import styles from './Header.module.scss'
-import { LanguageModel, ThemeModel } from 'models'
+import { LanguageType, ThemeType } from 'types'
 
 import { AppLink, Button, Counter, Spinner } from 'components/ui'
 
@@ -27,7 +27,7 @@ const Header: React.FC = () => {
 	const handleToggleLanguage = () => {
 		const newLanguage = language.lang === 'ru' ? 'en' : 'ru'
 
-		dispatch(setLanguage({ lang: newLanguage } as LanguageModel))
+		dispatch(setLanguage({ lang: newLanguage } as LanguageType))
 
 		localStorage.setItem('language', newLanguage)
 	}
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
 	const handleToggleTheme = () => {
 		const newTheme = theme.mode === 'light' ? 'dark' : 'light'
 
-		dispatch(setTheme({ mode: newTheme } as ThemeModel))
+		dispatch(setTheme({ mode: newTheme } as ThemeType))
 
 		localStorage.setItem('theme', newTheme)
 	}

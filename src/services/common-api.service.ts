@@ -2,71 +2,71 @@ import { createApi } from '@reduxjs/toolkit/query/react'
 import axiosBaseQuery from 'services/base-query.service'
 
 import {
-	AboutModel,
-	ContactsModel,
-	CvMapModel,
-	EducationModel,
-	ExperienceModel,
-	FeedbackModel,
-	HardSkillsModel,
-	LanguageModel,
-	PortfolioModel,
-} from 'models'
+	AboutType,
+	ContactsType,
+	CvMapType,
+	EducationType,
+	ExperienceType,
+	FeedbackType,
+	HardSkillsType,
+	LanguageType,
+	PortfolioType,
+} from 'types'
 
 export const commonApi = createApi({
 	reducerPath: 'commonApi',
 	baseQuery: axiosBaseQuery(),
 	endpoints: (builder) => ({
-		getAbout: builder.query<AboutModel, { language: LanguageModel }>({
+		getAbout: builder.query<AboutType, { language: LanguageType }>({
 			query: ({ language }) => ({
 				url: `${language.lang}/about.json`,
 				method: 'GET',
 			}),
 		}),
 
-		getContacts: builder.query<ContactsModel, { language: LanguageModel }>({
+		getContacts: builder.query<ContactsType, { language: LanguageType }>({
 			query: ({ language }) => ({
 				url: `${language.lang}/contacts.json`,
 				method: 'GET',
 			}),
 		}),
 
-		getCvMap: builder.query<CvMapModel, { language: LanguageModel }>({
+		getCvMap: builder.query<CvMapType, { language: LanguageType }>({
 			query: ({ language }) => ({
 				url: `${language.lang}/cv-map.json`,
 				method: 'GET',
 			}),
 		}),
 
-		getEducation: builder.query<EducationModel, { language: LanguageModel }>({
+		getEducation: builder.query<EducationType, { language: LanguageType }>({
 			query: ({ language }) => ({
 				url: `${language.lang}/education.json`,
 				method: 'GET',
 			}),
 		}),
 
-		getExperience: builder.query<ExperienceModel, { language: LanguageModel }>({
+		getExperience: builder.query<ExperienceType, { language: LanguageType }>({
 			query: ({ language }) => ({
 				url: `${language.lang}/experience.json`,
 				method: 'GET',
 			}),
 		}),
 
-		getFeedback: builder.query<FeedbackModel, { language: LanguageModel }>({
+		getFeedback: builder.query<FeedbackType, { language: LanguageType }>({
 			query: ({ language }) => ({
 				url: `${language.lang}/feedback.json`,
 				method: 'GET',
 			}),
 		}),
 
-		getHardSkills: builder.query<HardSkillsModel, { language: LanguageModel }>({
+		getHardSkills: builder.query<HardSkillsType, { language: LanguageType }>({
 			query: ({ language }) => ({
 				url: `${language.lang}/hard-skills.json`,
 				method: 'GET',
 			}),
 		}),
 
-		getPortfolio: builder.query<PortfolioModel, { language: LanguageModel }>({
+		getPortfolio: builder.query<PortfolioType, { language: LanguageType }>({
 			query: ({ language }) => ({
 				url: `${language.lang}/portfolio.json`,
 				method: 'GET',

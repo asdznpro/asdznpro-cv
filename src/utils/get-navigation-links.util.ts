@@ -1,4 +1,4 @@
-import { LanguageModel } from 'models'
+import { LanguageType } from 'types'
 
 interface PageInfo {
 	name: string
@@ -8,7 +8,7 @@ interface PageInfo {
 const getNavigationLinks = (
 	currentPathname: string,
 	data: PageInfo[] | null,
-	language: LanguageModel,
+	language: LanguageType,
 ) => {
 	const baseName = language.lang === 'en' ? 'CV' : 'Резюме'
 

@@ -1,4 +1,4 @@
-export interface ContactsModel {
+export interface ContactsType {
 	data: Contacts[]
 	displayName: string
 	pathname: string

@@ -1,4 +1,4 @@
-export interface CvMapModel {
+export interface CvMapType {
 	data: CvMap[]
 	displayName: string
 	id: string

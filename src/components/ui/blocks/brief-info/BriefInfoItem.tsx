@@ -2,11 +2,11 @@ import * as React from 'react'
 import { useState } from 'react'
 
 import styles from './BriefInfo.module.scss'
-import { CommonInfoModel } from 'models'
+import { CommonInfoType } from 'types'
 
 import { AppLink, Fontbody } from 'components/ui'
 
-interface BriefInfoItemProps extends CommonInfoModel {
+interface BriefInfoItemProps extends CommonInfoType {
 	level?: 1 | 2 | 3 | undefined
 }
 

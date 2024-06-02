@@ -1,4 +1,4 @@
-import { AwardModel } from 'models'
+import { AwardType } from 'types'
 import { LinkProps } from 'react-router-dom'
 
 export default interface PortfolioItemProps
@@ -8,5 +8,5 @@ export default interface PortfolioItemProps
 	tags: string | undefined
 	date?: string | undefined
 
-	award?: AwardModel | null
+	award?: AwardType | null
 }

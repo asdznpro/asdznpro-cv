@@ -1,6 +1,6 @@
-import { CommonInfoModel } from 'models'
+import { CommonInfoType } from 'types'
 
-export interface EducationModel {
+export interface EducationType {
 	data: Education[]
 	displayName: string
 	pathname: string
@@ -9,5 +9,5 @@ export interface EducationModel {
 
 export interface Education {
 	id: number
-	info: CommonInfoModel[]
+	info: CommonInfoType[]
 }

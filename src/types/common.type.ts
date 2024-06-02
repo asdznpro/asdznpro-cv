@@ -1,4 +1,4 @@
-export interface CommonInfoModel {
+export interface CommonInfoType {
 	id?: string
 	title?: string
 	icon?: string
@@ -7,10 +7,10 @@ export interface CommonInfoModel {
 	href?: string
 }
 
-export interface LanguageModel {
+export interface LanguageType {
 	lang: 'ru' | 'en'
 }
 
-export interface ThemeModel {
+export interface ThemeType {
 	mode: 'dark' | 'light'
 }

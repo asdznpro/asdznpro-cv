@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useAppDispatch } from 'hooks'
 import { setTheme } from 'store'
 
-import { ThemeModel } from 'models'
+import { ThemeType } from 'types'
 
 const usePreferredTheme = () => {
 	const dispatch = useAppDispatch()
@@ -11,14 +11,14 @@ const usePreferredTheme = () => {
 		const savedTheme = localStorage.getItem('theme')
 
 		if (savedTheme) {
-			dispatch(setTheme({ mode: savedTheme } as ThemeModel))
+			dispatch(setTheme({ mode: savedTheme } as ThemeType))
 		} else {
 			const prefersDarkMode = window.matchMedia(
 				'(prefers-color-scheme: dark)',
 			).matches
 			const systemTheme = prefersDarkMode ? 'dark' : 'light'
 
-			dispatch(setTheme({ mode: systemTheme } as ThemeModel))
+			dispatch(setTheme({ mode: systemTheme } as ThemeType))
 
 			localStorage.setItem('theme', systemTheme)
 		}

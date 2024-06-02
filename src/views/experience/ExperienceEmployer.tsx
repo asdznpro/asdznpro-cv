@@ -3,12 +3,7 @@ import * as React from 'react'
 import { useState } from 'react'
 import { useDocumentHead } from 'hooks'
 
-import {
-	ExperienceModel,
-	FeedbackModel,
-	LanguageModel,
-	ThemeModel,
-} from 'models'
+import { ExperienceType, FeedbackType, LanguageType, ThemeType } from 'types'
 
 import styles from './Experience.module.scss'
 
@@ -34,10 +29,10 @@ import {
 } from '@vkontakte/icons'
 
 interface ExperienceEmployerProps {
-	employerData: ExperienceModel['data'][number]
-	feedbackData: FeedbackModel['data'][number]['feedback']
-	language: LanguageModel
-	theme: ThemeModel
+	employerData: ExperienceType['data'][number]
+	feedbackData: FeedbackType['data'][number]['feedback']
+	language: LanguageType
+	theme: ThemeType
 }
 
 const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {

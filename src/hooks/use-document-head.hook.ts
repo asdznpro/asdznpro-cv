@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 
 import { BASE_URL, DEFAULT_PAGE_TITLES } from 'constants'
-import { LanguageModel } from 'models'
+import { LanguageType } from 'types'
 
 const useDocumentHead = (
-	selectLanguage: LanguageModel,
+	selectLanguage: LanguageType,
 	newTitle: string = '',
 	canonical: string = '',
 ) => {

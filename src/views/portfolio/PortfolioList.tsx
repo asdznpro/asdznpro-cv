@@ -5,8 +5,9 @@ import { useDocumentHead, useDynamicAlignment } from 'hooks'
 
 import { EmblaOptionsType } from 'embla-carousel'
 
+import { LanguageType, PortfolioType, ThemeType } from 'types'
+
 import styles from './Portfolio.module.scss'
-import { LanguageModel, PortfolioModel, ThemeModel } from 'models'
 
 import { Portfolio } from './Portfolio'
 
@@ -25,9 +26,9 @@ import {
 } from 'components/ui'
 
 interface PortfolioListProps {
-	data: PortfolioModel | null
-	language: LanguageModel
-	theme: ThemeModel
+	data: PortfolioType | null
+	language: LanguageType
+	theme: ThemeType
 }
 
 const PortfolioList: React.FC<PortfolioListProps> = (props) => {
