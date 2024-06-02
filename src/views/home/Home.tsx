@@ -86,7 +86,7 @@ const Home = () => {
 							<Box YPadding>
 								<Avatar.Skeleton className="ui-mx-auto" />
 
-								<div className="ui-flex ui-col ui-items-center ui-gap-4">
+								<div className="ui-flex ui-flex-col ui-items-center ui-gap-4-px">
 									<Heading.Skeleton level={3} className="ui-w-84-pct" />
 									<Heading.Skeleton level={3} className="ui-w-56-pct" />
 								</div>
@@ -95,12 +95,12 @@ const Home = () => {
 
 						<Tile>
 							<Box YPadding className="ui-h-100-pct">
-								<div className="ui-flex ui-col ui-gap-4">
+								<div className="ui-flex ui-flex-col ui-gap-4-px">
 									<Heading.Skeleton level={3} className="ui-w-72-pct" />
 									<Heading.Skeleton level={3} className="ui-w-60-pct" />
 								</div>
 
-								<div className="ui-flex ui-col ui-gap-4">
+								<div className="ui-flex ui-flex-col ui-gap-4-px">
 									<Fontbody.Skeleton level={2} />
 									<Fontbody.Skeleton level={2} />
 									<Fontbody.Skeleton level={2} className="ui-w-92-pct" />

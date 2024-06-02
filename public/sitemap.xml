@@ -1,45 +1,45 @@
-<?xml version="1.4" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://cv.asdzn.pro/</loc>
-      <lastmod>2024-05-27</lastmod>
-      <changefreq>monthly</changefreq>
+      <lastmod>2024-06-02</lastmod>
+      <changefreq>weekly</changefreq>
       <priority>1.00</priority>
    </url>
    <url>
       <loc>https://cv.asdzn.pro/about</loc>
-      <lastmod>2024-05-27</lastmod>
-      <changefreq>monthly</changefreq>
+      <lastmod>2024-06-02</lastmod>
+      <changefreq>weekly</changefreq>
       <priority>0.80</priority>
    </url>
    <url>
       <loc>https://cv.asdzn.pro/experience</loc>
-      <lastmod>2024-05-27</lastmod>
-      <changefreq>monthly</changefreq>
+      <lastmod>2024-06-02</lastmod>
+      <changefreq>weekly</changefreq>
       <priority>0.90</priority>
    </url>
    <url>
       <loc>https://cv.asdzn.pro/portfolio</loc>
-      <lastmod>2024-05-27</lastmod>
-      <changefreq>monthly</changefreq>
+      <lastmod>2024-06-02</lastmod>
+      <changefreq>weekly</changefreq>
       <priority>0.90</priority>
    </url>
    <url>
       <loc>https://cv.asdzn.pro/hard-skills</loc>
-      <lastmod>2024-05-27</lastmod>
-      <changefreq>monthly</changefreq>
+      <lastmod>2024-06-02</lastmod>
+      <changefreq>weekly</changefreq>
       <priority>0.80</priority>
    </url>
    <url>
       <loc>https://cv.asdzn.pro/education</loc>
-      <lastmod>2024-05-27</lastmod>
-      <changefreq>monthly</changefreq>
+      <lastmod>2024-06-02</lastmod>
+      <changefreq>weekly</changefreq>
       <priority>0.80</priority>
    </url>
    <url>
       <loc>https://cv.asdzn.pro/contacts</loc>
-      <lastmod>2024-05-27</lastmod>
-      <changefreq>monthly</changefreq>
+      <lastmod>2024-06-02</lastmod>
+      <changefreq>weekly</changefreq>
       <priority>0.80</priority>
    </url>
 </urlset>

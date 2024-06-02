@@ -88,7 +88,7 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = (props) => {
 				<Box>
 					<Breadcrumbs
 						customLabels={['Портфолио', item.project.shortName]}
-						selectLanguage={language.lang}
+						selectLanguage={language}
 					/>
 				</Box>
 			</Section>
@@ -228,7 +228,7 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = (props) => {
 					))}
 				</Masonry>
 
-				<PageNavigation />
+				{/* <PageNavigation /> */}
 			</Section>
 		</>
 	)

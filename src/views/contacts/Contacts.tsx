@@ -48,7 +48,7 @@ const Contacts = () => {
 								before={
 									<Breadcrumbs
 										customLabels={[data.displayName]}
-										selectLanguage={language.lang}
+										selectLanguage={language}
 									/>
 								}
 							/>
@@ -80,7 +80,11 @@ const Contacts = () => {
 							))}
 						</div>
 
-						<PageNavigation />
+						<PageNavigation
+							selectLanguage={language}
+							previousPage={{ title: 'Образование', pathname: '/education' }}
+							nextPage={{ title: 'Резюме', pathname: '/' }}
+						/>
 					</Section>
 				</>
 			) : (

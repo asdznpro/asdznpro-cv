@@ -15,7 +15,7 @@ const Breadcrumbs = (props: BreadcrumbsProps) => {
 	const pathnames = location.pathname.split('/').filter((x) => x)
 
 	const breadcrumbPaths = [
-		{ path: '/', name: selectLanguage === 'en' ? 'CV' : 'Резюме' },
+		{ path: '/', name: selectLanguage.lang === 'en' ? 'CV' : 'Резюме' },
 	]
 
 	pathnames.forEach((_, index) => {

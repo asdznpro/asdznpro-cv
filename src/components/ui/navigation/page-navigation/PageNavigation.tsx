@@ -11,40 +11,51 @@ import {
 } from '@vkontakte/icons'
 
 const PageNavigation = (props: PageNavigationProps) => {
-	const { children } = props
+	const { selectLanguage, previousPage, nextPage } = props
 
 	return (
 		<Tile>
 			<Box YPadding>
 				<div className={[styles.root].join(' ')}>
 					<Button
-						buttonSize='lg'
+						to={previousPage.pathname}
+						mode={previousPage.pathname === '' ? 'secondary' : 'primary'}
+						appearance={previousPage.pathname === '' ? 'neutral' : 'accent'}
+						buttonSize="lg"
 						before={<Icon28ArrowLeftOutline width={36} height={36} />}
+						disabled={previousPage.pathname === '' ? true : false}
 						stretched
 					/>
+
 					<div className={styles.route}>
-						<Footnote className='ui-text-secondary ui-text-truncate'>
-							Предыдущий раздел
+						<Footnote className="ui-text-secondary ui-text-truncate">
+							{selectLanguage.lang === 'en'
+								? 'Previous Page'
+								: 'Предыдущий раздел'}
 						</Footnote>
 
-						<Fontbody className='ui-text-truncate'>
-							previous-page-title
+						<Fontbody className="ui-text-truncate">
+							{previousPage.title ? previousPage.title : 'N/A'}
 						</Fontbody>
 					</div>
 
 					<div className={styles.route} style={{ textAlign: 'end' }}>
-						<Footnote className='ui-text-secondary ui-text-truncate'>
-							Следующий раздел
+						<Footnote className="ui-text-secondary ui-text-truncate">
+							{selectLanguage.lang === 'en' ? 'Next Page' : 'Следующий раздел'}
 						</Footnote>
 
-						<Fontbody className='ui-text-truncate'>next-page-title</Fontbody>
+						<Fontbody className="ui-text-truncate">
+							{nextPage.title ? nextPage.title : 'N/A'}
+						</Fontbody>
 					</div>
+
 					<Button
-						mode='secondary'
-						appearance='neutral'
-						buttonSize='lg'
+						to={nextPage.pathname === '' ? '' : nextPage.pathname}
+						mode={nextPage.pathname === '' ? 'secondary' : 'primary'}
+						appearance={nextPage.pathname === '' ? 'neutral' : 'accent'}
+						buttonSize="lg"
 						before={<Icon28ArrowRightOutline width={36} height={36} />}
-						disabled
+						disabled={nextPage.pathname === '' ? true : false}
 						stretched
 					/>
 				</div>

@@ -44,7 +44,7 @@ const ExperienceList: React.FC<ExperienceListProps> = (props) => {
 								before={
 									<Breadcrumbs
 										customLabels={[data.displayName]}
-										selectLanguage={language.lang}
+										selectLanguage={language}
 									/>
 								}
 							/>
@@ -68,7 +68,7 @@ const ExperienceList: React.FC<ExperienceListProps> = (props) => {
 									{item.employerInfo.shortDescription}
 								</Fontbody>
 
-								<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+								<div className="ui-flex ui-gap-6-px ui-flex-wrap">
 									{item.labels.map((label, index) => (
 										<Button
 											key={item.id + '-' + index}
@@ -107,7 +107,11 @@ const ExperienceList: React.FC<ExperienceListProps> = (props) => {
 							</Experience.Item>
 						))}
 
-						<PageNavigation />
+						<PageNavigation
+							selectLanguage={language}
+							previousPage={{ title: 'Опыт работы', pathname: '/about' }}
+							nextPage={{ title: 'Портфолио', pathname: '/portfolio' }}
+						/>
 					</Section>
 				</>
 			) : (

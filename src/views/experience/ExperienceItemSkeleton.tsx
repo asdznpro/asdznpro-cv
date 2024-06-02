@@ -1,14 +1,12 @@
 import * as React from 'react'
 
-import { useState } from 'react'
 import { useDynamicAlignment } from 'hooks'
 
 import styles from './ExperienceItem.module.scss'
-import ExperienceItemProps from './ExperienceItem.interface'
 
 import { Heading, Box, Tile, Fontbody } from 'components/ui'
 
-const ExperienceItemSkeleton: React.FC<ExperienceItemProps> = (props) => {
+const ExperienceItemSkeleton: React.FC = () => {
 	const { screenWidth } = useDynamicAlignment()
 
 	return (
@@ -27,7 +25,7 @@ const ExperienceItemSkeleton: React.FC<ExperienceItemProps> = (props) => {
 				<div className={styles.info}>
 					<Heading.Skeleton level={3} className="ui-w-72-pct" />
 
-					<div className="ui-flex ui-col ui-gap-4">
+					<div className="ui-flex ui-flex-col ui-gap-4-px">
 						<Fontbody.Skeleton level={3} className="ui-w-96-pct" />
 						<Fontbody.Skeleton level={3} className="ui-w-84-pct" />
 					</div>

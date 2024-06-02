@@ -53,7 +53,7 @@ const Education = () => {
 								before={
 									<Breadcrumbs
 										customLabels={[data.displayName]}
-										selectLanguage={language.lang}
+										selectLanguage={language}
 									/>
 								}
 							/>
@@ -83,7 +83,11 @@ const Education = () => {
 							</Tile>
 						))}
 
-						<PageNavigation />
+						<PageNavigation
+							selectLanguage={language}
+							previousPage={{ title: 'Проф. навыки', pathname: '/hard-skills' }}
+							nextPage={{ title: 'Контакты', pathname: '/contacts' }}
+						/>
 					</Section>
 				</>
 			) : (

@@ -91,7 +91,7 @@ const Experience = () => {
 														storeExperienceData.displayName,
 														item.employerInfo.name,
 													]}
-													selectLanguage={language.lang}
+													selectLanguage={language}
 												/>
 											</Box>
 										</Section>

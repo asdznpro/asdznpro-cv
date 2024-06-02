@@ -77,7 +77,7 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 								before={
 									<Breadcrumbs
 										customLabels={[data.displayName]}
-										selectLanguage={language.lang}
+										selectLanguage={language}
 									/>
 								}
 							/>
@@ -246,7 +246,11 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 							</Tile>
 						)}
 
-						<PageNavigation />
+						<PageNavigation
+							selectLanguage={language}
+							previousPage={{ title: 'Опыт работы', pathname: '/experience' }}
+							nextPage={{ title: 'Проф. навыки', pathname: '/hard-skills' }}
+						/>
 					</Section>
 				</>
 			) : (

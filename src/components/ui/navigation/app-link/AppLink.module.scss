@@ -2,32 +2,12 @@
 
 .root {
 	font-weight: bold;
-	transition: 0.08s ease-in;
 	cursor: pointer;
-	border-radius: 4px;
-	text-decoration-line: underline !important;
-}
 
-.color {
-	color: $AccentBlue;
-	text-decoration-color: $AccentBlue !important;
-
-	&:hover {
-		color: lighten($AccentBlue, $Alpha8);
-		text-decoration-color: lighten($AccentBlue, $Alpha8) !important;
-	}
+	color: inherit;
+	text-decoration: var(--accent-brand-color) underline !important;
 
 	&:visited {
-		color: var(--text-primary);
-		text-decoration-color: var(--text-primary) !important;
-
-		&:hover {
-			color: var(--button-contrast-hover);
-			text-decoration-color: var(--button-contrast-hover) !important;
-		}
+		text-decoration-color: var(--text-secondary) !important;
 	}
-}
-
-.flex {
-	@include ui-flex-container(flex, $shrink: 0);
 }

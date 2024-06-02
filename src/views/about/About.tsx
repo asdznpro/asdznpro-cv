@@ -15,6 +15,7 @@ import {
 	PageNavigation,
 	Box,
 	Tile,
+	AppLink,
 } from 'components/ui'
 
 const About = () => {
@@ -40,7 +41,7 @@ const About = () => {
 								before={
 									<Breadcrumbs
 										customLabels={[data.displayName]}
-										selectLanguage={language.lang}
+										selectLanguage={language}
 									/>
 								}
 							/>
@@ -123,16 +124,17 @@ const About = () => {
 
 						<Tile>
 							<Box YPadding>
-								<Fontbody
-									className="ui-text-secondary"
-									style={{ margin: '0 auto', padding: '28px 0' }}
-								>
+								<Fontbody className="ui-text-secondary ui-mx-auto ui-py-24-px">
 									*рекомендации как на HH*
 								</Fontbody>
 							</Box>
 						</Tile>
 
-						<PageNavigation />
+						<PageNavigation
+							selectLanguage={language}
+							previousPage={{ title: 'Резюме', pathname: '/' }}
+							nextPage={{ title: 'Опыт работы', pathname: '/experience' }}
+						/>
 					</Section>
 				</>
 			) : (

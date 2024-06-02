@@ -62,7 +62,7 @@ const HardSkills = () => {
 								before={
 									<Breadcrumbs
 										customLabels={[data.displayName]}
-										selectLanguage={language.lang}
+										selectLanguage={language}
 									/>
 								}
 							/>
@@ -121,7 +121,11 @@ const HardSkills = () => {
 							</Tile>
 						))}
 
-						<PageNavigation />
+						<PageNavigation
+							selectLanguage={language}
+							previousPage={{ title: 'Портфолио', pathname: '/portfolio' }}
+							nextPage={{ title: 'Образование', pathname: '/education' }}
+						/>
 					</Section>
 				</>
 			) : (

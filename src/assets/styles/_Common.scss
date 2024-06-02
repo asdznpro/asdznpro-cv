@@ -3,6 +3,32 @@
 .ui- {
 	// Layout ———————————————————————————————————————————————— //
 
+	// Box
+
+	&box- {
+		// Box Decoration Break
+
+		&decoration- {
+			&clone {
+				box-decoration-break: clone;
+			}
+
+			&slice {
+				box-decoration-break: slice;
+			}
+		}
+
+		// Box Sizing
+
+		&border {
+			box-sizing: border-box;
+		}
+
+		&content {
+			box-sizing: content-box;
+		}
+	}
+
 	// Display
 
 	&block {
@@ -31,64 +57,66 @@
 
 	// Overflow
 
-	&overflow-auto {
-		overflow: auto;
-	}
+	&overflow- {
+		&auto {
+			overflow: auto;
+		}
 
-	&overflow-hidden {
-		overflow: hidden;
-	}
+		&hidden {
+			overflow: hidden;
+		}
 
-	&overflow-clip {
-		overflow: clip;
-	}
+		&clip {
+			overflow: clip;
+		}
 
-	&overflow-visible {
-		overflow: visible;
-	}
+		&visible {
+			overflow: visible;
+		}
 
-	&overflow-scroll {
-		overflow: scroll;
-	}
+		&scroll {
+			overflow: scroll;
+		}
 
-	&overflow-x-auto {
-		overflow-x: auto;
-	}
+		&x-auto {
+			overflow-x: auto;
+		}
 
-	&overflow-x-hidden {
-		overflow-x: hidden;
-	}
+		&x-hidden {
+			overflow-x: hidden;
+		}
 
-	&overflow-x-clip {
-		overflow-x: clip;
-	}
+		&x-clip {
+			overflow-x: clip;
+		}
 
-	&overflow-x-visible {
-		overflow-x: visible;
-	}
+		&x-visible {
+			overflow-x: visible;
+		}
 
-	&overflow-x-scroll {
-		overflow-x: scroll;
-	}
+		&x-scroll {
+			overflow-x: scroll;
+		}
 
-	&overflow-y-auto {
-		overflow-y: auto;
-	}
+		&y-auto {
+			overflow-y: auto;
+		}
 
-	&overflow-y-hidden {
-		overflow-y: hidden;
-	}
+		&y-hidden {
+			overflow-y: hidden;
+		}
 
-	&overflow-y-clip {
-		overflow-y: clip;
-	}
+		&y-clip {
+			overflow-y: clip;
+		}
 
-	&overflow-y-visible {
-		overflow-y: visible;
-	}
+		&y-visible {
+			overflow-y: visible;
+		}
 
-	&overflow-y-scroll {
-		overflow-y: scroll;
+		&y-scroll {
+			overflow-y: scroll;
+		}
 	}
 
 	// Position
@@ -115,32 +143,86 @@
 
 	// Flexbox & Grid ———————————————————————————————————————————————— //
 
-	// Flex Direction
+	&flex- {
+		// Flex Direction
 
-	&row {
-		flex-direction: row;
-	}
+		&row {
+			flex-direction: row;
+		}
 
-	&row-reverse {
-		flex-direction: row-reverse;
-	}
+		&row-reverse {
+			flex-direction: row-reverse;
+		}
 
-	&col {
-		flex-direction: column;
-	}
+		&col {
+			flex-direction: column;
+		}
 
-	&col-reverse {
-		flex-direction: column-reverse;
+		&col-reverse {
+			flex-direction: column-reverse;
+		}
+
+		// Flex Wrap
+
+		&wrap {
+			flex-wrap: wrap;
+		}
+
+		&wrap-reverse {
+			flex-wrap: wrap-reverse;
+		}
+
+		&nowrap {
+			flex-wrap: nowrap;
+		}
+
+		// Flex
+
+		&1 {
+			flex: 1 1 0%;
+		}
+
+		&auto {
+			flex: 1 1 auto;
+		}
+
+		&initial {
+			flex: 0 1 auto;
+		}
+
+		&none {
+			flex: none;
+		}
+
+		// Flex Grow
+
+		&grow {
+			flex-grow: 1;
+		}
+
+		&grow-0 {
+			flex-grow: 0;
+		}
+
+		// Flex Shrink
+
+		&shrink {
+			flex-shrink: 1;
+		}
+
+		&shrink-0 {
+			flex-shrink: 0;
+		}
 	}
 
 	// Gap
 
 	&gap {
 		@for $i from 0 through 20 {
-			$pct: $i;
+			$px: $i;
 
-			&-#{$pct} {
-				gap: #{$i + 'px'};
+			&-#{$px}-px {
+				gap: #{$px + 'px'};
 			}
 		}
 
@@ -206,34 +288,36 @@
 	@for $i from 0 through 9999 {
 		$px: $i;
 
-		&p-#{$px}-px {
-			padding: #{$px + 'px'};
-		}
+		&p {
+			&-#{$px}-px {
+				padding: #{$px + 'px'};
+			}
 
-		&px-#{$px}-px {
-			padding-left: #{$px + 'px'};
-			padding-right: #{$px + 'px'};
-		}
+			&x-#{$px}-px {
+				padding-left: #{$px + 'px'};
+				padding-right: #{$px + 'px'};
+			}
 
-		&py-#{$px}-px {
-			padding-top: #{$px + 'px'};
-			padding-bottom: #{$px + 'px'};
-		}
+			&y-#{$px}-px {
+				padding-top: #{$px + 'px'};
+				padding-bottom: #{$px + 'px'};
+			}
 
-		&pt-#{$px}-px {
-			padding-top: #{$px + 'px'};
-		}
+			&t-#{$px}-px {
+				padding-top: #{$px + 'px'};
+			}
 
-		&pr-#{$px}-px {
-			padding-right: #{$px + 'px'};
-		}
+			&r-#{$px}-px {
+				padding-right: #{$px + 'px'};
+			}
 
-		&pb-#{$px}-px {
-			padding-bottom: #{$px + 'px'};
-		}
+			&b-#{$px}-px {
+				padding-bottom: #{$px + 'px'};
+			}
 
-		&pl-#{$px}-px {
-			padding-left: #{$px + 'px'};
+			&l-#{$px}-px {
+				padding-left: #{$px + 'px'};
+			}
 		}
 	}
 
@@ -242,71 +326,73 @@
 	@for $i from 0 through 9999 {
 		$px: $i;
 
-		&m-#{$px}-px {
-			margin: #{$px + 'px'};
+		&m {
+			&-#{$px}-px {
+				margin: #{$px + 'px'};
+			}
+
+			&x-#{$px}-px {
+				margin-left: #{$px + 'px'};
+				margin-right: #{$px + 'px'};
+			}
+
+			&y-#{$px}-px {
+				margin-top: #{$px + 'px'};
+				margin-bottom: #{$px + 'px'};
+			}
+
+			&t-#{$px}-px {
+				margin-top: #{$px + 'px'};
+			}
+
+			&r-#{$px}-px {
+				margin-right: #{$px + 'px'};
+			}
+
+			&b-#{$px}-px {
+				margin-bottom: #{$px + 'px'};
+			}
+
+			&l-#{$px}-px {
+				margin-left: #{$px + 'px'};
+			}
+		}
+	}
+
+	&m {
+		&-auto {
+			margin: auto;
 		}
 
-		&mx-#{$px}-px {
-			margin-left: #{$px + 'px'};
-			margin-right: #{$px + 'px'};
+		&x-auto {
+			margin-left: auto;
+			margin-right: auto;
 		}
 
-		&my-#{$px}-px {
-			margin-top: #{$px + 'px'};
-			margin-bottom: #{$px + 'px'};
+		&y-auto {
+			margin-top: auto;
+			margin-bottom: auto;
 		}
 
-		&mt-#{$px}-px {
-			margin-top: #{$px + 'px'};
+		&t-auto {
+			margin-top: auto;
 		}
 
-		&mr-#{$px}-px {
-			margin-right: #{$px + 'px'};
+		&r-auto {
+			margin-right: auto;
 		}
 
-		&mb-#{$px}-px {
-			margin-bottom: #{$px + 'px'};
+		&b-auto {
+			margin-bottom: auto;
 		}
 
-		&ml-#{$px}-px {
-			margin-left: #{$px + 'px'};
+		&l-auto {
+			margin-left: auto;
 		}
 	}
 
-	&m-auto {
-		margin: auto;
-	}
+	// Sizing ———————————————————————————————————————————————— //
 
-	&mx-auto {
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	&my-auto {
-		margin-top: auto;
-		margin-bottom: auto;
-	}
-
-	&mt-auto {
-		margin-top: auto;
-	}
-
-	&mr-auto {
-		margin-right: auto;
-	}
-
-	&mb-auto {
-		margin-bottom: auto;
-	}
-
-	&ml-auto {
-		margin-left: auto;
-	}
-}
-
-// Sizing ———————————————————————————————————————————————— //
-
-.ui- {
 	// Width
 
 	&w {
@@ -392,257 +478,259 @@
 	}
 }
 
-// Typography ———————————————————————————————————————————————— //
+.ui- {
+	// Typography ———————————————————————————————————————————————— //
 
-// Line Clamp
+	// Line Clamp
 
-.ui-clamp {
-	@for $i from 1 through 6 {
-		$line: $i;
+	&clamp {
+		@for $i from 1 through 6 {
+			$line: $i;
 
-		&-#{$line} {
-			overflow: hidden;
-			display: -webkit-box;
-			-webkit-box-orient: vertical;
-			-webkit-line-clamp: $line;
+			&-#{$line} {
+				overflow: hidden;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: $line;
+			}
+		}
+
+		&-none {
+			overflow: visible;
+			display: block;
+			-webkit-box-orient: horizontal;
+			-webkit-line-clamp: none;
 		}
 	}
 
-	&-none {
-		overflow: visible;
-		display: block;
-		-webkit-box-orient: horizontal;
-		-webkit-line-clamp: none;
-	}
-}
+	// Font
 
-// Font
+	&font {
+		// Font Weight
 
-.ui-font {
-	// Font Weight
+		&-normal {
+			font-weight: 400;
+		}
 
-	&-normal {
-		font-weight: 400;
-	}
+		&-medium {
+			font-weight: 500;
+		}
 
-	&-medium {
-		font-weight: 500;
-	}
+		&-bold {
+			font-weight: 700;
+		}
 
-	&-bold {
-		font-weight: 700;
-	}
+		&-black {
+			font-weight: 900;
+		}
 
-	&-black {
-		font-weight: 900;
-	}
+		// Font Style
 
-	// Font Style
+		&-italic {
+			font-style: italic;
+		}
 
-	&-italic {
-		font-style: italic;
+		&-not-italic {
+			font-style: normal;
+		}
 	}
 
-	&-not-italic {
-		font-style: normal;
+	// Text
+
+	&text {
+		// Text Align
+
+		&-left {
+			text-align: left;
+		}
+
+		&-center {
+			text-align: center;
+		}
+
+		&-right {
+			text-align: right;
+		}
+
+		&-justify {
+			text-align: justify;
+		}
+
+		&-start {
+			text-align: start;
+		}
+
+		&-end {
+			text-align: end;
+		}
+
+		// Text Color
+
+		&-inherit {
+			color: inherit;
+		}
+
+		&-secondary {
+			color: var(--text-secondary);
+		}
+
+		&-accent {
+			color: var(--accent-brand-color);
+		}
+
+		&-positive {
+			color: var(--accent-positive-color);
+		}
+
+		&-negative {
+			color: var(--accent-negative-color);
+		}
+
+		// Text Transform
+
+		&-uppercase {
+			text-transform: uppercase;
+		}
+
+		&-lowercase {
+			text-transform: lowercase;
+		}
+
+		&-capitalize {
+			text-transform: capitalize;
+		}
+
+		&-normal-case {
+			text-transform: none;
+		}
+
+		// Text Overflow
+
+		&-truncate {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		&-ellipsis {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		&-clip {
+			overflow: hidden;
+			text-overflow: clip;
+			white-space: nowrap;
+		}
+
+		// Text Wrap
+
+		&-wrap {
+			text-wrap: wrap;
+		}
+
+		&-nowrap {
+			text-wrap: nowrap;
+		}
+
+		&-balance {
+			text-wrap: balance;
+		}
+
+		&-pretty {
+			text-wrap: pretty;
+		}
 	}
-}
 
-// Text
+	// Borders ———————————————————————————————————————————————— //
 
-.ui-text {
-	// Text Align
+	&rounded {
+		&-xsm {
+			border-radius: $ui-rounded--xsm;
+		}
 
-	&-left {
-		text-align: left;
+		&-sm {
+			border-radius: $ui-rounded--sm;
+		}
+
+		&-md {
+			border-radius: $ui-rounded--md;
+		}
+
+		&-l {
+			border-radius: $ui-rounded--l;
+		}
+
+		&-xl {
+			border-radius: $ui-rounded--xl;
+		}
+
+		&-2xl {
+			border-radius: $ui-rounded--2xl;
+		}
+
+		&-3xl {
+			border-radius: $ui-rounded--3xl;
+		}
+
+		&-4xl {
+			border-radius: $ui-rounded--4xl;
+		}
+
+		&-5xl {
+			border-radius: $ui-rounded--5xl;
+		}
 	}
 
-	&-center {
-		text-align: center;
+	// Animation ———————————————————————————————————————————————— //
+
+	&animate {
+		&-none {
+			animation: none;
+		}
+
+		&-spin {
+			@include ui-animate-spin;
+		}
+
+		&-ping {
+			@include ui-animate-ping;
+		}
+
+		&-bounce {
+			@include ui-animate-bounce;
+		}
 	}
 
-	&-right {
-		text-align: right;
-	}
+	// Skeleton Style
 
-	&-justify {
-		text-align: justify;
-	}
+	&skeleton {
+		@include ui-flex-container(flex, center, center);
 
-	&-start {
-		text-align: start;
-	}
-
-	&-end {
-		text-align: end;
-	}
-
-	// Text Color
-
-	&-inherit {
-		color: inherit;
-	}
-
-	&-secondary {
-		color: var(--text-secondary);
-	}
-
-	&-accent {
-		color: var(--accent-brand-color);
-	}
-
-	&-positive {
-		color: var(--accent-positive-color);
-	}
-
-	&-negative {
-		color: var(--accent-negative-color);
-	}
-
-	// Text Transform
-
-	&-uppercase {
-		text-transform: uppercase;
-	}
-
-	&-lowercase {
-		text-transform: lowercase;
-	}
-
-	&-capitalize {
-		text-transform: capitalize;
-	}
-
-	&-normal-case {
-		text-transform: none;
-	}
-
-	// Text Overflow
-
-	&-truncate {
+		position: relative;
 		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
+
+		background: var(--background--alpha) !important;
+
+		&::after {
+			content: '';
+
+			@include ui-size-control(100%, 100%);
+			@include ui-flex-container(flex, $items: center);
+
+			@include ui-animate-pulse;
+
+			position: absolute;
+			background: var(--background--alpha);
+		}
 	}
 
-	&-ellipsis {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	}
+	// Other ———————————————————————————————————————————————— //
 
-	&-clip {
-		overflow: hidden;
-		text-overflow: clip;
-		white-space: nowrap;
-	}
-
-	// Text Wrap
-
-	&-wrap {
-		text-wrap: wrap;
-	}
-
-	&-nowrap {
-		text-wrap: nowrap;
-	}
-
-	&-balance {
-		text-wrap: balance;
-	}
-
-	&-pretty {
-		text-wrap: pretty;
-	}
-}
-
-// Borders ———————————————————————————————————————————————— //
-
-.ui-rounded {
-	&-xsm {
-		border-radius: $ui-rounded--xsm;
-	}
-
-	&-sm {
-		border-radius: $ui-rounded--sm;
-	}
-
-	&-md {
-		border-radius: $ui-rounded--md;
-	}
-
-	&-l {
-		border-radius: $ui-rounded--l;
-	}
-
-	&-xl {
-		border-radius: $ui-rounded--xl;
-	}
-
-	&-2xl {
-		border-radius: $ui-rounded--2xl;
-	}
-
-	&-3xl {
-		border-radius: $ui-rounded--3xl;
-	}
-
-	&-4xl {
-		border-radius: $ui-rounded--4xl;
-	}
-
-	&-5xl {
-		border-radius: $ui-rounded--5xl;
-	}
-}
-
-// Animation ———————————————————————————————————————————————— //
-
-.ui-animate {
-	&-none {
-		animation: none;
-	}
-
-	&-spin {
-		@include ui-animate-spin;
-	}
-
-	&-ping {
-		@include ui-animate-ping;
-	}
-
-	&-bounce {
-		@include ui-animate-bounce;
-	}
-}
-
-// Other ———————————————————————————————————————————————— //
-
-.ui-scrollbar-stable {
-	@media (min-width: $ui-max-w--mobile) {
-		scrollbar-gutter: stable;
-	}
-}
-
-// Skeleton Style
-
-.ui-skeleton {
-	@include ui-flex-container(flex, center, center);
-
-	position: relative;
-	overflow: hidden;
-
-	background: var(--background--alpha) !important;
-
-	&::after {
-		content: '';
-
-		@include ui-size-control(100%, 100%);
-		@include ui-flex-container(flex, $items: center);
-
-		@include ui-animate-pulse;
-
-		position: absolute;
-		background: var(--background--alpha);
+	&scrollbar-stable {
+		@media (min-width: $ui-max-w--mobile) {
+			scrollbar-gutter: stable;
+		}
 	}
 }
