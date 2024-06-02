@@ -1,5 +1,4 @@
 export * from './use-document-head.hook'
-export * from './use-document-scroll-throttled.hook'
 export * from './use-dynamic-alignment.hook'
 export * from './use-go-back.hook'
 export * from './use-language.hook'

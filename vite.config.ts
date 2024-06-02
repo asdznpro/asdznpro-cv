@@ -23,6 +23,7 @@ export default (args: ViteConfigInput) => {
 				models: '/src/models',
 				services: '/src/services',
 				store: '/src/store',
+				utils: '/src/utils',
 				views: '/src/views',
 			},
 		},

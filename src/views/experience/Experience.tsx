@@ -104,6 +104,20 @@ const Experience = () => {
 											language={language}
 											theme={theme}
 										/>
+
+										{/* <Section countColumns={10}>
+											<PageNavigation
+												selectLanguage={language}
+												previousPage={{
+													name: 'prev',
+													pathname: '/experience/prev',
+												}}
+												nextPage={{
+													name: 'next',
+													pathname: '/experience/next',
+												}}
+											/>
+										</Section> */}
 									</>
 								}
 							/>

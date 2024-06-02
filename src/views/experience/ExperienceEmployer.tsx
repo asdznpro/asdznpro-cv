@@ -86,7 +86,7 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 						{employerData.employerInfo.shortDescription}
 					</Fontbody>
 
-					<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+					<div className="ui-flex ui-gap-6-px ui-flex-wrap">
 						{employerData.employerInfo.website && (
 							<Button
 								href={employerData.employerInfo.website}

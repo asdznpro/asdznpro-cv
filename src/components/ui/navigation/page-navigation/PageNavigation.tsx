@@ -1,3 +1,7 @@
+import { useLocation } from 'react-router-dom'
+import { useAppSelector } from 'hooks'
+import { getNavigationLinks } from 'utils'
+
 import styles from './PageNavigation.module.scss'
 import PageNavigationProps from './PageNavigation.interface'
 
@@ -11,14 +15,30 @@ import {
 } from '@vkontakte/icons'
 
 const PageNavigation = (props: PageNavigationProps) => {
-	const { selectLanguage, previousPage, nextPage } = props
+	// const { selectLanguage, previousPage, nextPage } = props
+	const { selectLanguage } = props
+
+	const storeCvMapData = useAppSelector((state) => state.common.cvMap)
+	const currentPathname = useLocation().pathname.replace(/^\//, '')
+	
+	const { previousPage, nextPage } = getNavigationLinks(
+		currentPathname,
+		storeCvMapData ? storeCvMapData.data : null,
+		selectLanguage,
+	)
 
 	return (
 		<Tile>
 			<Box YPadding>
 				<div className={[styles.root].join(' ')}>
 					<Button
-						to={previousPage.pathname}
+						to={
+							previousPage.pathname === ''
+								? ''
+								: previousPage.pathname === '/'
+									? previousPage.pathname
+									: '/' + previousPage.pathname
+						}
 						mode={previousPage.pathname === '' ? 'secondary' : 'primary'}
 						appearance={previousPage.pathname === '' ? 'neutral' : 'accent'}
 						buttonSize="lg"
@@ -35,22 +55,28 @@ const PageNavigation = (props: PageNavigationProps) => {
 						</Footnote>
 
 						<Fontbody className="ui-text-truncate">
-							{previousPage.title ? previousPage.title : 'N/A'}
+							{previousPage.name ? previousPage.name : 'N/A'}
 						</Fontbody>
 					</div>
 
-					<div className={styles.route} style={{ textAlign: 'end' }}>
+					<div className={[styles.route, 'ui-text-end'].join(' ')}>
 						<Footnote className="ui-text-secondary ui-text-truncate">
 							{selectLanguage.lang === 'en' ? 'Next Page' : 'Следующий раздел'}
 						</Footnote>
 
 						<Fontbody className="ui-text-truncate">
-							{nextPage.title ? nextPage.title : 'N/A'}
+							{nextPage.name ? nextPage.name : 'N/A'}
 						</Fontbody>
 					</div>
 
 					<Button
-						to={nextPage.pathname === '' ? '' : nextPage.pathname}
+						to={
+							nextPage.pathname === ''
+								? ''
+								: nextPage.pathname === '/'
+									? nextPage.pathname
+									: '/' + nextPage.pathname
+						}
 						mode={nextPage.pathname === '' ? 'secondary' : 'primary'}
 						appearance={nextPage.pathname === '' ? 'neutral' : 'accent'}
 						buttonSize="lg"

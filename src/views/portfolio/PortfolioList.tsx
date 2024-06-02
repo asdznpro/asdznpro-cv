@@ -248,8 +248,8 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 
 						<PageNavigation
 							selectLanguage={language}
-							previousPage={{ title: 'Опыт работы', pathname: '/experience' }}
-							nextPage={{ title: 'Проф. навыки', pathname: '/hard-skills' }}
+							previousPage={{ name: 'Опыт работы', pathname: '/experience' }}
+							nextPage={{ name: 'Проф. навыки', pathname: '/hard-skills' }}
 						/>
 					</Section>
 				</>

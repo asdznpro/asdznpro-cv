@@ -85,8 +85,14 @@ const Education = () => {
 
 						<PageNavigation
 							selectLanguage={language}
-							previousPage={{ title: 'Проф. навыки', pathname: '/hard-skills' }}
-							nextPage={{ title: 'Контакты', pathname: '/contacts' }}
+							previousPage={{
+								name: 'previousPage.name',
+								pathname: 'previousPage.pathname',
+							}}
+							nextPage={{
+								name: 'nextPage.name',
+								pathname: 'nextPage.pathname',
+							}}
 						/>
 					</Section>
 				</>

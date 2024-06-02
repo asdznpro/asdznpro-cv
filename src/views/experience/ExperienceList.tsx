@@ -109,8 +109,8 @@ const ExperienceList: React.FC<ExperienceListProps> = (props) => {
 
 						<PageNavigation
 							selectLanguage={language}
-							previousPage={{ title: 'Опыт работы', pathname: '/about' }}
-							nextPage={{ title: 'Портфолио', pathname: '/portfolio' }}
+							previousPage={{ name: 'Обо мне', pathname: '/about' }}
+							nextPage={{ name: 'Портфолио', pathname: '/portfolio' }}
 						/>
 					</Section>
 				</>

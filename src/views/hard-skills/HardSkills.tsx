@@ -123,8 +123,8 @@ const HardSkills = () => {
 
 						<PageNavigation
 							selectLanguage={language}
-							previousPage={{ title: 'Портфолио', pathname: '/portfolio' }}
-							nextPage={{ title: 'Образование', pathname: '/education' }}
+							previousPage={{ name: 'Портфолио', pathname: '/portfolio' }}
+							nextPage={{ name: 'Образование', pathname: '/education' }}
 						/>
 					</Section>
 				</>

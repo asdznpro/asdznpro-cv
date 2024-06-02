@@ -29,6 +29,7 @@
 			"models/*": ["models/*"],
 			"services/*": ["services/*"],
 			"store/*": ["store/*"],
+			"utils/*": ["utils/*"],
 			"views/*": ["views/*"]
 		}
 	},

@@ -1,4 +1,4 @@
-import { LanguageModel } from 'models/common.model'
+import { LanguageModel } from 'models'
 
 export default interface PageNavigationProps
 	extends React.AllHTMLAttributes<HTMLElement> {
@@ -8,6 +8,6 @@ export default interface PageNavigationProps
 }
 
 interface PageInfo {
-	title: string
+	name: string
 	pathname: string
 }

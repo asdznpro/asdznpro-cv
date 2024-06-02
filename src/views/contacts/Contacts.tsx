@@ -82,8 +82,8 @@ const Contacts = () => {
 
 						<PageNavigation
 							selectLanguage={language}
-							previousPage={{ title: 'Образование', pathname: '/education' }}
-							nextPage={{ title: 'Резюме', pathname: '/' }}
+							previousPage={{ name: 'Образование', pathname: '/education' }}
+							nextPage={{ name: 'Резюме', pathname: '/' }}
 						/>
 					</Section>
 				</>

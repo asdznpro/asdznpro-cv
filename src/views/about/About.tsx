@@ -132,8 +132,8 @@ const About = () => {
 
 						<PageNavigation
 							selectLanguage={language}
-							previousPage={{ title: 'Резюме', pathname: '/' }}
-							nextPage={{ title: 'Опыт работы', pathname: '/experience' }}
+							previousPage={{ name: 'Резюме', pathname: '/' }}
+							nextPage={{ name: 'Опыт работы', pathname: '/experience' }}
 						/>
 					</Section>
 				</>
