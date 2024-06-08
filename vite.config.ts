@@ -16,12 +16,12 @@ export default (args: ViteConfigInput) => {
 		plugins: [react()],
 		resolve: {
 			alias: {
-				assets: '/src/assets',
 				components: '/src/components',
 				constants: '/src/constants',
 				hooks: '/src/hooks',
 				services: '/src/services',
 				store: '/src/store',
+				styles: '/src/styles',
 				types: '/src/types',
 				utils: '/src/utils',
 				views: '/src/views',

@@ -2,8 +2,9 @@
 
 @font-face {
 	font-family: $MTSWide;
-	src: url('../fonts/mts/woff2/Wide/MTSWide-Light.woff2') format('woff2'),
-		url('../fonts/mts/woff/Wide/MTSWide-Light.woff') format('woff');
+	src:
+		url('/fonts/mts/woff2/Wide/MTSWide-Light.woff2') format('woff2'),
+		url('/fonts/mts/woff/Wide/MTSWide-Light.woff') format('woff');
 	font-weight: 300;
 	font-style: normal;
 	font-display: swap;
@@ -11,8 +12,9 @@
 
 @font-face {
 	font-family: $MTSWide;
-	src: url('../fonts/mts/woff2/Wide/MTSWide-Regular.woff2') format('woff2'),
-		url('../fonts/mts/woff/Wide/MTSWide-Regular.woff') format('woff');
+	src:
+		url('/fonts/mts/woff2/Wide/MTSWide-Regular.woff2') format('woff2'),
+		url('/fonts/mts/woff/Wide/MTSWide-Regular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -20,8 +22,9 @@
 
 @font-face {
 	font-family: $MTSWide;
-	src: url('../fonts/mts/woff2/Wide/MTSWide-Medium.woff2') format('woff2'),
-		url('../fonts/mts/woff/Wide/MTSWide-Medium.woff') format('woff');
+	src:
+		url('/fonts/mts/woff2/Wide/MTSWide-Medium.woff2') format('woff2'),
+		url('/fonts/mts/woff/Wide/MTSWide-Medium.woff') format('woff');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -29,8 +32,9 @@
 
 @font-face {
 	font-family: $MTSWide;
-	src: url('../fonts/mts/woff2/Wide/MTSWide-Bold.woff2') format('woff2'),
-		url('../fonts/mts/woff/Wide/MTSWide-Bold.woff') format('woff');
+	src:
+		url('/fonts/mts/woff2/Wide/MTSWide-Bold.woff2') format('woff2'),
+		url('/fonts/mts/woff/Wide/MTSWide-Bold.woff') format('woff');
 	font-weight: bold;
 	font-style: normal;
 	font-display: swap;
@@ -38,8 +42,9 @@
 
 @font-face {
 	font-family: $MTSWide;
-	src: url('../fonts/mts/woff2/Wide/MTSWide-Black.woff2') format('woff2'),
-		url('../fonts/mts/woff/Wide/MTSWide-Black.woff') format('woff');
+	src:
+		url('/fonts/mts/woff2/Wide/MTSWide-Black.woff2') format('woff2'),
+		url('/fonts/mts/woff/Wide/MTSWide-Black.woff') format('woff');
 	font-weight: 900;
 	font-style: normal;
 	font-display: swap;
@@ -49,9 +54,9 @@
 
 @font-face {
 	font-family: $MTSExpanded;
-	src: url('../fonts/mts/woff2/Extended/MTSExtended-Regular.woff2')
-			format('woff2'),
-		url('../fonts/mts/woff/Extended/MTSExtended-Regular.woff') format('woff');
+	src:
+		url('/fonts/mts/woff2/Extended/MTSExtended-Regular.woff2') format('woff2'),
+		url('/fonts/mts/woff/Extended/MTSExtended-Regular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -59,9 +64,9 @@
 
 @font-face {
 	font-family: $MTSExpanded;
-	src: url('../fonts/mts/woff2/Extended/MTSExtended-Medium.woff2')
-			format('woff2'),
-		url('../fonts/mts/woff/Extended/MTSExtended-Medium.woff') format('woff');
+	src:
+		url('/fonts/mts/woff2/Extended/MTSExtended-Medium.woff2') format('woff2'),
+		url('/fonts/mts/woff/Extended/MTSExtended-Medium.woff') format('woff');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -69,8 +74,9 @@
 
 @font-face {
 	font-family: $MTSExpanded;
-	src: url('../fonts/mts/woff2/Extended/MTSExtended-Bold.woff2') format('woff2'),
-		url('../fonts/mts/woff/Extended/MTSExtended-Bold.woff') format('woff');
+	src:
+		url('/fonts/mts/woff2/Extended/MTSExtended-Bold.woff2') format('woff2'),
+		url('/fonts/mts/woff/Extended/MTSExtended-Bold.woff') format('woff');
 	font-weight: bold;
 	font-style: normal;
 	font-display: swap;
@@ -78,9 +84,9 @@
 
 @font-face {
 	font-family: $MTSExpanded;
-	src: url('../fonts/mts/woff2/Extended/MTSExtended-Black.woff2')
-			format('woff2'),
-		url('../fonts/mts/woff/Extended/MTSExtended-Black.woff') format('woff');
+	src:
+		url('/fonts/mts/woff2/Extended/MTSExtended-Black.woff2') format('woff2'),
+		url('/fonts/mts/woff/Extended/MTSExtended-Black.woff') format('woff');
 	font-weight: 900;
 	font-style: normal;
 	font-display: swap;
@@ -90,9 +96,10 @@
 
 @font-face {
 	font-family: $MTSUltraExpanded;
-	src: url('../fonts/mts/woff2/UltraExtended/MTSUltraExtended-Regular.woff2')
+	src:
+		url('/fonts/mts/woff2/UltraExtended/MTSUltraExtended-Regular.woff2')
 			format('woff2'),
-		url('../fonts/mts/woff/UltraExtended/MTSUltraExtended-Regular.woff')
+		url('/fonts/mts/woff/UltraExtended/MTSUltraExtended-Regular.woff')
 			format('woff');
 	font-weight: normal;
 	font-style: normal;
@@ -101,9 +108,10 @@
 
 @font-face {
 	font-family: $MTSUltraExpanded;
-	src: url('../fonts/mts/woff2/UltraExtended/MTSUltraExtended-Medium.woff2')
+	src:
+		url('/fonts/mts/woff2/UltraExtended/MTSUltraExtended-Medium.woff2')
 			format('woff2'),
-		url('../fonts/mts/woff/UltraExtended/MTSUltraExtended-Medium.woff')
+		url('/fonts/mts/woff/UltraExtended/MTSUltraExtended-Medium.woff')
 			format('woff');
 	font-weight: 500;
 	font-style: normal;
@@ -112,9 +120,10 @@
 
 @font-face {
 	font-family: $MTSUltraExpanded;
-	src: url('../fonts/mts/woff2/UltraExtended/MTSUltraExtended-Bold.woff2')
+	src:
+		url('/fonts/mts/woff2/UltraExtended/MTSUltraExtended-Bold.woff2')
 			format('woff2'),
-		url('../fonts/mts/woff/UltraExtended/MTSUltraExtended-Bold.woff')
+		url('/fonts/mts/woff/UltraExtended/MTSUltraExtended-Bold.woff')
 			format('woff');
 	font-weight: bold;
 	font-style: normal;
@@ -123,9 +132,10 @@
 
 @font-face {
 	font-family: $MTSUltraExpanded;
-	src: url('../fonts/mts/woff2/UltraExtended/MTSUltraExtended-Black.woff2')
+	src:
+		url('/fonts/mts/woff2/UltraExtended/MTSUltraExtended-Black.woff2')
 			format('woff2'),
-		url('../fonts/mts/woff/UltraExtended/MTSUltraExtended-Black.woff')
+		url('/fonts/mts/woff/UltraExtended/MTSUltraExtended-Black.woff')
 			format('woff');
 	font-weight: 900;
 	font-style: normal;
@@ -136,8 +146,9 @@
 
 @font-face {
 	font-family: $ui-font-secondary;
-	src: url('../fonts/vk-sans/woff2/VKSansDisplay-Light.woff2') format('woff2'),
-		url('../fonts/vk-sans/woff/VKSansDisplay-Light.woff') format('woff');
+	src:
+		url('/fonts/vk-sans/woff2/VKSansDisplay-Light.woff2') format('woff2'),
+		url('/fonts/vk-sans/woff/VKSansDisplay-Light.woff') format('woff');
 	font-weight: 300;
 	font-style: normal;
 	font-display: fallback;
@@ -145,8 +156,9 @@
 
 @font-face {
 	font-family: $ui-font-secondary;
-	src: url('../fonts/vk-sans/woff2/VKSansDisplay-Regular.woff2') format('woff2'),
-		url('../fonts/vk-sans/woff/VKSansDisplay-Regular.woff') format('woff');
+	src:
+		url('/fonts/vk-sans/woff2/VKSansDisplay-Regular.woff2') format('woff2'),
+		url('/fonts/vk-sans/woff/VKSansDisplay-Regular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: fallback;
@@ -154,8 +166,9 @@
 
 @font-face {
 	font-family: $ui-font-secondary;
-	src: url('../fonts/vk-sans/woff2/VKSansDisplay-Medium.woff2') format('woff2'),
-		url('../fonts/vk-sans/woff/VKSansDisplay-Medium.woff') format('woff');
+	src:
+		url('/fonts/vk-sans/woff2/VKSansDisplay-Medium.woff2') format('woff2'),
+		url('/fonts/vk-sans/woff/VKSansDisplay-Medium.woff') format('woff');
 	font-weight: 500;
 	font-style: normal;
 	font-display: fallback;
@@ -163,9 +176,9 @@
 
 @font-face {
 	font-family: $ui-font-secondary;
-	src: url('../fonts/vk-sans/woff2/VKSansDisplay-DemiBold.woff2')
-			format('woff2'),
-		url('../fonts/vk-sans/woff/VKSansDisplay-DemiBold.woff') format('woff');
+	src:
+		url('/fonts/vk-sans/woff2/VKSansDisplay-DemiBold.woff2') format('woff2'),
+		url('/fonts/vk-sans/woff/VKSansDisplay-DemiBold.woff') format('woff');
 	font-weight: 600;
 	font-style: normal;
 	font-display: fallback;
@@ -173,8 +186,9 @@
 
 @font-face {
 	font-family: $ui-font-secondary;
-	src: url('../fonts/vk-sans/woff2/VKSansDisplay-Bold.woff2') format('woff2'),
-		url('../fonts/vk-sans/woff/VKSansDisplay-Bold.woff') format('woff');
+	src:
+		url('/fonts/vk-sans/woff2/VKSansDisplay-Bold.woff2') format('woff2'),
+		url('/fonts/vk-sans/woff/VKSansDisplay-Bold.woff') format('woff');
 	font-weight: bold;
 	font-style: normal;
 	font-display: fallback;

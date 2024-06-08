@@ -22,12 +22,12 @@
 		/* Alias */
 		"baseUrl": "src",
 		"paths": {
-			"assets/*": ["assets/*"],
 			"components/*": ["components/*"],
 			"constants/*": ["constants/*"],
 			"hooks/*": ["hooks/*"],
 			"services/*": ["services/*"],
 			"store/*": ["store/*"],
+			"styles/*": ["styles/*"],
 			"types/*": ["types/*"],
 			"utils/*": ["utils/*"],
 			"views/*": ["views/*"]

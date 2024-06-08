@@ -1,4 +1,6 @@
 [data-theme='light'] {
+	color-scheme: light;
+
 	--background: hsl(241, 10%, 96%);
 	--background--alpha: hsl(241, 44%, 20%, 5%);
 	--field-background: hsl(0, 0%, 100%);
@@ -22,6 +24,8 @@
 }
 
 [data-theme='dark'] {
+	color-scheme: dark;
+
 	--background: hsl(241, 10%, 10%);
 	--background--alpha: hsl(241, 10%, 1%, 30%);
 	--field-background: hsl(241, 10%, 14%);

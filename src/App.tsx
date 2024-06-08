@@ -15,7 +15,7 @@ import {
 } from 'services'
 import { setCvMapData, setAboutData, setPortfolioData } from 'store'
 
-import 'assets/styles/index.scss'
+import 'styles/index.scss'
 
 import { Layout } from 'components/layout'
 

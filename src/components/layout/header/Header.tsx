@@ -156,8 +156,8 @@ const Header: React.FC = () => {
 										: 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/countries/russia_rounded_28.svg'
 								}
 								alt="Language"
-								width={24}
-								height={24}
+								width={screenWidth > 576 ? 24 : 32}
+								height={screenWidth > 576 ? 24 : 32}
 							/>
 						}
 						rounded
