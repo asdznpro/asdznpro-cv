@@ -586,6 +586,24 @@
 			color: var(--accent-negative-color);
 		}
 
+		// Text Decoration
+
+		&-underline {
+			text-decoration-line: underline;
+		}
+
+		&-overline {
+			text-decoration-line: overline;
+		}
+
+		&-line-through {
+			text-decoration-line: line-through;
+		}
+
+		&-no-underline {
+			text-decoration-line: none;
+		}
+
 		// Text Transform
 
 		&-uppercase {
@@ -640,6 +658,42 @@
 
 		&-pretty {
 			text-wrap: pretty;
+		}
+	}
+
+	// Vertical Align
+
+	&align- {
+		&baseline {
+			vertical-align: baseline;
+		}
+
+		&top {
+			vertical-align: top;
+		}
+
+		&middle {
+			vertical-align: middle;
+		}
+
+		&bottom {
+			vertical-align: bottom;
+		}
+
+		&text-top {
+			vertical-align: text-top;
+		}
+
+		&text-bottom {
+			vertical-align: text-bottom;
+		}
+
+		&sub {
+			vertical-align: sub;
+		}
+
+		&super {
+			vertical-align: super;
 		}
 	}
 

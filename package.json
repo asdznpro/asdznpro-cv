@@ -1,7 +1,7 @@
 {
 	"name": "asdznpro-cv",
 	"private": true,
-	"version": "0.1.13",
+	"version": "0.1.15",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -27,7 +27,8 @@
 		"react-redux": "^9.1.2",
 		"react-router-dom": "^6.23.1",
 		"react-use": "^17.5.0",
-		"sass": "^1.77.1"
+		"sass": "^1.77.1",
+		"smooth-scroll-into-view-if-needed": "^2.0.2"
 	},
 	"devDependencies": {
 		"@types/lodash": "^4.17.1",

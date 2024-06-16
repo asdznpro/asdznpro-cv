@@ -16,12 +16,15 @@
 	position: relative;
 	color: var(--text-secondary);
 
+	background: none;
+
 	aspect-ratio: 133 / 64;
 
 	img {
 		@include ui-size-control(100%);
 
 		object-fit: cover;
+		z-index: -1;
 	}
 }
 
@@ -29,7 +32,6 @@
 	@include ui-flex-container(flex);
 
 	gap: 8px;
-	// border-radius: clamp($ui-rounded--xl, 3vmax, $ui-rounded--2xl);
 
 	&Column {
 		background-clip: padding-box;
@@ -49,42 +51,50 @@
 			margin-bottom: 8px;
 		}
 	}
+}
 
-	.image {
-		position: relative;
-		cursor: pointer;
+.image {
+	// position: relative;
+	cursor: pointer;
+	border-radius: $ui-rounded--md;
+
+	img {
+		@include ui-size-control(auto !important, $maxW: 100%, $maxH: 100%);
+
+		// transition: 0.16s ease-in;
+		object-fit: cover;
+		border-radius: $ui-rounded--md;
+	}
+
+	// &Visible {
+	// }
+
+	&Expanded {
+		@include ui-size-control(100vw, 100dvh);
+		@include ui-flex-container(flex, center, center);
+
+		position: fixed;
+		overflow: hidden;
 
 		img {
-			@include ui-size-control(auto !important, $maxW: 100%, $maxH: 100%);
-
-			transition: 0.16s ease-in;
-			object-fit: cover;
+			padding: 8px;
+			border-radius: $ui-rounded--xl;
 		}
 
-		&Visible {
-			position: absolute;
-			overflow: hidden;
-			border-radius: $ui-rounded--md;
-		}
+		z-index: 16;
+		top: 0;
+		left: 0;
 
-		&Expanded {
-			@include ui-flex-container(flex, center, center);
+		// transition: 0.16s ease-in;
 
-			z-index: 14;
-			top: 0;
-			left: 0;
+		background: var(--overlay);
+		backdrop-filter: blur(24px);
 
-			transition: 0.16s ease-in;
+		transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1);
+	}
 
-			background: var(--overlay);
-			// backdrop-filter: blur(24px);
-
-			transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1);
-		}
-
-		&Ghost {
-			pointer-events: none;
-			opacity: 0;
-		}
+	&Ghost {
+		pointer-events: none;
+		opacity: 0;
 	}
 }

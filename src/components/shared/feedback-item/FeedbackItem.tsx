@@ -16,17 +16,17 @@ const FeedbackItem: React.FC<FeedbackItemProps> = (props) => {
 		<Tile {...restProps}>
 			<Box YPadding>
 				<div className={styles.person}>
-						<div className={styles.avatar}>
-							{!hasError ? (
-								<img
-									src={avatar}
-									alt={fullName}
-									onError={() => setHasError(true)}
-								/>
-							) : (
-								<Icon28UserOutline width={32} height={32} />
-							)}
-						</div>
+					<div className={styles.avatar}>
+						{!hasError ? (
+							<img
+								src={avatar}
+								alt={fullName}
+								onError={() => setHasError(true)}
+							/>
+						) : (
+							<Icon28UserOutline width={32} height={32} />
+						)}
+					</div>
 
 					<div className={styles.info}>
 						<Heading level={4} wideLevel={3} className="ui-text-truncate">

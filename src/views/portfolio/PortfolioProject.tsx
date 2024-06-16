@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { useState, useEffect } from 'react'
-import { useDocumentHead } from 'hooks'
+import { useDocumentHead, useLockBodyScroll } from 'hooks'
 
 import Masonry from 'react-masonry-css'
 
@@ -50,6 +50,8 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = (props) => {
 	const [hasError, setHasError] = useState(false)
 	const [activeImage, setActiveImage] = useState<string | null>(null)
 
+	useLockBodyScroll({ isLocked: Boolean(activeImage) })
+
 	const handleImageClick = (image: string) => {
 		setActiveImage(image === activeImage ? null : image)
 	}
@@ -96,7 +98,7 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = (props) => {
 			<Section countColumns={10}>
 				<Tile>
 					<Box YPadding>
-						<div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+						<div className="ui-flex ui-gap-6-px ui-flex-wrap">
 							{item.tags.map((tag, index) => (
 								<Button
 									key={index}
@@ -162,18 +164,16 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = (props) => {
 				</Tile>
 
 				{item.project.preview && (
-					<Tile>
-						<div className={styles.preview}>
-							{!hasError ? (
-								<img
-									src={item.project.preview}
-									alt={item.project.fullName}
-									onError={() => setHasError(true)}
-								/>
-							) : (
-								<Icon28PictureOutline width={40} height={40} />
-							)}
-						</div>
+					<Tile className={styles.preview}>
+						{!hasError ? (
+							<img
+								src={item.project.preview}
+								alt={item.project.fullName}
+								onError={() => setHasError(true)}
+							/>
+						) : (
+							<Icon28PictureOutline width={40} height={40} />
+						)}
 					</Tile>
 				)}
 
@@ -217,12 +217,14 @@ const PortfolioProject: React.FC<PortfolioProjectProps> = (props) => {
 									/>
 								</div>
 
-								<div className={styles.imageGhost}>
-									<img
-										src={image}
-										alt={image.split('/').pop()?.split('.').shift()}
-									/>
-								</div>
+								{activeImage === image && (
+									<div className={styles.imageGhost}>
+										<img
+											src={image}
+											alt={image.split('/').pop()?.split('.').shift()}
+										/>
+									</div>
+								)}
 							</div>
 						</div>
 					))}

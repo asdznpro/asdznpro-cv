@@ -20,7 +20,7 @@ const PageNavigation = (props: PageNavigationProps) => {
 
 	const storeCvMapData = useAppSelector((state) => state.common.cvMap)
 	const currentPathname = useLocation().pathname.replace(/^\//, '')
-	
+
 	const { previousPage, nextPage } = getNavigationLinks(
 		currentPathname,
 		storeCvMapData ? storeCvMapData.data : null,
@@ -49,9 +49,7 @@ const PageNavigation = (props: PageNavigationProps) => {
 
 					<div className={styles.route}>
 						<Footnote className="ui-text-secondary ui-text-truncate">
-							{selectLanguage.lang === 'en'
-								? 'Previous Page'
-								: 'Предыдущий раздел'}
+							{selectLanguage.lang === 'en' ? 'Previous' : 'Предыдущий раздел'}
 						</Footnote>
 
 						<Fontbody className="ui-text-truncate">
@@ -61,7 +59,7 @@ const PageNavigation = (props: PageNavigationProps) => {
 
 					<div className={[styles.route, 'ui-text-end'].join(' ')}>
 						<Footnote className="ui-text-secondary ui-text-truncate">
-							{selectLanguage.lang === 'en' ? 'Next Page' : 'Следующий раздел'}
+							{selectLanguage.lang === 'en' ? 'Next' : 'Следующий раздел'}
 						</Footnote>
 
 						<Fontbody className="ui-text-truncate">

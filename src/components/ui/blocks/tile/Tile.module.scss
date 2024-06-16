@@ -1,7 +1,7 @@
 @import 'styles/Variables';
 
 .root {
-	@include ui-size-control(100%);
+	// @include ui-size-control(100%);
 	@include ui-flex-container(flex, $flow: column);
 
 	position: relative;

@@ -1,7 +1,11 @@
 import * as React from 'react'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useDocumentHead } from 'hooks'
+
+import { EmblaOptionsType } from 'embla-carousel'
+import scrollIntoView from 'smooth-scroll-into-view-if-needed'
 
 import { ExperienceType, FeedbackType, LanguageType, ThemeType } from 'types'
 
@@ -19,6 +23,7 @@ import {
 	Tile,
 	Carousel,
 	BriefInfo,
+	AppLink,
 } from 'components/ui'
 
 import {
@@ -26,6 +31,8 @@ import {
 	Icon24LinkCircleFilled,
 	Icon28PictureOutline,
 	Icon28CalendarCheckOutline,
+	Icon28ArrowLeftOutline,
+	Icon28ArrowUpOutline,
 } from '@vkontakte/icons'
 
 interface ExperienceEmployerProps {
@@ -48,6 +55,104 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 		employerData.employerInfo.name,
 		'experience/' + employerData.pathname,
 	)
+
+	// go back
+
+	const navigate = useNavigate()
+	const location = useLocation()
+
+	const handleClick = () => {
+		const currentPath = window.location.pathname
+		const newPath = currentPath.split('/').slice(0, -1).join('/')
+		navigate(newPath)
+	}
+
+	useEffect(() => {
+		const hash = location.hash.replace('#', '')
+		if (hash) {
+			setTimeout(() => {
+				const element = document.getElementById(hash)
+				if (element) {
+					scrollIntoView(element, {
+						behavior: 'smooth',
+						block: 'nearest',
+					})
+				}
+			}, 200)
+		}
+	}, [location])
+
+	const handleButtonClick = (id: string) => {
+		navigate(`#${id}`)
+		setTimeout(() => {
+			const element = document.getElementById(id)
+			if (element) {
+				scrollIntoView(element, {
+					behavior: 'smooth',
+					block: 'nearest',
+				})
+			}
+		}, 200)
+	}
+
+	//
+
+	const NAVIGATION_DATA = [
+		{
+			id: 'what-i-doing',
+			ru: 'Чем я занимался?',
+			en: 'What was I doing?',
+		},
+		{
+			id: 'work-examples',
+			ru: 'Примеры работ',
+			en: 'Work Examples',
+		},
+		{
+			id: 'reviews',
+			ru: 'Отзывы о работе',
+			en: 'Reviews',
+		},
+	]
+
+	//
+
+	const sectionRefs = useRef<(HTMLElement | null)[]>([])
+	const [buttonModes, setButtonModes] = useState<boolean[]>(
+		new Array(NAVIGATION_DATA.length).fill(false),
+	)
+
+	useEffect(() => {
+		const observers: IntersectionObserver[] = []
+
+		sectionRefs.current.forEach((element, index) => {
+			if (element) {
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							setButtonModes((prevModes) => {
+								const newModes = [...prevModes]
+								newModes[index] = entry.isIntersecting
+								return newModes
+							})
+						})
+					},
+					{ threshold: 0.1 },
+				)
+
+				observer.observe(element)
+				observers.push(observer)
+			}
+		})
+
+		return () => {
+			observers.forEach((observer) => observer.disconnect())
+		}
+	}, [])
+
+	// carousel options
+
+	const OPTIONS: EmblaOptionsType = { dragFree: true }
 
 	return (
 		<>
@@ -128,7 +233,11 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 				</Experience.Item>
 			</Section>
 
-			<Section countColumns={10}>
+			<Section
+				id={NAVIGATION_DATA[0].id}
+				ref={(el) => (sectionRefs.current[0] = el)}
+				countColumns={10}
+			>
 				<Box>
 					<Heading level={2} className="ui-text-uppercase ui-mb-12-px">
 						Чем я занимался?
@@ -165,7 +274,11 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 				</Tile>
 			</Section>
 
-			<Section countColumns={10}>
+			<Section
+				id={NAVIGATION_DATA[1].id}
+				ref={(el) => (sectionRefs.current[1] = el)}
+				countColumns={10}
+			>
 				<Box>
 					<Heading level={2} className="ui-text-uppercase ui-mb-12-px">
 						Примеры работ
@@ -181,7 +294,11 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 
 			{feedbackData && feedbackData.length > 0 && (
 				<div className="ui-max-w-full ui-overflow-hidden">
-					<Section countColumns={10}>
+					<Section
+						id={NAVIGATION_DATA[2].id}
+						ref={(el) => (sectionRefs.current[2] = el)}
+						countColumns={10}
+					>
 						<Box>
 							<Heading level={2} className="ui-text-uppercase ui-mb-12-px">
 								Отзывы о работе
@@ -233,9 +350,68 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 				</div>
 			)}
 
-			{/* <Section countColumns={10}>
-				<PageNavigation />
-			</Section> */}
+			<Section
+				countColumns={10}
+				className="ui-sticky"
+				style={{ bottom: 6 }}
+				data-theme="light"
+			>
+				<Tile
+					className="ui-mx-auto"
+					style={{ maxWidth: '100%', borderRadius: 60 }}
+				>
+					<Carousel.Embla options={OPTIONS} className="ui-p-6-px">
+						<Button
+							onClick={handleClick}
+							buttonSize="md"
+							appearance="neutral"
+							before={<Icon28ArrowLeftOutline />}
+							rounded
+						/>
+
+						{NAVIGATION_DATA.map((item, index) => {
+							if (item.id === 'reviews') {
+								if (feedbackData && feedbackData.length > 0) {
+									return (
+										<Button
+											key={item.id}
+											onClick={() => handleButtonClick(item.id)}
+											buttonSize="md"
+											mode={buttonModes[index] ? 'primary' : 'ghost'}
+											appearance={buttonModes[index] ? 'accent' : 'neutral'}
+											rounded
+										>
+											{item[language.lang]}
+										</Button>
+									)
+								}
+
+								return null
+							}
+
+							return (
+								<Button
+									key={item.id}
+									onClick={() => handleButtonClick(item.id)}
+									buttonSize="md"
+									mode={buttonModes[index] ? 'primary' : 'ghost'}
+									appearance={buttonModes[index] ? 'accent' : 'neutral'}
+									rounded
+								>
+									{item[language.lang]}
+								</Button>
+							)
+						})}
+
+						<Button
+							buttonSize="md"
+							appearance="neutral"
+							before={<Icon28ArrowUpOutline />}
+							rounded
+						/>
+					</Carousel.Embla>
+				</Tile>
+			</Section>
 		</>
 	)
 }

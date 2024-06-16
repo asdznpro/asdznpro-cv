@@ -1,3 +1,32 @@
+:root {
+	--accent-brand-color: var(--accent-blue-color);
+	--accent-brand-color--hover: hsl(241 100% 68%);
+	--accent-positive-color: var(--lime-color);
+	--accent-positive-color--hover: hsl(132 70% 58%);
+	--accent-negative-color: var(--deep-coral-color);
+	--accent-negative-color--hover: hsl(0 100% 68%);
+
+	--deep-coral-color: hsl(0 100% 62%);
+	--neon-carrot-color: hsl(28 100% 62%);
+	--gold-color: hsl(48 100% 62%);
+	--pistachio-color: hsl(86 70% 58%);
+	--lime-color: hsl(132 70% 52%);
+	--cyan-color: hsl(185 100% 50%);
+	--accent-blue-color: hsl(241 100% 62%);
+	--lilac-color: hsl(270 100% 62%);
+	--fuchsia-color: hsl(300 100% 62%);
+	--magenta-color: hsl(337 100% 62%);
+
+	--vk-color: hsl(212 100% 50%);
+	--vk-workspace-color: hsl(185 100% 46%);
+	--vk-mail-color: hsl(170 100% 46%);
+	--telegram-color: hsl(201 85% 55%);
+	--github-color: hsl(260 56% 52%);
+	--gitlab-color: hsl(20 97% 57%);
+	--yandex-color: hsl(9 97% 55%);
+	--head-hunter-color: hsl(353 99% 44%);
+}
+
 [data-theme='light'] {
 	color-scheme: light;
 

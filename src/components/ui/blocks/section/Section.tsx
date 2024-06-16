@@ -1,19 +1,22 @@
+import { forwardRef } from 'react'
+
 import styles from './Section.module.scss'
 import SectionProps from './Section.interface'
 
-const Section: React.FC<SectionProps> = (props) => {
-	const { children, countColumns = 12, ...restProps } = props
+const Section = forwardRef<HTMLElement, SectionProps>((props, ref) => {
+	const { children, countColumns = 12, className, ...restProps } = props
 
 	return (
 		<section
 			{...restProps}
-			className={[styles.root, `ui-max-w-${countColumns}-cols`]
+			ref={ref}
+			className={[styles.root, className, `ui-max-w-${countColumns}-cols`]
 				.join(' ')
 				.trim()}
 		>
 			{children}
 		</section>
 	)
-}
+})
 
 export { Section }
