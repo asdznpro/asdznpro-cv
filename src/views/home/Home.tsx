@@ -12,7 +12,7 @@ import {
 	Section,
 	Heading,
 	Tile,
-	ListComponent,
+	List,
 	Footnote,
 	Fontbody,
 } from 'components/ui'
@@ -38,11 +38,11 @@ const Home = () => {
 							gap: 'clamp(8px, 1vmax, 20px)',
 						}}
 					>
-						<Tile>
+						<Tile className="ui-justify-content-center">
 							<Box YPadding>
 								<Avatar
 									className="ui-mx-auto"
-									src="https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/about/me.png"
+									src={storeAboutData.data.photo}
 									name={storeAboutData.data.fullName
 										.split(' ')
 										.map((name) => name.charAt(0))
@@ -58,15 +58,16 @@ const Home = () => {
 						</Tile>
 
 						<Tile>
-							<Box YPadding className="ui-h-100-pct">
+							<Box YPadding className="ui-h-full">
 								<Heading level={3} className="ui-text-uppercase">
 									{storeAboutData.data.possibleJobs.title}
 								</Heading>
 
-								<ListComponent
-									typeList="ul"
-									listContent={storeAboutData.data.possibleJobs.list}
-								/>
+								<List className="ui-fontbody-level-1">
+									{storeAboutData.data.possibleJobs.list.map((item, index) => (
+										<List.Item key={index}>{item}</List.Item>
+									))}
+								</List>
 
 								<Footnote className="ui-text-secondary ui-mt-auto">
 									{storeAboutData.data.possibleJobs.caption}
@@ -94,7 +95,7 @@ const Home = () => {
 						</Tile>
 
 						<Tile>
-							<Box YPadding className="ui-h-100-pct">
+							<Box YPadding className="ui-h-full">
 								<div className="ui-flex ui-flex-col ui-gap-4-px">
 									<Heading.Skeleton level={3} className="ui-w-72-pct" />
 									<Heading.Skeleton level={3} className="ui-w-60-pct" />

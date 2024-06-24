@@ -1,11 +1,10 @@
-import * as React from 'react'
 import { useState } from 'react'
 
 import styles from './Avatar.module.scss'
 import AvatarProps from './Avatar.interface'
 
 import { AvatarSkeleton } from './AvatarSkeleton'
-import { Heading, Spinner } from 'components/ui'
+import { Icon28UserOutline } from '@vkontakte/icons'
 
 const Avatar = (props: AvatarProps) => {
 	const { src, name, width, height, className, ...restProps } = props
@@ -20,10 +19,8 @@ const Avatar = (props: AvatarProps) => {
 			>
 				{!hasError && src ? (
 					<img src={src} alt={name} onError={() => setHasError(true)} />
-				) : name ? (
-					<Heading level={2}>{name}</Heading>
 				) : (
-					<Spinner width={36} height={36} />
+					<Icon28UserOutline width={48} height={48} />
 				)}
 			</div>
 		</div>

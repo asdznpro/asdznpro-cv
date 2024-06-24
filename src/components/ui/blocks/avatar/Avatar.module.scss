@@ -9,13 +9,8 @@
 		overflow: hidden;
 		border-radius: 50%;
 		isolation: isolate;
-		background: var(--background-alpha);
-		color: var(--separator);
-
-		h2 {
-			font-weight: normal;
-			// opacity: 0.64;
-		}
+		background: var(--background--alpha);
+		color: var(--text-secondary);
 
 		aspect-ratio: 1 / 1;
 

@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { useDocumentHead, useAppSelector } from 'hooks'
 import { selectLanguage, selectTheme } from 'store'
+import { getProcessedTextWithLinks } from 'utils'
 
 import styles from './About.module.scss'
 
@@ -15,7 +16,6 @@ import {
 	PageNavigation,
 	Box,
 	Tile,
-	AppLink,
 } from 'components/ui'
 
 const About = () => {
@@ -52,8 +52,8 @@ const About = () => {
 						<Tile>
 							<Box YPadding>
 								{data.data.bio.map((item, index) => (
-									<Fontbody key={index} role="paragraph">
-										{item}
+									<Fontbody key={index} level={2} role="paragraph">
+										{getProcessedTextWithLinks(item)}
 									</Fontbody>
 								))}
 							</Box>

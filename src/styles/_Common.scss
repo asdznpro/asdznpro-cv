@@ -235,23 +235,23 @@
 		}
 	}
 
-	// Justify Items
+	// Justify Content
 
-	&justify-items {
+	&justify-content {
 		&-start {
-			justify-items: flex-start;
+			justify-content: flex-start;
 		}
 
 		&-end {
-			justify-items: end;
+			justify-content: end;
 		}
 
 		&-center {
-			justify-items: center;
+			justify-content: center;
 		}
 
 		&-stretch {
-			justify-items: stretch;
+			justify-content: stretch;
 		}
 	}
 
@@ -785,6 +785,64 @@
 	&scrollbar-stable {
 		@media (min-width: $ui-max-w--mobile) {
 			scrollbar-gutter: stable;
+		}
+	}
+
+	// Custom Font Size
+
+	&footnote- {
+		&level-1 {
+			font-size: 15px;
+			line-height: 20px;
+		}
+
+		&level-2 {
+			font-size: 13px;
+			line-height: 18px;
+		}
+
+		&level-3 {
+			font-size: 11px;
+			line-height: 16px;
+		}
+	}
+
+	&fontbody- {
+		&level-1 {
+			font-size: clamp($ui-step * 5, 4.4vmin, $ui-step * 6);
+			line-height: 1.333334em;
+		}
+
+		&level-2 {
+			font-size: clamp(17px, 3.6vmin, $ui-step * 5);
+			line-height: 1.4em;
+		}
+
+		&level-3 {
+			font-size: clamp(15px, 3.2vmin, 17px);
+			line-height: 1.4118em;
+		}
+	}
+
+	&heading- {
+		&level-1 {
+			font-size: clamp($ui-step * 10, 7.6vmin, $ui-step * 16);
+			line-height: 1.125em;
+		}
+
+		&level-2 {
+			font-size: clamp($ui-step * 8, 6.4vmin, $ui-step * 10);
+			line-height: 1.2em;
+		}
+
+		&level-3 {
+			font-size: clamp($ui-step * 6, 5.6vmin, $ui-step * 8);
+			line-height: 1.125em;
+		}
+
+		&level-4 {
+			font-size: clamp($ui-step * 5, 4.4vmin, $ui-step * 6);
+			line-height: 1.333334em;
 		}
 	}
 }

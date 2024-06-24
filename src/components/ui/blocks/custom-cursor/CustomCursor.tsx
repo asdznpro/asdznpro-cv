@@ -8,8 +8,8 @@ import { Button } from 'components/ui'
 
 import { Icon28LinkOutline } from '@vkontakte/icons'
 
-const CustomCursor: React.FC<CustomCursorProps> = props => {
-	const { appearance } = props
+const CustomCursor: React.FC<CustomCursorProps> = (props) => {
+	const { appearance, ...restProps } = props
 
 	const cursorRef = useRef<HTMLDivElement>(null)
 	const cursorRect = useRef<DOMRect | null>(null)
@@ -40,7 +40,7 @@ const CustomCursor: React.FC<CustomCursorProps> = props => {
 	}, [])
 
 	return (
-		<div ref={cursorRef} className={styles.root}>
+		<div {...restProps} ref={cursorRef} className={styles.root}>
 			{React.cloneElement(
 				<Button
 					className={styles.content}
@@ -48,7 +48,7 @@ const CustomCursor: React.FC<CustomCursorProps> = props => {
 					rounded
 					noneAction
 				/>,
-				{ appearance }
+				{ appearance },
 			)}
 		</div>
 	)

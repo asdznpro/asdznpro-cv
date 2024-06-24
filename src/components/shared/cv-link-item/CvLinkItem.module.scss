@@ -4,6 +4,7 @@
 	@include ui-flex-container($justify: flex-end);
 	@include ui-size-control($minH: 220px);
 
+	position: relative;
 	user-select: none;
 	transition: 0.2s ease-in;
 	color: var(--text-contrast);
