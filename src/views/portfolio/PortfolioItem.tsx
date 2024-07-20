@@ -13,9 +13,14 @@ import {
 	RouterLink,
 	Spinner,
 	CustomCursor,
+	Button,
 } from 'components/ui'
 
-import { Icon28PictureOutline } from '@vkontakte/icons'
+import {
+	Icon28PictureOutline,
+	Icon28SparkleOutline,
+	Icon28StarsOutline,
+} from '@vkontakte/icons'
 
 const PortfolioItem: React.FC<PortfolioItemProps> = (props) => {
 	const { name, to, tags, date, award, src, ...restProps } = props
@@ -60,6 +65,22 @@ const PortfolioItem: React.FC<PortfolioItemProps> = (props) => {
 							</div>
 						)}
 					</AppLink>
+				)}
+
+				{tags?.includes('Новое') && (
+					<Button
+						buttonSize="sm"
+						appearance="negative"
+						before={<Icon28StarsOutline width={24} height={24} />}
+						noneAction
+						style={{
+							position: 'absolute',
+							top: 8,
+							left: screenWidth <= 768 ? -4 : -8,
+						}}
+					>
+						Новое
+					</Button>
 				)}
 
 				<div className={styles.image}>

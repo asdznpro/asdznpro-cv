@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
+import AutoScroll from 'embla-carousel-auto-scroll'
 
 import styles from './CarouselEmbla.module.scss'
 import CarouselEmblaProps from './CarouselEmbla.interface'

@@ -3,6 +3,9 @@ import * as React from 'react'
 import { useAppSelector, useDocumentHead, useDynamicAlignment } from 'hooks'
 import { selectLanguage } from 'store'
 
+import { EmblaOptionsType } from 'embla-carousel'
+import Autoplay from 'embla-carousel-autoplay'
+
 import styles from './Home.module.scss'
 
 import { CvLinkItem } from 'components/shared'
@@ -15,7 +18,9 @@ import {
 	List,
 	Footnote,
 	Fontbody,
+	Carousel,
 } from 'components/ui'
+import { ParallaxText } from './ParallaxText'
 
 const Home = () => {
 	const language = useAppSelector(selectLanguage)
@@ -26,6 +31,14 @@ const Home = () => {
 	const storeAboutData = useAppSelector((state) => state.common.about)
 	const storeCvMapData = useAppSelector((state) => state.common.cvMap)
 	const storePortfolioData = useAppSelector((state) => state.common.portfolio)
+
+	// carousel options
+
+	const OPTIONS: EmblaOptionsType = {
+		dragFree: true,
+		// loop: true,
+		align: 'start',
+	}
 
 	return (
 		<React.Fragment>
@@ -113,6 +126,48 @@ const Home = () => {
 					</div>
 				)}
 			</Section>
+
+			<div className="ui-max-w-full ui-overflow-hidden">
+				<Section>
+					<Box>
+						<Heading level={2} className="ui-text-uppercase ui-mb-12-px">
+							{language.lang === 'en' ? 'CV' : 'С кем работал'}
+						</Heading>
+					</Box>
+
+					{/* <ParallaxText baseVelocity={6}> */}
+					<Carousel.Embla options={OPTIONS} className="ui-gap-global">
+						<div className="ui-flex ui-flex-shrink-0 ui-gap-8-px">
+							{[...Array(8)].map((_, index) => (
+								<Tile
+									key={index}
+									className="ui-flex-shrink-0"
+									style={{ flex: '0 0 24%' }}
+								>
+									<Box YPadding>
+										<Fontbody className="ui-text-secondary ui-text-center ui-my-16-px">
+											*logo*
+										</Fontbody>
+									</Box>
+								</Tile>
+							))}
+						</div>
+					</Carousel.Embla>
+					{/* </ParallaxText> */}
+
+					{/* <Carousel.Embla options={OPTIONS} className="ui-gap-global">
+						{[...Array(8)].map((_, index) => (
+							<Tile key={index} style={{ flex: '0 0 24%' }}>
+								<Box YPadding>
+									<Fontbody className="ui-text-secondary ui-text-center ui-my-16-px">
+										*logo*
+									</Fontbody>
+								</Box>
+							</Tile>
+						))}
+					</Carousel.Embla> */}
+				</Section>
+			</div>
 
 			<Section>
 				<Box>
