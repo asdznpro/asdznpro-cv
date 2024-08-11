@@ -12,12 +12,12 @@
 		background: var(--background-alpha);
 		color: var(--separator);
 
+		aspect-ratio: 1 / 1;
+
 		h2 {
 			font-weight: normal;
 			// opacity: 0.64;
 		}
-
-		aspect-ratio: 1 / 1;
 
 		img {
 			@include ui-size-control(100%, 100%);

@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import { useDocumentHead, useDynamicAlignment } from 'hooks'
 
 import { EmblaOptionsType } from 'embla-carousel'
-import { AutoplayType } from 'embla-carousel-autoplay'
 
 import { LanguageType, PortfolioType, ThemeType } from 'types'
 

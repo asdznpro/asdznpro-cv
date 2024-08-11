@@ -8,8 +8,7 @@ import { setHardSkillsData, selectLanguage } from 'store'
 
 import styles from './HardSkills.module.scss'
 
-import { HardSkillItem } from './HardSkillItem'
-import { HardSkillItemSkeleton } from './HardSkillItemSkeleton'
+import { HardSkillItem, HardSkillItemSkeleton } from './hard-skill-item'
 
 import {
 	Section,

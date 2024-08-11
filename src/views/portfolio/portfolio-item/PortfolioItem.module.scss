@@ -78,7 +78,7 @@
 		}
 	}
 
-	@media (max-width: $ui-max-w--mobile) {
+	@media (max-width: $ui-breakpoint--sm) {
 		.info {
 			.project-name {
 				@include ui-text-ellipsis(3);
@@ -99,7 +99,7 @@
 	border-radius: inherit;
 	z-index: $ui-index--2;
 
-	@media (min-width: $ui-max-w--tablet) {
+	@media (min-width: $ui-breakpoint--md) {
 		&:hover {
 			cursor: none;
 		}

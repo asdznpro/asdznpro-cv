@@ -14,15 +14,11 @@ $ui-outer-margin: $ui-step * 2;
 
 // Fonts ———————————————————————————————————————————————— //
 
-// MTS
-
 $MTSWide: 'MTS Wide';
-$MTSExpanded: 'MTS Expanded';
-$MTSUltraExpanded: 'MTS UltraExpanded';
+$MTSExtended: 'MTS Extended';
+$MTSUltraExtended: 'MTS UltraExtended';
 
-// VK Sans Display
-
-$ui-font-secondary: 'VK Sans Display';
+$ui-font--secondary: 'VK Sans Display';
 
 // Border Radius ———————————————————————————————————————————————— //
 
@@ -49,12 +45,12 @@ $ui-index--24: 24; // for emergencies
 
 // Container ———————————————————————————————————————————————— //
 
-$ui-max-w--widescreen: 1084px; // 1084px
-$ui-max-w--desktop: 992px; // 992px
-$ui-max-w--tablet: 768px; // 768px
-$ui-max-w--mobile: 576px; // 576px
-$ui-max-w--small-mobile: 320px; // 320px
+$ui-breakpoint--sm: 640px;
+$ui-breakpoint--md: 768px;
+$ui-breakpoint--l: 1024px;
+$ui-breakpoint--xl: 1280px;
+$ui-breakpoint--2xl: 1536px;
 
 // Media ———————————————————————————————————————————————— //
 
-$mouse-device: '(hover: hover) and (pointer: fine)';
+$ui-mouse-device: '(hover: hover) and (pointer: fine)';

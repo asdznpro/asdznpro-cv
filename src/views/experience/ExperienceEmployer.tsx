@@ -4,8 +4,9 @@ import { useState, useRef, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useDocumentHead } from 'hooks'
 
+import { BREAKPOINTS_TAILWIND, useBreakpoints } from '@siberiacancode/reactuse'
+
 import { EmblaOptionsType } from 'embla-carousel'
-import { AutoplayType } from 'embla-carousel-autoplay'
 import scrollIntoView from 'smooth-scroll-into-view-if-needed'
 
 import { ExperienceType, FeedbackType, LanguageType, ThemeType } from 'types'
@@ -35,6 +36,7 @@ import {
 	Icon28ArrowLeftOutline,
 	Icon28ArrowUpOutline,
 } from '@vkontakte/icons'
+import { getFormattedDate } from 'utils/get-formatted-date.util'
 
 interface ExperienceEmployerProps {
 	employerData: ExperienceType['data'][number]
@@ -47,15 +49,13 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 	const { employerData, feedbackData, language, theme } = props
 	const [hasError, setHasError] = useState(false)
 
-	// useEffect(() => {
-	// 	window.scrollTo(0, 0)
-	// }, [])
-
 	useDocumentHead(
 		language,
 		employerData.employerInfo.name,
 		'experience/' + employerData.pathname,
 	)
+
+	const { smallerOrEqual } = useBreakpoints(BREAKPOINTS_TAILWIND)
 
 	// go back
 
@@ -115,8 +115,6 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 			en: 'Reviews',
 		},
 	]
-
-	//
 
 	const sectionRefs = useRef<(HTMLElement | null)[]>([])
 	const [buttonModes, setButtonModes] = useState<boolean[]>(
@@ -310,15 +308,19 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 							{feedbackData.map((item) => (
 								<FeedbackItem
 									key={item.id + item.id}
-									avatar={item.avatar}
-									fullName={item.fullName}
-									jobTitle={item.jobTitle}
+									avatar={item.author.avatar}
+									fullName={item.author.fullName}
+									jobTitle={
+										item.author.jobTitle +
+										'\u00A0• от\u00A0' +
+										getFormattedDate(item.date, false).short
+									}
 									value={item.value}
 									style={{
 										flex:
-											feedbackData.length > 1
-												? '0 0 calc(50% - 3px)'
-												: '0 0 100%',
+											feedbackData.length === 1 || smallerOrEqual('md')
+												? '0 0 100%'
+												: '0 0 calc(50% - 3px)',
 									}}
 								>
 									{item.socialNetworks && (

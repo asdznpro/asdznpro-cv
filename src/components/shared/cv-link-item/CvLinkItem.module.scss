@@ -26,7 +26,7 @@
 
 		border-radius: inherit;
 
-		@media (min-width: $ui-max-w--tablet) {
+		@media (min-width: $ui-breakpoint--md) {
 			&:hover {
 				cursor: none;
 			}

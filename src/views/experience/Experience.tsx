@@ -14,10 +14,9 @@ import {
 
 import styles from './Experience.module.scss'
 
-import { ExperienceItem } from './ExperienceItem'
 import { ExperienceList } from './ExperienceList'
 import { ExperienceEmployer } from './ExperienceEmployer'
-import { ExperienceItemSkeleton } from './ExperienceItemSkeleton'
+import { ExperienceItem, ExperienceItemSkeleton } from './experience-item'
 
 import {
 	Box,

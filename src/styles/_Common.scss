@@ -492,6 +492,7 @@
 				display: -webkit-box;
 				-webkit-box-orient: vertical;
 				-webkit-line-clamp: $line;
+				line-clamp: $line;
 			}
 		}
 
@@ -500,6 +501,7 @@
 			display: block;
 			-webkit-box-orient: horizontal;
 			-webkit-line-clamp: none;
+			line-clamp: none;
 		}
 	}
 
@@ -773,17 +775,17 @@
 			@include ui-size-control(100%, 100%);
 			@include ui-flex-container(flex, $items: center);
 
-			@include ui-animate-pulse;
-
 			position: absolute;
 			background: var(--background--alpha);
+
+			@include ui-animate-pulse;
 		}
 	}
 
 	// Other ———————————————————————————————————————————————— //
 
 	&scrollbar-stable {
-		@media (min-width: $ui-max-w--mobile) {
+		@media (min-width: $ui-breakpoint--md) {
 			scrollbar-gutter: stable;
 		}
 	}

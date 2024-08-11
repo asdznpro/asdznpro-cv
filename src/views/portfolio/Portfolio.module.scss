@@ -76,11 +76,6 @@
 		position: fixed;
 		overflow: hidden;
 
-		img {
-			padding: 8px;
-			border-radius: $ui-rounded--xl;
-		}
-
 		z-index: 16;
 		top: 0;
 		left: 0;
@@ -91,6 +86,11 @@
 		backdrop-filter: blur(24px);
 
 		transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1);
+
+		img {
+			padding: 8px;
+			border-radius: $ui-rounded--xl;
+		}
 	}
 
 	&Ghost {

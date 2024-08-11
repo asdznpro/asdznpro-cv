@@ -1,1 +1,2 @@
-export { HardSkills } from './HardSkills'
+export * from './HardSkills'
+export * from './hard-skill-item'

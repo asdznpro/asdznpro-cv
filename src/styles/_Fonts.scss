@@ -50,10 +50,10 @@
 	font-display: swap;
 }
 
-// MTS Expanded ———————————————————————————————————————————————— //
+// MTS Extended ———————————————————————————————————————————————— //
 
 @font-face {
-	font-family: $MTSExpanded;
+	font-family: $MTSExtended;
 	src:
 		url('/fonts/mts/woff2/Extended/MTSExtended-Regular.woff2') format('woff2'),
 		url('/fonts/mts/woff/Extended/MTSExtended-Regular.woff') format('woff');
@@ -63,7 +63,7 @@
 }
 
 @font-face {
-	font-family: $MTSExpanded;
+	font-family: $MTSExtended;
 	src:
 		url('/fonts/mts/woff2/Extended/MTSExtended-Medium.woff2') format('woff2'),
 		url('/fonts/mts/woff/Extended/MTSExtended-Medium.woff') format('woff');
@@ -73,7 +73,7 @@
 }
 
 @font-face {
-	font-family: $MTSExpanded;
+	font-family: $MTSExtended;
 	src:
 		url('/fonts/mts/woff2/Extended/MTSExtended-Bold.woff2') format('woff2'),
 		url('/fonts/mts/woff/Extended/MTSExtended-Bold.woff') format('woff');
@@ -83,7 +83,7 @@
 }
 
 @font-face {
-	font-family: $MTSExpanded;
+	font-family: $MTSExtended;
 	src:
 		url('/fonts/mts/woff2/Extended/MTSExtended-Black.woff2') format('woff2'),
 		url('/fonts/mts/woff/Extended/MTSExtended-Black.woff') format('woff');
@@ -92,10 +92,22 @@
 	font-display: swap;
 }
 
-// MTS UltraExpanded ———————————————————————————————————————————————— //
+// MTS UltraExtended ———————————————————————————————————————————————— //
 
 @font-face {
-	font-family: $MTSUltraExpanded;
+	font-family: $MTSUltraExtended;
+	src:
+		url('/fonts/mts/woff2/UltraExtended/MTSUltraExtended-Light.woff2')
+			format('woff2'),
+		url('/fonts/mts/woff/UltraExtended/MTSUltraExtended-Light.woff')
+			format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: $MTSUltraExtended;
 	src:
 		url('/fonts/mts/woff2/UltraExtended/MTSUltraExtended-Regular.woff2')
 			format('woff2'),
@@ -107,19 +119,7 @@
 }
 
 @font-face {
-	font-family: $MTSUltraExpanded;
-	src:
-		url('/fonts/mts/woff2/UltraExtended/MTSUltraExtended-Medium.woff2')
-			format('woff2'),
-		url('/fonts/mts/woff/UltraExtended/MTSUltraExtended-Medium.woff')
-			format('woff');
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: $MTSUltraExpanded;
+	font-family: $MTSUltraExtended;
 	src:
 		url('/fonts/mts/woff2/UltraExtended/MTSUltraExtended-Bold.woff2')
 			format('woff2'),
@@ -131,7 +131,7 @@
 }
 
 @font-face {
-	font-family: $MTSUltraExpanded;
+	font-family: $MTSUltraExtended;
 	src:
 		url('/fonts/mts/woff2/UltraExtended/MTSUltraExtended-Black.woff2')
 			format('woff2'),
@@ -145,7 +145,7 @@
 // VK Sans Display ———————————————————————————————————————————————— //
 
 @font-face {
-	font-family: $ui-font-secondary;
+	font-family: $ui-font--secondary;
 	src:
 		url('/fonts/vk-sans/woff2/VKSansDisplay-Light.woff2') format('woff2'),
 		url('/fonts/vk-sans/woff/VKSansDisplay-Light.woff') format('woff');
@@ -155,7 +155,7 @@
 }
 
 @font-face {
-	font-family: $ui-font-secondary;
+	font-family: $ui-font--secondary;
 	src:
 		url('/fonts/vk-sans/woff2/VKSansDisplay-Regular.woff2') format('woff2'),
 		url('/fonts/vk-sans/woff/VKSansDisplay-Regular.woff') format('woff');
@@ -165,7 +165,7 @@
 }
 
 @font-face {
-	font-family: $ui-font-secondary;
+	font-family: $ui-font--secondary;
 	src:
 		url('/fonts/vk-sans/woff2/VKSansDisplay-Medium.woff2') format('woff2'),
 		url('/fonts/vk-sans/woff/VKSansDisplay-Medium.woff') format('woff');
@@ -175,7 +175,7 @@
 }
 
 @font-face {
-	font-family: $ui-font-secondary;
+	font-family: $ui-font--secondary;
 	src:
 		url('/fonts/vk-sans/woff2/VKSansDisplay-DemiBold.woff2') format('woff2'),
 		url('/fonts/vk-sans/woff/VKSansDisplay-DemiBold.woff') format('woff');
@@ -185,7 +185,7 @@
 }
 
 @font-face {
-	font-family: $ui-font-secondary;
+	font-family: $ui-font--secondary;
 	src:
 		url('/fonts/vk-sans/woff2/VKSansDisplay-Bold.woff2') format('woff2'),
 		url('/fonts/vk-sans/woff/VKSansDisplay-Bold.woff') format('woff');
@@ -197,7 +197,7 @@
 // Heading ———————————————————————————————————————————————— //
 
 h1 {
-	font-family: $MTSUltraExpanded;
+	font-family: $MTSUltraExtended;
 	font-size: 64px;
 	font-style: normal;
 	font-weight: 900;
@@ -205,7 +205,7 @@ h1 {
 }
 
 h2 {
-	font-family: $MTSExpanded;
+	font-family: $MTSExtended;
 	font-size: 40px;
 	font-style: normal;
 	font-weight: 900;
@@ -221,7 +221,7 @@ h3 {
 }
 
 h4 {
-	font-family: $ui-font-secondary;
+	font-family: $ui-font--secondary;
 	font-size: 20px;
 	font-style: normal;
 	font-weight: normal;
@@ -229,7 +229,7 @@ h4 {
 }
 
 h5 {
-	font-family: $ui-font-secondary;
+	font-family: $ui-font--secondary;
 	font-size: 17px;
 	font-style: normal;
 	font-weight: normal;
@@ -237,7 +237,7 @@ h5 {
 }
 
 h6 {
-	font-family: $ui-font-secondary;
+	font-family: $ui-font--secondary;
 	font-size: 13px;
 	font-style: normal;
 	font-weight: 300;

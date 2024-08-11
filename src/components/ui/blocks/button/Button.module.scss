@@ -27,20 +27,12 @@
 			// border-radius: 50%
 		}
 
-		// .before {
-		// 	padding-left: $ui-step;
-		// }
-
-		// .after {
-		// 	padding-right: $ui-step;
-		// }
-
 		.content {
 			@include ui-text-ellipsis;
 
 			box-sizing: border-box;
 
-			font-family: $ui-font-secondary;
+			font-family: $ui-font--secondary;
 			font-weight: normal;
 		}
 	}

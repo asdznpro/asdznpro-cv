@@ -12,11 +12,16 @@ interface FeedbackItem {
 
 interface FeedbackDetail {
 	id: number
+	author: FeedbackAuthor
+	date: string
+	value: string
+	socialNetworks?: SocialNetwork[]
+}
+
+interface FeedbackAuthor {
 	avatar: string
 	fullName: string
 	jobTitle: string
-	value: string
-	socialNetworks?: SocialNetwork[]
 }
 
 interface SocialNetwork {

@@ -7,10 +7,9 @@ import { selectLanguage, selectTheme } from 'store'
 
 import styles from './Portfolio.module.scss'
 
-import { PortfolioItem } from './PortfolioItem'
 import { PortfolioList } from './PortfolioList'
 import { PortfolioProject } from './PortfolioProject'
-import { PortfolioItemSkeleton } from './PortfolioItemSkeleton'
+import { PortfolioItem, PortfolioItemSkeleton } from './portfolio-item'
 
 import {
 	Box,

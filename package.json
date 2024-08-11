@@ -1,7 +1,7 @@
 {
 	"name": "asdznpro-cv",
 	"private": true,
-	"version": "0.1.18",
+	"version": "0.1.19",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -14,12 +14,15 @@
 	"dependencies": {
 		"@motionone/utils": "^10.17.0",
 		"@reduxjs/toolkit": "^2.2.5",
+		"@siberiacancode/reactuse": "^0.0.63",
 		"@vkontakte/icons": "^2.114.0",
 		"axios": "^1.6.8",
+		"date-fns": "^3.6.0",
 		"embla-carousel-autoplay": "^8.1.6",
 		"embla-carousel-react": "^8.1.8",
 		"framer-motion": "^11.2.3",
 		"lodash": "^4.17.21",
+		"npm": "^10.8.2",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"react-masonry-css": "^1.0.16",

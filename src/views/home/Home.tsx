@@ -3,6 +3,8 @@ import * as React from 'react'
 import { useAppSelector, useDocumentHead, useDynamicAlignment } from 'hooks'
 import { selectLanguage } from 'store'
 
+import { BREAKPOINTS_TAILWIND, useBreakpoints } from '@siberiacancode/reactuse'
+
 import { EmblaOptionsType } from 'embla-carousel'
 
 import styles from './Home.module.scss'
@@ -30,10 +32,13 @@ const Home = () => {
 	const storeCvMapData = useAppSelector((state) => state.common.cvMap)
 	const storePortfolioData = useAppSelector((state) => state.common.portfolio)
 
+	const { greaterOrEqual, smallerOrEqual, current } =
+		useBreakpoints(BREAKPOINTS_TAILWIND)
+
 	// carousel options
 
 	const OPTIONS: EmblaOptionsType = {
-		dragFree: true,
+		// dragFree: true,
 		// loop: true,
 		align: 'center',
 	}
@@ -129,7 +134,7 @@ const Home = () => {
 				<Section>
 					<Box>
 						<Heading level={2} className="ui-text-uppercase ui-mb-12-px">
-							{language.lang === 'en' ? 'CV' : 'С кем работал'}
+							{language.lang === 'en' ? 'Who I worked with' : 'С кем работал'}
 						</Heading>
 					</Box>
 
