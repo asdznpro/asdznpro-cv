@@ -6,7 +6,7 @@
 	gap: inherit;
 
 	.avatar {
-		@include ui-size-control(72px, 72px);
+		@include ui-size-control(60px, 60px);
 		@include ui-flex-container(flex, center, center, $shrink: 0);
 
 		border-radius: 50%;
@@ -23,6 +23,6 @@
 		@include ui-size-control($minW: 0, $minH: 100%);
 		@include ui-flex-container(flex, center, $flow: column);
 
-		gap: clamp($ui-step, 0.56vmax, $ui-step * 2);
+		gap: $ui-step;
 	}
 }

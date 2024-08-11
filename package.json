@@ -1,7 +1,7 @@
 {
 	"name": "asdznpro-cv",
 	"private": true,
-	"version": "0.1.17",
+	"version": "0.1.18",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -16,9 +16,8 @@
 		"@reduxjs/toolkit": "^2.2.5",
 		"@vkontakte/icons": "^2.114.0",
 		"axios": "^1.6.8",
-		"embla-carousel-auto-scroll": "^8.1.6",
 		"embla-carousel-autoplay": "^8.1.6",
-		"embla-carousel-react": "^8.1.0",
+		"embla-carousel-react": "^8.1.8",
 		"framer-motion": "^11.2.3",
 		"lodash": "^4.17.21",
 		"react": "^18.3.1",

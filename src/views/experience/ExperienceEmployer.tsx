@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { useDocumentHead } from 'hooks'
 
 import { EmblaOptionsType } from 'embla-carousel'
+import { AutoplayType } from 'embla-carousel-autoplay'
 import scrollIntoView from 'smooth-scroll-into-view-if-needed'
 
 import { ExperienceType, FeedbackType, LanguageType, ThemeType } from 'types'
@@ -313,10 +314,15 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 									fullName={item.fullName}
 									jobTitle={item.jobTitle}
 									value={item.value}
-									style={{ flex: '0 0 100%' }}
+									style={{
+										flex:
+											feedbackData.length > 1
+												? '0 0 calc(50% - 3px)'
+												: '0 0 100%',
+									}}
 								>
 									{item.socialNetworks && (
-										<Carousel.Embla>
+										<div className="ui-flex ui-gap-6-px ui-flex-wrap">
 											{item.socialNetworks &&
 												item.socialNetworks.map((network, index) => (
 													<Button
@@ -341,7 +347,7 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 															network.href.replace(/^\//, '').split('/').pop()}
 													</Button>
 												))}
-										</Carousel.Embla>
+										</div>
 									)}
 								</FeedbackItem>
 							))}

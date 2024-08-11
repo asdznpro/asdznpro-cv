@@ -4,7 +4,6 @@ import { useAppSelector, useDocumentHead, useDynamicAlignment } from 'hooks'
 import { selectLanguage } from 'store'
 
 import { EmblaOptionsType } from 'embla-carousel'
-import Autoplay from 'embla-carousel-autoplay'
 
 import styles from './Home.module.scss'
 
@@ -20,7 +19,6 @@ import {
 	Fontbody,
 	Carousel,
 } from 'components/ui'
-import { ParallaxText } from './ParallaxText'
 
 const Home = () => {
 	const language = useAppSelector(selectLanguage)
@@ -37,7 +35,7 @@ const Home = () => {
 	const OPTIONS: EmblaOptionsType = {
 		dragFree: true,
 		// loop: true,
-		align: 'start',
+		align: 'center',
 	}
 
 	return (
@@ -135,37 +133,24 @@ const Home = () => {
 						</Heading>
 					</Box>
 
-					{/* <ParallaxText baseVelocity={6}> */}
 					<Carousel.Embla options={OPTIONS} className="ui-gap-global">
-						<div className="ui-flex ui-flex-shrink-0 ui-gap-8-px">
-							{[...Array(8)].map((_, index) => (
-								<Tile
-									key={index}
-									className="ui-flex-shrink-0"
-									style={{ flex: '0 0 24%' }}
-								>
-									<Box YPadding>
-										<Fontbody className="ui-text-secondary ui-text-center ui-my-16-px">
-											*logo*
-										</Fontbody>
-									</Box>
-								</Tile>
-							))}
-						</div>
-					</Carousel.Embla>
-					{/* </ParallaxText> */}
-
-					{/* <Carousel.Embla options={OPTIONS} className="ui-gap-global">
-						{[...Array(8)].map((_, index) => (
-							<Tile key={index} style={{ flex: '0 0 24%' }}>
+						{[...Array(12)].map((_, index) => (
+							<Tile
+								key={index}
+								className="ui-flex ui-flex-shrink-0"
+								style={{ width: '312px' }}
+							>
 								<Box YPadding>
-									<Fontbody className="ui-text-secondary ui-text-center ui-my-16-px">
+									<Fontbody
+										level={2}
+										className="ui-text-secondary ui-text-center ui-my-24-px"
+									>
 										*logo*
 									</Fontbody>
 								</Box>
 							</Tile>
 						))}
-					</Carousel.Embla> */}
+					</Carousel.Embla>
 				</Section>
 			</div>
 

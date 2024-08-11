@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
-import AutoScroll from 'embla-carousel-auto-scroll'
+import Autoplay from 'embla-carousel-autoplay'
 
 import styles from './CarouselEmbla.module.scss'
 import CarouselEmblaProps from './CarouselEmbla.interface'
@@ -16,13 +16,27 @@ import {
 } from '@vkontakte/icons'
 
 const CarouselEmbla: React.FC<CarouselEmblaProps> = (props) => {
-	const { children, options, prevNextButtons, className, ...restProps } = props
+	const {
+		children,
+		options,
+		autoplay,
+		prevNextButtons,
+		className,
+		...restProps
+	} = props
+
+	const autoplayOptions = {
+		delay: 3200,
+		stopOnInteraction: false,
+		stopOnMouseEnter: true,
+	}
 
 	const optionsBase: EmblaOptionsType = {
-		align: 'start',
 		...options,
 	}
-	const [emblaRef, emblaApi] = useEmblaCarousel(optionsBase)
+	const [emblaRef, emblaApi] = useEmblaCarousel(optionsBase, [
+		Autoplay(autoplayOptions),
+	])
 
 	const {
 		prevBtnDisabled,
@@ -34,8 +48,8 @@ const CarouselEmbla: React.FC<CarouselEmblaProps> = (props) => {
 	return (
 		<div
 			{...restProps}
-			className={[styles.root, className].join(' ').trim()}
 			ref={emblaRef}
+			className={[styles.root, className].join(' ').trim()}
 		>
 			<div className={styles.container}>{children}</div>
 
