@@ -3,7 +3,6 @@ import * as React from 'react'
 import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import { useAppDispatch, useAppSelector } from 'hooks'
 import { useGetExperienceQuery, useGetFeedbackQuery } from 'services'
 import {
 	setExperienceData,
@@ -11,6 +10,8 @@ import {
 	selectLanguage,
 	selectTheme,
 } from 'store'
+
+import { useAppDispatch, useAppSelector } from 'hooks'
 
 import styles from './Experience.module.scss'
 
@@ -46,14 +47,7 @@ const Experience = () => {
 
 	// useGetFeedbackQuery
 
-	const { data: feedbackData } = useGetFeedbackQuery({ language })
 	const storeFeedbackData = useAppSelector((state) => state.common.feedback)
-
-	useEffect(() => {
-		if (feedbackData) {
-			dispatch(setFeedbackData(feedbackData))
-		}
-	}, [feedbackData, dispatch])
 
 	return (
 		<React.Fragment>

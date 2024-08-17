@@ -1,7 +1,8 @@
-import * as React from 'react'
+import React from 'react'
+
+import { selectLanguage, selectTheme } from 'store'
 
 import { useDocumentHead, useAppSelector } from 'hooks'
-import { selectLanguage, selectTheme } from 'store'
 import { getProcessedTextWithLinks } from 'utils'
 
 import styles from './About.module.scss'

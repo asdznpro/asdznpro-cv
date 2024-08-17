@@ -1,10 +1,9 @@
-import * as React from 'react'
-
-import { useEffect } from 'react'
-import { useDocumentHead, useAppDispatch, useAppSelector } from 'hooks'
+import React, { useEffect } from 'react'
 
 import { useGetEducationQuery } from 'services'
 import { setEducationData, selectLanguage, selectTheme } from 'store'
+
+import { useDocumentHead, useAppDispatch, useAppSelector } from 'hooks'
 
 import styles from './Education.module.scss'
 

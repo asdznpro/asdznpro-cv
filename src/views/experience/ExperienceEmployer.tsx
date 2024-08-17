@@ -1,7 +1,6 @@
-import * as React from 'react'
-
-import { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+
 import { useDocumentHead } from 'hooks'
 
 import { BREAKPOINTS_TAILWIND, useBreakpoints } from '@siberiacancode/reactuse'

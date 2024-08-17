@@ -2,9 +2,9 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import { commonApi } from 'services/common-api.service'
 
-import commonSlice from './common-slice.slice'
-import languageSlice from './language-slice.slice'
-import themeSlice from './theme-slice.slice'
+import commonSlice from './common.slice'
+import languageSlice from './language.slice'
+import themeSlice from './theme.slice'
 
 const rootReducer = combineReducers({
 	common: commonSlice,
@@ -26,6 +26,6 @@ export type RootState = ReturnType<typeof rootReducer>
 export type AppStore = ReturnType<typeof setupStore>
 export type AppDispatch = AppStore['dispatch']
 
-export * from './common-slice.slice'
-export * from './language-slice.slice'
-export * from './theme-slice.slice'
+export * from './common.slice'
+export * from './language.slice'
+export * from './theme.slice'

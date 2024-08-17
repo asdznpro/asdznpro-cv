@@ -45,7 +45,7 @@ const Header: React.FC = () => {
 	}
 
 	return (
-		<div className={styles.root}>
+		<header className={styles.root}>
 			<div className={styles.container}>
 				<div className={styles['header-part']}>
 					<AppLink to="/" className="ui-flex">
@@ -166,7 +166,7 @@ const Header: React.FC = () => {
 					</Button>
 				</div>
 			</div>
-		</div>
+		</header>
 	)
 }
 

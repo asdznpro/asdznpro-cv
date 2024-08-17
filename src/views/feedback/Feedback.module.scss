@@ -1,0 +1,12 @@
+@import 'styles/Variables';
+
+.preview {
+	@include ui-size-control(100%, $minH: 200px);
+	@include ui-flex-container(flex, center, center);
+
+	color: var(--text-secondary);
+
+	img {
+		@include ui-size-control(100%, $minW: 640px);
+	}
+}

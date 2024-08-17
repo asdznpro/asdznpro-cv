@@ -1,10 +1,9 @@
-import * as React from 'react'
+import React from 'react'
 
-import { useAppSelector, useDocumentHead, useDynamicAlignment } from 'hooks'
 import { selectLanguage } from 'store'
+import { useAppSelector, useDocumentHead, useDynamicAlignment } from 'hooks'
 
 import { BREAKPOINTS_TAILWIND, useBreakpoints } from '@siberiacancode/reactuse'
-
 import { EmblaOptionsType } from 'embla-carousel'
 
 import styles from './Home.module.scss'

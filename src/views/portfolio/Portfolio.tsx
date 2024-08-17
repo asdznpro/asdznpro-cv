@@ -1,9 +1,8 @@
 import * as React from 'react'
-
 import { Route, Routes } from 'react-router-dom'
 
-import { useAppSelector } from 'hooks'
 import { selectLanguage, selectTheme } from 'store'
+import { useAppSelector } from 'hooks'
 
 import styles from './Portfolio.module.scss'
 

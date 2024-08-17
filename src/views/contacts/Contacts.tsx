@@ -1,10 +1,10 @@
 import * as React from 'react'
-
 import { useEffect } from 'react'
-import { useDocumentHead, useAppDispatch, useAppSelector } from 'hooks'
 
 import { useGetContactsQuery } from 'services'
 import { selectLanguage, setContactsData } from 'store'
+
+import { useDocumentHead, useAppDispatch, useAppSelector } from 'hooks'
 
 import styles from './Contacts.module.scss'
 

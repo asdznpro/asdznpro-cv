@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { RootState } from 'store'
+import { RootState, setFeedbackData } from 'store'
 import {
 	useAppDispatch,
 	useAppSelector,
@@ -12,6 +12,7 @@ import {
 	useGetCvMapQuery,
 	useGetAboutQuery,
 	useGetPortfolioQuery,
+	useGetFeedbackQuery,
 } from 'services'
 import { setCvMapData, setAboutData, setPortfolioData } from 'store'
 
@@ -104,6 +105,16 @@ function App() {
 			dispatch(setCvMapData(cvMapData))
 		}
 	}, [cvMapData, dispatch])
+
+	// useGetFeedbackQuery
+
+	const { data: feedbackData } = useGetFeedbackQuery({ language })
+
+	useEffect(() => {
+		if (feedbackData) {
+			dispatch(setFeedbackData(feedbackData))
+		}
+	}, [feedbackData, dispatch])
 
 	// useGetPortfolioQuery
 

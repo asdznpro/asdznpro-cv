@@ -1,10 +1,9 @@
-import * as React from 'react'
-
-import { useEffect } from 'react'
-import { useDocumentHead, useAppDispatch, useAppSelector } from 'hooks'
+import React, { useEffect } from 'react'
 
 import { useGetHardSkillsQuery } from 'services'
 import { setHardSkillsData, selectLanguage } from 'store'
+
+import { useDocumentHead, useAppDispatch, useAppSelector } from 'hooks'
 
 import styles from './HardSkills.module.scss'
 
