@@ -10,3 +10,29 @@
 		@include ui-size-control(100%, $minW: 640px);
 	}
 }
+
+.show-animate {
+	position: relative;
+	animation-name: show;
+	animation-fill-mode: both;
+
+	view-timeline-name: --reveal;
+	animation-timeline: --reveal;
+	animation-range: entry 72% cover 48%;
+}
+
+@keyframes show {
+	from {
+		transform: translateY(-100%);
+		opacity: 0;
+		scale: 72%;
+		z-index: 1;
+	}
+
+	to {
+		transform: translateY(0%);
+		opacity: 1;
+		scale: 100%;
+		z-index: 10;
+	}
+}

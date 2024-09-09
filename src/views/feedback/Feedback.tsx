@@ -15,7 +15,7 @@ import Draggable from 'react-draggable'
 
 import styles from './Feedback.module.scss'
 
-import { FeedbackItem } from 'components/shared'
+import { FeedbackItem } from './feedback-item'
 import { Box, Breadcrumbs, PageTitle, Section, Spinner } from 'components/ui'
 
 const Feedback = () => {

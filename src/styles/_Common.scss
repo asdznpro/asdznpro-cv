@@ -230,6 +230,10 @@
 			gap: $ui-spacing;
 		}
 
+		&-sm {
+			gap: $ui-sm-gap;
+		}
+
 		&-inherit {
 			gap: inherit;
 		}
@@ -786,7 +790,8 @@
 
 	&scrollbar-stable {
 		@media (min-width: $ui-breakpoint--md) {
-			scrollbar-gutter: stable;
+			// scrollbar-gutter: stable;
+			overflow-y: scroll;
 		}
 	}
 

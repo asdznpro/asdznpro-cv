@@ -11,7 +11,7 @@ import { Heading, Box, Tile, RouterLink, CustomCursor } from 'components/ui'
 import { Icon28PictureOutline } from '@vkontakte/icons'
 
 const ExperienceItem: React.FC<ExperienceItemProps> = (props) => {
-	const { title, logoPath, preview, children, to } = props
+	const { title, logoPath, preview, children, to, className } = props
 
 	const { screenWidth } = useDynamicAlignment()
 	const [hasError, setHasError] = useState(false)
@@ -26,7 +26,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = (props) => {
 	}
 
 	return (
-		<Tile className={styles.root}>
+		<Tile className={[styles.root, className].join(' ')}>
 			{screenWidth >= 768 && isHovered && <CustomCursor />}
 
 			{to && (

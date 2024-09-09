@@ -1,41 +1,42 @@
 @import 'styles/Variables';
 
 .root {
+	@include ui-size-control($maxW: 100%);
+	@include ui-flex-container(flex, $items: center, $flow: column);
+
 	position: relative;
+	gap: $ui-spacing;
+
+	.container {
+		@include ui-size-control(100%, $maxW: 100%);
+		@include ui-flex-container(flex);
+
+		// gap: 6px;
+
+		backface-visibility: hidden;
+		touch-action: pan-y pinch-zoom;
+	}
 }
 
-.carousel {
-	&Container {
-		overflow: visible;
+.controls {
+	@include ui-size-control(fit-content);
+	@include ui-flex-container(flex);
 
-		&:active {
-			cursor: grabbing;
-		}
-	}
+	// position: absolute;
+	// left: 50%;
+	// translate: -50%;
+	// bottom: 8px;
 
-	&Item {
-		position: relative;
-	}
+	padding: 6px;
+	gap: 6px;
 
-	&DotList {
-		@include ui-size-control(fit-content);
+	border-radius: $ui-rounded--2xl;
+	background-color: var(--button-secondary);
+	backdrop-filter: blur(24px);
+	outline: 1px solid var(--separator--alpha);
+	outline-offset: -1px;
 
-		position: absolute;
-		left: 50%;
-		translate: -50%;
-		bottom: 8px;
-
-		padding: 6px;
-		gap: 6px;
-
-		border-radius: $ui-rounded--2xl;
-		background-color: var(--button-secondary);
-		backdrop-filter: blur(24px);
-		outline: 1px solid var(--separator--alpha);
-		outline-offset: -1px;
-	}
-
-	&DotItem {
+	.dotItem {
 		@include ui-size-control(8px, 8px);
 
 		border-radius: $ui-rounded--2xl;
@@ -44,17 +45,19 @@
 		transition: 0.16s ease-in;
 
 		&:active {
-			@include ui-size-control(16px, 8px);
+			@include ui-size-control(20px);
 
 			background-color: var(--button-secondary--hover);
 		}
 
 		&Active {
-			@include ui-size-control(24px, 8px);
+			@include ui-size-control(24px);
 
 			background-color: var(--text-secondary);
 
 			&:active {
+				@include ui-size-control(28px);
+
 				background-color: var(--text-secondary);
 			}
 		}

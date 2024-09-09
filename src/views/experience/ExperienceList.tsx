@@ -4,6 +4,8 @@ import { useDocumentHead } from 'hooks'
 
 import { ExperienceType, LanguageType, ThemeType } from 'types'
 
+import styles from './Experience.module.scss'
+
 import { Experience } from './Experience'
 
 import {
@@ -55,6 +57,7 @@ const ExperienceList: React.FC<ExperienceListProps> = (props) => {
 						{data.data.map((item) => (
 							<Experience.Item
 								key={item.id}
+								className={styles['show-animate']}
 								to={item.pathname}
 								title={item.employerInfo.name}
 								preview={item.employerInfo.preview}
@@ -124,7 +127,10 @@ const ExperienceList: React.FC<ExperienceListProps> = (props) => {
 
 					<Section countColumns={10}>
 						{[...Array(3)].map((_, index) => (
-							<Experience.ItemSkeleton key={index} />
+							<Experience.ItemSkeleton
+								key={index}
+								className={styles['show-animate']}
+							/>
 						))}
 
 						<PageNavigation.Skeleton />

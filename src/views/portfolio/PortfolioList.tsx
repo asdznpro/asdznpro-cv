@@ -88,7 +88,7 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 					<div className="ui-max-w-full ui-overflow-x-hidden">
 						<Section>
 							<Box className="ui-max-w-12-cols">
-								<Carousel.Embla options={OPTIONS}>
+								<Carousel options={OPTIONS}>
 									{data.data.length > 1 ? (
 										<>
 											<Button
@@ -110,6 +110,9 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 													</Counter>
 												}
 												rounded={selectedTags.length > 0 ? false : true}
+												style={{
+													marginRight: 6,
+												}}
 											>
 												{language.lang === 'en' ? 'All' : 'Все работы'}
 											</Button>
@@ -144,6 +147,9 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 															</Counter>
 														}
 														rounded={selectedTags.includes(tag.type)}
+														style={{
+															marginRight: 6,
+														}}
 													>
 														{tag.name}
 													</Button>
@@ -161,6 +167,9 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 												}
 												rounded
 												disabled
+												style={{
+													marginRight: 6,
+												}}
 											>
 												{language.lang === 'en' ? 'All' : 'Все работы'}
 											</Button>
@@ -181,11 +190,14 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 														/>
 													}
 													disabled
+													style={{
+														marginRight: 6,
+													}}
 												/>
 											))}
 										</>
 									)}
-								</Carousel.Embla>
+								</Carousel>
 							</Box>
 						</Section>
 					</div>
@@ -265,7 +277,7 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 					<div className="ui-max-w-full ui-overflow-hidden">
 						<Section>
 							<Box className="ui-max-w-12-cols">
-								<Carousel.Embla options={OPTIONS}>
+								<Carousel options={OPTIONS}>
 									<Button
 										buttonSize="md"
 										after={<Counter appearance="neutral">0</Counter>}
@@ -291,7 +303,7 @@ const PortfolioList: React.FC<PortfolioListProps> = (props) => {
 											disabled
 										/>
 									))}
-								</Carousel.Embla>
+								</Carousel>
 							</Box>
 						</Section>
 					</div>

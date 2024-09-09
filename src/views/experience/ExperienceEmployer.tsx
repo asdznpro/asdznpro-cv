@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 import { useDocumentHead } from 'hooks'
+import { getFormattedDate } from 'utils'
 
 import { BREAKPOINTS_TAILWIND, useBreakpoints } from '@siberiacancode/reactuse'
 
@@ -13,7 +14,7 @@ import { ExperienceType, FeedbackType, LanguageType, ThemeType } from 'types'
 import styles from './Experience.module.scss'
 
 import { Experience } from './Experience'
-import { FeedbackItem } from 'components/shared'
+import { Feedback } from 'views/feedback'
 import {
 	Fontbody,
 	Section,
@@ -35,7 +36,6 @@ import {
 	Icon28ArrowLeftOutline,
 	Icon28ArrowUpOutline,
 } from '@vkontakte/icons'
-import { getFormattedDate } from 'utils/get-formatted-date.util'
 
 interface ExperienceEmployerProps {
 	employerData: ExperienceType['data'][number]
@@ -303,9 +303,9 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 							</Heading>
 						</Box>
 
-						<Carousel.Embla>
+						<Carousel dotButton>
 							{feedbackData.map((item) => (
-								<FeedbackItem
+								<Feedback.Item
 									key={item.id + item.id}
 									avatar={item.author.avatar}
 									fullName={item.author.fullName}
@@ -316,6 +316,7 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 									}
 									value={item.value}
 									style={{
+										marginRight: 6,
 										flex:
 											feedbackData.length === 1 || smallerOrEqual('md')
 												? '0 0 100%'
@@ -350,9 +351,9 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 												))}
 										</div>
 									)}
-								</FeedbackItem>
+								</Feedback.Item>
 							))}
-						</Carousel.Embla>
+						</Carousel>
 					</Section>
 				</div>
 			)}
@@ -367,13 +368,16 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 					className="ui-mx-auto"
 					style={{ maxWidth: '100%', borderRadius: 60 }}
 				>
-					<Carousel.Embla options={OPTIONS} className="ui-p-6-px">
+					<Carousel options={OPTIONS} className="ui-p-6-px">
 						<Button
 							onClick={handleClick}
 							buttonSize="md"
 							appearance="neutral"
 							before={<Icon28ArrowLeftOutline />}
 							rounded
+							style={{
+								marginRight: 6,
+							}}
 						/>
 
 						{NAVIGATION_DATA.map((item, index) => {
@@ -387,6 +391,9 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 											mode={buttonModes[index] ? 'primary' : 'ghost'}
 											appearance={buttonModes[index] ? 'accent' : 'neutral'}
 											rounded
+											style={{
+												marginRight: 6,
+											}}
 										>
 											{item[language.lang]}
 										</Button>
@@ -404,6 +411,9 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 									mode={buttonModes[index] ? 'primary' : 'ghost'}
 									appearance={buttonModes[index] ? 'accent' : 'neutral'}
 									rounded
+									style={{
+										marginRight: 6,
+									}}
 								>
 									{item[language.lang]}
 								</Button>
@@ -416,7 +426,7 @@ const ExperienceEmployer: React.FC<ExperienceEmployerProps> = (props) => {
 							before={<Icon28ArrowUpOutline />}
 							rounded
 						/>
-					</Carousel.Embla>
+					</Carousel>
 				</Tile>
 			</Section>
 		</>

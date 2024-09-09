@@ -37,8 +37,7 @@ const Home = () => {
 	// carousel options
 
 	const OPTIONS: EmblaOptionsType = {
-		// dragFree: true,
-		// loop: true,
+		loop: true,
 		align: 'center',
 	}
 
@@ -129,33 +128,33 @@ const Home = () => {
 				)}
 			</Section>
 
-			<div className="ui-max-w-full ui-overflow-hidden">
+			<div className="ui-max-w-full ui-overflow-hidden ui-flex ui-flex-col ui-gap-sm">
 				<Section>
 					<Box>
 						<Heading level={2} className="ui-text-uppercase ui-mb-12-px">
 							{language.lang === 'en' ? 'Who I worked with' : 'С кем работал'}
 						</Heading>
 					</Box>
-
-					<Carousel.Embla options={OPTIONS} className="ui-gap-global">
-						{[...Array(12)].map((_, index) => (
-							<Tile
-								key={index}
-								className="ui-flex ui-flex-shrink-0"
-								style={{ width: '312px' }}
-							>
-								<Box YPadding>
-									<Fontbody
-										level={2}
-										className="ui-text-secondary ui-text-center ui-my-24-px"
-									>
-										*logo*
-									</Fontbody>
-								</Box>
-							</Tile>
-						))}
-					</Carousel.Embla>
 				</Section>
+
+				<Carousel options={OPTIONS} className="ui-gap-global">
+					{[...Array(12)].map((_, index) => (
+						<Tile
+							key={index}
+							className="ui-flex ui-flex-shrink-0"
+							style={{ width: '312px', marginRight: 6 }}
+						>
+							<Box YPadding>
+								<Fontbody
+									level={2}
+									className="ui-text-secondary ui-text-center ui-my-24-px"
+								>
+									*logo*
+								</Fontbody>
+							</Box>
+						</Tile>
+					))}
+				</Carousel>
 			</div>
 
 			<Section>

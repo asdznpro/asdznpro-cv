@@ -1,11 +1,14 @@
-import OriginalCarousel from 'react-multi-carousel'
-import 'react-multi-carousel/lib/styles.css'
+import * as React from 'react'
+
+import { EmblaOptionsType } from 'embla-carousel'
+import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
 
 import styles from './Carousel.module.scss'
 import CarouselProps from './Carousel.interface'
 
-import { CarouselEmbla } from './CarouselEmbla'
-
+import { DotButton, useDotButton } from './useDotButton'
+import { usePrevNextButtons } from './usePrevNextButtons'
 import { Button } from 'components/ui'
 
 import {
@@ -14,99 +17,89 @@ import {
 } from '@vkontakte/icons'
 
 const Carousel = (props: CarouselProps) => {
-	const { children, className, ...restProps } = props
+	const {
+		children,
+		options,
+		autoplay,
+		dotButton = false,
+		prevNextButtons = false,
+		className,
+		...restProps
+	} = props
 
-	const responsive = {
-		desktop: {
-			breakpoint: { max: 3000, min: 1024 },
-			items: 1,
-			slidesToSlide: 1,
-		},
-		tablet: {
-			breakpoint: { max: 1024, min: 464 },
-			items: 1,
-			slidesToSlide: 1,
-		},
-		mobile: {
-			breakpoint: { max: 464, min: 0 },
-			items: 1,
-			slidesToSlide: 1,
-		},
+	const autoplayOptions = {
+		delay: 3200,
+		stopOnInteraction: false,
+		stopOnMouseEnter: true,
 	}
 
-	const CustomDotList = ({ ...rest }) => {
-		const { onClick, index, active } = rest
-
-		return (
-			<button
-				data-index={index}
-				aria-label={'Go to slide ' + (index + 1)}
-				className={[
-					styles.carouselDotItem,
-					active ? styles.carouselDotItemActive : '',
-				]
-					.join(' ')
-					.trim()}
-				onClick={() => onClick()}
-			></button>
-		)
+	const optionsBase: EmblaOptionsType = {
+		...options,
 	}
 
-	const CustomArrow = ({ ...rest }) => {
-		const { onClick, before, style } = rest
+	const [emblaRef, emblaApi] = useEmblaCarousel(optionsBase, [
+		Autoplay(autoplayOptions),
+	])
 
-		return (
-			<Button
-				buttonSize="md"
-				onClick={onClick}
-				before={before}
-				style={{ position: 'absolute', ...style }}
-				rounded
-			/>
-		)
-	}
+	const { selectedIndex, scrollSnaps, onDotButtonClick } =
+		useDotButton(emblaApi)
+
+	const {
+		prevBtnDisabled,
+		nextBtnDisabled,
+		onPrevButtonClick,
+		onNextButtonClick,
+	} = usePrevNextButtons(emblaApi)
 
 	return (
-		<div {...restProps} className={[styles.root, className].join(' ').trim()}>
-			<OriginalCarousel
-				responsive={responsive}
-				swipeable
-				draggable
-				focusOnSelect
-				// infinite
-				autoPlay
-				autoPlaySpeed={3600}
-				rewind
-				rewindWithAnimation
-				// additionalTransfrom={-4}
-				showDots
-				containerClass={styles.carouselContainer}
-				sliderClass={styles.carouselSlider}
-				itemClass={styles.carouselItem}
-				removeArrowOnDeviceType={['tablet', 'mobile']}
-				customLeftArrow={
-					<CustomArrow
-						before={<Icon28ArrowLeftOutline width={32} height={32} />}
-						style={{ left: '-28px' }}
+		<div
+			{...restProps}
+			ref={emblaRef}
+			className={[styles.root, className].join(' ').trim()}
+		>
+			<div className={styles.container}>{children}</div>
+
+			{dotButton && (
+				<div className={styles.controls}>
+					{scrollSnaps.map((_, index) => (
+						<DotButton
+							key={index}
+							onClick={() => onDotButtonClick(index)}
+							className={[
+								styles.dotItem,
+								index === selectedIndex ? styles.dotItemActive : '',
+							].join(' ')}
+						/>
+					))}
+				</div>
+			)}
+
+			{prevNextButtons && (
+				<>
+					<Button
+						onClick={onPrevButtonClick}
+						disabled={prevBtnDisabled}
+						// buttonSize="xsm"
+						// appearance="neutral"
+						before={<Icon28ArrowLeftOutline width={28} height={28} />}
+						style={{ position: 'absolute', left: '-22px' }}
+						rounded
 					/>
-				}
-				customRightArrow={
-					<CustomArrow
-						before={<Icon28ArrowRightOutline width={32} height={32} />}
-						style={{ right: '-28px' }}
+
+					<Button
+						onClick={onNextButtonClick}
+						disabled={nextBtnDisabled}
+						// buttonSize="xsm"
+						// appearance="neutral"
+						before={<Icon28ArrowRightOutline width={28} height={28} />}
+						style={{ position: 'absolute', right: '-22px' }}
+						rounded
 					/>
-				}
-				customDot={<CustomDotList />}
-				dotListClass={styles.carouselDotList}
-			>
-				{children}
-			</OriginalCarousel>
+				</>
+			)}
 		</div>
 	)
 }
-
-Carousel.Embla = CarouselEmbla
-Carousel.Embla.displayName = 'Carousel.Embla'
 
 Carousel.displayName = 'Carousel'
 
