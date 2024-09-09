@@ -91,44 +91,6 @@ const Header: React.FC = () => {
 				</div>
 
 				<div className={styles['header-part']}>
-					{greaterOrEqual('md') && (
-						<>
-							<Button
-								onClick={handleToggleTheme}
-								appearance={theme.mode === 'light' ? 'neutral' : 'accent'}
-								before={
-									theme.mode === 'light' ? (
-										<Icon28MoonOutline width={24} height={24} />
-									) : (
-										<Icon28SunOutline width={24} height={24} />
-									)
-								}
-								rounded
-							/>
-
-							<Button
-								onClick={handleToggleLanguage}
-								mode="outline"
-								appearance="neutral"
-								before={
-									<img
-										src={
-											language.lang === 'ru'
-												? 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/countries/great-britain_rounded_28.svg'
-												: 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/countries/russia_rounded_28.svg'
-										}
-										alt="Language"
-										width={screenWidth > 576 ? 24 : 32}
-										height={screenWidth > 576 ? 24 : 32}
-									/>
-								}
-								rounded
-							>
-								{screenWidth > 576 && (language.lang === 'ru' ? 'EN' : 'RU')}
-							</Button>
-						</>
-					)}
-
 					{greaterOrEqual('2xl') &&
 						(storeCvMapData ? (
 							storeCvMapData.data.map((item, index) => (
@@ -188,6 +150,44 @@ const Header: React.FC = () => {
 								))}
 							</>
 						))}
+
+					{greaterOrEqual('md') && (
+						<>
+							<Button
+								onClick={handleToggleTheme}
+								appearance={theme.mode === 'light' ? 'neutral' : 'accent'}
+								before={
+									theme.mode === 'light' ? (
+										<Icon28MoonOutline width={24} height={24} />
+									) : (
+										<Icon28SunOutline width={24} height={24} />
+									)
+								}
+								rounded
+							/>
+
+							<Button
+								onClick={handleToggleLanguage}
+								mode="outline"
+								appearance="neutral"
+								before={
+									<img
+										src={
+											language.lang === 'ru'
+												? 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/countries/great-britain_rounded_28.svg'
+												: 'https://asdznpro-cv.hb.ru-msk.vkcs.cloud/assets/icons/countries/russia_rounded_28.svg'
+										}
+										alt="Language"
+										width={screenWidth > 576 ? 24 : 32}
+										height={screenWidth > 576 ? 24 : 32}
+									/>
+								}
+								rounded
+							>
+								{screenWidth > 576 && (language.lang === 'ru' ? 'EN' : 'RU')}
+							</Button>
+						</>
+					)}
 
 					{smallerOrEqual('2xl') && (
 						<Button
