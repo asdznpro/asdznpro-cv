@@ -13,23 +13,57 @@
 		@include ui-size-control(100%, clamp(92px, 8vmax, 104px));
 		@include ui-flex-container(flex, space-between, center);
 
+		position: relative;
+
 		padding: 0 min($ui-step * 9, calc($ui-outer-padding + $ui-inner-padding));
 		gap: $ui-spacing;
-
-		overflow: hidden;
-		border-radius: $ui-rounded--xl;
-		background: var(--header--alpha);
-		backdrop-filter: blur(48px);
-
-		// box-shadow: 0 0 0 1px var(--separator);
-
-		outline: 1px solid var(--separator);
-		outline-offset: -1px;
 
 		.header-part {
 			@include ui-flex-container(flex, $items: center);
 
 			gap: $ui-step * 1.5;
 		}
+
+		&::after {
+			@include ui-absolute-center;
+			@include ui-size-control(100%, 100%);
+
+			content: '';
+
+			z-index: -1;
+
+			border-radius: $ui-rounded--xl;
+			background: var(--header--alpha);
+			backdrop-filter: blur(48px);
+
+			outline: 1px solid var(--separator);
+			outline-offset: -1px;
+		}
+	}
+}
+
+.dropdown {
+	@include ui-size-control(256px);
+
+	position: absolute;
+	right: 12px;
+	bottom: 0 -12px;
+	translate: 0 64%;
+
+	border-radius: $ui-rounded--l;
+	background: var(--header--alpha);
+	backdrop-filter: blur(48px);
+	outline: 1px solid var(--separator);
+	outline-offset: -1px;
+
+	overflow: hidden;
+
+	&List {
+		@include ui-size-control(100%, $maxH: 252px);
+		@include ui-flex-container(flex, $flow: column);
+
+		overflow-y: auto;
+		padding: 6px;
+		gap: 6px;
 	}
 }

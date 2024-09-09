@@ -19,6 +19,10 @@
 	view-timeline-name: --reveal;
 	animation-timeline: --reveal;
 	animation-range: entry 72% cover 48%;
+
+	@media (max-width: $ui-breakpoint--md) {
+		animation-range: entry 24% cover 48%;
+	}
 }
 
 @keyframes show {
